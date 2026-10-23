@@ -9,6 +9,8 @@ from .common import write_json, read_json
 def main() -> None:
     parser = argparse.ArgumentParser(prog="moltweave")
     sub = parser.add_subparsers(dest="command", required=True)
+    continuous = sub.add_parser("continual", help="v0.2 persistent-memory evolution and independent audits")
+    continuous.add_argument("arguments", nargs=argparse.REMAINDER)
     evolve = sub.add_parser("evolve", help="Run real model-authored multi-generation evolution")
     evolve.add_argument("--output", required=True)
     evolve.add_argument("--generations", type=int, default=4)
@@ -21,6 +23,10 @@ def main() -> None:
     report = sub.add_parser("report", help="Render an experiment's actual evidence")
     report.add_argument("--experiment", required=True)
     args = parser.parse_args()
+    if args.command == "continual":
+        from .continual import main as continual_main
+        continual_main(args.arguments)
+        return
     if args.command == "report":
         from .report import render_report
         print(render_report(Path(args.experiment)))

@@ -1,5 +1,6 @@
 """Real model calls with per-call evidence; credentials never enter receipts."""
 from __future__ import annotations
+from copy import deepcopy
 import json
 import ipaddress
 import os
@@ -98,23 +99,32 @@ class ModelClient:
         self._lock = threading.Lock()
         self.usage: list[dict] = []
 
-    def complete(self, messages: list[dict], max_tokens: int = 4096, purpose: str = "agent", metadata: dict | None = None) -> dict:
+    def complete(self, messages: list[dict], max_tokens: int = 4096, purpose: str = "agent",
+                 metadata: dict | None = None, *, repair_json: bool = False) -> dict:
+        if type(repair_json) is not bool:
+            raise ValueError("JSON repair opt-in must be an explicit boolean")
         _validate_base_url(self.base_url, allow_http_loopback=self.allow_http_loopback)
-        body = {"model": self.model, "messages": messages, "temperature": 0,
+        # Each physical request owns its conversation. Neither syntax feedback
+        # nor later caller mutation may rewrite the original request receipt.
+        body = {"model": self.model, "messages": deepcopy(messages), "temperature": 0,
                 "max_tokens": max_tokens, "response_format": {"type": "json_object"}}
         if urllib.parse.urlparse(self.base_url).hostname == "api.deepseek.com":
             body["thinking"] = {"type": "disabled"}
         call_id = uuid.uuid4().hex
-        receipt = {"id": call_id, "purpose": purpose, "metadata": metadata or {}, "model_requested": self.model,
+        receipt = {"id": call_id, "purpose": purpose, "metadata": deepcopy(metadata or {}), "model_requested": self.model,
                    "endpoint_host": urllib.parse.urlparse(self.base_url).hostname,
-                   "request_hash": digest(body), "messages": messages, "started_at": time.time(),
-                   "request_parameters": {k: v for k, v in body.items() if k != "messages"}, "physical_attempts": [],
+                   "request_hash": digest(body), "messages": deepcopy(body["messages"]), "started_at": time.time(),
+                   "request_parameters": deepcopy({k: v for k, v in body.items() if k != "messages"}), "physical_attempts": [],
                    "transport": {"redirects_allowed": False, "allow_env_proxy": self.allow_env_proxy,
                                  "allow_http_loopback": self.allow_http_loopback},
-                   "credential_source": self.credential_source}
+                   "credential_source": self.credential_source, "repair_json": repair_json}
         started = time.monotonic()
         for attempt in range(3):
-            attempt_record = {"number": attempt + 1, "started_at": time.time()}
+            attempt_record = {"number": attempt + 1, "started_at": time.time(),
+                              "request_hash": digest(body), "messages": deepcopy(body["messages"]),
+                              "request_parameters": deepcopy({k: v for k, v in body.items() if k != "messages"})}
+            content = None
+            json_failure = None
             try:
                 req = urllib.request.Request(self.base_url + "/chat/completions", data=json.dumps(body).encode(),
                       headers={"Content-Type": "application/json", "Authorization": "Bearer " + self.api_key})
@@ -122,21 +132,42 @@ class ModelClient:
                     data = json.load(response)
                 content = data["choices"][0]["message"].get("content") or ""
                 attempt_record.update({"status": "response", "content": content, "usage": data.get("usage", {}),
-                                       "response_id": data.get("id"), "finish_reason": data["choices"][0].get("finish_reason")})
+                                       "response_id": data.get("id"), "model_returned": data.get("model"),
+                                       "finish_reason": data["choices"][0].get("finish_reason")})
                 receipt.update({"status": "completed", "model_returned": data.get("model"), "usage": data.get("usage", {}),
                                 "response_id": data.get("id"), "content": content,
                                 "finish_reason": data["choices"][0].get("finish_reason"), "attempts": attempt + 1})
-                parsed = json.loads(content)
+                try:
+                    parsed = json.loads(content)
+                except json.JSONDecodeError as exc:
+                    json_failure = {"error_type": "JSONDecodeError", "message": exc.msg,
+                                    "line": exc.lineno, "column": exc.colno, "position": exc.pos}
+                    raise
                 if not isinstance(parsed, dict):
+                    json_failure = {"error_type": "JSONShapeError", "message": "Top-level JSON must be an object",
+                                    "parsed_type": type(parsed).__name__}
                     raise ValueError("Model output must be a JSON object")
                 attempt_record["status"] = "completed"
                 return parsed
             except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, ValueError, KeyError) as exc:
                 # Do not expose request headers or error bodies (may contain credentials).
+                if isinstance(exc, urllib.error.HTTPError):
+                    exc.close()
                 receipt.update({"status": "failed", "error_type": type(exc).__name__, "attempts": attempt + 1})
                 attempt_record.update({"status": "failed", "error_type": type(exc).__name__})
+                if json_failure is not None:
+                    attempt_record["json_error"] = json_failure
                 if isinstance(exc, ModelTransportError) or attempt == 2:
                     raise RuntimeError(f"Model call failed ({type(exc).__name__}); see local receipt {call_id}") from None
+                if repair_json and json_failure is not None and isinstance(content, str):
+                    feedback = ("JSON syntax/shape feedback only: " + json.dumps(json_failure, ensure_ascii=False)
+                        + "\nPreserve the original task, original proposal, permissions, and evaluation rules. "
+                        "Do not change the plan or add claims of success. Return the entire original proposal "
+                        "as one complete valid JSON object. Repair only JSON syntax or object shape. "
+                        "Do not omit fields or include Markdown, commentary, or another plan.")
+                    body["messages"].extend([{"role": "assistant", "content": content},
+                                              {"role": "user", "content": feedback}])
+                    attempt_record["next_retry"] = "model_json_syntax_repair"
                 time.sleep(min(2 ** attempt, 4))
             finally:
                 receipt["physical_attempts"].append(attempt_record)

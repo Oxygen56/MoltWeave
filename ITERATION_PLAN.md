@@ -16,6 +16,8 @@ This plan keeps the complete project in scope. A completed implementation item i
 
 ## Core experiment procedure
 
+The authorized v0.2 implementation and formal continuous experiment follow the [pre-readout protocol](docs/v0.2-protocol.md). It adds actual persistent-memory extraction/correction and broader P-driven diagnosis/operators, with 20 rounds across ten streams. Implementation and engineering preflights are in progress; formal effect claims await the sealed independent readout.
+
 Freeze the dataset generator, all split hashes, scoring implementation and baseline before optimization. Use disjoint factual namespaces, users, entities and source IDs for training, development, protection, final and transfer. The current partitions vary prefixes/wording but share task families and generation grammar; namespace transfer is not held-out template-family or real-system transfer. Train labels are exposed only after each output is sealed; final and transfer examples are never sent to the proposer.
 
 Run several bounded generations with the same model and tool permissions. Preserve candidate rejection and execution failures. Compare the evolving P/M run with a frozen-P run under the same opportunity budget. Report mechanism and policy behavior changes separately. Evaluate all frozen generations once on final and transfer; do not choose a winner using that readout or silently restart optimization after observing it.
