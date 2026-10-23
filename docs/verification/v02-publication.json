@@ -1,42 +1,56 @@
 {
-  "status": "core_implementation_published_formal_acceptance_incomplete",
+  "status": "formal_readout_complete_distribution_verification_pending",
   "repository": "https://github.com/Oxygen56/MoltWeave",
   "hosted_ci": {
-    "url": "https://github.com/Oxygen56/MoltWeave/actions/runs/39944566199",
+    "url": "https://github.com/Oxygen56/MoltWeave/actions/runs/39957711284",
     "conclusion": "success",
+    "head_sha": "502b9a4e4b8d85bbd2d6584fc0ec65e63426d52b",
+    "tests_per_python": 229,
     "jobs": [
       {
         "name": "unit (3.11)",
         "conclusion": "success",
-        "job_id": 120383920957
+        "job_id": 120427595756
       },
       {
         "name": "unit (3.12)",
         "conclusion": "success",
-        "job_id": 120383920967
+        "job_id": 120427595424
       },
       {
         "name": "unit (3.13)",
         "conclusion": "success",
-        "job_id": 120383920699
+        "job_id": 120427595813
       }
     ]
   },
   "formal_experiment": {
     "directory": "experiments/continual-v02-main",
     "manifest_bytes_sha256": "6e1f3a0b54c36a9fcb10f097a2ee057ff01ea03813629b6fb71b47c55c17489c",
-    "status": "aborted_measurement_incomplete",
+    "status": "all_versions_frozen_pending_readout",
     "planned_round_transitions": 600,
     "committed_transitions_before_provider_interruption": 421,
-    "independent_effects": "unavailable",
-    "committed_transitions_after_verified_recovery": 501,
-    "remaining_round_transitions": 99,
-    "resume_ledger": "experiments/continual-v02-main/resume-history/20261023T190033-c245b93ba369/plan.json"
+    "independent_effects": "observed; positive changed-P benefit not established",
+    "committed_transitions_after_verified_recovery": 600,
+    "remaining_round_transitions": 0,
+    "resume_ledger": "experiments/continual-v02-main/resume-history/20261023T205637-c6f0c983d1b9/plan.json",
+    "previous_checkpoint_snapshot": {
+      "status": "aborted_measurement_incomplete",
+      "independent_effects": "unavailable",
+      "committed_transitions_after_verified_recovery": 501,
+      "remaining_round_transitions": 99,
+      "resume_ledger": "experiments/continual-v02-main/resume-history/20261023T190033-c245b93ba369/plan.json"
+    },
+    "independent_status": "completed",
+    "frozen_versions": 630,
+    "final_result_receipt": "v02-formal-results.json",
+    "independent_readout_completed": true,
+    "full_offline_replay": "completed"
   },
   "stable_v02_release_published": false,
-  "limits": "Code checks cover commit cad42b4 and its immutable source bytes. Later evidence/publication documentation does not rewrite that snapshot. Independent model-effect acceptance is incomplete because the provider returned insufficient balance.",
+  "limits": "Source/code checks and full offline readout validation are complete. Model-effect results do not establish evolving-P benefit. This file captures the pre-publication phase; consult the later stable receipt for actual release, asset and final public-clone checks.",
   "initial_core_commit": "ace51d82b12152dc38895044822a91b8953ef008",
-  "verified_code_commit": "cad42b4deb2c16e539ab0e5efad12f14bdd48b04",
+  "verified_code_commit": "502b9a4e4b8d85bbd2d6584fc0ec65e63426d52b",
   "fresh_public_clone_verification": "v02-fresh-public-check.json",
   "evidence_preview": {
     "url": "https://github.com/Oxygen56/MoltWeave/releases/tag/v0.2.0-preview.1",
@@ -69,5 +83,28 @@
       }
     ],
     "formal_acceptance_completed": false
-  }
+  },
+  "snapshot_phase": "formal_readout_completed_before_stable_distribution",
+  "previous_hosted_ci": {
+    "url": "https://github.com/Oxygen56/MoltWeave/actions/runs/39944566199",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "unit (3.11)",
+        "conclusion": "success",
+        "job_id": 120383920957
+      },
+      {
+        "name": "unit (3.12)",
+        "conclusion": "success",
+        "job_id": 120383920967
+      },
+      {
+        "name": "unit (3.13)",
+        "conclusion": "success",
+        "job_id": 120383920699
+      }
+    ]
+  },
+  "later_stable_receipt": "https://github.com/Oxygen56/MoltWeave/blob/main/docs/verification/v02-stable-publication.json"
 }

@@ -25,13 +25,27 @@ The project preserves rejected candidates and flat/regressing generations. A pol
 
 ## v0.2: continual memory and prospective policy tests
 
-[Published evidence preview · 501/600 rounds, acceptance pending](https://github.com/Oxygen56/MoltWeave/releases/tag/v0.2.0-preview.1). Includes the complete original raw snapshot, file inventory and checksums. Stable v0.2.0 remains unreleased.
+[v0.2.0 · results and complete evidence](https://github.com/Oxygen56/MoltWeave/releases/tag/v0.2.0). The [historical 501/600-round preview](https://github.com/Oxygen56/MoltWeave/releases/tag/v0.2.0-preview.1) remains available with its original snapshot, inventory and checksums; acceptance was pending at that snapshot.
 
-The new engine repeatedly revisits entities, corrects remembered facts and recalls previous and delayed events. A separate factual writer proposes grounded memories; executable M controls writing and reading. Evolving P changes diagnosis, candidate prompts, selection and improvement operators. A P promotion must win an actual paired future search; every frozen checkpoint is audited again on independent future searches.
+**The formal readout is complete. Joint evolution did not beat fixed P, and its 177/260 terminal result is below the corresponding wide-context baseline's 214/260 by 14.23 percentage points. An independent benefit from evolving P is not established.**
 
-The formal contract is **20 rounds × 10 streams × three arms**: ordinary accumulating memory with fixed M/P, evolving M with fixed P, and joint M/P. Every one of the 21 versions is scheduled for an empty-memory independent readout. Terminal memory-disabled and wide-context controls separate durable recall and context width from mechanism improvement.
+| Arm | Independent g0 → g20 | Terminal namespace transfer |
+|---|---|---|
+| Fixed M/P, accumulating memory | 141/260 → 146/260 | 0/40 |
+| Evolving M, fixed P | 142/260 → 191/260 | 29/40 |
+| Joint M/P | 142/260 → 177/260 | 30/40 |
 
-Implementation and the four-round engineering preflight are complete. The formal run reached 421 committed rounds before provider HTTP 402 (insufficient balance). Verified recovery retained those bytes and reached **501/600** committed rounds before a second balance rejection. Its independent results are **unavailable**, not zero. Original receipts and partial rounds are retained. See the [protocol](docs/v0.2-protocol.md), [architecture](docs/v0.2-architecture.md), [an actual P execution walkthrough](docs/v0.2-walkthrough.md), [three actual M changes and failures](docs/v0.2-mechanism-walkthrough.md), and [current formal evidence](experiments/continual-v02-main/RESULTS.md).
+The predeclared terminal joint-minus-fixed-P contrast is **−5.38 pp**, with a descriptive stream-paired 95% bootstrap interval **[−23.46, +10.77] pp**, n=10 streams. Joint with memory reads and writes both disabled scores 96/260, a +31.15 pp contrast for enabled memory; this does **not** isolate the contribution of an evolved write rule. These are authored public synthetic tasks with shared generation grammar, not real-business or native external benchmark results.
+
+The new engine repeatedly revisits entities, corrects remembered facts and recalls previous and delayed events. A separate factual writer proposes grounded memories; executable M controls writing and reading. Evolving P changes diagnosis, candidate prompts, selection and improvement operators. A P promotion must win an actual paired future search; the predeclared P checkpoints are audited again on independent future searches.
+
+The formal contract is **20 rounds × 10 streams × three arms**: ordinary accumulating memory with fixed M/P, evolving M with fixed P, and joint M/P. All 600 transitions and 630 states are sealed. Readout includes all 630 version reports, 50 P audits, 30 memory-disabled controls, 30 wide-context controls and ten shared audit inputs. Complete audit coverage includes invalid search pairs; it does not mean every pair supplies a valid effect.
+
+The terminal P primary contrast includes all five valid pairs out of ten: +30 pp, 95% interval [0, +70] pp, exact sign-flip p=0.50. Its entire positive difference comes from two **unchanged-P** streams, 108/110 (+75 pp within that subset). The three valid changed-P streams, 102/103/105, each score 0/4 versus 0/4; five invalid pairs have unknown search effects. The all-attempt operational contrast (+22.5 pp, n=10) is a different measure, not a P-evolution benefit. g0 same-P calibration is +4.17 pp over six valid pairs and is never subtracted from the endpoint.
+
+Joint adopted 33 M changes and seven P changes; fixed P adopted 29 M changes. Actual later loading and changed decisions are inspectable, but adoption is not improvement. The four-round engineering preflight remains separate. Formal execution stopped at 421 and 501 committed rounds on HTTP 402, then at 594 on malformed proposal JSON, before verified recovery completed 600. Previously committed bytes, failed calls and uniformly archived partial rounds remain retained, including their costs; this was not an uninterrupted or exactly-once run.
+
+See [results and interpretation in Chinese](docs/v0.2-results.zh-CN.md), [all results and limits](EXPERIMENTS.md), the [protocol](docs/v0.2-protocol.md), [architecture](docs/v0.2-architecture.md), [actual P execution chain](docs/v0.2-walkthrough.md), [three actual M changes and failures](docs/v0.2-mechanism-walkthrough.md), and [full formal report](experiments/continual-v02-main/RESULTS.md).
 
 ## Historical v0.1 results
 
@@ -51,9 +65,9 @@ The external 24-question SQuAD check shows **zero gain**. Component intervention
 - Exact-artifact owner approval tickets with signature, expiry, action/scope/dependency binding and replay denial.
 - Durable memory quarantine/correction and an offline generation evidence explorer.
 
-Research/community infrastructure tests do not establish downstream RSI benefits. The continual writer/read mechanism is implemented in v0.2; its formal independent benefit remains pending. Long-horizon poisoning evaluation, cross-model reproduction, official external benchmark runs and hosted production service remain roadmap items. See the [iteration plan](ITERATION_PLAN.md) for explicit status.
+Research/community infrastructure tests do not establish downstream RSI benefits. The v0.2 formal readout is complete, with the control limitations above; it does not establish evolving-P benefit or isolate evolved memory-write contribution. Long-horizon poisoning evaluation, cross-model reproduction, official external benchmark runs and hosted production service remain roadmap items. See the [iteration plan](ITERATION_PLAN.md) for explicit status.
 
-[Historical v0.1 publication verification](docs/verification/publication.json) records that release's hosted checks and 96-test installation check. [v0.2 verification](docs/verification/v02-publication.json) keeps current code checks separate from unfinished model acceptance.
+[Historical v0.1 publication verification](docs/verification/publication.json) records that release's hosted checks and 96-test installation check. [v0.2 publication verification](docs/verification/v02-publication.json) records code and publication receipts separately from the [formal model readout](experiments/continual-v02-main/RESULTS.md).
 
 ## Quick start
 
