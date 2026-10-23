@@ -1,0 +1,2164 @@
+{
+  "scope": "Post-readout derived inspection of original frozen traces; no new model calls, selection, optimization or effect attribution. P4 has not driven a later search.",
+  "transition": "v4 g3 to g4",
+  "chains": [
+    {
+      "split": "final",
+      "source_reports": [
+        {
+          "path": "experiments/joint-v4/independent/final/g3.json",
+          "sha256": "afd030188569c489a9f7d320b5089c2c9ef1dd50bde6da6713bd53c02762db6f"
+        },
+        {
+          "path": "experiments/joint-v4/independent/final/g4.json",
+          "sha256": "91315f5df74548e9cc8a16f8b4c8a90bd6ae7b3957b79ac3cc88b959b50d42b0"
+        }
+      ],
+      "changed_tool_sequences": 12,
+      "witnesses": [
+        {
+          "task_id": "task-441cd72a2b0714b6",
+          "family": "tool_recovery",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Maple-90f77a is active. Registration token: VE8FAD60313.",
+                "evidence_ids": [
+                  "ev-a59862a216822669"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": []
+          },
+          "new_output": {
+            "answer": "VE8FAD60313",
+            "evidence_ids": [
+              "ev-a59862a216822669"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-fd1711865d6bb519",
+          "family": "tool_recovery",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 2,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 3,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Orchid-1a822c is active. Registration token: VC23DB968AE.",
+                "evidence_ids": [
+                  "ev-048a6c6ed0dc79a9"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": []
+          },
+          "new_output": {
+            "answer": "VC23DB968AE",
+            "evidence_ids": [
+              "ev-048a6c6ed0dc79a9"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-5f9eed13045fa68d",
+          "family": "tool_recovery",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Maple-ba483a is active. Registration token: VC79363A8AD.",
+                "evidence_ids": [
+                  "ev-c7b7a0d8ef3f379b"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": []
+          },
+          "new_output": {
+            "answer": "VC79363A8AD",
+            "evidence_ids": [
+              "ev-c7b7a0d8ef3f379b"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-ee5b9bc3fc212284",
+          "family": "tool_recovery",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 2,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 3,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Orchid-a15171 is active. Registration token: VC307EC048D.",
+                "evidence_ids": [
+                  "ev-de2f428a9fabcda4"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": []
+          },
+          "new_output": {
+            "answer": "VC307EC048D",
+            "evidence_ids": [
+              "ev-de2f428a9fabcda4"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-092e6e1510502181",
+          "family": "tool_recovery",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Maple-d478f2 is active. Registration token: V6FD20C6D84.",
+                "evidence_ids": [
+                  "ev-99c2f5622f1d5e1a"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": []
+          },
+          "new_output": {
+            "answer": "V6FD20C6D84",
+            "evidence_ids": [
+              "ev-99c2f5622f1d5e1a"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-d13ba6a045265f81",
+          "family": "tool_recovery",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 2,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 3,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Orchid-1270b4 is active. Registration token: V0AF9F0C6C3.",
+                "evidence_ids": [
+                  "ev-7573af4b81b4b9e0"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": []
+          },
+          "new_output": {
+            "answer": "V0AF9F0C6C3",
+            "evidence_ids": [
+              "ev-7573af4b81b4b9e0"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-d3f60a3f039b4507",
+          "family": "tool_recovery",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Maple-0b12a6 is active. Registration token: V8DB51D938A.",
+                "evidence_ids": [
+                  "ev-b40e5188577e24d3"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": []
+          },
+          "new_output": {
+            "answer": "V8DB51D938A",
+            "evidence_ids": [
+              "ev-b40e5188577e24d3"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-27ee5bdedcf69979",
+          "family": "composition",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Transient read timeout; retry permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Transient read timeout; retry permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Nectar-8a4ba3 is active. Registration token: V04421AEEED.",
+                "evidence_ids": [
+                  "ev-e6715366a910894f"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": [
+              "ev-1887bca5d1eca3c1",
+              "ev-c1f926a046b9226c"
+            ]
+          },
+          "new_output": {
+            "answer": "VB56605D5AF|V1F987CA4AE|V04421AEEED",
+            "evidence_ids": [
+              "ev-1887bca5d1eca3c1",
+              "ev-c1f926a046b9226c",
+              "ev-e6715366a910894f"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-c62e9b10e70f4b95",
+          "family": "composition",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Transient read timeout; retry permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Transient read timeout; retry permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Maple-86eec9 is active. Registration token: V191A4B7E37.",
+                "evidence_ids": [
+                  "ev-641b58a33ac0b736"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": [
+              "ev-3a2b7012914b3c8d",
+              "ev-69d90fabb27c1cd4"
+            ]
+          },
+          "new_output": {
+            "answer": "V72B9185E5C|V8D933D40EF|V191A4B7E37",
+            "evidence_ids": [
+              "ev-3a2b7012914b3c8d",
+              "ev-69d90fabb27c1cd4",
+              "ev-641b58a33ac0b736"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-d92e54508b743bbd",
+          "family": "composition",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Transient read timeout; retry permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Transient read timeout; retry permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Orchid-da750b is active. Registration token: V746562959D.",
+                "evidence_ids": [
+                  "ev-7215ad7f097684a7"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": [
+              "ev-2ef508b526e6e8ed",
+              "ev-c4a8eb7cdd282399"
+            ]
+          },
+          "new_output": {
+            "answer": "V8172DBD250|VDC61DA0DB8|V746562959D",
+            "evidence_ids": [
+              "ev-2ef508b526e6e8ed",
+              "ev-c4a8eb7cdd282399",
+              "ev-7215ad7f097684a7"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-8079eff523c21e7c",
+          "family": "composition",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Transient read timeout; retry permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Transient read timeout; retry permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Nectar-4d963c is active. Registration token: V76580374A0.",
+                "evidence_ids": [
+                  "ev-a35fa38e82de0c36"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": [
+              "ev-e10c74daf27e9ed6",
+              "ev-3b7a3fa7f4fb5ae0"
+            ]
+          },
+          "new_output": {
+            "answer": "V675174E09A|V81A7263A5E|V76580374A0",
+            "evidence_ids": [
+              "ev-e10c74daf27e9ed6",
+              "ev-3b7a3fa7f4fb5ae0",
+              "ev-a35fa38e82de0c36"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-ade4b9ed271f8617",
+          "family": "composition",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Transient read timeout; retry permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Transient read timeout; retry permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Maple-b5749f is active. Registration token: V7BC1315441.",
+                "evidence_ids": [
+                  "ev-626d6451b12a65b2"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": [
+              "ev-495eecfe48088ed2",
+              "ev-1412e9fe1540cc17"
+            ]
+          },
+          "new_output": {
+            "answer": "V303B78EFBC|V685E3690C5|V7BC1315441",
+            "evidence_ids": [
+              "ev-495eecfe48088ed2",
+              "ev-1412e9fe1540cc17",
+              "ev-626d6451b12a65b2"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        }
+      ]
+    },
+    {
+      "split": "transfer",
+      "source_reports": [
+        {
+          "path": "experiments/joint-v4/independent/transfer/g3.json",
+          "sha256": "339495d8bddadcb26c8792b7a9a4066a8b6eb900f6b116f61f62ee0381dde1af"
+        },
+        {
+          "path": "experiments/joint-v4/independent/transfer/g4.json",
+          "sha256": "15cd6d1a5dbe5cb4c0d5d7509e0a2df8f9cff78fbd30b7d6fdb7cbd3744ca39e"
+        }
+      ],
+      "changed_tool_sequences": 12,
+      "witnesses": [
+        {
+          "task_id": "task-8ae3cad3582d5235",
+          "family": "tool_recovery",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Quartz-9d72f9 is active. Registration token: V64B354A9CA.",
+                "evidence_ids": [
+                  "ev-d33a0f16e1ec223f"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": []
+          },
+          "new_output": {
+            "answer": "V64B354A9CA",
+            "evidence_ids": [
+              "ev-d33a0f16e1ec223f"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-c8f90a06a982f95e",
+          "family": "tool_recovery",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 2,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 3,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Sorrel-eba80b is active. Registration token: V109C69C7AA.",
+                "evidence_ids": [
+                  "ev-e092f8e561be1290"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": []
+          },
+          "new_output": {
+            "answer": "V109C69C7AA",
+            "evidence_ids": [
+              "ev-e092f8e561be1290"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-90caef7dab29276a",
+          "family": "tool_recovery",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Quartz-2a18aa is active. Registration token: V056E6750C2.",
+                "evidence_ids": [
+                  "ev-edef03703f7b3c27"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": []
+          },
+          "new_output": {
+            "answer": "V056E6750C2",
+            "evidence_ids": [
+              "ev-edef03703f7b3c27"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-6cf25cdd6272b2c3",
+          "family": "tool_recovery",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 2,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 3,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Sorrel-cb6f24 is active. Registration token: V0669027610.",
+                "evidence_ids": [
+                  "ev-3956ef7e4d769548"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": []
+          },
+          "new_output": {
+            "answer": "V0669027610",
+            "evidence_ids": [
+              "ev-3956ef7e4d769548"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-698338b1a683183e",
+          "family": "tool_recovery",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Quartz-5ea30a is active. Registration token: V3FF04F49AC.",
+                "evidence_ids": [
+                  "ev-f5872813ec7438e5"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": []
+          },
+          "new_output": {
+            "answer": "V3FF04F49AC",
+            "evidence_ids": [
+              "ev-f5872813ec7438e5"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-4b8be0a8e9a0b5cb",
+          "family": "tool_recovery",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 2,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 3,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Sorrel-28b04e is active. Registration token: V85B7D1EAC3.",
+                "evidence_ids": [
+                  "ev-e58666db746d89e3"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": []
+          },
+          "new_output": {
+            "answer": "V85B7D1EAC3",
+            "evidence_ids": [
+              "ev-e58666db746d89e3"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-28390926f724c957",
+          "family": "tool_recovery",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Read timed out before any result; retry is permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Quartz-50b635 is active. Registration token: V5067B32513.",
+                "evidence_ids": [
+                  "ev-5605b4eb881b2214"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": []
+          },
+          "new_output": {
+            "answer": "V5067B32513",
+            "evidence_ids": [
+              "ev-5605b4eb881b2214"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-26c37f948d6b32a4",
+          "family": "composition",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Transient read timeout; retry permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Transient read timeout; retry permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Rowan-8d1454 is active. Registration token: V05FDF285F7.",
+                "evidence_ids": [
+                  "ev-db928a7da06db0cf"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": [
+              "ev-218f73edc3b7c74c",
+              "ev-01225ab29a1223ef"
+            ]
+          },
+          "new_output": {
+            "answer": "VE316922C48|V00C289A36A|V05FDF285F7",
+            "evidence_ids": [
+              "ev-218f73edc3b7c74c",
+              "ev-01225ab29a1223ef",
+              "ev-db928a7da06db0cf"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-f67c5f07f74459e7",
+          "family": "composition",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Transient read timeout; retry permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Transient read timeout; retry permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Quartz-020eb6 is active. Registration token: V976DD2B722.",
+                "evidence_ids": [
+                  "ev-ece6f4254ee000b3"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": [
+              "ev-43c5a0212a13bcf3",
+              "ev-e84a2c0c74cc93ac"
+            ]
+          },
+          "new_output": {
+            "answer": "V03FFB5E902|VDC2EDF45B8|V976DD2B722",
+            "evidence_ids": [
+              "ev-43c5a0212a13bcf3",
+              "ev-e84a2c0c74cc93ac",
+              "ev-ece6f4254ee000b3"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-a568fe1f3d4c8914",
+          "family": "composition",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Transient read timeout; retry permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Transient read timeout; retry permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Sorrel-8b9625 is active. Registration token: VCA008D6098.",
+                "evidence_ids": [
+                  "ev-7f0cc0d794fe745d"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": [
+              "ev-6fff20b2a757016d",
+              "ev-ddb81b0efe11108e"
+            ]
+          },
+          "new_output": {
+            "answer": "V405B1BAC0A|V46425D5DFD|VCA008D6098",
+            "evidence_ids": [
+              "ev-6fff20b2a757016d",
+              "ev-ddb81b0efe11108e",
+              "ev-7f0cc0d794fe745d"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-e193ad8c4160132d",
+          "family": "composition",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Transient read timeout; retry permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Transient read timeout; retry permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Rowan-793ce6 is active. Registration token: VDC341DB0E1.",
+                "evidence_ids": [
+                  "ev-e189212b5f516832"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": [
+              "ev-f3b8b21daf3f428c",
+              "ev-dcef72b0e5934306"
+            ]
+          },
+          "new_output": {
+            "answer": "V2A92FFF613|V977ACB6E6C|VDC341DB0E1",
+            "evidence_ids": [
+              "ev-f3b8b21daf3f428c",
+              "ev-dcef72b0e5934306",
+              "ev-e189212b5f516832"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        },
+        {
+          "task_id": "task-eb2a42b89fe6907d",
+          "family": "composition",
+          "old_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+          "new_loaded_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+          "old_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Transient read timeout; retry permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 0.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            }
+          ],
+          "new_tool_events": [
+            {
+              "tool": "read_current_registry",
+              "attempt": 1,
+              "result": {
+                "status": "transient_error",
+                "retryable": true,
+                "text": "Transient read timeout; retry permitted.",
+                "evidence_ids": []
+              },
+              "retry_decision": {
+                "value": 1.0,
+                "features": {
+                  "attempt": 1,
+                  "error_retryable": 1.0,
+                  "error_permanent": 0.0
+                }
+              }
+            },
+            {
+              "tool": "read_current_registry",
+              "attempt": 2,
+              "result": {
+                "status": "ok",
+                "retryable": false,
+                "text": "Live registry confirms Quartz-a29958 is active. Registration token: V6EFA9B8BEA.",
+                "evidence_ids": [
+                  "ev-93a21d44a2028b7c"
+                ]
+              }
+            }
+          ],
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": [
+              "ev-06eac23e524a0e5f",
+              "ev-457c82c6a1595005"
+            ]
+          },
+          "new_output": {
+            "answer": "VB3A2498540|V30C1F56AC9|V6EFA9B8BEA",
+            "evidence_ids": [
+              "ev-06eac23e524a0e5f",
+              "ev-457c82c6a1595005",
+              "ev-93a21d44a2028b7c"
+            ]
+          },
+          "old_checks": {
+            "answer": false,
+            "evidence": false,
+            "tool": true,
+            "attempts": false
+          },
+          "new_checks": {
+            "answer": true,
+            "evidence": true,
+            "tool": true,
+            "attempts": true
+          },
+          "old_passed": false,
+          "new_passed": true
+        }
+      ]
+    }
+  ]
+}

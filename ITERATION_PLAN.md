@@ -2,7 +2,7 @@
 
 This plan keeps the complete project in scope. A completed implementation item is distinct from a measured effect. Dates and performance targets are not invented.
 
-| Iteration | Deliverable | Acceptance evidence | Initial state |
+| Iteration | Deliverable | Acceptance evidence | Status at release |
 |---|---|---|---|
 | 1 · Fixed execution contract | H0, executable IR, real model client, traces, fixed scorer and partition manifest | Fresh real calls; scoped context; exact program identities; rejected unsafe programs | Implemented; real runs and offline contracts verified |
 | 2 · Multi-generation mechanism evolution | Model proposals, actual candidate executions, protection gate, P0→P1→P2 and beyond | Each transition connects failure→diff→load→new decision→fresh outcome; failed generations retained | v3/v4 complete: two protocols, joint/fixed-P arms, four transitions each; joint runs each adopt three M changes |
@@ -11,7 +11,7 @@ This plan keeps the complete project in scope. A completed implementation item i
 | 5 · External research learns to judge | Daily-capable discovery, versioned deep-read evidence, context/reason/effect records; evolvable research policy | Real accessible sources; human decisions recorded as such; chronological/family holdouts and downstream candidate effects | Discovery/deep-read/opt-in decision context implemented; real Dream-RSI full-text model call; judgment/P improvement unmeasured |
 | 6 · Optional community evolution | Complete scoped traces, opt-in transport, private evolution and authorized generic proposals | Local-only usable; end-to-end consent/upload/revoke; tenant isolation; held-out user benefit and negative transfer | Transport/governance/trace-to-candidate implemented; two real synthetic-feedback model calls; personal/global benefit unmeasured |
 | 7 · Long-horizon defenses | Injection, Sybil/duplicate sources, low-dose poisoning, invalidation and recovery | Multiple rounds; measured attack/benign outcomes; exact approval and replay denial; withdrawal derivative cleanup | Structural attacks and revocation tested; sustained model poisoning and Sybil effectiveness unmeasured |
-| 8 · Open-source distribution | Installable package, bilingual README, architecture, examples, reproducible runs, evidence explorer, CI, license/security/contribution policy | Clean public export, fresh clone installation/run, actual public repository receipt | Implementing |
+| 8 · Open-source distribution | Installable package, bilingual README, architecture, examples, reproducible runs, evidence explorer, CI, license/security/contribution policy | Clean public export, fresh clone installation/run, actual public repository receipt | Published; fresh public clone installation and 96 tests pass; GitHub Python 3.11/3.12/3.13 CI passes; see docs/verification/publication.json |
 | 9 · External and ecosystem validation | Official benchmark adapters; other model/provider; plugin interface | Actual source/version/license checked, native run receipts and unmodified metrics; independent reproduction | Planned |
 
 ## Core experiment procedure

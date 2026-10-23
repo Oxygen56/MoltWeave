@@ -1,0 +1,69 @@
+{
+  "repository": "https://github.com/Oxygen56/MoltWeave",
+  "visibility": "PUBLIC",
+  "verified_code_commit": "7e7420be6dd0a71db6cb66365212e6f9a9ab05c2",
+  "code_files_sha256": {
+    "src/moltweave/__init__.py": "9ceb54ef5092310748cce385c32ac88845b81897e989fc4a78002b934dabe23a",
+    "src/moltweave/__main__.py": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279",
+    "src/moltweave/analysis.py": "6f3ab56dc8dbfa7e9a6fa0b27b5c0d8312702eb9ad160be925da6749a24a1436",
+    "src/moltweave/attribution.py": "2b1ab60b79ca7d39781fae5afa6f5bea90fd77cefd8e718c258b8e2d0dae7c9a",
+    "src/moltweave/benchmarks.py": "e0e6b9c99a3c573d86f470388c2eca828a744fce48e26e3c0bb5e2f044d44dc0",
+    "src/moltweave/cli.py": "06093aa37af0d09feacaa4ef135725f98b15e544a603c53e01c592fea43c0e07",
+    "src/moltweave/common.py": "71ae0f6d83c27f02daf1d0c3e687df33fa1df81f6cabd93d4e3a8c9ad06c9f38",
+    "src/moltweave/community.py": "3e1ff9768fbbc4eaa1065c78fffc1a8a26c2934bad93352162efcda38fff4a83",
+    "src/moltweave/evolution.py": "6d655861d9846b051791ca6c682fc7a3c72b6b9d305bdd0d72827c1373398040",
+    "src/moltweave/external_eval.py": "fc3df99c6bee211bf041f078095494a3ee141f8682e1f0e654959412817df644",
+    "src/moltweave/feedback.py": "9c5c8bae34a6557ef508cdc6ebfee6b25b42f5de2ac43b60352800e3393ba198",
+    "src/moltweave/governance.py": "e17b4eea029ceda0dbc6d0239a1b8f1e9628a80380e176f6525e6094e8729204",
+    "src/moltweave/llm.py": "0b626ee83a66fbb304be7dd974b21feff7955cbfba874250887160ee363d8416",
+    "src/moltweave/memory.py": "b0247a1a9536fe4b4adacc137ac7c714df4644700cac8cff3086f4f180824caf",
+    "src/moltweave/program.py": "71b0ef404b085d60fb9b18e054262c11b63033514a5bb2c9fc263400a0dbe134",
+    "src/moltweave/report.py": "6e517e65fef389f212d98872f22f5abc57ad643ed2904f32c53342a21e8b3bb7",
+    "src/moltweave/research.py": "20c636f904e3b7dd77b57eb53fbb5316c2ebd64af80119e23e7cc1dea53244fe",
+    "src/moltweave/runtime.py": "07e99152adab20c58ab93533a9642b1833081d9513367270383fe089c60f03b7"
+  },
+  "hosted_ci": {
+    "url": "https://github.com/Oxygen56/MoltWeave/actions/runs/39932488846",
+    "status": "completed",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "unit (3.12)",
+        "conclusion": "success",
+        "url": "https://github.com/Oxygen56/MoltWeave/actions/runs/39932488846/job/120343899393"
+      },
+      {
+        "name": "unit (3.11)",
+        "conclusion": "success",
+        "url": "https://github.com/Oxygen56/MoltWeave/actions/runs/39932488846/job/120343899563"
+      },
+      {
+        "name": "unit (3.13)",
+        "conclusion": "success",
+        "url": "https://github.com/Oxygen56/MoltWeave/actions/runs/39932488846/job/120343899652"
+      }
+    ]
+  },
+  "fresh_public_clone": {
+    "verified_commit": "7e7420be6dd0a71db6cb66365212e6f9a9ab05c2",
+    "python": "3.12.13",
+    "install": "non-editable build/install from freshly cloned public source in separate virtual environment",
+    "tests": 96,
+    "result": "passed",
+    "raw_output": "fresh-public-clone-python312.txt",
+    "cli_help": "passed"
+  },
+  "research_workflow": {
+    "url": "https://github.com/Oxygen56/MoltWeave/actions/runs/39932613163",
+    "conclusion": "success",
+    "discovered_public_versions": 30,
+    "prepared_packets": 3,
+    "untruncated_html_text_packets": 1,
+    "model_assisted": false,
+    "human_decisions_fabricated": false,
+    "automatic_mechanism_adoption": false,
+    "raw_workflow_artifact": "research-discovery (14-day hosted retention)",
+    "limits": "30 discovered versions, 3 extracted evidence packets; two texts truncated; no model analysis or judgment-improvement experiment in this workflow run."
+  },
+  "release_note": "Subsequent release documentation changes do not rewrite experiment sources or this verified code snapshot."
+}

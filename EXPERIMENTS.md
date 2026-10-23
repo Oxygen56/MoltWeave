@@ -36,6 +36,8 @@ The v3 P0→P1→P2→P3 search chain actually executed; P4 was generated and se
 
 A post-readout diagnostic checks whether the actually selected evidence contains the required support and the actual tool/attempt sequence is correct. In v4 this rises from 40/70 to 67/70 on both held-out partitions. It verifies changed execution conditions and does not replace the end-to-end answer metric. Detailed per-generation counts are in `experiments/joint-v4/analysis.json`.
 
+The [terminal recovery witnesses](docs/verification/terminal-recovery-witnesses.json) derive g3/g4 tool-event comparisons from those original reports, with source hashes. They show actual stop/retry decisions and subsequent tool results; they are post-readout inspection, not an extra experiment or evidence that the terminal P4 drove a fifth search.
+
 ## Component intervention on fresh seed 41
 
 Five variants were frozen before 350 real calls on 70 new cases. All outcomes are retained.

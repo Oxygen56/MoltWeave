@@ -6,6 +6,8 @@
 
 [中文](README.zh-CN.md) · [Architecture](docs/architecture.md) · [Iteration plan](ITERATION_PLAN.md) · [Evaluation](docs/evaluation-protocol.md)
 
+[![Tests](https://github.com/Oxygen56/MoltWeave/actions/workflows/tests.yml/badge.svg)](https://github.com/Oxygen56/MoltWeave/actions/workflows/tests.yml)
+
 </div>
 
 MoltWeave explores continual mechanism-level recursive self-improvement. It learns from actual executions, external research, and optionally authorized usage traces to propose changes to memory, retrieval, tool routing, recovery, prompts, and the exploration policy that chooses future improvements.
@@ -40,6 +42,8 @@ The external 24-question SQuAD check shows **zero gain**. Component intervention
 - Durable memory quarantine/correction and an offline generation evidence explorer.
 
 Research/community infrastructure tests do not establish downstream RSI benefits. Durable memory-write policy evolution, long-horizon poisoning evaluation, cross-model reproduction, official external benchmark runs and hosted production service remain roadmap items. See the [iteration plan](ITERATION_PLAN.md) for explicit status.
+
+[Publication and fresh-clone verification](docs/verification/publication.json) records hosted Python 3.11/3.12/3.13 CI and a separate 96-test installation check from the public repository.
 
 ## Quick start
 
@@ -83,7 +87,7 @@ Sensitive proposals wait for owner approval before loading or execution. A learn
 
 ## Inspiration and comparison
 
-The design is informed by [Dream-RSI](https://www.dream-rsi.com/), [Harness²](https://github.com/google-research/harness2), module-oriented self-improvement research, and evidence-driven evaluation. References inspire mechanisms; this repository does not claim to reproduce their native results or outperform them. See [source and presentation references](docs/open-source-references.md).
+The design is informed by [Dream-RSI](https://www.dream-rsi.com/), [Harness²](https://github.com/google-research/harness2), the [DuplexAgent-RSI paper](https://arxiv.org/abs/2610.11299v1), module-oriented self-improvement research, and evidence-driven evaluation. References inspire mechanisms; this repository does not claim to reproduce their native results or outperform them. DuplexAgent-RSI's public demo still says “Code coming soon” at this release; no core implementation was reused. See [source and presentation references](docs/open-source-references.md).
 
 ## Contribute
 

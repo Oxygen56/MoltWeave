@@ -20,4 +20,4 @@ The formal protocol pins thinking mode, retains every physical retry, rejects me
 
 ## Reference project scope
 
-Dream-RSI informs executable exploration-policy evolution; Harness² informs persistent improvement components and task-local comparisons. PaperQA informs research evidence; trace-observability projects inform event structure. These are design references. No native benchmark reproduction or superiority claim is implied.
+Dream-RSI informs executable exploration-policy evolution; Harness² informs persistent improvement components and task-local comparisons. The DuplexAgent-RSI paper informs module-targeted diagnosis and protection comparisons; its public demo does not yet provide a confirmed core-code release. PaperQA informs research evidence; trace-observability projects inform event structure. These are design references. No native benchmark reproduction or superiority claim is implied.

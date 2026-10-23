@@ -15,6 +15,14 @@ Primary README links: [GEPA source](https://raw.githubusercontent.com/gepa-ai/ge
 
 These projects do not establish that a README shape causes popularity. The recommendations below are engineering/editorial judgments based on how they expose capabilities and reduce the steps to a real result.
 
+## Mechanism references and actual overlap
+
+- [Dream-RSI](https://github.com/google-research/dream-rsi) informs executable exploration-policy changes. MoltWeave has actual P-driven later searches, but its fixed-P controls do not establish isolated policy benefit.
+- [Harness²](https://github.com/google-research/harness2) informs persistent improvement components and comparisons. The current implementation uses bounded expression programs, not an unrestricted source-code editor or a native reproduction.
+- [DuplexAgent-RSI v1, sections 3.3–3.4](https://arxiv.org/html/2610.11299v1#S3.SS3) informs module-targeted diagnosis and candidate/protection comparisons. The [official demo snapshot](https://github.com/AmphionTeam/DuplexAgent-RSI-Demo/tree/21301d9795588e8a24bccd78c12e821cb8d9be52) still says **Code coming soon** on 2026-10-23; it is a website/assets repository, not a confirmed release of the core implementation. No core code was reused. MoltWeave's core experiment maps task families to modules; its separate feedback path asks the model for Trace-pointer attribution. It does not reproduce the complete Diagnoser, adaptive Exam Planner, six-module speech system, or per-case wins/losses/cause-regression promotion rule. The paper alone does not establish recursive rewriting of the Exam Planner or Harness Editor programs.
+
+These are specific design correspondences, not claims of identical algorithms, original invention or superior benchmark results.
+
 ## 2. Proposed first page
 
 1. One sentence: a continuously evolving agent whose bounded executable memory/retrieval/tool/recovery mechanisms and exploration policy produce versioned descendants.

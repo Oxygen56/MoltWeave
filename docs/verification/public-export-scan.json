@@ -1,8 +1,8 @@
 {
   "date": "2026-10-23",
   "scope": "Selected Git paths excluding this report; working-tree contents immediately before release commit",
-  "file_list_sha256": "aef089c8c0e6da9c647de658e11d5e6fc7c6a637ab15fe821571042bcc2daa49",
-  "files_checked": 5673,
+  "file_list_sha256": "574a7a83ae57decbd11be28c50319c0e350ba12772c18094ab4ae041ca9853ce",
+  "files_checked": 5676,
   "configured_secret_values_checked": 1,
   "forbidden_paths": [],
   "exact_configured_secret_matches": [],
