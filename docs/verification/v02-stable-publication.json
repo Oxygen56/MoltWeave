@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "status": "published_and_verified",
+  "repository": "https://github.com/Oxygen56/MoltWeave",
+  "release": {
+    "tag": "v0.2.0",
+    "url": "https://github.com/Oxygen56/MoltWeave/releases/tag/v0.2.0",
+    "release_id": 421884444,
+    "published_at": "2026-10-23T13:45:24Z",
+    "draft": false,
+    "prerelease": false,
+    "target_commit": "d874e95961a51c6bc120e87763fb89dcdf4918b3",
+    "assets": [
+      {
+        "name": "moltweave-0.2.0-py3-none-any.whl",
+        "bytes": 123758,
+        "sha256": "90cf2ec5b09be9c83865ac97d81db22b86f657c6859300ddf31deddda1938535",
+        "uploaded_digest_matches_local": true,
+        "state": "uploaded",
+        "url": "https://github.com/Oxygen56/MoltWeave/releases/download/v0.2.0/moltweave-0.2.0-py3-none-any.whl"
+      },
+      {
+        "name": "moltweave-0.2.0.tar.gz",
+        "bytes": 336418,
+        "sha256": "a3c0a560da1c8af99ef75a1b23feead33d523569eb9022b4d5cec3ff5da65491",
+        "uploaded_digest_matches_local": true,
+        "state": "uploaded",
+        "url": "https://github.com/Oxygen56/MoltWeave/releases/download/v0.2.0/moltweave-0.2.0.tar.gz"
+      },
+      {
+        "name": "moltweave-v02-complete-evidence.tar.gz",
+        "bytes": 389604242,
+        "sha256": "d5c5be8f89a75210a7ff35e6e77fc760e68b1d8e239598f2600eb4ab4d09fcff",
+        "uploaded_digest_matches_local": true,
+        "state": "uploaded",
+        "url": "https://github.com/Oxygen56/MoltWeave/releases/download/v0.2.0/moltweave-v02-complete-evidence.tar.gz"
+      },
+      {
+        "name": "moltweave-v02-complete-evidence.tar.gz.manifest.jsonl",
+        "bytes": 15682725,
+        "sha256": "defc12b25c72671e7f073ee102efb0c0d4b00e75d8356d242272ac3ce248d331",
+        "uploaded_digest_matches_local": true,
+        "state": "uploaded",
+        "url": "https://github.com/Oxygen56/MoltWeave/releases/download/v0.2.0/moltweave-v02-complete-evidence.tar.gz.manifest.jsonl"
+      },
+      {
+        "name": "moltweave-v02-complete-evidence.tar.gz.sha256",
+        "bytes": 105,
+        "sha256": "71218950bef4b6237e7464305d7c0d71df17eb959d86d82812fe6bd8815d62f3",
+        "uploaded_digest_matches_local": true,
+        "state": "uploaded",
+        "url": "https://github.com/Oxygen56/MoltWeave/releases/download/v0.2.0/moltweave-v02-complete-evidence.tar.gz.sha256"
+      },
+      {
+        "name": "SHA256SUMS",
+        "bytes": 525,
+        "sha256": "64504414b43873c10a18e069b00c2bc9c382a718c44074e076f9667a3dfa910b",
+        "uploaded_digest_matches_local": true,
+        "state": "uploaded",
+        "url": "https://github.com/Oxygen56/MoltWeave/releases/download/v0.2.0/SHA256SUMS"
+      }
+    ]
+  },
+  "hosted_ci": {
+    "url": "https://github.com/Oxygen56/MoltWeave/actions/runs/39962026330",
+    "head_sha": "d874e95961a51c6bc120e87763fb89dcdf4918b3",
+    "conclusion": "success",
+    "tests_per_python": 229,
+    "jobs": [
+      {
+        "name": "unit (3.13)",
+        "job_id": 120442130444,
+        "conclusion": "success"
+      },
+      {
+        "name": "unit (3.11)",
+        "job_id": 120442130644,
+        "conclusion": "success"
+      },
+      {
+        "name": "unit (3.12)",
+        "job_id": 120442130777,
+        "conclusion": "success"
+      }
+    ]
+  },
+  "fresh_public_clone": {
+    "commit": "d874e95961a51c6bc120e87763fb89dcdf4918b3",
+    "source_suite": {
+      "python": "3.12",
+      "tests": 229,
+      "status": "passed",
+      "mode": "Fresh interpreter in fresh public clone with PYTHONPATH=src, ResourceWarning as error; no model calls"
+    },
+    "installed_wheel": {
+      "python": "3.13.14",
+      "status": "passed",
+      "mode": "Non-editable wheel; isolated interpreter outside repository; module imported from site-packages; main and continual CLI help; no model calls"
+    },
+    "distribution_receipt": "v02-stable-distribution.json",
+    "source_module_count": 25,
+    "all_source_modules_match_wheel_and_sdist": true
+  },
+  "evidence": {
+    "archive_sha256": "d5c5be8f89a75210a7ff35e6e77fc760e68b1d8e239598f2600eb4ab4d09fcff",
+    "entry_count": 71504,
+    "file_count": 70492,
+    "total_file_bytes": 7559162770,
+    "roots": [
+      "experiments/continual-pilot-baseline-v1",
+      "experiments/continual-pilot-v2",
+      "experiments/continual-pilot-v4",
+      "experiments/continual-preflight-v5",
+      "experiments/continual-v02-main",
+      "experiments/continual-writer-smoke-v3"
+    ],
+    "full_archive_verification": "passed",
+    "external_manifest_checked": true,
+    "extracted_for_verification": false,
+    "source_bytes_modified": false,
+    "source_files_deleted": false,
+    "configured_exact_secret_count": 1,
+    "full_original_readout_replay": "completed; zero model calls",
+    "formal_results_receipt": "v02-formal-results.json"
+  },
+  "historical_preview_retained": {
+    "tag": "v0.2.0-preview.1",
+    "url": "https://github.com/Oxygen56/MoltWeave/releases/tag/v0.2.0-preview.1",
+    "formal_acceptance_completed_at_snapshot": false
+  },
+  "limits": [
+    "This post-publication receipt is maintained on main; release sources and packages remain pinned to the target commit.",
+    "Distribution, hosted/source tests and evidence integrity are distinct from model-effect results.",
+    "No independent evolving-P benefit established; joint trails fixed-P and its corresponding wide-context control.",
+    "All tasks use authored public synthetic data; no independent external/model reproduction or production benefit claim.",
+    "Remote asset digests were compared to local files; no separate full redownload is claimed."
+  ]
+}

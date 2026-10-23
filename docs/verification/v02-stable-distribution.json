@@ -1,0 +1,288 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "checked_at_utc": "2026-10-23T13:37:42.706698+00:00",
+  "scope": "Static final distribution verification only; no build, model, network, upload or formal evidence-pack verification",
+  "public_clone": {
+    "path": "private/v02-final-public-clone",
+    "expected_commit": "d874e95961a51c6bc120e87763fb89dcdf4918b3",
+    "actual_commit": "d874e95961a51c6bc120e87763fb89dcdf4918b3",
+    "tracked_worktree_clean": true
+  },
+  "assets": {
+    "moltweave-0.2.0.tar.gz": {
+      "path": "private/v02-final-public-build/moltweave-0.2.0.tar.gz",
+      "bytes": 336418,
+      "raw_sha256": "a3c0a560da1c8af99ef75a1b23feead33d523569eb9022b4d5cec3ff5da65491",
+      "member_count": 136,
+      "regular_file_count": 123,
+      "directory_count": 13,
+      "member_paths_safe": true,
+      "duplicate_members": [],
+      "links_or_special_members": [],
+      "forbidden_runtime_raw_or_credential_paths": [],
+      "source_module_count": 25,
+      "all_source_modules_match_clone_bytes": true,
+      "asset_unchanged_during_check": true,
+      "public_clone_files_compared_byte_for_byte": 116,
+      "required_members_verified": [
+        "CONTRIBUTING.md",
+        "ITERATION_PLAN.md",
+        "LICENSE",
+        "MANIFEST.in",
+        "README.md",
+        "README.zh-CN.md",
+        "SECURITY.md",
+        "THIRD_PARTY_NOTICES.md",
+        "docs/release-v0.2.0.md",
+        "docs/v0.2-architecture.md",
+        "docs/v0.2-distribution-check.md",
+        "docs/v0.2-evidence-package.md",
+        "docs/v0.2-protocol.md",
+        "docs/v0.2-reproduction.md",
+        "docs/v0.2-results.zh-CN.md",
+        "docs/v0.2-resume.md",
+        "docs/verification/v02-formal-results.json",
+        "docs/verification/v02-parse-interruption.json",
+        "scripts/daily_research.py",
+        "scripts/package_v02_evidence.py",
+        "scripts/reproduce.sh",
+        "scripts/reproduce_continual.py",
+        "scripts/reproduce_frozen.py",
+        "scripts/resume_continual.py",
+        "scripts/resume_readout.py"
+      ],
+      "missing_required_members": [],
+      "metadata_version": "0.2.0"
+    },
+    "moltweave-0.2.0-py3-none-any.whl": {
+      "path": "private/v02-final-public-build/moltweave-0.2.0-py3-none-any.whl",
+      "bytes": 123758,
+      "raw_sha256": "90cf2ec5b09be9c83865ac97d81db22b86f657c6859300ddf31deddda1938535",
+      "member_count": 31,
+      "regular_file_count": 31,
+      "directory_count": 0,
+      "member_paths_safe": true,
+      "duplicate_members": [],
+      "links_or_special_members": [],
+      "forbidden_runtime_raw_or_credential_paths": [],
+      "source_module_count": 25,
+      "all_source_modules_match_clone_bytes": true,
+      "asset_unchanged_during_check": true,
+      "wheel_record_entries_checked": 30,
+      "wheel_record_covers_every_file": true,
+      "cli_entry_point_matches": true,
+      "metadata_version": "0.2.0"
+    }
+  },
+  "source_modules": {
+    "src/moltweave/__init__.py": {
+      "clone_bytes": 80,
+      "raw_sha256": "8d36c99e1f8c40fdfc95ab9118e27dc38c165116b9d78da682a2fc5b684c51ac",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/__main__.py": {
+      "clone_bytes": 30,
+      "raw_sha256": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/analysis.py": {
+      "clone_bytes": 4271,
+      "raw_sha256": "6f3ab56dc8dbfa7e9a6fa0b27b5c0d8312702eb9ad160be925da6749a24a1436",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/attribution.py": {
+      "clone_bytes": 12483,
+      "raw_sha256": "2b1ab60b79ca7d39781fae5afa6f5bea90fd77cefd8e718c258b8e2d0dae7c9a",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/benchmarks.py": {
+      "clone_bytes": 11207,
+      "raw_sha256": "e0e6b9c99a3c573d86f470388c2eca828a744fce48e26e3c0bb5e2f044d44dc0",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/cli.py": {
+      "clone_bytes": 2323,
+      "raw_sha256": "7c215a67d17081c0ec0f63ec91acfa41b23e2c101002c1fcc12283f6e3109d54",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/common.py": {
+      "clone_bytes": 1026,
+      "raw_sha256": "71ae0f6d83c27f02daf1d0c3e687df33fa1df81f6cabd93d4e3a8c9ad06c9f38",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/community.py": {
+      "clone_bytes": 26338,
+      "raw_sha256": "3e1ff9768fbbc4eaa1065c78fffc1a8a26c2934bad93352162efcda38fff4a83",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/continual.py": {
+      "clone_bytes": 29576,
+      "raw_sha256": "26c47e594e1a0b234529e6408e4f5b2b5bd4fc0e640fd0bed28b912913299317",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/continual_analysis.py": {
+      "clone_bytes": 66486,
+      "raw_sha256": "f88ac2c6eaf9eddde262dec34f89c978ea03b53039e8bb2282a466cf8872c977",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/continual_environment.py": {
+      "clone_bytes": 9171,
+      "raw_sha256": "a4800642c2217720a1c43b01e4454d54fc9112467c532e16f72e0aa13f5fa7ec",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/continual_memory.py": {
+      "clone_bytes": 18156,
+      "raw_sha256": "2912c92f222d3c0c18a8678ccc3d200cfda2404d45f8c2954d602996cb73fed5",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/continual_policy.py": {
+      "clone_bytes": 26420,
+      "raw_sha256": "e67f3adc0a4ed0c49c5359ca48ac712cc542d75870dde735d5c3f681723a7c65",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/continual_program.py": {
+      "clone_bytes": 7120,
+      "raw_sha256": "c607f6db561120ff486c6a9389ccfed4005f641e68f4c6f0c06bad0f6848d907",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/continual_runtime.py": {
+      "clone_bytes": 8413,
+      "raw_sha256": "723004a27d3b1f511dd914f6b12c7cdd4ed84040d4854d3bf495e8d05883e145",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/evolution.py": {
+      "clone_bytes": 18395,
+      "raw_sha256": "6d655861d9846b051791ca6c682fc7a3c72b6b9d305bdd0d72827c1373398040",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/external_eval.py": {
+      "clone_bytes": 15079,
+      "raw_sha256": "fc3df99c6bee211bf041f078095494a3ee141f8682e1f0e654959412817df644",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/feedback.py": {
+      "clone_bytes": 20366,
+      "raw_sha256": "9c5c8bae34a6557ef508cdc6ebfee6b25b42f5de2ac43b60352800e3393ba198",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/governance.py": {
+      "clone_bytes": 13678,
+      "raw_sha256": "e17b4eea029ceda0dbc6d0239a1b8f1e9628a80380e176f6525e6094e8729204",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/llm.py": {
+      "clone_bytes": 10776,
+      "raw_sha256": "b10de8959609f69b400693c786ae1019337209dfbc158e561275010869a899bb",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/memory.py": {
+      "clone_bytes": 5099,
+      "raw_sha256": "b0247a1a9536fe4b4adacc137ac7c714df4644700cac8cff3086f4f180824caf",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/program.py": {
+      "clone_bytes": 6064,
+      "raw_sha256": "71b0ef404b085d60fb9b18e054262c11b63033514a5bb2c9fc263400a0dbe134",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/report.py": {
+      "clone_bytes": 8840,
+      "raw_sha256": "6e517e65fef389f212d98872f22f5abc57ad643ed2904f32c53342a21e8b3bb7",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/research.py": {
+      "clone_bytes": 39871,
+      "raw_sha256": "20c636f904e3b7dd77b57eb53fbb5316c2ebd64af80119e23e7cc1dea53244fe",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    },
+    "src/moltweave/runtime.py": {
+      "clone_bytes": 6419,
+      "raw_sha256": "07e99152adab20c58ab93533a9642b1833081d9513367270383fe089c60f03b7",
+      "sdist_bytes_match": true,
+      "wheel_bytes_match": true
+    }
+  },
+  "credential_scan": {
+    "scope": "Every regular member byte and member path in both assets; exact current configured values plus eight conservative provider/key/Bearer rules",
+    "configured_exact_secret_count": 1,
+    "configured_exact_secret_matches": [],
+    "pattern_rules": [
+      "aws_access_key",
+      "bearer_credential",
+      "credential_field",
+      "github_token",
+      "google_api_key",
+      "google_oauth_token",
+      "private_key",
+      "provider_sk_key"
+    ],
+    "nonfixture_pattern_matches": [],
+    "reviewed_synthetic_fixture_matches": [
+      {
+        "asset": "moltweave-0.2.0.tar.gz",
+        "member": "tests/test_community.py",
+        "rule": "provider_sk_key",
+        "line": 94,
+        "reviewed_synthetic_fixture": true,
+        "source_sha256": "602cd5c273ec667945b6a04c53f05b7b79b2b046bbb62e4fab2732124169e5e2"
+      },
+      {
+        "asset": "moltweave-0.2.0.tar.gz",
+        "member": "tests/test_package_v02_evidence.py",
+        "rule": "private_key",
+        "line": 133,
+        "reviewed_synthetic_fixture": true,
+        "source_sha256": "bccbf960f61d3c7356d156f4fcba179bdba39233a6a02784bb59c043a841dfe6"
+      }
+    ],
+    "fixture_review": "Fixed test literal has an explicit fake/test marker inside a credential-filter rejection test; private-key test contains only a BEGIN header. No document-controlled general exemption was used.",
+    "credential_path_exclusions_checked": true,
+    "env_example_only": true,
+    "limits": "No credential validity requests. Current environment exact values do not cover all historical/unknown secrets; pattern scanning is not a universal absence guarantee."
+  },
+  "validation_boundaries": {
+    "installed_cli_test": "Not performed here; root verifies separately",
+    "source_suite": "Not performed here; root verifies separately",
+    "formal_raw_evidence_pack": "Not read or verified here; separate packaging is still in progress",
+    "model_calls": 0,
+    "rebuilt_assets": false,
+    "copied_or_uploaded_assets": false,
+    "public_files_modified": false
+  },
+  "checks": [
+    "Pinned public clone commit and tracked clean worktree",
+    "Both assets remain unchanged across verification",
+    "25 exact maintained source modules byte-for-byte in both assets",
+    "All MANIFEST-public files byte-for-byte in sdist",
+    "All recovery/reproduction/package scripts and new JSON parse-failure/formal-result witnesses included",
+    "Safe unique paths; no symlinks, hardlinks, special files, raw experiments, private/state/venv or credential paths",
+    "Package versions and installed CLI entry point",
+    "Wheel RECORD hashes and sizes cover every wheel file",
+    "Exact configured-value and conservative secret-pattern scans with two explicit synthetic-test findings retained"
+  ]
+}

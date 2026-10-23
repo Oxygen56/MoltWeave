@@ -1,26 +1,26 @@
 {
-  "status": "formal_readout_complete_distribution_verification_pending",
+  "status": "stable_published_with_completed_readout",
   "repository": "https://github.com/Oxygen56/MoltWeave",
   "hosted_ci": {
-    "url": "https://github.com/Oxygen56/MoltWeave/actions/runs/39957711284",
+    "url": "https://github.com/Oxygen56/MoltWeave/actions/runs/39962026330",
+    "head_sha": "d874e95961a51c6bc120e87763fb89dcdf4918b3",
     "conclusion": "success",
-    "head_sha": "502b9a4e4b8d85bbd2d6584fc0ec65e63426d52b",
     "tests_per_python": 229,
     "jobs": [
       {
+        "name": "unit (3.13)",
+        "job_id": 120442130444,
+        "conclusion": "success"
+      },
+      {
         "name": "unit (3.11)",
-        "conclusion": "success",
-        "job_id": 120427595756
+        "job_id": 120442130644,
+        "conclusion": "success"
       },
       {
         "name": "unit (3.12)",
-        "conclusion": "success",
-        "job_id": 120427595424
-      },
-      {
-        "name": "unit (3.13)",
-        "conclusion": "success",
-        "job_id": 120427595813
+        "job_id": 120442130777,
+        "conclusion": "success"
       }
     ]
   },
@@ -47,11 +47,11 @@
     "independent_readout_completed": true,
     "full_offline_replay": "completed"
   },
-  "stable_v02_release_published": false,
-  "limits": "Source/code checks and full offline readout validation are complete. Model-effect results do not establish evolving-P benefit. This file captures the pre-publication phase; consult the later stable receipt for actual release, asset and final public-clone checks.",
+  "stable_v02_release_published": true,
+  "limits": "Completed formal readout, full offline replay, archive verification, exact-target hosted CI, fresh public source-suite and isolated installed CLI checks passed. Model-effect results do not establish evolving-P benefit or production value. Earlier preview remains a historical incomplete snapshot.",
   "initial_core_commit": "ace51d82b12152dc38895044822a91b8953ef008",
-  "verified_code_commit": "502b9a4e4b8d85bbd2d6584fc0ec65e63426d52b",
-  "fresh_public_clone_verification": "v02-fresh-public-check.json",
+  "verified_code_commit": "d874e95961a51c6bc120e87763fb89dcdf4918b3",
+  "fresh_public_clone_verification": "v02-stable-publication.json",
   "evidence_preview": {
     "url": "https://github.com/Oxygen56/MoltWeave/releases/tag/v0.2.0-preview.1",
     "tag": "v0.2.0-preview.1",
@@ -84,7 +84,7 @@
     ],
     "formal_acceptance_completed": false
   },
-  "snapshot_phase": "formal_readout_completed_before_stable_distribution",
+  "snapshot_phase": "post_stable_publication",
   "previous_hosted_ci": {
     "url": "https://github.com/Oxygen56/MoltWeave/actions/runs/39944566199",
     "conclusion": "success",
@@ -106,5 +106,39 @@
       }
     ]
   },
-  "later_stable_receipt": "https://github.com/Oxygen56/MoltWeave/blob/main/docs/verification/v02-stable-publication.json"
+  "later_stable_receipt": "https://github.com/Oxygen56/MoltWeave/blob/main/docs/verification/v02-stable-publication.json",
+  "pre_publication_snapshot": "https://github.com/Oxygen56/MoltWeave/blob/d874e95961a51c6bc120e87763fb89dcdf4918b3/docs/verification/v02-publication.json",
+  "previous_core_hosted_ci": {
+    "url": "https://github.com/Oxygen56/MoltWeave/actions/runs/39957711284",
+    "conclusion": "success",
+    "head_sha": "502b9a4e4b8d85bbd2d6584fc0ec65e63426d52b",
+    "tests_per_python": 229,
+    "jobs": [
+      {
+        "name": "unit (3.11)",
+        "conclusion": "success",
+        "job_id": 120427595756
+      },
+      {
+        "name": "unit (3.12)",
+        "conclusion": "success",
+        "job_id": 120427595424
+      },
+      {
+        "name": "unit (3.13)",
+        "conclusion": "success",
+        "job_id": 120427595813
+      }
+    ]
+  },
+  "stable_release_receipt": "v02-stable-publication.json",
+  "stable_release": {
+    "url": "https://github.com/Oxygen56/MoltWeave/releases/tag/v0.2.0",
+    "tag": "v0.2.0",
+    "commit": "d874e95961a51c6bc120e87763fb89dcdf4918b3",
+    "published_at": "2026-10-23T13:45:24Z",
+    "draft": false,
+    "prerelease": false,
+    "assets_verified": 6
+  }
 }
