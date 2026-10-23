@@ -25,6 +25,8 @@ The project preserves rejected candidates and flat/regressing generations. A pol
 
 ## v0.2: continual memory and prospective policy tests
 
+[Published evidence preview · 501/600 rounds, acceptance pending](https://github.com/Oxygen56/MoltWeave/releases/tag/v0.2.0-preview.1). Includes the complete original raw snapshot, file inventory and checksums. Stable v0.2.0 remains unreleased.
+
 The new engine repeatedly revisits entities, corrects remembered facts and recalls previous and delayed events. A separate factual writer proposes grounded memories; executable M controls writing and reading. Evolving P changes diagnosis, candidate prompts, selection and improvement operators. A P promotion must win an actual paired future search; every frozen checkpoint is audited again on independent future searches.
 
 The formal contract is **20 rounds × 10 streams × three arms**: ordinary accumulating memory with fixed M/P, evolving M with fixed P, and joint M/P. Every one of the 21 versions is scheduled for an empty-memory independent readout. Terminal memory-disabled and wide-context controls separate durable recall and context width from mechanism improvement.

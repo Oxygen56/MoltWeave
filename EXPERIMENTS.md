@@ -8,7 +8,7 @@ The [v0.2 protocol](docs/v0.2-protocol.md) predeclares 20 rounds, seeds 101–11
 
 The first formal execution stopped on provider errors after 421/600 complete round transitions. A separate post-stop provider check returned HTTP 402 `insufficient_balance_error`; original experiment receipts retain their original HTTPError records. All ten fixed-M lanes completed, while evolving lanes have unsealed tails. Verified checkpoint recovery then added 80 committed transitions, reaching **501/600**, before another HTTP 402. Previously committed states and calls were verified unchanged; every unsealed partial round was uniformly archived and replayed, without selecting by outcome. The [first diagnostic](experiments/continual-v02-main/interruption-diagnosis.json), [second diagnostic](experiments/continual-v02-main/provider-diagnostics/second-interruption.json), original calls, recovery ledger and partial rounds are retained. Independent endpoints remain **unavailable**: no task failure score is substituted for an unobserved measurement, and no early winner is selected.
 
-[Current formal readout](experiments/continual-v02-main/RESULTS.md) · [Engineering preflights and failures](docs/v0.2-preflights.md)
+[Current formal readout](experiments/continual-v02-main/RESULTS.md) · [Engineering preflights and failures](docs/v0.2-preflights.md) · [Full original 501-round snapshot](https://github.com/Oxygen56/MoltWeave/releases/tag/v0.2.0-preview.1) (prerelease; formal acceptance incomplete)
 
 ## Historical v0.1 protocols
 

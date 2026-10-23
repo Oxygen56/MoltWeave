@@ -37,5 +37,37 @@
   "limits": "Code checks cover commit cad42b4 and its immutable source bytes. Later evidence/publication documentation does not rewrite that snapshot. Independent model-effect acceptance is incomplete because the provider returned insufficient balance.",
   "initial_core_commit": "ace51d82b12152dc38895044822a91b8953ef008",
   "verified_code_commit": "cad42b4deb2c16e539ab0e5efad12f14bdd48b04",
-  "fresh_public_clone_verification": "v02-fresh-public-check.json"
+  "fresh_public_clone_verification": "v02-fresh-public-check.json",
+  "evidence_preview": {
+    "url": "https://github.com/Oxygen56/MoltWeave/releases/tag/v0.2.0-preview.1",
+    "tag": "v0.2.0-preview.1",
+    "commit": "1cfe54f346bc8688c70fee2e40f3bf57f63eb9e8",
+    "published_at": "2026-10-23T11:27:54Z",
+    "prerelease": true,
+    "draft": false,
+    "assets": [
+      {
+        "name": "moltweave-v02-interrupted-501-evidence.tar.gz",
+        "bytes": 198303464,
+        "sha256": "d1f13ce09a62163b11724e2fd7a6c575edc4d62a051a949f740aa53955fe70c3",
+        "url": "https://github.com/Oxygen56/MoltWeave/releases/download/v0.2.0-preview.1/moltweave-v02-interrupted-501-evidence.tar.gz",
+        "uploaded_digest_matches_local": true
+      },
+      {
+        "name": "moltweave-v02-interrupted-501-evidence.tar.gz.manifest.jsonl",
+        "bytes": 6323335,
+        "sha256": "172b70855109a08b5b1be415eaa25fc50b27e287f82cf0a761224b616f622aaf",
+        "url": "https://github.com/Oxygen56/MoltWeave/releases/download/v0.2.0-preview.1/moltweave-v02-interrupted-501-evidence.tar.gz.manifest.jsonl",
+        "uploaded_digest_matches_local": true
+      },
+      {
+        "name": "moltweave-v02-interrupted-501-evidence.tar.gz.sha256",
+        "bytes": 112,
+        "sha256": "5c4fb2498bd28b1a1d66f883442047bfca5d717bd1db5aeb50255cea6f067ca2",
+        "url": "https://github.com/Oxygen56/MoltWeave/releases/download/v0.2.0-preview.1/moltweave-v02-interrupted-501-evidence.tar.gz.sha256",
+        "uploaded_digest_matches_local": true
+      }
+    ],
+    "formal_acceptance_completed": false
+  }
 }
