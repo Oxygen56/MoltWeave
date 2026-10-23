@@ -1,0 +1,4679 @@
+{
+  "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+  "passed": 16,
+  "total": 21,
+  "measurement_errors": 0,
+  "rate": 0.7619047619047619,
+  "families": {
+    "memory_temporal": {
+      "passed": 3,
+      "total": 3
+    },
+    "memory_scope": {
+      "passed": 3,
+      "total": 3
+    },
+    "rag_authority": {
+      "passed": 2,
+      "total": 3
+    },
+    "tool_routing": {
+      "passed": 2,
+      "total": 3
+    },
+    "tool_recovery": {
+      "passed": 1,
+      "total": 3
+    },
+    "composition": {
+      "passed": 2,
+      "total": 3
+    },
+    "clean": {
+      "passed": 3,
+      "total": 3
+    }
+  },
+  "traces": [
+    {
+      "task_id": "task-65fc68d47d7a6607",
+      "family": "memory_temporal",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "V126BF41B5D",
+        "evidence_ids": [
+          "ev-27005fa6a124d2a5",
+          "ev-4f592c92b1238107"
+        ]
+      },
+      "passed": true,
+      "checks": {
+        "answer": true,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 2,
+            "id": "ev-48b90eed010f8d68",
+            "features": {
+              "overlap": 1.0,
+              "age": 18.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.526315789473684
+          },
+          {
+            "index": 1,
+            "id": "ev-27005fa6a124d2a5",
+            "features": {
+              "overlap": 0.09375,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.09375
+          },
+          {
+            "index": 3,
+            "id": "ev-fb1a2e5fc9470f57",
+            "features": {
+              "overlap": 0.15625,
+              "age": 47.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6666666666666666
+          },
+          {
+            "index": 0,
+            "id": "ev-a08f5fef337e0275",
+            "features": {
+              "overlap": 0.125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.625
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-98c13438991299d9",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0625
+          }
+        ],
+        "tools": [
+          {
+            "index": 2,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.21875,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.21875
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.09375,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.09375
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Elm-b34bc1 is active. Registration token: VCEC9F7C540.",
+              "evidence_ids": [
+                "ev-4f592c92b1238107"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-e22c9e5a42d28a51",
+        "query": "Reconcile the latest applicable entry concerning Elm-b34bc1. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-48b90eed010f8d68",
+            "text": "Archived note: Reconcile the latest applicable entry concerning Elm-b34bc1. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Assigned channel was V44A0567D35.",
+            "entity": "Elm-b34bc1",
+            "age": 18,
+            "trusted": 1,
+            "scope": "usr-e22c9e5a42d28a51",
+            "source_id": "src-ea845b7403c3f4e9"
+          },
+          {
+            "id": "ev-27005fa6a124d2a5",
+            "text": "Assignment for Elm-b34bc1: channel V126BF41B5D. Current owner's assignment.",
+            "entity": "Elm-b34bc1",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-e22c9e5a42d28a51",
+            "source_id": "src-7296635e19326379"
+          },
+          {
+            "id": "ev-fb1a2e5fc9470f57",
+            "text": "Previous record for Elm-b34bc1: assigned channel V31F67B02A0; live registry checked.",
+            "entity": "Elm-b34bc1",
+            "age": 47,
+            "trusted": 1,
+            "scope": "usr-e22c9e5a42d28a51",
+            "source_id": "src-4145daeafe12d87d"
+          },
+          {
+            "id": "ev-a08f5fef337e0275",
+            "text": "Current assigned channel code for Fennel-d9b18d is VE537A7B3CB.",
+            "entity": "Fennel-d9b18d",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-e22c9e5a42d28a51",
+            "source_id": "src-dbd5754be6296c07"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-98c13438991299d9",
+            "text": "Effective policy for Elm-b34bc1: tier V774F36F55D. Issued by registry authority.",
+            "entity": "Elm-b34bc1",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-cc15e7515ece5fbf"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Elm-b34bc1 is active. Registration token: VCEC9F7C540.",
+              "evidence_ids": [
+                "ev-4f592c92b1238107"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-0eaa1a5763be6ef2",
+      "family": "memory_temporal",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "V534BC24395",
+        "evidence_ids": [
+          "ev-50b38ac29a0ec3ac",
+          "ev-930e6ff0d134f606"
+        ]
+      },
+      "passed": true,
+      "checks": {
+        "answer": true,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 1,
+            "id": "ev-43ade1ad2b2d8c7f",
+            "features": {
+              "overlap": 1.0,
+              "age": 19.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.525
+          },
+          {
+            "index": 3,
+            "id": "ev-50b38ac29a0ec3ac",
+            "features": {
+              "overlap": 0.09375,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.09375
+          },
+          {
+            "index": 0,
+            "id": "ev-2cd90144c8cfafd0",
+            "features": {
+              "overlap": 0.15625,
+              "age": 47.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6666666666666666
+          },
+          {
+            "index": 2,
+            "id": "ev-5137e21761ec6ff8",
+            "features": {
+              "overlap": 0.125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.625
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-df79bcd4f75fdd7a",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0625
+          }
+        ],
+        "tools": [
+          {
+            "index": 0,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.21875,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.21875
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.09375,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.09375
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Fennel-5d1b2a is active. Registration token: V51605FC85F.",
+              "evidence_ids": [
+                "ev-930e6ff0d134f606"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-bcf0ee4f50b1ca29",
+        "query": "Reconcile the latest applicable entry concerning Fennel-5d1b2a. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-43ade1ad2b2d8c7f",
+            "text": "Archived note: Reconcile the latest applicable entry concerning Fennel-5d1b2a. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Assigned channel was V46ED1DA3E7.",
+            "entity": "Fennel-5d1b2a",
+            "age": 19,
+            "trusted": 1,
+            "scope": "usr-bcf0ee4f50b1ca29",
+            "source_id": "src-46406728d3b4f95d"
+          },
+          {
+            "id": "ev-50b38ac29a0ec3ac",
+            "text": "Assignment for Fennel-5d1b2a: channel V534BC24395. Current owner's assignment.",
+            "entity": "Fennel-5d1b2a",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-bcf0ee4f50b1ca29",
+            "source_id": "src-6134c032cb8f1dd4"
+          },
+          {
+            "id": "ev-2cd90144c8cfafd0",
+            "text": "Previous record for Fennel-5d1b2a: assigned channel V3CB4861D50; live registry checked.",
+            "entity": "Fennel-5d1b2a",
+            "age": 47,
+            "trusted": 1,
+            "scope": "usr-bcf0ee4f50b1ca29",
+            "source_id": "src-ce8aa75cf6226421"
+          },
+          {
+            "id": "ev-5137e21761ec6ff8",
+            "text": "Current assigned channel code for Ginkgo-cfc8d9 is V99B0E988C3.",
+            "entity": "Ginkgo-cfc8d9",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-bcf0ee4f50b1ca29",
+            "source_id": "src-5066c7b76529ebeb"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-df79bcd4f75fdd7a",
+            "text": "Effective policy for Fennel-5d1b2a: tier V5F9FAA5111. Issued by registry authority.",
+            "entity": "Fennel-5d1b2a",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-4559d457b6254386"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Fennel-5d1b2a is active. Registration token: V51605FC85F.",
+              "evidence_ids": [
+                "ev-930e6ff0d134f606"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-bdf0a2a53c5bfe01",
+      "family": "memory_temporal",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "VB99D337713",
+        "evidence_ids": [
+          "ev-64e9567fd1fcb562",
+          "ev-b2ab7600105040c3"
+        ]
+      },
+      "passed": true,
+      "checks": {
+        "answer": true,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 3,
+            "id": "ev-7da8b413177c4248",
+            "features": {
+              "overlap": 1.0,
+              "age": 20.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.5238095238095237
+          },
+          {
+            "index": 1,
+            "id": "ev-64e9567fd1fcb562",
+            "features": {
+              "overlap": 0.09375,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.09375
+          },
+          {
+            "index": 0,
+            "id": "ev-9a4865f49783a829",
+            "features": {
+              "overlap": 0.15625,
+              "age": 47.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6666666666666666
+          },
+          {
+            "index": 2,
+            "id": "ev-d037607ebe46558c",
+            "features": {
+              "overlap": 0.125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.625
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-044d4f0bc238824d",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0625
+          }
+        ],
+        "tools": [
+          {
+            "index": 2,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.21875,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.21875
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.09375,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.09375
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Ginkgo-dfb628 is active. Registration token: V0A41E3593B.",
+              "evidence_ids": [
+                "ev-b2ab7600105040c3"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-75b974218ac627ce",
+        "query": "Reconcile the latest applicable entry concerning Ginkgo-dfb628. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-7da8b413177c4248",
+            "text": "Archived note: Reconcile the latest applicable entry concerning Ginkgo-dfb628. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Assigned channel was VDBD461C4E6.",
+            "entity": "Ginkgo-dfb628",
+            "age": 20,
+            "trusted": 1,
+            "scope": "usr-75b974218ac627ce",
+            "source_id": "src-603ac7d390288fae"
+          },
+          {
+            "id": "ev-64e9567fd1fcb562",
+            "text": "Assignment for Ginkgo-dfb628: channel VB99D337713. Current owner's assignment.",
+            "entity": "Ginkgo-dfb628",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-75b974218ac627ce",
+            "source_id": "src-a37cf46ba139a9cd"
+          },
+          {
+            "id": "ev-9a4865f49783a829",
+            "text": "Previous record for Ginkgo-dfb628: assigned channel V4FACD63573; live registry checked.",
+            "entity": "Ginkgo-dfb628",
+            "age": 47,
+            "trusted": 1,
+            "scope": "usr-75b974218ac627ce",
+            "source_id": "src-3f9f7a87a1b474c8"
+          },
+          {
+            "id": "ev-d037607ebe46558c",
+            "text": "Current assigned channel code for Elm-1780f2 is V42E96B1A4C.",
+            "entity": "Elm-1780f2",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-75b974218ac627ce",
+            "source_id": "src-fb44e8da30a7b42e"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-044d4f0bc238824d",
+            "text": "Effective policy for Ginkgo-dfb628: tier V06EC6AA508. Issued by registry authority.",
+            "entity": "Ginkgo-dfb628",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-43aca67e6582116f"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Ginkgo-dfb628 is active. Registration token: V0A41E3593B.",
+              "evidence_ids": [
+                "ev-b2ab7600105040c3"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-8416114043781561",
+      "family": "memory_scope",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "VB4EB017D44",
+        "evidence_ids": [
+          "ev-e5c239266fabaacf",
+          "ev-8e56726219686ac9",
+          "ev-300db822295ceeae"
+        ]
+      },
+      "passed": true,
+      "checks": {
+        "answer": true,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 2,
+            "id": "ev-e5c239266fabaacf",
+            "features": {
+              "overlap": 0.09375,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.09375
+          },
+          {
+            "index": 1,
+            "id": "ev-8e56726219686ac9",
+            "features": {
+              "overlap": 0.0625,
+              "age": 3.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6875
+          },
+          {
+            "index": 0,
+            "id": "ev-505cd0864bec6fbb",
+            "features": {
+              "overlap": 0.15625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.65625
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-37696fdee0527aae",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0625
+          }
+        ],
+        "tools": [
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.21875,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.21875
+          },
+          {
+            "index": 0,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.09375,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.09375
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Elm-cc4da1 is active. Registration token: V972584EDEC.",
+              "evidence_ids": [
+                "ev-300db822295ceeae"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-75f63bea0cef2cc7",
+        "query": "Reconcile the latest applicable entry concerning Elm-cc4da1. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-e5c239266fabaacf",
+            "text": "Assignment for Elm-cc4da1: channel VB4EB017D44. Current owner's assignment.",
+            "entity": "Elm-cc4da1",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-75f63bea0cef2cc7",
+            "source_id": "src-8b89e7bf2bad90d3"
+          },
+          {
+            "id": "ev-8e56726219686ac9",
+            "text": "Global default for Elm-cc4da1: channel V69CEAD96F4; individual assignment overrides default.",
+            "entity": "Elm-cc4da1",
+            "age": 3,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-173176d81d92e549"
+          },
+          {
+            "id": "ev-505cd0864bec6fbb",
+            "text": "My current assigned channel code for Fennel-ce578a is V83CF51DD14.",
+            "entity": "Fennel-ce578a",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-75f63bea0cef2cc7",
+            "source_id": "src-8d62545f0278d5c9"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-37696fdee0527aae",
+            "text": "Effective policy for Elm-cc4da1: tier VDFBF4A41F4. Issued by registry authority.",
+            "entity": "Elm-cc4da1",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-ed6e0c8666db5a85"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Elm-cc4da1 is active. Registration token: V972584EDEC.",
+              "evidence_ids": [
+                "ev-300db822295ceeae"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-0a4c2d6e0fc2c61d",
+      "family": "memory_scope",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "V92F3A020CB",
+        "evidence_ids": [
+          "ev-54e3cefd1da04afd",
+          "ev-a2c80b26057a16b1",
+          "ev-a67392e60fff50df"
+        ]
+      },
+      "passed": true,
+      "checks": {
+        "answer": true,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-54e3cefd1da04afd",
+            "features": {
+              "overlap": 0.09375,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.09375
+          },
+          {
+            "index": 2,
+            "id": "ev-a2c80b26057a16b1",
+            "features": {
+              "overlap": 0.0625,
+              "age": 3.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6875
+          },
+          {
+            "index": 1,
+            "id": "ev-3ab47d3234faff25",
+            "features": {
+              "overlap": 0.15625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.65625
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-cb65343d9419f449",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0625
+          }
+        ],
+        "tools": [
+          {
+            "index": 0,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.21875,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.21875
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.09375,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.09375
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Fennel-6d3cb9 is active. Registration token: V191E13A85F.",
+              "evidence_ids": [
+                "ev-a67392e60fff50df"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-417ccbcf79fef3a3",
+        "query": "Reconcile the latest applicable entry concerning Fennel-6d3cb9. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-54e3cefd1da04afd",
+            "text": "Assignment for Fennel-6d3cb9: channel V92F3A020CB. Current owner's assignment.",
+            "entity": "Fennel-6d3cb9",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-417ccbcf79fef3a3",
+            "source_id": "src-9b541d2b728aadb4"
+          },
+          {
+            "id": "ev-a2c80b26057a16b1",
+            "text": "Global default for Fennel-6d3cb9: channel VC3F4027DFC; individual assignment overrides default.",
+            "entity": "Fennel-6d3cb9",
+            "age": 3,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-999c2c2eaaf288e3"
+          },
+          {
+            "id": "ev-3ab47d3234faff25",
+            "text": "My current assigned channel code for Ginkgo-39e6a4 is VF892DB0F65.",
+            "entity": "Ginkgo-39e6a4",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-417ccbcf79fef3a3",
+            "source_id": "src-a022df3bbcd87d2c"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-cb65343d9419f449",
+            "text": "Effective policy for Fennel-6d3cb9: tier V62149DC7B7. Issued by registry authority.",
+            "entity": "Fennel-6d3cb9",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-810a0ccde608a551"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Fennel-6d3cb9 is active. Registration token: V191E13A85F.",
+              "evidence_ids": [
+                "ev-a67392e60fff50df"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-7c59be21d03c8e0e",
+      "family": "memory_scope",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "VBB997BDE7B",
+        "evidence_ids": [
+          "ev-9a99bb1516af4435",
+          "ev-5be708e826e63883",
+          "ev-cf5c1d7cfb1bac53"
+        ]
+      },
+      "passed": true,
+      "checks": {
+        "answer": true,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-9a99bb1516af4435",
+            "features": {
+              "overlap": 0.09375,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.09375
+          },
+          {
+            "index": 2,
+            "id": "ev-5be708e826e63883",
+            "features": {
+              "overlap": 0.0625,
+              "age": 3.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6875
+          },
+          {
+            "index": 1,
+            "id": "ev-5d8efbebb263058f",
+            "features": {
+              "overlap": 0.15625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.65625
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-af44e53f9bfb642e",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0625
+          }
+        ],
+        "tools": [
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.21875,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.21875
+          },
+          {
+            "index": 2,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.09375,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.09375
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Ginkgo-0d539b is active. Registration token: V0A3B6BFA07.",
+              "evidence_ids": [
+                "ev-cf5c1d7cfb1bac53"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-a36a42ce4360e96a",
+        "query": "Reconcile the latest applicable entry concerning Ginkgo-0d539b. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-9a99bb1516af4435",
+            "text": "Assignment for Ginkgo-0d539b: channel VBB997BDE7B. Current owner's assignment.",
+            "entity": "Ginkgo-0d539b",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-a36a42ce4360e96a",
+            "source_id": "src-ba7b3e31b31ca789"
+          },
+          {
+            "id": "ev-5be708e826e63883",
+            "text": "Global default for Ginkgo-0d539b: channel V4741181011; individual assignment overrides default.",
+            "entity": "Ginkgo-0d539b",
+            "age": 3,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-b7243870dca00755"
+          },
+          {
+            "id": "ev-5d8efbebb263058f",
+            "text": "My current assigned channel code for Elm-52db93 is VF1082B9561.",
+            "entity": "Elm-52db93",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-a36a42ce4360e96a",
+            "source_id": "src-621a959415610f47"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-af44e53f9bfb642e",
+            "text": "Effective policy for Ginkgo-0d539b: tier V36AF5365FE. Issued by registry authority.",
+            "entity": "Ginkgo-0d539b",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-8fb9a9dfb8e6c0cf"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Ginkgo-0d539b is active. Registration token: V0A3B6BFA07.",
+              "evidence_ids": [
+                "ev-cf5c1d7cfb1bac53"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-6a41e202b2cb104e",
+      "family": "rag_authority",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "VC8E37A0141",
+        "evidence_ids": [
+          "ev-56b1b423e0693dac",
+          "ev-abe96218ce199a61"
+        ]
+      },
+      "passed": true,
+      "checks": {
+        "answer": true,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-fd4ea35e0ce72fe6",
+            "features": {
+              "overlap": 0.03125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.03125
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-8f471dcb09eaeca4",
+            "features": {
+              "overlap": 1.0,
+              "age": 0.0,
+              "trusted": 0.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.5
+          },
+          {
+            "index": 2,
+            "id": "ev-56b1b423e0693dac",
+            "features": {
+              "overlap": 0.125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.125
+          },
+          {
+            "index": 3,
+            "id": "ev-ddd33d3289876344",
+            "features": {
+              "overlap": 0.09375,
+              "age": 36.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6072635135135135
+          },
+          {
+            "index": 1,
+            "id": "ev-816dfcd961574dba",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.5625
+          }
+        ],
+        "tools": [
+          {
+            "index": 0,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.21875,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.21875
+          },
+          {
+            "index": 1,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          },
+          {
+            "index": 2,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.03125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.03125
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Elm-4e210a is active. Registration token: V4C4746037D.",
+              "evidence_ids": [
+                "ev-abe96218ce199a61"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-d1a28d7186617132",
+        "query": "Reconcile the latest applicable entry concerning Elm-4e210a. Return the currently applicable policy tier from an authoritative source. Confirm the object with the read-only live registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-fd4ea35e0ce72fe6",
+            "text": "Assignment for Elm-4e210a: channel V6AF2038075. Current owner's assignment.",
+            "entity": "Elm-4e210a",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-d1a28d7186617132",
+            "source_id": "src-f27aaa1b7c32c42d"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-8f471dcb09eaeca4",
+            "text": "Search excerpt: Reconcile the latest applicable entry concerning Elm-4e210a. Return the currently applicable policy tier from an authoritative source. Confirm the object with the read-only live registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Applicable policy tier V9BA85664C0.",
+            "entity": "Elm-4e210a",
+            "age": 0,
+            "trusted": 0,
+            "scope": "global",
+            "source_id": "src-39aed50ceecd40b8"
+          },
+          {
+            "id": "ev-56b1b423e0693dac",
+            "text": "Effective policy for Elm-4e210a: tier VC8E37A0141. Issued by registry authority.",
+            "entity": "Elm-4e210a",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-4c9250ddae64ebe2"
+          },
+          {
+            "id": "ev-ddd33d3289876344",
+            "text": "Superseded authority bulletin for Elm-4e210a: policy tier V7013FD1BB5.",
+            "entity": "Elm-4e210a",
+            "age": 36,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-eb6ee6065d0ac101"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Elm-4e210a is active. Registration token: V4C4746037D.",
+              "evidence_ids": [
+                "ev-abe96218ce199a61"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-cbf60bb4fa1edd85",
+      "family": "rag_authority",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "UNKNOWN",
+        "evidence_ids": [
+          "ev-aae64d795b55103d",
+          "ev-4afad8587dcf9f35",
+          "ev-7d01d6816c17d1ae",
+          "ev-36aa67b016e2634d"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-181e4df71698d0fa",
+            "features": {
+              "overlap": 0.03125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.03125
+          }
+        ],
+        "rag": [
+          {
+            "index": 1,
+            "id": "ev-7d01d6816c17d1ae",
+            "features": {
+              "overlap": 1.0,
+              "age": 0.0,
+              "trusted": 0.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.5
+          },
+          {
+            "index": 3,
+            "id": "ev-aae64d795b55103d",
+            "features": {
+              "overlap": 0.125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.125
+          },
+          {
+            "index": 0,
+            "id": "ev-4afad8587dcf9f35",
+            "features": {
+              "overlap": 0.09375,
+              "age": 37.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6069078947368421
+          },
+          {
+            "index": 2,
+            "id": "ev-0cee013d01bbc786",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.5625
+          }
+        ],
+        "tools": [
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.21875,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.21875
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          },
+          {
+            "index": 0,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.03125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.03125
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Fennel-301f16 is active. Registration token: V37A61356B4.",
+              "evidence_ids": [
+                "ev-36aa67b016e2634d"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-0592fb2e9c716536",
+        "query": "Reconcile the latest applicable entry concerning Fennel-301f16. Return the currently applicable policy tier from an authoritative source. Confirm the object with the read-only live registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-181e4df71698d0fa",
+            "text": "Assignment for Fennel-301f16: channel VD49662ECCA. Current owner's assignment.",
+            "entity": "Fennel-301f16",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-0592fb2e9c716536",
+            "source_id": "src-cff37c8cfb3b0972"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-7d01d6816c17d1ae",
+            "text": "Search excerpt: Reconcile the latest applicable entry concerning Fennel-301f16. Return the currently applicable policy tier from an authoritative source. Confirm the object with the read-only live registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Applicable policy tier VCD578B93A0.",
+            "entity": "Fennel-301f16",
+            "age": 0,
+            "trusted": 0,
+            "scope": "global",
+            "source_id": "src-0947c0b4a3f7e85d"
+          },
+          {
+            "id": "ev-aae64d795b55103d",
+            "text": "Effective policy for Fennel-301f16: tier V603885F0F9. Issued by registry authority.",
+            "entity": "Fennel-301f16",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-7eac7b9ef189c4f7"
+          },
+          {
+            "id": "ev-4afad8587dcf9f35",
+            "text": "Superseded authority bulletin for Fennel-301f16: policy tier V33FFBF44FD.",
+            "entity": "Fennel-301f16",
+            "age": 37,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-74810cf9fbca7d5e"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Fennel-301f16 is active. Registration token: V37A61356B4.",
+              "evidence_ids": [
+                "ev-36aa67b016e2634d"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-e5c3b67f95169697",
+      "family": "rag_authority",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "VF1A0EB7D00",
+        "evidence_ids": [
+          "ev-4281a6eee4f3c402",
+          "ev-364b218520e44375"
+        ]
+      },
+      "passed": true,
+      "checks": {
+        "answer": true,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-78ce92b80c751cc5",
+            "features": {
+              "overlap": 0.03125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.03125
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-e71eaf7ec631c293",
+            "features": {
+              "overlap": 1.0,
+              "age": 0.0,
+              "trusted": 0.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.5
+          },
+          {
+            "index": 1,
+            "id": "ev-4281a6eee4f3c402",
+            "features": {
+              "overlap": 0.125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.125
+          },
+          {
+            "index": 3,
+            "id": "ev-fbcdf000fcce9b79",
+            "features": {
+              "overlap": 0.09375,
+              "age": 38.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6065705128205128
+          },
+          {
+            "index": 2,
+            "id": "ev-5c85c0394e5a49a8",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.5625
+          }
+        ],
+        "tools": [
+          {
+            "index": 0,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.21875,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.21875
+          },
+          {
+            "index": 1,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          },
+          {
+            "index": 2,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.03125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.03125
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Ginkgo-dafb2c is active. Registration token: V5655CB5891.",
+              "evidence_ids": [
+                "ev-364b218520e44375"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-f072960511b8752e",
+        "query": "Reconcile the latest applicable entry concerning Ginkgo-dafb2c. Return the currently applicable policy tier from an authoritative source. Confirm the object with the read-only live registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-78ce92b80c751cc5",
+            "text": "Assignment for Ginkgo-dafb2c: channel VCF442BB1E4. Current owner's assignment.",
+            "entity": "Ginkgo-dafb2c",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-f072960511b8752e",
+            "source_id": "src-9f76da34c774f96f"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-e71eaf7ec631c293",
+            "text": "Search excerpt: Reconcile the latest applicable entry concerning Ginkgo-dafb2c. Return the currently applicable policy tier from an authoritative source. Confirm the object with the read-only live registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Applicable policy tier VD7E587B22E.",
+            "entity": "Ginkgo-dafb2c",
+            "age": 0,
+            "trusted": 0,
+            "scope": "global",
+            "source_id": "src-5a110c56c63593da"
+          },
+          {
+            "id": "ev-4281a6eee4f3c402",
+            "text": "Effective policy for Ginkgo-dafb2c: tier VF1A0EB7D00. Issued by registry authority.",
+            "entity": "Ginkgo-dafb2c",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-811c0e3f44815b39"
+          },
+          {
+            "id": "ev-fbcdf000fcce9b79",
+            "text": "Superseded authority bulletin for Ginkgo-dafb2c: policy tier VDD84C835FA.",
+            "entity": "Ginkgo-dafb2c",
+            "age": 38,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-fce2ec24157a507a"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Ginkgo-dafb2c is active. Registration token: V5655CB5891.",
+              "evidence_ids": [
+                "ev-364b218520e44375"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-7cb8c7a0957531c2",
+      "family": "tool_routing",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "VD00BF295E4",
+        "evidence_ids": [
+          "ev-6713909b50d230f3"
+        ]
+      },
+      "passed": true,
+      "checks": {
+        "answer": true,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-508262d9886f6651",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0769230769230769
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-115bd1699ba2979c",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0769230769230769
+          }
+        ],
+        "tools": [
+          {
+            "index": 3,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.2692307692307692,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.2692307692307692
+          },
+          {
+            "index": 4,
+            "id": "read_registry_preview",
+            "features": {
+              "overlap": 0.23076923076923078,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 0.0,
+              "read_only": 1.0
+            },
+            "score": 0.23076923076923078
+          },
+          {
+            "index": 0,
+            "id": "read_neighbor_registry",
+            "features": {
+              "overlap": 0.19230769230769232,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.19230769230769232
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.11538461538461539
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.07692307692307693
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Elm-115b25 is active. Registration token: VD00BF295E4.",
+              "evidence_ids": [
+                "ev-6713909b50d230f3"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-8785071afc90119f",
+        "query": "Reconcile the latest applicable entry concerning Elm-115b25. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-508262d9886f6651",
+            "text": "Assignment for Elm-115b25: channel VA2C68A9BFC. Current owner's assignment.",
+            "entity": "Elm-115b25",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-8785071afc90119f",
+            "source_id": "src-2d2b15ba8ec660c0"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-115bd1699ba2979c",
+            "text": "Effective policy for Elm-115b25: tier V908675B0E0. Issued by registry authority.",
+            "entity": "Elm-115b25",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-e9520375fa66d010"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Elm-115b25 is active. Registration token: VD00BF295E4.",
+              "evidence_ids": [
+                "ev-6713909b50d230f3"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-e5cdeb9acaca77fc",
+      "family": "tool_routing",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "V9F5AC23778",
+        "evidence_ids": [
+          "ev-09a9b246c8a06fd9"
+        ]
+      },
+      "passed": true,
+      "checks": {
+        "answer": true,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-e07cafbbf74f744f",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0769230769230769
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-e1a2431dcff690b2",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0769230769230769
+          }
+        ],
+        "tools": [
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.2692307692307692,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.2692307692307692
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.23076923076923078,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.23076923076923078
+          },
+          {
+            "index": 3,
+            "id": "read_registry_preview",
+            "features": {
+              "overlap": 0.23076923076923078,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 0.0,
+              "read_only": 1.0
+            },
+            "score": 0.23076923076923078
+          },
+          {
+            "index": 4,
+            "id": "read_neighbor_registry",
+            "features": {
+              "overlap": 0.19230769230769232,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.19230769230769232
+          },
+          {
+            "index": 0,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.11538461538461539
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Fennel-ccb929 is active. Registration token: V9F5AC23778.",
+              "evidence_ids": [
+                "ev-09a9b246c8a06fd9"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-ff8d07bd5621ba93",
+        "query": "Reconcile the latest applicable entry concerning Fennel-ccb929. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-e07cafbbf74f744f",
+            "text": "Assignment for Fennel-ccb929: channel VEEC2EEE615. Current owner's assignment.",
+            "entity": "Fennel-ccb929",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-ff8d07bd5621ba93",
+            "source_id": "src-d563bc004b072576"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-e1a2431dcff690b2",
+            "text": "Effective policy for Fennel-ccb929: tier VB1D59F18D7. Issued by registry authority.",
+            "entity": "Fennel-ccb929",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-0e34773578cf59ee"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Fennel-ccb929 is active. Registration token: V9F5AC23778.",
+              "evidence_ids": [
+                "ev-09a9b246c8a06fd9"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-3fc479bee18aa6f5",
+      "family": "tool_routing",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "UNKNOWN",
+        "evidence_ids": []
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": false,
+        "tool": false,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-6f6c2c55d7112940",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0769230769230769
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-74ff7ba1ce7d0c37",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0769230769230769
+          }
+        ],
+        "tools": [
+          {
+            "index": 4,
+            "id": "read_registry_preview",
+            "features": {
+              "overlap": 0.23076923076923078,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 0.0,
+              "read_only": 1.0
+            },
+            "score": 0.23076923076923078
+          },
+          {
+            "index": 3,
+            "id": "read_neighbor_registry",
+            "features": {
+              "overlap": 0.19230769230769232,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.19230769230769232
+          },
+          {
+            "index": 2,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.11538461538461539
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.07692307692307693
+          },
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.07692307692307693
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_registry_preview",
+            "attempt": 1,
+            "result": {
+              "status": "permanent_error",
+              "retryable": false,
+              "text": "Endpoint unavailable.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 0.0,
+                "error_permanent": 1.0
+              }
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-1b297dbc2d48965d",
+        "query": "Reconcile the latest applicable entry concerning Ginkgo-e8b716. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-6f6c2c55d7112940",
+            "text": "Assignment for Ginkgo-e8b716: channel VC19335981F. Current owner's assignment.",
+            "entity": "Ginkgo-e8b716",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-1b297dbc2d48965d",
+            "source_id": "src-487177df39c1febd"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-74ff7ba1ce7d0c37",
+            "text": "Effective policy for Ginkgo-e8b716: tier V5B7D80FDD0. Issued by registry authority.",
+            "entity": "Ginkgo-e8b716",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-69c647392f18cae3"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_registry_preview",
+            "attempt": 1,
+            "result": {
+              "status": "permanent_error",
+              "retryable": false,
+              "text": "Endpoint unavailable.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 0.0,
+                "error_permanent": 1.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-fa2458e5c8420567",
+      "family": "tool_recovery",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "UNKNOWN",
+        "evidence_ids": []
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": false,
+        "tool": true,
+        "attempts": false
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-af708737f973b93b",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0769230769230769
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-b3118e61b33e73e7",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0769230769230769
+          }
+        ],
+        "tools": [
+          {
+            "index": 2,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.2692307692307692,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.2692307692307692
+          },
+          {
+            "index": 0,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.11538461538461539
+          },
+          {
+            "index": 1,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.07692307692307693
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "transient_error",
+              "retryable": true,
+              "text": "Read timed out before any result; retry is permitted.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 1.0,
+                "error_permanent": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-144067bc96d28b10",
+        "query": "Reconcile the latest applicable entry concerning Elm-9be152. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-af708737f973b93b",
+            "text": "Assignment for Elm-9be152: channel V75EE110C6B. Current owner's assignment.",
+            "entity": "Elm-9be152",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-144067bc96d28b10",
+            "source_id": "src-7259ea1edd7594e7"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-b3118e61b33e73e7",
+            "text": "Effective policy for Elm-9be152: tier VFC1AED62B5. Issued by registry authority.",
+            "entity": "Elm-9be152",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-f1748561c21762f4"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "transient_error",
+              "retryable": true,
+              "text": "Read timed out before any result; retry is permitted.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 1.0,
+                "error_permanent": 0.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-5ba90d0a9304bb17",
+      "family": "tool_recovery",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "UNKNOWN",
+        "evidence_ids": []
+      },
+      "passed": true,
+      "checks": {
+        "answer": true,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-f7a7751f0b040d08",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0769230769230769
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-9781e5f45a10c907",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0769230769230769
+          }
+        ],
+        "tools": [
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.2692307692307692,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.2692307692307692
+          },
+          {
+            "index": 2,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.11538461538461539
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.07692307692307693
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "permanent_error",
+              "retryable": false,
+              "text": "Access denied; unchanged credentials must not be retried.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 0.0,
+                "error_permanent": 1.0
+              }
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-e39ef1a5ad1eb5de",
+        "query": "Reconcile the latest applicable entry concerning Fennel-7b1200. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-f7a7751f0b040d08",
+            "text": "Assignment for Fennel-7b1200: channel V5054EDD4A1. Current owner's assignment.",
+            "entity": "Fennel-7b1200",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-e39ef1a5ad1eb5de",
+            "source_id": "src-16462022f1750fa3"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-9781e5f45a10c907",
+            "text": "Effective policy for Fennel-7b1200: tier V0A42BC767D. Issued by registry authority.",
+            "entity": "Fennel-7b1200",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-030fd8e2bb0cff86"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "permanent_error",
+              "retryable": false,
+              "text": "Access denied; unchanged credentials must not be retried.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 0.0,
+                "error_permanent": 1.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-aad9c8ab416a494c",
+      "family": "tool_recovery",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "UNKNOWN",
+        "evidence_ids": []
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": false,
+        "tool": true,
+        "attempts": false
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-42f7f78c3dff1817",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0769230769230769
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-6e7fae4fed20e96b",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0769230769230769
+          }
+        ],
+        "tools": [
+          {
+            "index": 0,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.2692307692307692,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.2692307692307692
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.11538461538461539
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.07692307692307693
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "transient_error",
+              "retryable": true,
+              "text": "Read timed out before any result; retry is permitted.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 1.0,
+                "error_permanent": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-57f2651b1f36b85e",
+        "query": "Reconcile the latest applicable entry concerning Ginkgo-f8b23e. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-42f7f78c3dff1817",
+            "text": "Assignment for Ginkgo-f8b23e: channel VBB73A3A986. Current owner's assignment.",
+            "entity": "Ginkgo-f8b23e",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-57f2651b1f36b85e",
+            "source_id": "src-5a9f7085c967ba40"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-6e7fae4fed20e96b",
+            "text": "Effective policy for Ginkgo-f8b23e: tier V12EDBF2D31. Issued by registry authority.",
+            "entity": "Ginkgo-f8b23e",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-d4a5bdadebeffe5a"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "transient_error",
+              "retryable": true,
+              "text": "Read timed out before any result; retry is permitted.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 1.0,
+                "error_permanent": 0.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-dbf2e3fd7f5f7488",
+      "family": "composition",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "V25A4FC4E0B|VE06EC5C1DF|V722AAC675D",
+        "evidence_ids": [
+          "ev-e278f028090e1faa",
+          "ev-ceda8b58dd931001",
+          "ev-7373e89ad3646b62"
+        ]
+      },
+      "passed": true,
+      "checks": {
+        "answer": true,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 5,
+            "id": "ev-9232e2f71ad81b76",
+            "features": {
+              "overlap": 1.0,
+              "age": 18.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.526315789473684
+          },
+          {
+            "index": 0,
+            "id": "ev-e278f028090e1faa",
+            "features": {
+              "overlap": 0.1,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.1
+          },
+          {
+            "index": 2,
+            "id": "ev-df25a6a5c5036ccb",
+            "features": {
+              "overlap": 0.06666666666666667,
+              "age": 3.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6916666666666667
+          },
+          {
+            "index": 4,
+            "id": "ev-1399bb8cb2e40770",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 47.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6437499999999999
+          },
+          {
+            "index": 1,
+            "id": "ev-1c4bf6d73500a6ce",
+            "features": {
+              "overlap": 0.1,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6
+          },
+          {
+            "index": 3,
+            "id": "ev-2cf046db1a3d2451",
+            "features": {
+              "overlap": 0.1,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6
+          }
+        ],
+        "rag": [
+          {
+            "index": 3,
+            "id": "ev-0f8f602401b0e8b8",
+            "features": {
+              "overlap": 1.0,
+              "age": 0.0,
+              "trusted": 0.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.5
+          },
+          {
+            "index": 0,
+            "id": "ev-ceda8b58dd931001",
+            "features": {
+              "overlap": 0.1,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.1
+          },
+          {
+            "index": 1,
+            "id": "ev-5bef1e9ddcdd0aee",
+            "features": {
+              "overlap": 0.1,
+              "age": 36.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6135135135135135
+          },
+          {
+            "index": 2,
+            "id": "ev-9d303eec028776ef",
+            "features": {
+              "overlap": 0.1,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6
+          }
+        ],
+        "tools": [
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.23333333333333334,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.23333333333333334
+          },
+          {
+            "index": 2,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.1,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.1
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.03333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.03333333333333333
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Elm-be294c is active. Registration token: V722AAC675D.",
+              "evidence_ids": [
+                "ev-7373e89ad3646b62"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-01a469d75105f598",
+        "query": "Reconcile the latest applicable entry concerning Elm-be294c. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-9232e2f71ad81b76",
+            "text": "Archived note: Reconcile the latest applicable entry concerning Elm-be294c. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Assigned channel was VD8E4AE46B6.",
+            "entity": "Elm-be294c",
+            "age": 18,
+            "trusted": 1,
+            "scope": "usr-01a469d75105f598",
+            "source_id": "src-8c5f40e602176a29"
+          },
+          {
+            "id": "ev-e278f028090e1faa",
+            "text": "Assignment for Elm-be294c: channel V25A4FC4E0B. Current owner's assignment.",
+            "entity": "Elm-be294c",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-01a469d75105f598",
+            "source_id": "src-8a5ab381f3fb7b83"
+          },
+          {
+            "id": "ev-df25a6a5c5036ccb",
+            "text": "Global default for Elm-be294c: channel V9DEB5F27D0; individual assignment overrides default.",
+            "entity": "Elm-be294c",
+            "age": 3,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-74c4a278363f8435"
+          },
+          {
+            "id": "ev-1399bb8cb2e40770",
+            "text": "Previous record for Elm-be294c: assigned channel V9DEB5F27D0; live registry checked.",
+            "entity": "Elm-be294c",
+            "age": 47,
+            "trusted": 1,
+            "scope": "usr-01a469d75105f598",
+            "source_id": "src-ee02b7fb2fb4913f"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-0f8f602401b0e8b8",
+            "text": "Search excerpt: Reconcile the latest applicable entry concerning Elm-be294c. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Applicable policy tier V9DEB5F27D0.",
+            "entity": "Elm-be294c",
+            "age": 0,
+            "trusted": 0,
+            "scope": "global",
+            "source_id": "src-d4a2620f49a1d243"
+          },
+          {
+            "id": "ev-ceda8b58dd931001",
+            "text": "Effective policy for Elm-be294c: tier VE06EC5C1DF. Issued by registry authority.",
+            "entity": "Elm-be294c",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-2724ffcca6ac178c"
+          },
+          {
+            "id": "ev-5bef1e9ddcdd0aee",
+            "text": "Superseded authority bulletin for Elm-be294c: policy tier VD8E4AE46B6.",
+            "entity": "Elm-be294c",
+            "age": 36,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-3559e546dec11c4d"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Elm-be294c is active. Registration token: V722AAC675D.",
+              "evidence_ids": [
+                "ev-7373e89ad3646b62"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-2c11a612d8b1ef8f",
+      "family": "composition",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "UNKNOWN",
+        "evidence_ids": [
+          "ev-c75816d90cee68c5",
+          "ev-9ed28225897c78dd"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": false,
+        "tool": true,
+        "attempts": false
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 1,
+            "id": "ev-0792fe041ac47796",
+            "features": {
+              "overlap": 1.0,
+              "age": 19.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.525
+          },
+          {
+            "index": 4,
+            "id": "ev-c75816d90cee68c5",
+            "features": {
+              "overlap": 0.1,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.1
+          },
+          {
+            "index": 5,
+            "id": "ev-7a82338809d91c8c",
+            "features": {
+              "overlap": 0.06666666666666667,
+              "age": 3.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6916666666666667
+          },
+          {
+            "index": 3,
+            "id": "ev-7b2fb11a4e7500c2",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 47.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6437499999999999
+          },
+          {
+            "index": 0,
+            "id": "ev-afe1ba800aa354a2",
+            "features": {
+              "overlap": 0.1,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6
+          },
+          {
+            "index": 2,
+            "id": "ev-af3bbef0ef51e64e",
+            "features": {
+              "overlap": 0.1,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6
+          }
+        ],
+        "rag": [
+          {
+            "index": 3,
+            "id": "ev-22c4b2fc5d0cb636",
+            "features": {
+              "overlap": 1.0,
+              "age": 0.0,
+              "trusted": 0.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.5
+          },
+          {
+            "index": 2,
+            "id": "ev-9ed28225897c78dd",
+            "features": {
+              "overlap": 0.1,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.1
+          },
+          {
+            "index": 0,
+            "id": "ev-e118eaeb58d5dcb9",
+            "features": {
+              "overlap": 0.1,
+              "age": 37.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6131578947368421
+          },
+          {
+            "index": 1,
+            "id": "ev-b4e284b37aaa8e94",
+            "features": {
+              "overlap": 0.1,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6
+          }
+        ],
+        "tools": [
+          {
+            "index": 0,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.23333333333333334,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.23333333333333334
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.1,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.1
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.03333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.03333333333333333
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "transient_error",
+              "retryable": true,
+              "text": "Transient read timeout; retry permitted.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 1.0,
+                "error_permanent": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-87e36b1606afc48f",
+        "query": "Reconcile the latest applicable entry concerning Fennel-1cd7d6. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-0792fe041ac47796",
+            "text": "Archived note: Reconcile the latest applicable entry concerning Fennel-1cd7d6. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Assigned channel was VC6622684F3.",
+            "entity": "Fennel-1cd7d6",
+            "age": 19,
+            "trusted": 1,
+            "scope": "usr-87e36b1606afc48f",
+            "source_id": "src-e24e523c71f0d6a5"
+          },
+          {
+            "id": "ev-c75816d90cee68c5",
+            "text": "Assignment for Fennel-1cd7d6: channel V736754BE91. Current owner's assignment.",
+            "entity": "Fennel-1cd7d6",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-87e36b1606afc48f",
+            "source_id": "src-6f709174a883ff26"
+          },
+          {
+            "id": "ev-7a82338809d91c8c",
+            "text": "Global default for Fennel-1cd7d6: channel V0B42A23490; individual assignment overrides default.",
+            "entity": "Fennel-1cd7d6",
+            "age": 3,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-fa49e89b946a04b1"
+          },
+          {
+            "id": "ev-7b2fb11a4e7500c2",
+            "text": "Previous record for Fennel-1cd7d6: assigned channel V0B42A23490; live registry checked.",
+            "entity": "Fennel-1cd7d6",
+            "age": 47,
+            "trusted": 1,
+            "scope": "usr-87e36b1606afc48f",
+            "source_id": "src-b110c289ebb3fd38"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-22c4b2fc5d0cb636",
+            "text": "Search excerpt: Reconcile the latest applicable entry concerning Fennel-1cd7d6. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Applicable policy tier V0B42A23490.",
+            "entity": "Fennel-1cd7d6",
+            "age": 0,
+            "trusted": 0,
+            "scope": "global",
+            "source_id": "src-f7041798b2618a26"
+          },
+          {
+            "id": "ev-9ed28225897c78dd",
+            "text": "Effective policy for Fennel-1cd7d6: tier V0F93824F77. Issued by registry authority.",
+            "entity": "Fennel-1cd7d6",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-778fde9daf0cf601"
+          },
+          {
+            "id": "ev-e118eaeb58d5dcb9",
+            "text": "Superseded authority bulletin for Fennel-1cd7d6: policy tier VC6622684F3.",
+            "entity": "Fennel-1cd7d6",
+            "age": 37,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-3059edee129f0e39"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "transient_error",
+              "retryable": true,
+              "text": "Transient read timeout; retry permitted.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 1.0,
+                "error_permanent": 0.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-4449a7cf2f74b997",
+      "family": "composition",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "V6F4B2DEDFD|VDD19C98D22|VA7CFA4D96E",
+        "evidence_ids": [
+          "ev-12e57bed52a2e5e7",
+          "ev-2e4af8f69ca7b3be",
+          "ev-538d018392b161cf"
+        ]
+      },
+      "passed": true,
+      "checks": {
+        "answer": true,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 3,
+            "id": "ev-9bb1162716bed761",
+            "features": {
+              "overlap": 1.0,
+              "age": 20.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.5238095238095237
+          },
+          {
+            "index": 1,
+            "id": "ev-12e57bed52a2e5e7",
+            "features": {
+              "overlap": 0.1,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.1
+          },
+          {
+            "index": 2,
+            "id": "ev-7dc4c56da1183e7e",
+            "features": {
+              "overlap": 0.06666666666666667,
+              "age": 3.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6916666666666667
+          },
+          {
+            "index": 0,
+            "id": "ev-635e4b367694f629",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 47.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6437499999999999
+          },
+          {
+            "index": 4,
+            "id": "ev-6a3816877d1d1835",
+            "features": {
+              "overlap": 0.1,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6
+          },
+          {
+            "index": 5,
+            "id": "ev-f7fce63ee2efdf6d",
+            "features": {
+              "overlap": 0.1,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6
+          }
+        ],
+        "rag": [
+          {
+            "index": 1,
+            "id": "ev-ad6a899570f58c2f",
+            "features": {
+              "overlap": 1.0,
+              "age": 0.0,
+              "trusted": 0.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.5
+          },
+          {
+            "index": 2,
+            "id": "ev-2e4af8f69ca7b3be",
+            "features": {
+              "overlap": 0.1,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.1
+          },
+          {
+            "index": 3,
+            "id": "ev-030722f4f4809142",
+            "features": {
+              "overlap": 0.1,
+              "age": 38.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6128205128205128
+          },
+          {
+            "index": 0,
+            "id": "ev-69e963d01221f7ae",
+            "features": {
+              "overlap": 0.1,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.6
+          }
+        ],
+        "tools": [
+          {
+            "index": 2,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.23333333333333334,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.23333333333333334
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.1,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.1
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.03333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.03333333333333333
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Ginkgo-965a5d is active. Registration token: VA7CFA4D96E.",
+              "evidence_ids": [
+                "ev-538d018392b161cf"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-6ca856a2a41d13c9",
+        "query": "Reconcile the latest applicable entry concerning Ginkgo-965a5d. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-9bb1162716bed761",
+            "text": "Archived note: Reconcile the latest applicable entry concerning Ginkgo-965a5d. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Assigned channel was VEB371FE3DB.",
+            "entity": "Ginkgo-965a5d",
+            "age": 20,
+            "trusted": 1,
+            "scope": "usr-6ca856a2a41d13c9",
+            "source_id": "src-0465a21022c242ac"
+          },
+          {
+            "id": "ev-12e57bed52a2e5e7",
+            "text": "Assignment for Ginkgo-965a5d: channel V6F4B2DEDFD. Current owner's assignment.",
+            "entity": "Ginkgo-965a5d",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-6ca856a2a41d13c9",
+            "source_id": "src-4c4d36ab71575aa7"
+          },
+          {
+            "id": "ev-7dc4c56da1183e7e",
+            "text": "Global default for Ginkgo-965a5d: channel V05A29D6874; individual assignment overrides default.",
+            "entity": "Ginkgo-965a5d",
+            "age": 3,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-433309ae219e6d0e"
+          },
+          {
+            "id": "ev-635e4b367694f629",
+            "text": "Previous record for Ginkgo-965a5d: assigned channel V05A29D6874; live registry checked.",
+            "entity": "Ginkgo-965a5d",
+            "age": 47,
+            "trusted": 1,
+            "scope": "usr-6ca856a2a41d13c9",
+            "source_id": "src-05d3aa36f7aa37b5"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-ad6a899570f58c2f",
+            "text": "Search excerpt: Reconcile the latest applicable entry concerning Ginkgo-965a5d. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Applicable policy tier V05A29D6874.",
+            "entity": "Ginkgo-965a5d",
+            "age": 0,
+            "trusted": 0,
+            "scope": "global",
+            "source_id": "src-ed06d4170d73203f"
+          },
+          {
+            "id": "ev-2e4af8f69ca7b3be",
+            "text": "Effective policy for Ginkgo-965a5d: tier VDD19C98D22. Issued by registry authority.",
+            "entity": "Ginkgo-965a5d",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-a7497b274849291d"
+          },
+          {
+            "id": "ev-030722f4f4809142",
+            "text": "Superseded authority bulletin for Ginkgo-965a5d: policy tier VEB371FE3DB.",
+            "entity": "Ginkgo-965a5d",
+            "age": 38,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-df150dd92a0a2b96"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Ginkgo-965a5d is active. Registration token: VA7CFA4D96E.",
+              "evidence_ids": [
+                "ev-538d018392b161cf"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-80bd70320edef1a1",
+      "family": "clean",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "VDCB9155F11",
+        "evidence_ids": [
+          "ev-5e18704bc61bf864"
+        ]
+      },
+      "passed": true,
+      "checks": {
+        "answer": true,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-10765128d3855ab2",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0769230769230769
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-71b5d504548b5417",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0769230769230769
+          }
+        ],
+        "tools": [
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.2692307692307692,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.2692307692307692
+          },
+          {
+            "index": 0,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.11538461538461539
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.07692307692307693
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Elm-538c67 is active. Registration token: VDCB9155F11.",
+              "evidence_ids": [
+                "ev-5e18704bc61bf864"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-8991307de73af644",
+        "query": "Reconcile the latest applicable entry concerning Elm-538c67. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-10765128d3855ab2",
+            "text": "Assignment for Elm-538c67: channel VA268AEB687. Current owner's assignment.",
+            "entity": "Elm-538c67",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-8991307de73af644",
+            "source_id": "src-51f9f27599e758be"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-71b5d504548b5417",
+            "text": "Effective policy for Elm-538c67: tier VB11C957B78. Issued by registry authority.",
+            "entity": "Elm-538c67",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-e787afbcb288efa5"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Elm-538c67 is active. Registration token: VDCB9155F11.",
+              "evidence_ids": [
+                "ev-5e18704bc61bf864"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-c1930918fac42a68",
+      "family": "clean",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "V67A32FF109",
+        "evidence_ids": [
+          "ev-5c5d41172ed7b00f"
+        ]
+      },
+      "passed": true,
+      "checks": {
+        "answer": true,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-ef58219be54a34a1",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0769230769230769
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-2e9bda2aadfb3a1c",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0769230769230769
+          }
+        ],
+        "tools": [
+          {
+            "index": 0,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.2692307692307692,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.2692307692307692
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.11538461538461539
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.07692307692307693
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Fennel-3e3aa0 is active. Registration token: V67A32FF109.",
+              "evidence_ids": [
+                "ev-5c5d41172ed7b00f"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-31da83a33107165e",
+        "query": "Reconcile the latest applicable entry concerning Fennel-3e3aa0. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-ef58219be54a34a1",
+            "text": "Assignment for Fennel-3e3aa0: channel VB09CDEDC84. Current owner's assignment.",
+            "entity": "Fennel-3e3aa0",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-b73fb56f1f7a18c3"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-2e9bda2aadfb3a1c",
+            "text": "Effective policy for Fennel-3e3aa0: tier V23732DEB9C. Issued by registry authority.",
+            "entity": "Fennel-3e3aa0",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-d715286593225fc7"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Fennel-3e3aa0 is active. Registration token: V67A32FF109.",
+              "evidence_ids": [
+                "ev-5c5d41172ed7b00f"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-493bbcfade387330",
+      "family": "clean",
+      "generation": "g3:dev",
+      "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "output": {
+        "answer": "V3B03F4A1D5",
+        "evidence_ids": [
+          "ev-914193bd255a7de5"
+        ]
+      },
+      "passed": true,
+      "checks": {
+        "answer": true,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-6ea2fdd977a3c051",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0769230769230769
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-7e96f1ae97f22c29",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0769230769230769
+          }
+        ],
+        "tools": [
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.2692307692307692,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.2692307692307692
+          },
+          {
+            "index": 0,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.11538461538461539
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.07692307692307693
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Ginkgo-42f57c is active. Registration token: V3B03F4A1D5.",
+              "evidence_ids": [
+                "ev-914193bd255a7de5"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-5dc4a6051d68a2c3",
+        "query": "Reconcile the latest applicable entry concerning Ginkgo-42f57c. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-6ea2fdd977a3c051",
+            "text": "Assignment for Ginkgo-42f57c: channel V8781F00288. Current owner's assignment.",
+            "entity": "Ginkgo-42f57c",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-5dc4a6051d68a2c3",
+            "source_id": "src-abc74d1835bf8cf7"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-7e96f1ae97f22c29",
+            "text": "Effective policy for Ginkgo-42f57c: tier VB0221C9095. Issued by registry authority.",
+            "entity": "Ginkgo-42f57c",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-3489c9d2422bdf33"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Ginkgo-42f57c is active. Registration token: V3B03F4A1D5.",
+              "evidence_ids": [
+                "ev-914193bd255a7de5"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

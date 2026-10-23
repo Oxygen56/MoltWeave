@@ -1,0 +1,69 @@
+{
+  "id": "2def93362aa94aed88922a869feb9c64",
+  "purpose": "policy_proposal",
+  "metadata": {
+    "generation": 1
+  },
+  "model_requested": "deepseek-flash",
+  "endpoint_host": "api.deepseek.com",
+  "request_hash": "ebda5eef41f9b29391e8af9e31dd70734b3ec91a84c547f092e4cbac6f63e4a8",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Evolve the agent's executable meta-exploration policy, not the task answers. Return JSON {hypothesis:string, policy:{score:expression,branches:int}, predicted_decision_change:string}. This policy ranks which mechanism to improve next. Learn from unsuccessful/repeated module attempts and observed gains. Preserve exploration of remaining real defects. Use the bounded numeric IR. Keep branches=2 for comparable proposal opportunities. No permissions/evaluation modifications."
+    },
+    {
+      "role": "user",
+      "content": "{\"current_policy\": {\"score\": {\"op\": \"add\", \"args\": [{\"var\": \"failure_rate\"}, {\"op\": \"mul\", \"args\": [0.5, {\"op\": \"add\", \"args\": [{\"var\": \"stagnation\"}, {\"op\": \"mul\", \"args\": [2, {\"var\": \"invalid_count\"}]}]}]}]}, \"branches\": 2}, \"state\": {\"memory\": {\"failure_count\": 5, \"failure_rate\": 0.8333333333333334, \"attempted\": 1, \"last_gain\": 0, \"has_gain\": 0.0, \"success_rate\": 0.0, \"stagnation\": 0, \"invalid_count\": 1, \"blocked_count\": 0}, \"rag\": {\"failure_count\": 1, \"failure_rate\": 0.3333333333333333, \"attempted\": 0, \"last_gain\": 0, \"has_gain\": 0.0, \"success_rate\": 0.0, \"stagnation\": 0, \"invalid_count\": 0, \"blocked_count\": 0}, \"tools\": {\"failure_count\": 1, \"failure_rate\": 0.3333333333333333, \"attempted\": 0, \"last_gain\": 0, \"has_gain\": 0.0, \"success_rate\": 0.0, \"stagnation\": 0, \"invalid_count\": 0, \"blocked_count\": 0}, \"recovery\": {\"failure_count\": 2, \"failure_rate\": 0.6666666666666666, \"attempted\": 1, \"last_gain\": 0, \"has_gain\": 0.0, \"success_rate\": 0.0, \"stagnation\": 0, \"invalid_count\": 1, \"blocked_count\": 0}, \"prompt\": {\"failure_count\": 3, \"failure_rate\": 0.5, \"attempted\": 0, \"last_gain\": 0, \"has_gain\": 0.0, \"success_rate\": 0.0, \"stagnation\": 0, \"invalid_count\": 0, \"blocked_count\": 0}}, \"executed_history\": [{\"generation\": 0, \"branch\": 0, \"module\": \"memory\", \"status\": \"invalid_candidate\", \"gain\": null}, {\"generation\": 0, \"branch\": 1, \"module\": \"recovery\", \"status\": \"invalid_candidate\", \"gain\": null}, {\"generation\": 1, \"branch\": 0, \"module\": \"memory\", \"status\": \"executed\", \"gain\": 0.28571428571428575}, {\"generation\": 1, \"branch\": 1, \"module\": \"recovery\", \"status\": \"invalid_candidate\", \"gain\": null}], \"IR\": {\"format\": {\"variable\": {\"var\": \"feature_name\"}, \"operation\": {\"op\": \"add\", \"args\": [1, {\"var\": \"overlap\"}]}}, \"ops\": [\"abs\", \"add\", \"and\", \"div\", \"eq\", \"ge\", \"gt\", \"if\", \"log1p\", \"lt\", \"max\", \"min\", \"mul\", \"neg\", \"not\", \"or\", \"sub\"], \"features\": [\"age\", \"attempt\", \"attempted\", \"available\", \"blocked_count\", \"deprecated\", \"entity_match\", \"error_permanent\", \"error_retryable\", \"failure_count\", \"failure_rate\", \"global_scope\", \"has_gain\", \"invalid_count\", \"is_memory\", \"is_prompt\", \"is_rag\", \"is_recovery\", \"is_tools\", \"last_gain\", \"overlap\", \"read_only\", \"scope_match\", \"stagnation\", \"success_rate\", \"trusted\"], \"semantics\": \"Larger scores rank first. age=0 means latest, positive means older; scope_match/global_scope/trusted/entity_match are 0/1. Retry is a boolean numeric expression. No imports, strings-as-code, I/O or authority changes. top_k 1..6, max_attempts 1..3. No task-specific answers, IDs or names in programs.\"}}"
+    }
+  ],
+  "started_at": 1792746020.9656,
+  "request_parameters": {
+    "model": "deepseek-flash",
+    "temperature": 0,
+    "max_tokens": 4000,
+    "response_format": {
+      "type": "json_object"
+    },
+    "thinking": {
+      "type": "disabled"
+    }
+  },
+  "physical_attempts": [
+    {
+      "number": 1,
+      "started_at": 1792746020.965609,
+      "status": "completed",
+      "content": "{\n  \"hypothesis\": \"The current policy over-weights invalid_count and failure_rate, causing repeated selection of memory and recovery modules that have already been attempted (memory succeeded once, recovery invalid twice). Since attempted modules with no gain should be deprioritized to preserve exploration of un-attempted real defects (rag, tools, prompt), the score should penalize attempted modules and reward un-attempted ones, while still considering failure_rate and stagnation.\",\n  \"policy\": {\n    \"score\": {\n      \"op\": \"add\",\n      \"args\": [\n        {\n          \"op\": \"mul\",\n          \"args\": [\n            2,\n            {\n              \"op\": \"sub\",\n              \"args\": [\n                1,\n                {\"var\": \"attempted\"}\n              ]\n            }\n          ]\n        },\n        {\n          \"op\": \"add\",\n          \"args\": [\n            {\"var\": \"failure_rate\"},\n            {\n              \"op\": \"mul\",\n              \"args\": [\n                0.5,\n                {\n                  \"op\": \"add\",\n                  \"args\": [\n                    {\"var\": \"stagnation\"},\n                    {\"op\": \"mul\", \"args\": [2, {\"var\": \"invalid_count\"}]}\n                  ]\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    },\n    \"branches\": 2\n  },\n  \"predicted_decision_change\": \"The next proposal will rank rag, tools, or prompt (attempted=0) above memory and recovery (attempted=1), shifting exploration away from repeatedly invalid/attempted modules toward un-attempted real defects, while still favoring higher failure_rate and stagnation among un-attempted modules.\"\n}",
+      "usage": {
+        "prompt_tokens": 1055,
+        "completion_tokens": 347,
+        "total_tokens": 1402,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1055
+      },
+      "response_id": "d5899534-22b7-48fe-9e6c-9dea3fd7a209",
+      "finish_reason": "stop"
+    }
+  ],
+  "status": "completed",
+  "model_returned": "deepseek-flash",
+  "usage": {
+    "prompt_tokens": 1055,
+    "completion_tokens": 347,
+    "total_tokens": 1402,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1055
+  },
+  "response_id": "d5899534-22b7-48fe-9e6c-9dea3fd7a209",
+  "content": "{\n  \"hypothesis\": \"The current policy over-weights invalid_count and failure_rate, causing repeated selection of memory and recovery modules that have already been attempted (memory succeeded once, recovery invalid twice). Since attempted modules with no gain should be deprioritized to preserve exploration of un-attempted real defects (rag, tools, prompt), the score should penalize attempted modules and reward un-attempted ones, while still considering failure_rate and stagnation.\",\n  \"policy\": {\n    \"score\": {\n      \"op\": \"add\",\n      \"args\": [\n        {\n          \"op\": \"mul\",\n          \"args\": [\n            2,\n            {\n              \"op\": \"sub\",\n              \"args\": [\n                1,\n                {\"var\": \"attempted\"}\n              ]\n            }\n          ]\n        },\n        {\n          \"op\": \"add\",\n          \"args\": [\n            {\"var\": \"failure_rate\"},\n            {\n              \"op\": \"mul\",\n              \"args\": [\n                0.5,\n                {\n                  \"op\": \"add\",\n                  \"args\": [\n                    {\"var\": \"stagnation\"},\n                    {\"op\": \"mul\", \"args\": [2, {\"var\": \"invalid_count\"}]}\n                  ]\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    },\n    \"branches\": 2\n  },\n  \"predicted_decision_change\": \"The next proposal will rank rag, tools, or prompt (attempted=0) above memory and recovery (attempted=1), shifting exploration away from repeatedly invalid/attempted modules toward un-attempted real defects, while still favoring higher failure_rate and stagnation among un-attempted modules.\"\n}",
+  "finish_reason": "stop",
+  "attempts": 1,
+  "elapsed_seconds": 3.332
+}

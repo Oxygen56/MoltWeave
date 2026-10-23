@@ -1,0 +1,101 @@
+{
+  "question_id": "57281ab63acd2414000df497",
+  "program_hash": "53ee13bae5ba6e37606bda2bb4bed5355ba61214fb848b58c8c111b7b02415b0",
+  "prediction": "World War II",
+  "exact_match": 1.0,
+  "f1": 1.0,
+  "output": {
+    "answer": "World War II",
+    "evidence_ids": [
+      "squad-p-96357c5125cc29ec"
+    ]
+  },
+  "ranking": [
+    {
+      "index": 1,
+      "id": "squad-p-96357c5125cc29ec",
+      "features": {
+        "overlap": 0.5454545454545454,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.5454545454545454
+    },
+    {
+      "index": 3,
+      "id": "squad-p-27951c7a39c28ac4",
+      "features": {
+        "overlap": 0.36363636363636365,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.36363636363636365
+    },
+    {
+      "index": 0,
+      "id": "squad-p-00c495eb5e6a94ec",
+      "features": {
+        "overlap": 0.2727272727272727,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.2727272727272727
+    },
+    {
+      "index": 2,
+      "id": "squad-p-4da54d30221aa7e8",
+      "features": {
+        "overlap": 0.2727272727272727,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.2727272727272727
+    },
+    {
+      "index": 4,
+      "id": "squad-p-41ba868764a7b944",
+      "features": {
+        "overlap": 0.2727272727272727,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.2727272727272727
+    }
+  ],
+  "selected_ids": [
+    "squad-p-27951c7a39c28ac4",
+    "squad-p-96357c5125cc29ec"
+  ],
+  "gold_paragraph_retrieved": true,
+  "citation_ids_visible": true
+}

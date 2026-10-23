@@ -1,0 +1,370 @@
+{
+  "reports": {
+    "final": {
+      "g0": {
+        "program_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+        "passed": 38,
+        "total": 70,
+        "rate": 0.5428571428571428,
+        "families": {
+          "memory_temporal": {
+            "passed": 0,
+            "total": 10
+          },
+          "memory_scope": {
+            "passed": 8,
+            "total": 10
+          },
+          "rag_authority": {
+            "passed": 10,
+            "total": 10
+          },
+          "tool_routing": {
+            "passed": 7,
+            "total": 10
+          },
+          "tool_recovery": {
+            "passed": 3,
+            "total": 10
+          },
+          "composition": {
+            "passed": 0,
+            "total": 10
+          },
+          "clean": {
+            "passed": 10,
+            "total": 10
+          }
+        }
+      },
+      "g1": {
+        "program_hash": "b1c6f028a1a3dc532e04937a963cb62e81a068707ab809aaa514c9d4f96fa4eb",
+        "passed": 53,
+        "total": 70,
+        "rate": 0.7571428571428571,
+        "families": {
+          "memory_temporal": {
+            "passed": 9,
+            "total": 10
+          },
+          "memory_scope": {
+            "passed": 10,
+            "total": 10
+          },
+          "rag_authority": {
+            "passed": 9,
+            "total": 10
+          },
+          "tool_routing": {
+            "passed": 7,
+            "total": 10
+          },
+          "tool_recovery": {
+            "passed": 3,
+            "total": 10
+          },
+          "composition": {
+            "passed": 5,
+            "total": 10
+          },
+          "clean": {
+            "passed": 10,
+            "total": 10
+          }
+        }
+      },
+      "g2": {
+        "program_hash": "d5324c60fb5640b8400bb047d07caa4aadf15818189eea38fb64d05b52838866",
+        "passed": 51,
+        "total": 70,
+        "rate": 0.7285714285714285,
+        "families": {
+          "memory_temporal": {
+            "passed": 7,
+            "total": 10
+          },
+          "memory_scope": {
+            "passed": 10,
+            "total": 10
+          },
+          "rag_authority": {
+            "passed": 9,
+            "total": 10
+          },
+          "tool_routing": {
+            "passed": 7,
+            "total": 10
+          },
+          "tool_recovery": {
+            "passed": 3,
+            "total": 10
+          },
+          "composition": {
+            "passed": 5,
+            "total": 10
+          },
+          "clean": {
+            "passed": 10,
+            "total": 10
+          }
+        }
+      },
+      "g3": {
+        "program_hash": "63d4534c6ca256ac30f3ff4e8951a463ca618b14d37a69ae353d19aeba968c18",
+        "passed": 53,
+        "total": 70,
+        "rate": 0.7571428571428571,
+        "families": {
+          "memory_temporal": {
+            "passed": 7,
+            "total": 10
+          },
+          "memory_scope": {
+            "passed": 9,
+            "total": 10
+          },
+          "rag_authority": {
+            "passed": 9,
+            "total": 10
+          },
+          "tool_routing": {
+            "passed": 10,
+            "total": 10
+          },
+          "tool_recovery": {
+            "passed": 3,
+            "total": 10
+          },
+          "composition": {
+            "passed": 5,
+            "total": 10
+          },
+          "clean": {
+            "passed": 10,
+            "total": 10
+          }
+        }
+      },
+      "g4": {
+        "program_hash": "53ee13bae5ba6e37606bda2bb4bed5355ba61214fb848b58c8c111b7b02415b0",
+        "passed": 58,
+        "total": 70,
+        "rate": 0.8285714285714286,
+        "families": {
+          "memory_temporal": {
+            "passed": 10,
+            "total": 10
+          },
+          "memory_scope": {
+            "passed": 10,
+            "total": 10
+          },
+          "rag_authority": {
+            "passed": 10,
+            "total": 10
+          },
+          "tool_routing": {
+            "passed": 10,
+            "total": 10
+          },
+          "tool_recovery": {
+            "passed": 3,
+            "total": 10
+          },
+          "composition": {
+            "passed": 5,
+            "total": 10
+          },
+          "clean": {
+            "passed": 10,
+            "total": 10
+          }
+        }
+      }
+    },
+    "transfer": {
+      "g0": {
+        "program_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+        "passed": 39,
+        "total": 70,
+        "rate": 0.5571428571428572,
+        "families": {
+          "memory_temporal": {
+            "passed": 0,
+            "total": 10
+          },
+          "memory_scope": {
+            "passed": 9,
+            "total": 10
+          },
+          "rag_authority": {
+            "passed": 10,
+            "total": 10
+          },
+          "tool_routing": {
+            "passed": 7,
+            "total": 10
+          },
+          "tool_recovery": {
+            "passed": 3,
+            "total": 10
+          },
+          "composition": {
+            "passed": 0,
+            "total": 10
+          },
+          "clean": {
+            "passed": 10,
+            "total": 10
+          }
+        }
+      },
+      "g1": {
+        "program_hash": "b1c6f028a1a3dc532e04937a963cb62e81a068707ab809aaa514c9d4f96fa4eb",
+        "passed": 49,
+        "total": 70,
+        "rate": 0.7,
+        "families": {
+          "memory_temporal": {
+            "passed": 6,
+            "total": 10
+          },
+          "memory_scope": {
+            "passed": 10,
+            "total": 10
+          },
+          "rag_authority": {
+            "passed": 10,
+            "total": 10
+          },
+          "tool_routing": {
+            "passed": 7,
+            "total": 10
+          },
+          "tool_recovery": {
+            "passed": 3,
+            "total": 10
+          },
+          "composition": {
+            "passed": 3,
+            "total": 10
+          },
+          "clean": {
+            "passed": 10,
+            "total": 10
+          }
+        }
+      },
+      "g2": {
+        "program_hash": "d5324c60fb5640b8400bb047d07caa4aadf15818189eea38fb64d05b52838866",
+        "passed": 49,
+        "total": 70,
+        "rate": 0.7,
+        "families": {
+          "memory_temporal": {
+            "passed": 6,
+            "total": 10
+          },
+          "memory_scope": {
+            "passed": 10,
+            "total": 10
+          },
+          "rag_authority": {
+            "passed": 10,
+            "total": 10
+          },
+          "tool_routing": {
+            "passed": 7,
+            "total": 10
+          },
+          "tool_recovery": {
+            "passed": 3,
+            "total": 10
+          },
+          "composition": {
+            "passed": 3,
+            "total": 10
+          },
+          "clean": {
+            "passed": 10,
+            "total": 10
+          }
+        }
+      },
+      "g3": {
+        "program_hash": "63d4534c6ca256ac30f3ff4e8951a463ca618b14d37a69ae353d19aeba968c18",
+        "passed": 52,
+        "total": 70,
+        "rate": 0.7428571428571429,
+        "families": {
+          "memory_temporal": {
+            "passed": 6,
+            "total": 10
+          },
+          "memory_scope": {
+            "passed": 10,
+            "total": 10
+          },
+          "rag_authority": {
+            "passed": 10,
+            "total": 10
+          },
+          "tool_routing": {
+            "passed": 10,
+            "total": 10
+          },
+          "tool_recovery": {
+            "passed": 3,
+            "total": 10
+          },
+          "composition": {
+            "passed": 3,
+            "total": 10
+          },
+          "clean": {
+            "passed": 10,
+            "total": 10
+          }
+        }
+      },
+      "g4": {
+        "program_hash": "53ee13bae5ba6e37606bda2bb4bed5355ba61214fb848b58c8c111b7b02415b0",
+        "passed": 54,
+        "total": 70,
+        "rate": 0.7714285714285715,
+        "families": {
+          "memory_temporal": {
+            "passed": 8,
+            "total": 10
+          },
+          "memory_scope": {
+            "passed": 10,
+            "total": 10
+          },
+          "rag_authority": {
+            "passed": 10,
+            "total": 10
+          },
+          "tool_routing": {
+            "passed": 10,
+            "total": 10
+          },
+          "tool_recovery": {
+            "passed": 3,
+            "total": 10
+          },
+          "composition": {
+            "passed": 3,
+            "total": 10
+          },
+          "clean": {
+            "passed": 10,
+            "total": 10
+          }
+        }
+      }
+    }
+  },
+  "readout_at": 1792745635.442847,
+  "selection_allowed": false
+}

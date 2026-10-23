@@ -1,0 +1,166 @@
+{
+  "generation": 3,
+  "branch": 1,
+  "module": "prompt",
+  "base_hash": "26d137e97b6680ec76180bc8d1abcedda904ca36dfb7577f0fcbb2404967475a",
+  "proposal": {
+    "hypothesis": "The agent returns UNKNOWN for required facts because the prompt's resolution rules treat 'authoritative' as requiring scope_match/trusted on the evidence record itself, and it does not recognize that a successful read-only live-registry tool result (or a trusted global-scope record) can establish the fact. In rag_authority and composition failures, the needed value exists in a trusted global-scope record (e.g., the policy tier) or in the live registry tool output, but the agent discards it as non-authoritative. Additionally, in composition the agent fails to resolve each field independently, marking tier UNKNOWN even when a trusted global-scope record supplies it. Fix: clarify that a successful read-only live-registry tool result is authoritative for the token, and that a trusted (trusted=1) record—even if global_scope—establishes a fact unless contradicted by a fresher trusted in-scope record; only untrusted sources are barred from granting authority. Also emphasize resolving each composed field independently and citing the specific evidence ID per field.",
+    "changes": {
+      "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string) and evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose.\n\nResolution rules (apply generally, never assume specific values):\n1. Candidate validity: a candidate is usable if it is available, not deprecated, and matches the queried entity (entity_match). Among usable candidates for the same fact, prefer the freshest (smallest age); treat older records as superseded by fresher ones for the same field.\n2. Authority: a fact is established if it comes from a trusted source (trusted=1) that is in scope (scope_match=1) OR from a trusted source that is the only trusted source for that fact and is not contradicted by a fresher trusted record. Untrusted sources (trusted=0) may inform but can never establish an authoritative fact such as a policy tier; if the only source for a required fact is untrusted, that fact is not established. A successful read-only live/current registry tool result is authoritative for the value it returns (e.g., a live token) and may be used directly.\n3. Tools: prefer read-only tools that match the entity and are available. If the top-ranked tool is unavailable, not read-only, or returns a permanent error, fall back to the best available read-only tool that matches the entity (e.g., a live/current read-only lookup) before concluding failure. Retry only on retryable, non-permanent errors within the attempt limit.\n4. Composition: when multiple fields are requested, resolve each field independently using rules 1-3, then join them in the requested order/format. Do not let a missing field force other fields to UNKNOWN; only the unresolved field becomes UNKNOWN.\n5. Only answer exactly UNKNOWN for a field if, after applying rules 1-4, that field's fact still cannot be established from a trusted source or a successful read-only tool result. Cite the evidence IDs actually used, one per resolved field where applicable."
+    },
+    "predicted_behavior": "On rag_authority cases the agent will use the trusted global-scope record (or live registry result) to return the policy tier/token instead of UNKNOWN; on composition cases it will resolve channel, tier, and token independently, filling tier from the trusted global-scope record and citing the corresponding evidence IDs, matching expected answers.",
+    "regression_risk": "Low-moderate: relaxing 'authoritative' to accept trusted global-scope records could let a stale or wrong-scope trusted record override a fresher in-scope one if rule 1's freshness preference is not applied first; mitigated by the explicit 'not contradicted by a fresher trusted record' clause. Untrusted sources remain barred from granting authority, preserving the security invariant."
+  },
+  "program": {
+    "schema": 1,
+    "memory_score": {
+      "op": "add",
+      "args": [
+        {
+          "op": "mul",
+          "args": [
+            {
+              "var": "overlap"
+            },
+            0.5
+          ]
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "entity_match"
+                },
+                0.2
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    {
+                      "var": "scope_match"
+                    },
+                    0.1
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        {
+                          "var": "trusted"
+                        },
+                        0.05
+                      ]
+                    },
+                    {
+                      "op": "add",
+                      "args": [
+                        {
+                          "op": "mul",
+                          "args": [
+                            {
+                              "var": "available"
+                            },
+                            0.05
+                          ]
+                        },
+                        {
+                          "op": "mul",
+                          "args": [
+                            {
+                              "op": "div",
+                              "args": [
+                                1,
+                                {
+                                  "op": "add",
+                                  "args": [
+                                    1,
+                                    {
+                                      "var": "age"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            0.1
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rag_score": {
+      "var": "overlap"
+    },
+    "tool_score": {
+      "var": "overlap"
+    },
+    "retry": {
+      "op": "and",
+      "args": [
+        {
+          "var": "error_retryable"
+        },
+        {
+          "op": "not",
+          "args": [
+            {
+              "var": "error_permanent"
+            }
+          ]
+        },
+        {
+          "op": "lt",
+          "args": [
+            {
+              "var": "attempt"
+            },
+            3
+          ]
+        }
+      ]
+    },
+    "memory_top_k": 3,
+    "rag_top_k": 2,
+    "max_attempts": 3,
+    "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string) and evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose.\n\nResolution rules (apply generally, never assume specific values):\n1. Candidate validity: a candidate is usable if it is available, not deprecated, and matches the queried entity (entity_match). Among usable candidates for the same fact, prefer the freshest (smallest age); treat older records as superseded by fresher ones for the same field.\n2. Authority: a fact is established if it comes from a trusted source (trusted=1) that is in scope (scope_match=1) OR from a trusted source that is the only trusted source for that fact and is not contradicted by a fresher trusted record. Untrusted sources (trusted=0) may inform but can never establish an authoritative fact such as a policy tier; if the only source for a required fact is untrusted, that fact is not established. A successful read-only live/current registry tool result is authoritative for the value it returns (e.g., a live token) and may be used directly.\n3. Tools: prefer read-only tools that match the entity and are available. If the top-ranked tool is unavailable, not read-only, or returns a permanent error, fall back to the best available read-only tool that matches the entity (e.g., a live/current read-only lookup) before concluding failure. Retry only on retryable, non-permanent errors within the attempt limit.\n4. Composition: when multiple fields are requested, resolve each field independently using rules 1-3, then join them in the requested order/format. Do not let a missing field force other fields to UNKNOWN; only the unresolved field becomes UNKNOWN.\n5. Only answer exactly UNKNOWN for a field if, after applying rules 1-4, that field's fact still cannot be established from a trusted source or a successful read-only tool result. Cite the evidence IDs actually used, one per resolved field where applicable.",
+    "policy": {
+      "score": {
+        "var": "failure_rate"
+      },
+      "branches": 2
+    }
+  },
+  "risk": {
+    "sensitive": false,
+    "blocked": false,
+    "classification": "ordinary",
+    "reasons": [],
+    "changed_paths": [
+      "prompt"
+    ],
+    "before_hash": "26d137e97b6680ec76180bc8d1abcedda904ca36dfb7577f0fcbb2404967475a",
+    "after_hash": "4ff110d2af58807547c4006fe985cbc8c8ab3354b8de7adc75ae015a4d87d3e0"
+  },
+  "status": "executed",
+  "gain": 0.1428571428571428,
+  "dev_rate": 0.8571428571428571,
+  "guard_rate": 0.7857142857142857,
+  "program_hash": "4ff110d2af58807547c4006fe985cbc8c8ab3354b8de7adc75ae015a4d87d3e0",
+  "actual_loaded_hash": "4ff110d2af58807547c4006fe985cbc8c8ab3354b8de7adc75ae015a4d87d3e0"
+}

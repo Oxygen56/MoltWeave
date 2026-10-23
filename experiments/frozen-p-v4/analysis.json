@@ -1,0 +1,37 @@
+{
+  "cost": {
+    "logical_calls": 1214,
+    "physical_attempts": 1217,
+    "prompt_tokens": 1022408,
+    "completion_tokens": 54240,
+    "failed_physical_attempts": 3,
+    "by_purpose": {
+      "task": 1206,
+      "mechanism_proposal": 9,
+      "mechanism_repair": 2
+    },
+    "money": "Not estimated: preserve provider usage; pricing/caching should be applied from the actual invoice."
+  },
+  "paired": {
+    "final": {
+      "tasks": 70,
+      "improved": 34,
+      "regressed": 0,
+      "both_correct": 33,
+      "both_wrong": 3,
+      "delta_percentage_points": 48.57142857142857,
+      "exact_mcnemar_two_sided_p": 1.1641532182693481e-10,
+      "inference_limit": "One run per task; authored correlated templates, one provider. The p-value does not establish open-world generality or independent P benefit."
+    },
+    "transfer": {
+      "tasks": 70,
+      "improved": 32,
+      "regressed": 0,
+      "both_correct": 33,
+      "both_wrong": 5,
+      "delta_percentage_points": 45.714285714285715,
+      "exact_mcnemar_two_sided_p": 4.656612873077393e-10,
+      "inference_limit": "One run per task; authored correlated templates, one provider. The p-value does not establish open-world generality or independent P benefit."
+    }
+  }
+}

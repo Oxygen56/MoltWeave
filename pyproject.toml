@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "moltweave"
+version = "0.1.0"
+description = "Evidence-first continual mechanism evolution for agents"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+authors = [{name = "MoltWeave contributors"}]
+dependencies = []
+keywords = ["agents", "recursive-self-improvement", "evaluation", "memory"]
+
+[project.urls]
+Repository = "https://github.com/Oxygen56/MoltWeave"
+Issues = "https://github.com/Oxygen56/MoltWeave/issues"
+
+[project.scripts]
+moltweave = "moltweave.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

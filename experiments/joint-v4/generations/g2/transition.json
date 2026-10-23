@@ -1,0 +1,29 @@
+{
+  "generation": 2,
+  "parent_hash": "6b15989f4e54d252f5b789e355576847f18b5f199b11318138a9c99144e735f2",
+  "next_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+  "dev_before": 0.5714285714285714,
+  "dev_after": 0.7142857142857143,
+  "guard_before": 0.7142857142857143,
+  "guard_after": 0.7857142857142857,
+  "mechanism_adopted": true,
+  "changed": true,
+  "policy_changed": false,
+  "policy_choice_changed": false,
+  "trials": [
+    {
+      "generation": 2,
+      "branch": 0,
+      "module": "prompt",
+      "status": "executed",
+      "gain": 0.1428571428571429
+    },
+    {
+      "generation": 2,
+      "branch": 1,
+      "module": "rag",
+      "status": "executed",
+      "gain": 0.1428571428571429
+    }
+  ]
+}

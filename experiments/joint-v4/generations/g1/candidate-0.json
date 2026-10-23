@@ -1,0 +1,224 @@
+{
+  "generation": 1,
+  "branch": 0,
+  "module": "memory",
+  "base_hash": "c34ff2277debab2aed24b2b4b3912b9104e53152170ca5371ad5f4b28730b3d9",
+  "proposal": {
+    "hypothesis": "The memory module ranks purely by lexical overlap, so stale/older records with high overlap (age>0) outrank fresher, entity-matching, scope-matching records, and untrusted RAG entries with overlap=1.0 dominate. Failures show the correct answer requires the freshest entity+scope-matched memory record plus the trusted RAG entry, while the live tool result supplies the token. A scoring function that rewards entity_match, scope_match, trusted, and recency (penalizing age) while keeping overlap as a tiebreaker will surface the correct evidence, and increasing memory_top_k to 3 ensures the needed memory record is retained alongside the tool evidence.",
+    "changes": {
+      "memory_score": {
+        "op": "add",
+        "args": [
+          {
+            "var": "overlap"
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  2,
+                  {
+                    "var": "entity_match"
+                  }
+                ]
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      1.5,
+                      {
+                        "var": "scope_match"
+                      }
+                    ]
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "op": "mul",
+                        "args": [
+                          1.5,
+                          {
+                            "var": "trusted"
+                          }
+                        ]
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          0.5,
+                          {
+                            "op": "div",
+                            "args": [
+                              1,
+                              {
+                                "op": "add",
+                                "args": [
+                                  1,
+                                  {
+                                    "var": "age"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "memory_top_k": 3
+    },
+    "predicted_behavior": "Memory retrieval will rank entity-matched, scope-matched, trusted, and recent records above stale high-overlap records; the freshest correct memory evidence will be included in the top-3, and untrusted RAG entries will no longer dominate, allowing the model to compose the correct answer from memory + trusted RAG + live tool token instead of returning UNKNOWN.",
+    "regression_risk": "Raising memory_top_k to 3 adds one extra memory item per query, slightly increasing prompt size and possible distractor noise; the recency term could demote a legitimately older-but-correct record if age is large, though overlap still contributes. No authority or policy changes are made."
+  },
+  "program": {
+    "schema": 1,
+    "memory_score": {
+      "op": "add",
+      "args": [
+        {
+          "var": "overlap"
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                2,
+                {
+                  "var": "entity_match"
+                }
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    1.5,
+                    {
+                      "var": "scope_match"
+                    }
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        1.5,
+                        {
+                          "var": "trusted"
+                        }
+                      ]
+                    },
+                    {
+                      "op": "mul",
+                      "args": [
+                        0.5,
+                        {
+                          "op": "div",
+                          "args": [
+                            1,
+                            {
+                              "op": "add",
+                              "args": [
+                                1,
+                                {
+                                  "var": "age"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rag_score": {
+      "var": "overlap"
+    },
+    "tool_score": {
+      "var": "overlap"
+    },
+    "retry": 0,
+    "memory_top_k": 3,
+    "rag_top_k": 2,
+    "max_attempts": 3,
+    "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+    "policy": {
+      "score": {
+        "op": "add",
+        "args": [
+          {
+            "var": "failure_rate"
+          },
+          {
+            "op": "mul",
+            "args": [
+              0.5,
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "var": "stagnation"
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      2,
+                      {
+                        "var": "invalid_count"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "branches": 2
+    }
+  },
+  "risk": {
+    "sensitive": false,
+    "blocked": false,
+    "classification": "ordinary",
+    "reasons": [],
+    "changed_paths": [
+      "memory_score.args",
+      "memory_score.op",
+      "memory_score.var",
+      "memory_top_k"
+    ],
+    "before_hash": "c34ff2277debab2aed24b2b4b3912b9104e53152170ca5371ad5f4b28730b3d9",
+    "after_hash": "e097f5811189d6528715f58cfb3c5a0f5d4e482133f5ee9ccbfc8d9aff121f90"
+  },
+  "status": "executed",
+  "gain": 0.28571428571428575,
+  "dev_rate": 0.6190476190476191,
+  "guard_rate": 0.7142857142857143,
+  "program_hash": "e097f5811189d6528715f58cfb3c5a0f5d4e482133f5ee9ccbfc8d9aff121f90",
+  "actual_loaded_hash": "e097f5811189d6528715f58cfb3c5a0f5d4e482133f5ee9ccbfc8d9aff121f90"
+}

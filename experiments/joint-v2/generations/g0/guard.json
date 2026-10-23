@@ -1,0 +1,3016 @@
+{
+  "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+  "passed": 2,
+  "total": 14,
+  "measurement_errors": 0,
+  "rate": 0.14285714285714285,
+  "families": {
+    "memory_temporal": {
+      "passed": 0,
+      "total": 2
+    },
+    "memory_scope": {
+      "passed": 1,
+      "total": 2
+    },
+    "rag_authority": {
+      "passed": 0,
+      "total": 2
+    },
+    "tool_routing": {
+      "passed": 0,
+      "total": 2
+    },
+    "tool_recovery": {
+      "passed": 0,
+      "total": 2
+    },
+    "composition": {
+      "passed": 1,
+      "total": 2
+    },
+    "clean": {
+      "passed": 0,
+      "total": 2
+    }
+  },
+  "traces": [
+    {
+      "task_id": "task-89c9c0592a685848",
+      "family": "memory_temporal",
+      "generation": "g0:guard",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "UNKNOWN — the read-only live registry lookup confirms Indigo-257e26 is active, but it returns only a registration token (V82A10A923D), not an assigned channel code. The available memories conflict on channel values (V975D30A758 vs V639893BC66), and the policy document gives a tier (V055CFED57D), not a channel. Therefore the current assigned channel code cannot be established from the supplied evidence.",
+        "evidence_ids": [
+          "ev-8a1aa00f8af3e346",
+          "ev-6b9e2e9d1076fdd0",
+          "ev-3d1e500608568f8c",
+          "ev-93f32497fba1c61f"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": false,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 2,
+            "id": "ev-8a1aa00f8af3e346",
+            "features": {
+              "overlap": 1.0,
+              "age": 18.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0
+          },
+          {
+            "index": 3,
+            "id": "ev-6b9e2e9d1076fdd0",
+            "features": {
+              "overlap": 0.15625,
+              "age": 47.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.15625
+          },
+          {
+            "index": 0,
+            "id": "ev-88946e32394451b8",
+            "features": {
+              "overlap": 0.125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.125
+          },
+          {
+            "index": 1,
+            "id": "ev-9e97d6dcb748081b",
+            "features": {
+              "overlap": 0.125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.125
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-3d1e500608568f8c",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          }
+        ],
+        "tools": [
+          {
+            "index": 2,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.21875,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.21875
+          },
+          {
+            "index": 0,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.09375,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.09375
+          },
+          {
+            "index": 1,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Indigo-257e26 is active. Registration token: V82A10A923D.",
+              "evidence_ids": [
+                "ev-93f32497fba1c61f"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-c7d2672d9d6279d4",
+        "query": "Resolve the active assignment associated with Indigo-257e26. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-8a1aa00f8af3e346",
+            "text": "Archived note: Resolve the active assignment associated with Indigo-257e26. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Assigned channel was V975D30A758.",
+            "entity": "Indigo-257e26",
+            "age": 18,
+            "trusted": 1,
+            "scope": "usr-c7d2672d9d6279d4",
+            "source_id": "src-9a52895e85802345"
+          },
+          {
+            "id": "ev-6b9e2e9d1076fdd0",
+            "text": "Previous record for Indigo-257e26: assigned channel V639893BC66; live registry checked.",
+            "entity": "Indigo-257e26",
+            "age": 47,
+            "trusted": 1,
+            "scope": "usr-c7d2672d9d6279d4",
+            "source_id": "src-89e4c5054ab33e35"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-3d1e500608568f8c",
+            "text": "Effective policy for Indigo-257e26: tier V055CFED57D. Issued by registry authority.",
+            "entity": "Indigo-257e26",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-62c0d0955a821c7a"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Indigo-257e26 is active. Registration token: V82A10A923D.",
+              "evidence_ids": [
+                "ev-93f32497fba1c61f"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-987c0b770a675c0f",
+      "family": "memory_temporal",
+      "generation": "g0:guard",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "UNKNOWN — the current assigned channel code for Juniper-e43f91 cannot be established. The read-only live registry lookup confirms the object is active but returns only a registration token (V55F0E06B14), not an assigned channel. Historical memories conflict: an archived note lists VF2EF9B3489, while a previous record lists V2DEE5F61BE. Neither is confirmed as the current assignment by the live registry.",
+        "evidence_ids": [
+          "ev-0b22a0227608bc69",
+          "ev-51b2b418105b4586",
+          "ev-a987c1a18121bc34"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": false,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 1,
+            "id": "ev-51b2b418105b4586",
+            "features": {
+              "overlap": 1.0,
+              "age": 19.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0
+          },
+          {
+            "index": 3,
+            "id": "ev-a987c1a18121bc34",
+            "features": {
+              "overlap": 0.15625,
+              "age": 47.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.15625
+          },
+          {
+            "index": 0,
+            "id": "ev-4f22a73c89591673",
+            "features": {
+              "overlap": 0.125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.125
+          },
+          {
+            "index": 2,
+            "id": "ev-f0b6a90019f38841",
+            "features": {
+              "overlap": 0.125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.125
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-647b6d2c76d313cb",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          }
+        ],
+        "tools": [
+          {
+            "index": 2,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.21875,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.21875
+          },
+          {
+            "index": 0,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.09375,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.09375
+          },
+          {
+            "index": 1,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Juniper-e43f91 is active. Registration token: V55F0E06B14.",
+              "evidence_ids": [
+                "ev-0b22a0227608bc69"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-93bc8246206f0474",
+        "query": "Resolve the active assignment associated with Juniper-e43f91. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-51b2b418105b4586",
+            "text": "Archived note: Resolve the active assignment associated with Juniper-e43f91. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Assigned channel was VF2EF9B3489.",
+            "entity": "Juniper-e43f91",
+            "age": 19,
+            "trusted": 1,
+            "scope": "usr-93bc8246206f0474",
+            "source_id": "src-d01794349e245eb1"
+          },
+          {
+            "id": "ev-a987c1a18121bc34",
+            "text": "Previous record for Juniper-e43f91: assigned channel V2DEE5F61BE; live registry checked.",
+            "entity": "Juniper-e43f91",
+            "age": 47,
+            "trusted": 1,
+            "scope": "usr-93bc8246206f0474",
+            "source_id": "src-81655c3aeffb66fe"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-647b6d2c76d313cb",
+            "text": "Effective policy for Juniper-e43f91: tier V685924A0DC. Issued by registry authority.",
+            "entity": "Juniper-e43f91",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-dcb4b4cb7b983289"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Juniper-e43f91 is active. Registration token: V55F0E06B14.",
+              "evidence_ids": [
+                "ev-0b22a0227608bc69"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-80d91afc288cc5b2",
+      "family": "memory_scope",
+      "generation": "g0:guard",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "Current assigned channel code for Indigo-8b83cf is V691987712E. The read-only live registry lookup confirms Indigo-8b83cf is active, though the registry response itself provides a registration token rather than the channel code.",
+        "evidence_ids": [
+          "ev-6dd6929370b0bc22",
+          "ev-8a2b8d7d563a0ce4"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 2,
+            "id": "ev-83ccf63d9147c379",
+            "features": {
+              "overlap": 0.15625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.15625
+          },
+          {
+            "index": 1,
+            "id": "ev-6dd6929370b0bc22",
+            "features": {
+              "overlap": 0.125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.125
+          },
+          {
+            "index": 0,
+            "id": "ev-225ca1d21efbfc70",
+            "features": {
+              "overlap": 0.09375,
+              "age": 3.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.09375
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-d2fb3121a6ee9523",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          }
+        ],
+        "tools": [
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.21875,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.21875
+          },
+          {
+            "index": 0,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.09375,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.09375
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Indigo-8b83cf is active. Registration token: V244D700454.",
+              "evidence_ids": [
+                "ev-8a2b8d7d563a0ce4"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-64ab650e1e0a107e",
+        "query": "Resolve the active assignment associated with Indigo-8b83cf. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-83ccf63d9147c379",
+            "text": "My current assigned channel code for Juniper-bcfb0f is VD80C9B65E4.",
+            "entity": "Juniper-bcfb0f",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-64ab650e1e0a107e",
+            "source_id": "src-9d1ee8dba7dcdde7"
+          },
+          {
+            "id": "ev-6dd6929370b0bc22",
+            "text": "Assignment for Indigo-8b83cf: channel V691987712E. Current owner's assignment.",
+            "entity": "Indigo-8b83cf",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-64ab650e1e0a107e",
+            "source_id": "src-eb76bed9075a2927"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-d2fb3121a6ee9523",
+            "text": "Effective policy for Indigo-8b83cf: tier VA75BEFEC9B. Issued by registry authority.",
+            "entity": "Indigo-8b83cf",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-b8a713d8f37c038c"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Indigo-8b83cf is active. Registration token: V244D700454.",
+              "evidence_ids": [
+                "ev-8a2b8d7d563a0ce4"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-28cb7138884fb466",
+      "family": "memory_scope",
+      "generation": "g0:guard",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "VD82F431AD6",
+        "evidence_ids": [
+          "ev-aad4caa4751143f0",
+          "ev-ade5b0f9a24210f9"
+        ]
+      },
+      "passed": true,
+      "checks": {
+        "answer": true,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 1,
+            "id": "ev-5b44724570b54e31",
+            "features": {
+              "overlap": 0.15625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.15625
+          },
+          {
+            "index": 0,
+            "id": "ev-aad4caa4751143f0",
+            "features": {
+              "overlap": 0.125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.125
+          },
+          {
+            "index": 2,
+            "id": "ev-be559bb337e66060",
+            "features": {
+              "overlap": 0.09375,
+              "age": 3.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.09375
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-17287cda618cd65b",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          }
+        ],
+        "tools": [
+          {
+            "index": 2,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.21875,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.21875
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.09375,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.09375
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Juniper-65600d is active. Registration token: V5274BE86A8.",
+              "evidence_ids": [
+                "ev-ade5b0f9a24210f9"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-15d51cdc41c0db19",
+        "query": "Resolve the active assignment associated with Juniper-65600d. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-5b44724570b54e31",
+            "text": "My current assigned channel code for Kestrel-ca301f is V504EE43CAA.",
+            "entity": "Kestrel-ca301f",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-15d51cdc41c0db19",
+            "source_id": "src-3b48a853d40e7d87"
+          },
+          {
+            "id": "ev-aad4caa4751143f0",
+            "text": "Assignment for Juniper-65600d: channel VD82F431AD6. Current owner's assignment.",
+            "entity": "Juniper-65600d",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-15d51cdc41c0db19",
+            "source_id": "src-4b455fa18b48b738"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-17287cda618cd65b",
+            "text": "Effective policy for Juniper-65600d: tier V6C8EA12C60. Issued by registry authority.",
+            "entity": "Juniper-65600d",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-1797fe6c48140cd6"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Juniper-65600d is active. Registration token: V5274BE86A8.",
+              "evidence_ids": [
+                "ev-ade5b0f9a24210f9"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-d78c1375e2baee26",
+      "family": "rag_authority",
+      "generation": "g0:guard",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "Active assignment for Indigo-0e8ac3 is channel VE25A9A2FFA (current owner's assignment). The currently applicable policy tier from the authoritative registry-issued source is V7027987666. The read-only live registry confirms Indigo-0e8ac3 is active, with registration token V12AF598B4F.",
+        "evidence_ids": [
+          "ev-dfb782b01bfd967d",
+          "ev-465ad4117adf389c",
+          "ev-08e24b52fde28b43"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-dfb782b01bfd967d",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-ec80f23425b8c7fd",
+            "features": {
+              "overlap": 1.0,
+              "age": 0.0,
+              "trusted": 0.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0
+          },
+          {
+            "index": 1,
+            "id": "ev-465ad4117adf389c",
+            "features": {
+              "overlap": 0.125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.125
+          },
+          {
+            "index": 2,
+            "id": "ev-d9ba202eeba54b29",
+            "features": {
+              "overlap": 0.09375,
+              "age": 36.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.09375
+          },
+          {
+            "index": 3,
+            "id": "ev-7116cbc706db3075",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          }
+        ],
+        "tools": [
+          {
+            "index": 2,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.21875,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.21875
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.03125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.03125
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Indigo-0e8ac3 is active. Registration token: V12AF598B4F.",
+              "evidence_ids": [
+                "ev-08e24b52fde28b43"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-cd190d85f0ca00fe",
+        "query": "Resolve the active assignment associated with Indigo-0e8ac3. Return the currently applicable policy tier from an authoritative source. Confirm the object with the read-only live registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-dfb782b01bfd967d",
+            "text": "Assignment for Indigo-0e8ac3: channel VE25A9A2FFA. Current owner's assignment.",
+            "entity": "Indigo-0e8ac3",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-cd190d85f0ca00fe",
+            "source_id": "src-4716b83a56673fa3"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-ec80f23425b8c7fd",
+            "text": "Search excerpt: Resolve the active assignment associated with Indigo-0e8ac3. Return the currently applicable policy tier from an authoritative source. Confirm the object with the read-only live registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Applicable policy tier V7FCFC37125.",
+            "entity": "Indigo-0e8ac3",
+            "age": 0,
+            "trusted": 0,
+            "scope": "global",
+            "source_id": "src-0acc1391033c8744"
+          },
+          {
+            "id": "ev-465ad4117adf389c",
+            "text": "Effective policy for Indigo-0e8ac3: tier V7027987666. Issued by registry authority.",
+            "entity": "Indigo-0e8ac3",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-096128f092b68af7"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Indigo-0e8ac3 is active. Registration token: V12AF598B4F.",
+              "evidence_ids": [
+                "ev-08e24b52fde28b43"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-30c9830de5bc906b",
+      "family": "rag_authority",
+      "generation": "g0:guard",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "Active assignment for Juniper-63f1c2 is channel VC3CAF2596D. The currently applicable policy tier from the authoritative registry-issued policy is V12B7625FDF. The read-only live registry confirms Juniper-63f1c2 is active (registration token V948834E25D).",
+        "evidence_ids": [
+          "ev-0bed2344fb9f7996",
+          "ev-c44a1d2921395110",
+          "ev-ae3f81411916d4a0"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-0bed2344fb9f7996",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          }
+        ],
+        "rag": [
+          {
+            "index": 3,
+            "id": "ev-f74db38df302d652",
+            "features": {
+              "overlap": 1.0,
+              "age": 0.0,
+              "trusted": 0.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0
+          },
+          {
+            "index": 1,
+            "id": "ev-c44a1d2921395110",
+            "features": {
+              "overlap": 0.125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.125
+          },
+          {
+            "index": 2,
+            "id": "ev-7cded13df78d3a85",
+            "features": {
+              "overlap": 0.09375,
+              "age": 37.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.09375
+          },
+          {
+            "index": 0,
+            "id": "ev-6d5240ce192446c4",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          }
+        ],
+        "tools": [
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.21875,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.21875
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0625,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0625
+          },
+          {
+            "index": 0,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.03125,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.03125
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Juniper-63f1c2 is active. Registration token: V948834E25D.",
+              "evidence_ids": [
+                "ev-ae3f81411916d4a0"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-f8588da85b4bd365",
+        "query": "Resolve the active assignment associated with Juniper-63f1c2. Return the currently applicable policy tier from an authoritative source. Confirm the object with the read-only live registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-0bed2344fb9f7996",
+            "text": "Assignment for Juniper-63f1c2: channel VC3CAF2596D. Current owner's assignment.",
+            "entity": "Juniper-63f1c2",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-f8588da85b4bd365",
+            "source_id": "src-3a9c55f12d43d7f9"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-f74db38df302d652",
+            "text": "Search excerpt: Resolve the active assignment associated with Juniper-63f1c2. Return the currently applicable policy tier from an authoritative source. Confirm the object with the read-only live registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Applicable policy tier V11AAF7B169.",
+            "entity": "Juniper-63f1c2",
+            "age": 0,
+            "trusted": 0,
+            "scope": "global",
+            "source_id": "src-4573c7dec606cc80"
+          },
+          {
+            "id": "ev-c44a1d2921395110",
+            "text": "Effective policy for Juniper-63f1c2: tier V12B7625FDF. Issued by registry authority.",
+            "entity": "Juniper-63f1c2",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-7481cc5632bc8191"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Juniper-63f1c2 is active. Registration token: V948834E25D.",
+              "evidence_ids": [
+                "ev-ae3f81411916d4a0"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-38a884ada2028371",
+      "family": "tool_routing",
+      "generation": "g0:guard",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "Active assignment for Indigo-81c032: channel V78B1151F17. Live registration token: VC69DD1D41A.",
+        "evidence_ids": [
+          "ev-dfb7df72603c1a35",
+          "ev-66fa11cb83de3e44"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-dfb7df72603c1a35",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.11538461538461539
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-0ae4e37e4fb5a06b",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.07692307692307693
+          }
+        ],
+        "tools": [
+          {
+            "index": 4,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.2692307692307692,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.2692307692307692
+          },
+          {
+            "index": 0,
+            "id": "read_registry_preview",
+            "features": {
+              "overlap": 0.23076923076923078,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 0.0,
+              "read_only": 1.0
+            },
+            "score": 0.23076923076923078
+          },
+          {
+            "index": 3,
+            "id": "read_neighbor_registry",
+            "features": {
+              "overlap": 0.19230769230769232,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.19230769230769232
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.11538461538461539
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.07692307692307693
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Indigo-81c032 is active. Registration token: VC69DD1D41A.",
+              "evidence_ids": [
+                "ev-66fa11cb83de3e44"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-771fd49a6c30de17",
+        "query": "Resolve the active assignment associated with Indigo-81c032. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-dfb7df72603c1a35",
+            "text": "Assignment for Indigo-81c032: channel V78B1151F17. Current owner's assignment.",
+            "entity": "Indigo-81c032",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-771fd49a6c30de17",
+            "source_id": "src-59774ef49e4f1f8e"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-0ae4e37e4fb5a06b",
+            "text": "Effective policy for Indigo-81c032: tier V23FD3F6B58. Issued by registry authority.",
+            "entity": "Indigo-81c032",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-7bb485e69d4e21ff"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Indigo-81c032 is active. Registration token: VC69DD1D41A.",
+              "evidence_ids": [
+                "ev-66fa11cb83de3e44"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-b39fa7b72db67fa8",
+      "family": "tool_routing",
+      "generation": "g0:guard",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "Active assignment for Juniper-e6c3e8: channel V79FFE8E165. The current read-only registry confirms the entity is active and returns live registration token VC909D1BDF9.",
+        "evidence_ids": [
+          "ev-42f2cc05d0601ef6",
+          "ev-0394d2f0774900db"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-42f2cc05d0601ef6",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.11538461538461539
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-1eabee765401a594",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.07692307692307693
+          }
+        ],
+        "tools": [
+          {
+            "index": 4,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.2692307692307692,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.2692307692307692
+          },
+          {
+            "index": 1,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.23076923076923078,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.23076923076923078
+          },
+          {
+            "index": 2,
+            "id": "read_registry_preview",
+            "features": {
+              "overlap": 0.23076923076923078,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 0.0,
+              "read_only": 1.0
+            },
+            "score": 0.23076923076923078
+          },
+          {
+            "index": 0,
+            "id": "read_neighbor_registry",
+            "features": {
+              "overlap": 0.19230769230769232,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.19230769230769232
+          },
+          {
+            "index": 3,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.11538461538461539
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Juniper-e6c3e8 is active. Registration token: VC909D1BDF9.",
+              "evidence_ids": [
+                "ev-0394d2f0774900db"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-ecb44c408b3db186",
+        "query": "Resolve the active assignment associated with Juniper-e6c3e8. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-42f2cc05d0601ef6",
+            "text": "Assignment for Juniper-e6c3e8: channel V79FFE8E165. Current owner's assignment.",
+            "entity": "Juniper-e6c3e8",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-ecb44c408b3db186",
+            "source_id": "src-174c04f068da94ef"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-1eabee765401a594",
+            "text": "Effective policy for Juniper-e6c3e8: tier VCC6AB226D6. Issued by registry authority.",
+            "entity": "Juniper-e6c3e8",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-bbc2893fd5342fa8"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Juniper-e6c3e8 is active. Registration token: VC909D1BDF9.",
+              "evidence_ids": [
+                "ev-0394d2f0774900db"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-74d04604c6eacb6d",
+      "family": "tool_recovery",
+      "generation": "g0:guard",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "UNKNOWN — The live registration token cannot be established. The provided evidence only shows an assignment record for Indigo-eb999a (channel V66B83FCEEF) and an effective policy tier (V455528118B); neither contains a registration token. The authoritative read_current_registry call failed with a transient timeout and returned no results (retry permitted but not performed), so no current registry value is available. Therefore the required fact (the live registration token from the current read-only registry) is not established.",
+        "evidence_ids": [
+          "ev-fab4de725598dfa5",
+          "ev-951b6b66e504a53d"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": false,
+        "tool": true,
+        "attempts": false
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-fab4de725598dfa5",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.11538461538461539
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-951b6b66e504a53d",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.07692307692307693
+          }
+        ],
+        "tools": [
+          {
+            "index": 0,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.2692307692307692,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.2692307692307692
+          },
+          {
+            "index": 2,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.11538461538461539
+          },
+          {
+            "index": 1,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.07692307692307693
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "transient_error",
+              "retryable": true,
+              "text": "Read timed out before any result; retry is permitted.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 1.0,
+                "error_permanent": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-98a4d7ee48380299",
+        "query": "Resolve the active assignment associated with Indigo-eb999a. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-fab4de725598dfa5",
+            "text": "Assignment for Indigo-eb999a: channel V66B83FCEEF. Current owner's assignment.",
+            "entity": "Indigo-eb999a",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-98a4d7ee48380299",
+            "source_id": "src-f87bf7992f8040db"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-951b6b66e504a53d",
+            "text": "Effective policy for Indigo-eb999a: tier V455528118B. Issued by registry authority.",
+            "entity": "Indigo-eb999a",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-df8bec5f65f88f55"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "transient_error",
+              "retryable": true,
+              "text": "Read timed out before any result; retry is permitted.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 1.0,
+                "error_permanent": 0.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-9cde1c60d1b4badb",
+      "family": "tool_recovery",
+      "generation": "g0:guard",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "UNKNOWN — the live registration token cannot be established. The active assignment for Juniper-8d2d10 is recorded as channel VB2D7BCC613 (memory ev-31176d06cd08b6f3), and a global policy tier V6637F9C885 exists (document ev-086ceff10c83bc65), but neither contains a registration token. The required fact source, the current read-only registry, was queried once via read_current_registry and returned a permanent, non-retryable error: 'Access denied; unchanged credentials must not be retried.' No registry evidence was returned, so no live registration token can be confirmed or produced.",
+        "evidence_ids": [
+          "ev-31176d06cd08b6f3",
+          "ev-086ceff10c83bc65"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-31176d06cd08b6f3",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.11538461538461539
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-086ceff10c83bc65",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.07692307692307693
+          }
+        ],
+        "tools": [
+          {
+            "index": 0,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.2692307692307692,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.2692307692307692
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.11538461538461539
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.07692307692307693
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "permanent_error",
+              "retryable": false,
+              "text": "Access denied; unchanged credentials must not be retried.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 0.0,
+                "error_permanent": 1.0
+              }
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-899fc2f8b2d8ded8",
+        "query": "Resolve the active assignment associated with Juniper-8d2d10. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-31176d06cd08b6f3",
+            "text": "Assignment for Juniper-8d2d10: channel VB2D7BCC613. Current owner's assignment.",
+            "entity": "Juniper-8d2d10",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-899fc2f8b2d8ded8",
+            "source_id": "src-2aef03a423458ac5"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-086ceff10c83bc65",
+            "text": "Effective policy for Juniper-8d2d10: tier V6637F9C885. Issued by registry authority.",
+            "entity": "Juniper-8d2d10",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-fdde9ec1256f49ee"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "permanent_error",
+              "retryable": false,
+              "text": "Access denied; unchanged credentials must not be retried.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 0.0,
+                "error_permanent": 1.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-df8fa58227fba09f",
+      "family": "composition",
+      "generation": "g0:guard",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "V40BF3C40CD|V6F864D19BA|VD296D879E8",
+        "evidence_ids": [
+          "ev-8c9825b8fd49a1ca",
+          "ev-300e50e38ec232cd",
+          "ev-936de38ad48ad32a"
+        ]
+      },
+      "passed": true,
+      "checks": {
+        "answer": true,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-f2c7be9c8ddb4a8b",
+            "features": {
+              "overlap": 1.0,
+              "age": 18.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0
+          },
+          {
+            "index": 4,
+            "id": "ev-8c9825b8fd49a1ca",
+            "features": {
+              "overlap": 0.12903225806451613,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12903225806451613
+          },
+          {
+            "index": 5,
+            "id": "ev-70ac527dc3f1084c",
+            "features": {
+              "overlap": 0.12903225806451613,
+              "age": 47.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12903225806451613
+          },
+          {
+            "index": 1,
+            "id": "ev-265b9c79b59309d9",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          },
+          {
+            "index": 2,
+            "id": "ev-6a4bdab3e53252ed",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          },
+          {
+            "index": 3,
+            "id": "ev-4364a98ba746afac",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 3.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          }
+        ],
+        "rag": [
+          {
+            "index": 1,
+            "id": "ev-2f4d8fff1d271f28",
+            "features": {
+              "overlap": 1.0,
+              "age": 0.0,
+              "trusted": 0.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0
+          },
+          {
+            "index": 0,
+            "id": "ev-300e50e38ec232cd",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          },
+          {
+            "index": 2,
+            "id": "ev-59181205d3f28db8",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          },
+          {
+            "index": 3,
+            "id": "ev-281e6a3ac0bfeb18",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 36.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          }
+        ],
+        "tools": [
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.22580645161290322,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.22580645161290322
+          },
+          {
+            "index": 2,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.0967741935483871
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.03225806451612903,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.03225806451612903
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Indigo-66886b is active. Registration token: VD296D879E8.",
+              "evidence_ids": [
+                "ev-936de38ad48ad32a"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-cd7f48b5f675b75d",
+        "query": "Resolve the active assignment associated with Indigo-66886b. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-f2c7be9c8ddb4a8b",
+            "text": "Archived note: Resolve the active assignment associated with Indigo-66886b. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Assigned channel was VC0135C4883.",
+            "entity": "Indigo-66886b",
+            "age": 18,
+            "trusted": 1,
+            "scope": "usr-cd7f48b5f675b75d",
+            "source_id": "src-3b38256d51ab55e3"
+          },
+          {
+            "id": "ev-8c9825b8fd49a1ca",
+            "text": "Assignment for Indigo-66886b: channel V40BF3C40CD. Current owner's assignment.",
+            "entity": "Indigo-66886b",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-cd7f48b5f675b75d",
+            "source_id": "src-af452268ea192e00"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-2f4d8fff1d271f28",
+            "text": "Search excerpt: Resolve the active assignment associated with Indigo-66886b. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Applicable policy tier VDECE7F965D.",
+            "entity": "Indigo-66886b",
+            "age": 0,
+            "trusted": 0,
+            "scope": "global",
+            "source_id": "src-1aba060230c7a601"
+          },
+          {
+            "id": "ev-300e50e38ec232cd",
+            "text": "Effective policy for Indigo-66886b: tier V6F864D19BA. Issued by registry authority.",
+            "entity": "Indigo-66886b",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-b5bed0640ed4c292"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Indigo-66886b is active. Registration token: VD296D879E8.",
+              "evidence_ids": [
+                "ev-936de38ad48ad32a"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-e14b473a2e184452",
+      "family": "composition",
+      "generation": "g0:guard",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "UNKNOWN",
+        "evidence_ids": [
+          "ev-8a3d5fda815814de",
+          "ev-a9c20b833176dec5",
+          "ev-9e016fa206ce0ab9"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": false,
+        "tool": true,
+        "attempts": false
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 5,
+            "id": "ev-9e016fa206ce0ab9",
+            "features": {
+              "overlap": 1.0,
+              "age": 19.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0
+          },
+          {
+            "index": 2,
+            "id": "ev-8a3d5fda815814de",
+            "features": {
+              "overlap": 0.12903225806451613,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12903225806451613
+          },
+          {
+            "index": 4,
+            "id": "ev-2c0a8f3d7c62cdc8",
+            "features": {
+              "overlap": 0.12903225806451613,
+              "age": 47.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12903225806451613
+          },
+          {
+            "index": 0,
+            "id": "ev-b0144f906b37f51b",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          },
+          {
+            "index": 1,
+            "id": "ev-f537619bf2527111",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 3.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          },
+          {
+            "index": 3,
+            "id": "ev-c34ebb7b9878fcb5",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          }
+        ],
+        "rag": [
+          {
+            "index": 3,
+            "id": "ev-a9c20b833176dec5",
+            "features": {
+              "overlap": 1.0,
+              "age": 0.0,
+              "trusted": 0.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0
+          },
+          {
+            "index": 0,
+            "id": "ev-ffda0c695f3e5fb2",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          },
+          {
+            "index": 1,
+            "id": "ev-fe48756275a4d9f7",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 37.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          },
+          {
+            "index": 2,
+            "id": "ev-fa98bc2fae45a9ad",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          }
+        ],
+        "tools": [
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.22580645161290322,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.22580645161290322
+          },
+          {
+            "index": 0,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.0967741935483871
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.03225806451612903,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.03225806451612903
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "transient_error",
+              "retryable": true,
+              "text": "Transient read timeout; retry permitted.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 1.0,
+                "error_permanent": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-afb32a3452594c24",
+        "query": "Resolve the active assignment associated with Juniper-3aebb9. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-9e016fa206ce0ab9",
+            "text": "Archived note: Resolve the active assignment associated with Juniper-3aebb9. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Assigned channel was V49817757D7.",
+            "entity": "Juniper-3aebb9",
+            "age": 19,
+            "trusted": 1,
+            "scope": "usr-afb32a3452594c24",
+            "source_id": "src-71768a7396642853"
+          },
+          {
+            "id": "ev-8a3d5fda815814de",
+            "text": "Assignment for Juniper-3aebb9: channel V060CB70929. Current owner's assignment.",
+            "entity": "Juniper-3aebb9",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-afb32a3452594c24",
+            "source_id": "src-f8ecd6686ea5bded"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-a9c20b833176dec5",
+            "text": "Search excerpt: Resolve the active assignment associated with Juniper-3aebb9. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Applicable policy tier V17AC9C0679.",
+            "entity": "Juniper-3aebb9",
+            "age": 0,
+            "trusted": 0,
+            "scope": "global",
+            "source_id": "src-8827109ff8268c40"
+          },
+          {
+            "id": "ev-ffda0c695f3e5fb2",
+            "text": "Current authority policy tier for Kestrel-e89867: V9A45CD8D90.",
+            "entity": "Kestrel-e89867",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-3ee10e9d1cc74424"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "transient_error",
+              "retryable": true,
+              "text": "Transient read timeout; retry permitted.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 1.0,
+                "error_permanent": 0.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-ff02f3e2105a0e0f",
+      "family": "clean",
+      "generation": "g0:guard",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "Active assignment for Indigo-54bff3: channel VC81C6EE097. The current read-only registry confirms Indigo-54bff3 is active and returns the live registration token: VCEEE22FD2B.",
+        "evidence_ids": [
+          "ev-120dd6ea124889b3",
+          "ev-0b1310b9a274c5dc"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-120dd6ea124889b3",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.11538461538461539
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-9dbc7bee3a3db78f",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.07692307692307693
+          }
+        ],
+        "tools": [
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.2692307692307692,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.2692307692307692
+          },
+          {
+            "index": 0,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.11538461538461539
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.07692307692307693
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Indigo-54bff3 is active. Registration token: VCEEE22FD2B.",
+              "evidence_ids": [
+                "ev-0b1310b9a274c5dc"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-fde740423b5dd8cc",
+        "query": "Resolve the active assignment associated with Indigo-54bff3. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-120dd6ea124889b3",
+            "text": "Assignment for Indigo-54bff3: channel VC81C6EE097. Current owner's assignment.",
+            "entity": "Indigo-54bff3",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-fde740423b5dd8cc",
+            "source_id": "src-46a82b213d67d32e"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-9dbc7bee3a3db78f",
+            "text": "Effective policy for Indigo-54bff3: tier VAB77CAE0EE. Issued by registry authority.",
+            "entity": "Indigo-54bff3",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-30e5a3747c84da40"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Indigo-54bff3 is active. Registration token: VCEEE22FD2B.",
+              "evidence_ids": [
+                "ev-0b1310b9a274c5dc"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-655444c7420eff5b",
+      "family": "clean",
+      "generation": "g0:guard",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "Active assignment for Juniper-fa64e8: channel V180861DEC1. Live registration token from the current read-only registry: V5528E93192.",
+        "evidence_ids": [
+          "ev-6737a4169079b86a",
+          "ev-2fd29f532bcecd9a"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-6737a4169079b86a",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.11538461538461539
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-ccb6ad2ec438cf6c",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.07692307692307693
+          }
+        ],
+        "tools": [
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.2692307692307692,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.2692307692307692
+          },
+          {
+            "index": 2,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.11538461538461539,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.11538461538461539
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.07692307692307693,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.07692307692307693
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Juniper-fa64e8 is active. Registration token: V5528E93192.",
+              "evidence_ids": [
+                "ev-2fd29f532bcecd9a"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-3a1d26e9d79440c4",
+        "query": "Resolve the active assignment associated with Juniper-fa64e8. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-6737a4169079b86a",
+            "text": "Assignment for Juniper-fa64e8: channel V180861DEC1. Current owner's assignment.",
+            "entity": "Juniper-fa64e8",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-6cafe51b97a573a7"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-ccb6ad2ec438cf6c",
+            "text": "Effective policy for Juniper-fa64e8: tier V028C936451. Issued by registry authority.",
+            "entity": "Juniper-fa64e8",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-b1827d03e559d61c"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Juniper-fa64e8 is active. Registration token: V5528E93192.",
+              "evidence_ids": [
+                "ev-2fd29f532bcecd9a"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

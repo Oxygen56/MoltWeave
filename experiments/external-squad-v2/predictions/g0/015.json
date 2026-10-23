@@ -1,0 +1,101 @@
+{
+  "question_id": "56e17a7ccd28a01900c679a3",
+  "program_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+  "prediction": "concrete",
+  "exact_match": 1.0,
+  "f1": 1.0,
+  "output": {
+    "answer": "concrete",
+    "evidence_ids": [
+      "squad-p-3be52504bc360151"
+    ]
+  },
+  "ranking": [
+    {
+      "index": 2,
+      "id": "squad-p-3be52504bc360151",
+      "features": {
+        "overlap": 0.7,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.7
+    },
+    {
+      "index": 1,
+      "id": "squad-p-4b9faa3a89dbb029",
+      "features": {
+        "overlap": 0.6,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.6
+    },
+    {
+      "index": 0,
+      "id": "squad-p-8801535c6742dc31",
+      "features": {
+        "overlap": 0.5,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.5
+    },
+    {
+      "index": 4,
+      "id": "squad-p-b132cc41439f6e78",
+      "features": {
+        "overlap": 0.5,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.5
+    },
+    {
+      "index": 3,
+      "id": "squad-p-d29b9bf02d7daea9",
+      "features": {
+        "overlap": 0.4,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.4
+    }
+  ],
+  "selected_ids": [
+    "squad-p-3be52504bc360151",
+    "squad-p-4b9faa3a89dbb029"
+  ],
+  "gold_paragraph_retrieved": true,
+  "citation_ids_visible": true
+}

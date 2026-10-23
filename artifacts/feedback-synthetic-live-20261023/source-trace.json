@@ -1,0 +1,49 @@
+{
+  "consent_id": "consent_8aa25ddb7d13eb72e6adde3524e383ff",
+  "credential_redactions": [],
+  "tenant_id": "synthetic-live-tenant",
+  "trace": {
+    "data_classification": "synthetic-generated-for-integration-test",
+    "decisions": {
+      "memory_order": [
+        "synthetic-old",
+        "synthetic-new"
+      ],
+      "selection_method": "lexical overlap only"
+    },
+    "feedback": {
+      "reported_issue": "The answer followed an older memory despite a newer same-scope memory. This observation is unverified input to attribution.",
+      "source": "synthetic demonstration fixture, not an independent runner"
+    },
+    "memory_reads": [
+      {
+        "age": 8,
+        "id": "synthetic-old",
+        "scope": "synthetic-live-user",
+        "text": "The synthetic service active deployment label is amber.",
+        "trusted": 1
+      },
+      {
+        "age": 0,
+        "id": "synthetic-new",
+        "scope": "synthetic-live-user",
+        "text": "The synthetic service active deployment label changed to violet.",
+        "trusted": 1
+      }
+    ],
+    "messages": [
+      {
+        "content": "Which deployment label is currently active for the synthetic service?",
+        "role": "user"
+      },
+      {
+        "content": "The active label is the old amber label.",
+        "role": "assistant"
+      }
+    ],
+    "session_id": "synthetic-live-session",
+    "tool_calls": []
+  },
+  "trace_id": "trace_ec5d460b247c8f826c4a3026e1b423f8",
+  "user_id": "synthetic-live-user"
+}

@@ -1,0 +1,39 @@
+--- parent.json
++++ candidate.json
+@@ -7,7 +7,35 @@
+   "policy": {
+     "branches": 2,
+     "score": {
+-      "var": "failure_rate"
++      "args": [
++        {
++          "var": "failure_rate"
++        },
++        {
++          "args": [
++            0.5,
++            {
++              "args": [
++                {
++                  "var": "stagnation"
++                },
++                {
++                  "args": [
++                    2,
++                    {
++                      "var": "invalid_count"
++                    }
++                  ],
++                  "op": "mul"
++                }
++              ],
++              "op": "add"
++            }
++          ],
++          "op": "mul"
++        }
++      ],
++      "op": "add"
+     }
+   },
+   "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",

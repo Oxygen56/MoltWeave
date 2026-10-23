@@ -1,0 +1,197 @@
+{
+  "status": "prospective_adoption",
+  "proposal": {
+    "hypothesis": "The current policy over-weights failure_rate and under-weights stagnation, causing repeated selection of the stagnant 'recovery' and 'rag' modules while ignoring the productive 'memory' and 'tools' modules. Adding a module-agnostic stagnation penalty and a success-rate bonus will redirect exploration toward modules with demonstrated gains and away from repeatedly failing ones, while preserving exploration of untried defects.",
+    "policy": {
+      "score": {
+        "op": "add",
+        "args": [
+          {
+            "op": "add",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  0.5,
+                  {
+                    "var": "failure_rate"
+                  }
+                ]
+              },
+              {
+                "op": "mul",
+                "args": [
+                  0.9,
+                  {
+                    "op": "sub",
+                    "args": [
+                      1,
+                      {
+                        "var": "attempted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  0.8,
+                  {
+                    "var": "last_gain"
+                  }
+                ]
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      -1.5,
+                      {
+                        "var": "stagnation"
+                      }
+                    ]
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      0.6,
+                      {
+                        "var": "success_rate"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "branches": 2
+    },
+    "predicted_decision_change": "Next generation will rank 'memory' and 'tools' (positive last_gain, low stagnation, high success_rate) above 'recovery' and 'rag' (stagnation>=1, success_rate=0), shifting both branches away from the repeatedly failing recovery/rag modules toward modules with observed positive gains, while 'prompt' remains deprioritized due to negative last_gain."
+  },
+  "evaluation_state": {
+    "memory": {
+      "failure_count": 4,
+      "failure_rate": 0.6666666666666666,
+      "attempted": 2,
+      "last_gain": 0.09523809523809523,
+      "success_rate": 1.0,
+      "stagnation": 0
+    },
+    "rag": {
+      "failure_count": 3,
+      "failure_rate": 1.0,
+      "attempted": 1,
+      "last_gain": 0,
+      "success_rate": 0.0,
+      "stagnation": 1
+    },
+    "tools": {
+      "failure_count": 0,
+      "failure_rate": 0.0,
+      "attempted": 2,
+      "last_gain": 0.09523809523809523,
+      "success_rate": 1.0,
+      "stagnation": 0
+    },
+    "recovery": {
+      "failure_count": 2,
+      "failure_rate": 0.6666666666666666,
+      "attempted": 2,
+      "last_gain": 0,
+      "success_rate": 0.0,
+      "stagnation": 2
+    },
+    "prompt": {
+      "failure_count": 2,
+      "failure_rate": 0.3333333333333333,
+      "attempted": 1,
+      "last_gain": -0.28571428571428575,
+      "success_rate": 0.0,
+      "stagnation": 1
+    }
+  },
+  "old_choices": [
+    {
+      "module": "memory",
+      "score": -0.4333333333333334,
+      "features": {
+        "failure_count": 4,
+        "failure_rate": 0.6666666666666666,
+        "attempted": 2,
+        "last_gain": 0.09523809523809523,
+        "success_rate": 1.0,
+        "stagnation": 0,
+        "is_memory": 1.0,
+        "is_rag": 0.0,
+        "is_tools": 0.0,
+        "is_recovery": 0.0,
+        "is_prompt": 0.0
+      }
+    },
+    {
+      "module": "rag",
+      "score": -0.6,
+      "features": {
+        "failure_count": 3,
+        "failure_rate": 1.0,
+        "attempted": 1,
+        "last_gain": 0,
+        "success_rate": 0.0,
+        "stagnation": 1,
+        "is_memory": 0.0,
+        "is_rag": 1.0,
+        "is_tools": 0.0,
+        "is_recovery": 0.0,
+        "is_prompt": 0.0
+      }
+    }
+  ],
+  "new_choices": [
+    {
+      "module": "memory",
+      "score": 0.10952380952380958,
+      "features": {
+        "failure_count": 4,
+        "failure_rate": 0.6666666666666666,
+        "attempted": 2,
+        "last_gain": 0.09523809523809523,
+        "success_rate": 1.0,
+        "stagnation": 0,
+        "is_memory": 1.0,
+        "is_rag": 0.0,
+        "is_tools": 0.0,
+        "is_recovery": 0.0,
+        "is_prompt": 0.0
+      }
+    },
+    {
+      "module": "tools",
+      "score": -0.2238095238095238,
+      "features": {
+        "failure_count": 0,
+        "failure_rate": 0.0,
+        "attempted": 2,
+        "last_gain": 0.09523809523809523,
+        "success_rate": 1.0,
+        "stagnation": 0,
+        "is_memory": 0.0,
+        "is_rag": 0.0,
+        "is_tools": 1.0,
+        "is_recovery": 0.0,
+        "is_prompt": 0.0
+      }
+    }
+  ],
+  "choice_changed": true,
+  "benefit_claim": "not established by adoption; requires later actual search and control"
+}

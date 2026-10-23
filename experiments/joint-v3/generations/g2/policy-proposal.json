@@ -1,0 +1,183 @@
+{
+  "status": "prospective_adoption",
+  "proposal": {
+    "hypothesis": "The current policy overweights failure_rate and underweights stagnation, causing repeated attempts on the stagnant 'recovery' module while ignoring 'rag' which has high failure_rate but no stagnation penalty. A revised score should penalize stagnation more strongly and reward last_gain to prioritize modules with recent success or untried potential, while still exploring high-failure modules.",
+    "policy": {
+      "score": {
+        "op": "add",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              0.6,
+              {
+                "var": "failure_rate"
+              }
+            ]
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  0.9,
+                  {
+                    "op": "sub",
+                    "args": [
+                      1,
+                      {
+                        "var": "attempted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      0.7,
+                      {
+                        "var": "last_gain"
+                      }
+                    ]
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      -1.2,
+                      {
+                        "var": "stagnation"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "branches": 2
+    },
+    "predicted_decision_change": "The revised policy will rank 'rag' (failure_rate=1.0, attempted=1, stagnation=1) higher than 'recovery' (failure_rate=0.667, attempted=2, stagnation=2) due to stronger stagnation penalty and higher failure_rate weight. 'tools' (failure_rate=0.333, attempted=0, last_gain=0.048) and 'prompt' (failure_rate=0.333, attempted=0, last_gain=0) will also be explored more, reducing repeated attempts on stagnant modules and increasing exploration of untried or recently successful ones."
+  },
+  "evaluation_state": {
+    "memory": {
+      "failure_count": 4,
+      "failure_rate": 0.6666666666666666,
+      "attempted": 1,
+      "last_gain": 0.23809523809523814,
+      "success_rate": 1.0,
+      "stagnation": 0
+    },
+    "rag": {
+      "failure_count": 3,
+      "failure_rate": 1.0,
+      "attempted": 1,
+      "last_gain": 0,
+      "success_rate": 0.0,
+      "stagnation": 1
+    },
+    "tools": {
+      "failure_count": 1,
+      "failure_rate": 0.3333333333333333,
+      "attempted": 1,
+      "last_gain": 0.04761904761904756,
+      "success_rate": 1.0,
+      "stagnation": 0
+    },
+    "recovery": {
+      "failure_count": 2,
+      "failure_rate": 0.6666666666666666,
+      "attempted": 2,
+      "last_gain": 0,
+      "success_rate": 0.0,
+      "stagnation": 2
+    },
+    "prompt": {
+      "failure_count": 2,
+      "failure_rate": 0.3333333333333333,
+      "attempted": 1,
+      "last_gain": -0.28571428571428575,
+      "success_rate": 0.0,
+      "stagnation": 1
+    }
+  },
+  "old_choices": [
+    {
+      "module": "memory",
+      "score": 0.7857142857142857,
+      "features": {
+        "failure_count": 4,
+        "failure_rate": 0.6666666666666666,
+        "attempted": 1,
+        "last_gain": 0.23809523809523814,
+        "success_rate": 1.0,
+        "stagnation": 0,
+        "is_memory": 1.0,
+        "is_rag": 0.0,
+        "is_tools": 0.0,
+        "is_recovery": 0.0,
+        "is_prompt": 0.0
+      }
+    },
+    {
+      "module": "rag",
+      "score": 0.4,
+      "features": {
+        "failure_count": 3,
+        "failure_rate": 1.0,
+        "attempted": 1,
+        "last_gain": 0,
+        "success_rate": 0.0,
+        "stagnation": 1,
+        "is_memory": 0.0,
+        "is_rag": 1.0,
+        "is_tools": 0.0,
+        "is_recovery": 0.0,
+        "is_prompt": 0.0
+      }
+    }
+  ],
+  "new_choices": [
+    {
+      "module": "memory",
+      "score": 0.5666666666666667,
+      "features": {
+        "failure_count": 4,
+        "failure_rate": 0.6666666666666666,
+        "attempted": 1,
+        "last_gain": 0.23809523809523814,
+        "success_rate": 1.0,
+        "stagnation": 0,
+        "is_memory": 1.0,
+        "is_rag": 0.0,
+        "is_tools": 0.0,
+        "is_recovery": 0.0,
+        "is_prompt": 0.0
+      }
+    },
+    {
+      "module": "tools",
+      "score": 0.23333333333333328,
+      "features": {
+        "failure_count": 1,
+        "failure_rate": 0.3333333333333333,
+        "attempted": 1,
+        "last_gain": 0.04761904761904756,
+        "success_rate": 1.0,
+        "stagnation": 0,
+        "is_memory": 0.0,
+        "is_rag": 0.0,
+        "is_tools": 1.0,
+        "is_recovery": 0.0,
+        "is_prompt": 0.0
+      }
+    }
+  ],
+  "choice_changed": true,
+  "benefit_claim": "not established by adoption; requires later actual search and control"
+}

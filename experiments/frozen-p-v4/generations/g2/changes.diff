@@ -1,0 +1,11 @@
+--- parent.json
++++ candidate.json
+@@ -98,7 +98,7 @@
+       "var": "failure_rate"
+     }
+   },
+-  "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
++  "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string) and evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose.\n\nResolution rules (apply generally, never assume specific values):\n1. Prefer evidence that matches the queried entity (entity_match), is in the user's scope (scope_match), is trusted, available, and not deprecated. Among otherwise-valid candidates, prefer the freshest (smallest age) record over higher-overlap but older ones; treat stale records as superseded.\n2. Authority: only trusted, in-scope sources may establish authoritative facts such as policy tiers. Untrusted or global-only sources may inform but cannot grant authority; if the only source for a required fact is untrusted, treat that fact as not established.\n3. Tools: prefer read-only tools that match the entity and are available. If the top-ranked tool is unavailable or not read-only, fall back to the best available read-only tool that matches the entity (e.g., a live/current read-only lookup) before concluding failure. Retry only on retryable, non-permanent errors within the attempt limit.\n4. Composition: when multiple fields are requested, resolve each field independently using rules 1-3 and join them in the requested order/format.\n5. Only answer exactly UNKNOWN if, after applying rules 1-4, a required fact still cannot be established from trusted, in-scope, available evidence or a successful read-only tool result. Cite the evidence IDs actually used.",
+   "rag_score": {
+     "var": "overlap"
+   },

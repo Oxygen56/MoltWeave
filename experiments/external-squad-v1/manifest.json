@@ -1,0 +1,26 @@
+{
+  "adapter": "squad11-rag-slice-v1",
+  "adapter_sha256": "71c8e87e2e262819cc3e71e8307292dec4fc4ce74a8983b12acca2d51120acc1",
+  "status": "measurement_incomplete",
+  "started_at": 1792745647.0438359,
+  "selection": {
+    "method": "sha256_qid_order",
+    "seed": 17,
+    "count": 24,
+    "distractors": 4
+  },
+  "data_url": "https://raw.githubusercontent.com/rajpurkar/SQuAD-explorer/eee5fdbf62f8613a7812b03419e6b29617b74fd1/dataset/dev-v1.1.json",
+  "expected_data_sha256": "95aa6a52d5d6a735563366753ca50492a658031da74f301ac5238b03966972c9",
+  "program_hashes": {
+    "g0": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+    "g4": "53ee13bae5ba6e37606bda2bb4bed5355ba61214fb848b58c8c111b7b02415b0"
+  },
+  "core_manifest_hash": "98ec01b74a7cb96d7ce51014857777e69d70b804db486e9e4c940b29e0317a19",
+  "model": "deepseek-flash",
+  "max_tokens": 2048,
+  "endpoint_host": "api.deepseek.com",
+  "request_contract": "same fixed extractive JSON instruction plus each loaded program prompt",
+  "selection_allowed": false,
+  "optimization_feedback_allowed": false,
+  "finished_at": 1792745649.4596632
+}

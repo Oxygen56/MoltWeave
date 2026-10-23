@@ -1,0 +1,1502 @@
+{
+  "scope": "Observed chain; paired differences do not alone establish isolated causal credit",
+  "chain": [
+    {
+      "from": "g0",
+      "to": "g1",
+      "changed_fields": [
+        "policy"
+      ],
+      "parent_loaded_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+      "mechanism_adopted": false,
+      "dev_before": 0.3333333333333333,
+      "dev_after": 0.3333333333333333,
+      "actual_current_branches": [
+        "memory",
+        "recovery"
+      ],
+      "next_policy_counterfactual_choice_changed": false,
+      "actual_next_branches": [
+        "memory",
+        "recovery"
+      ],
+      "policy_claim": "executed in next search",
+      "witnesses": [],
+      "policy_changed": true
+    },
+    {
+      "from": "g1",
+      "to": "g2",
+      "changed_fields": [
+        "memory_score",
+        "memory_top_k",
+        "policy"
+      ],
+      "parent_loaded_hash": "c34ff2277debab2aed24b2b4b3912b9104e53152170ca5371ad5f4b28730b3d9",
+      "mechanism_adopted": true,
+      "dev_before": 0.3333333333333333,
+      "dev_after": 0.6190476190476191,
+      "actual_current_branches": [
+        "memory",
+        "recovery"
+      ],
+      "next_policy_counterfactual_choice_changed": true,
+      "actual_next_branches": [
+        "prompt",
+        "rag"
+      ],
+      "policy_claim": "executed in next search",
+      "witnesses": [
+        {
+          "task_id": "task-2e40710e7d5a3574",
+          "family": "memory_temporal",
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": [
+              "ev-d3246526d95a280b",
+              "ev-09b10d129ee0d33f",
+              "ev-7660bba475e5df06",
+              "ev-236c81442e5034ce"
+            ]
+          },
+          "new_output": {
+            "answer": "VA36E85F233",
+            "evidence_ids": [
+              "ev-ffd0c7bc628a7095"
+            ]
+          },
+          "old_decisions": {
+            "memory": [
+              {
+                "index": 2,
+                "id": "ev-d3246526d95a280b",
+                "features": {
+                  "overlap": 1.0,
+                  "age": 18.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 1.0
+              },
+              {
+                "index": 3,
+                "id": "ev-09b10d129ee0d33f",
+                "features": {
+                  "overlap": 0.22580645161290322,
+                  "age": 47.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.22580645161290322
+              },
+              {
+                "index": 1,
+                "id": "ev-47f096823128aea0",
+                "features": {
+                  "overlap": 0.16129032258064516,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 0.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.16129032258064516
+              },
+              {
+                "index": 0,
+                "id": "ev-ffd0c7bc628a7095",
+                "features": {
+                  "overlap": 0.12903225806451613,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.12903225806451613
+              }
+            ],
+            "rag": [
+              {
+                "index": 0,
+                "id": "ev-7660bba475e5df06",
+                "features": {
+                  "overlap": 0.0967741935483871,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.0967741935483871
+              }
+            ],
+            "tools": [
+              {
+                "index": 0,
+                "id": "read_current_registry",
+                "features": {
+                  "overlap": 0.25806451612903225,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.25806451612903225
+              },
+              {
+                "index": 1,
+                "id": "update_registry",
+                "features": {
+                  "overlap": 0.12903225806451613,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 0.0
+                },
+                "score": 0.12903225806451613
+              },
+              {
+                "index": 2,
+                "id": "read_archived_registry",
+                "features": {
+                  "overlap": 0.0967741935483871,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 1.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.0967741935483871
+              }
+            ],
+            "tool_events": [
+              {
+                "tool": "read_current_registry",
+                "attempt": 1,
+                "result": {
+                  "status": "ok",
+                  "retryable": false,
+                  "text": "Live registry confirms Aster-dc46b3 is active. Registration token: V0807040854.",
+                  "evidence_ids": [
+                    "ev-236c81442e5034ce"
+                  ]
+                }
+              }
+            ]
+          },
+          "new_decisions": {
+            "memory": [
+              {
+                "index": 2,
+                "id": "ev-d3246526d95a280b",
+                "features": {
+                  "overlap": 1.0,
+                  "age": 18.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 6.026315789473684
+              },
+              {
+                "index": 0,
+                "id": "ev-ffd0c7bc628a7095",
+                "features": {
+                  "overlap": 0.12903225806451613,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 5.629032258064516
+              },
+              {
+                "index": 3,
+                "id": "ev-09b10d129ee0d33f",
+                "features": {
+                  "overlap": 0.22580645161290322,
+                  "age": 47.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 5.23622311827957
+              },
+              {
+                "index": 1,
+                "id": "ev-47f096823128aea0",
+                "features": {
+                  "overlap": 0.16129032258064516,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 0.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 3.661290322580645
+              }
+            ],
+            "rag": [
+              {
+                "index": 0,
+                "id": "ev-7660bba475e5df06",
+                "features": {
+                  "overlap": 0.0967741935483871,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.0967741935483871
+              }
+            ],
+            "tools": [
+              {
+                "index": 0,
+                "id": "read_current_registry",
+                "features": {
+                  "overlap": 0.25806451612903225,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.25806451612903225
+              },
+              {
+                "index": 1,
+                "id": "update_registry",
+                "features": {
+                  "overlap": 0.12903225806451613,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 0.0
+                },
+                "score": 0.12903225806451613
+              },
+              {
+                "index": 2,
+                "id": "read_archived_registry",
+                "features": {
+                  "overlap": 0.0967741935483871,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 1.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.0967741935483871
+              }
+            ],
+            "tool_events": [
+              {
+                "tool": "read_current_registry",
+                "attempt": 1,
+                "result": {
+                  "status": "ok",
+                  "retryable": false,
+                  "text": "Live registry confirms Aster-dc46b3 is active. Registration token: V0807040854.",
+                  "evidence_ids": [
+                    "ev-236c81442e5034ce"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "task_id": "task-06be4919ae4f7c39",
+          "family": "memory_scope",
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": [
+              "ev-a11b480deba65683",
+              "ev-6c95b56c71037cfe"
+            ]
+          },
+          "new_output": {
+            "answer": "V23ED000272",
+            "evidence_ids": [
+              "ev-a11b480deba65683",
+              "ev-6c95b56c71037cfe"
+            ]
+          },
+          "old_decisions": {
+            "memory": [
+              {
+                "index": 1,
+                "id": "ev-c366bfc371a5ffcf",
+                "features": {
+                  "overlap": 0.1935483870967742,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 0.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.1935483870967742
+              },
+              {
+                "index": 2,
+                "id": "ev-a11b480deba65683",
+                "features": {
+                  "overlap": 0.12903225806451613,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.12903225806451613
+              },
+              {
+                "index": 0,
+                "id": "ev-68076524fdac88d9",
+                "features": {
+                  "overlap": 0.0967741935483871,
+                  "age": 3.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.0967741935483871
+              }
+            ],
+            "rag": [
+              {
+                "index": 0,
+                "id": "ev-d1618149497da6bb",
+                "features": {
+                  "overlap": 0.0967741935483871,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.0967741935483871
+              }
+            ],
+            "tools": [
+              {
+                "index": 2,
+                "id": "read_current_registry",
+                "features": {
+                  "overlap": 0.25806451612903225,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.25806451612903225
+              },
+              {
+                "index": 1,
+                "id": "update_registry",
+                "features": {
+                  "overlap": 0.12903225806451613,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 0.0
+                },
+                "score": 0.12903225806451613
+              },
+              {
+                "index": 0,
+                "id": "read_archived_registry",
+                "features": {
+                  "overlap": 0.0967741935483871,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 1.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.0967741935483871
+              }
+            ],
+            "tool_events": [
+              {
+                "tool": "read_current_registry",
+                "attempt": 1,
+                "result": {
+                  "status": "ok",
+                  "retryable": false,
+                  "text": "Live registry confirms Birch-703ccb is active. Registration token: V71FA82F0F0.",
+                  "evidence_ids": [
+                    "ev-6c95b56c71037cfe"
+                  ]
+                }
+              }
+            ]
+          },
+          "new_decisions": {
+            "memory": [
+              {
+                "index": 2,
+                "id": "ev-a11b480deba65683",
+                "features": {
+                  "overlap": 0.12903225806451613,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 5.629032258064516
+              },
+              {
+                "index": 0,
+                "id": "ev-68076524fdac88d9",
+                "features": {
+                  "overlap": 0.0967741935483871,
+                  "age": 3.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 3.721774193548387
+              },
+              {
+                "index": 1,
+                "id": "ev-c366bfc371a5ffcf",
+                "features": {
+                  "overlap": 0.1935483870967742,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 0.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 3.693548387096774
+              }
+            ],
+            "rag": [
+              {
+                "index": 0,
+                "id": "ev-d1618149497da6bb",
+                "features": {
+                  "overlap": 0.0967741935483871,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.0967741935483871
+              }
+            ],
+            "tools": [
+              {
+                "index": 2,
+                "id": "read_current_registry",
+                "features": {
+                  "overlap": 0.25806451612903225,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.25806451612903225
+              },
+              {
+                "index": 1,
+                "id": "update_registry",
+                "features": {
+                  "overlap": 0.12903225806451613,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 0.0
+                },
+                "score": 0.12903225806451613
+              },
+              {
+                "index": 0,
+                "id": "read_archived_registry",
+                "features": {
+                  "overlap": 0.0967741935483871,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 1.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.0967741935483871
+              }
+            ],
+            "tool_events": [
+              {
+                "tool": "read_current_registry",
+                "attempt": 1,
+                "result": {
+                  "status": "ok",
+                  "retryable": false,
+                  "text": "Live registry confirms Birch-703ccb is active. Registration token: V71FA82F0F0.",
+                  "evidence_ids": [
+                    "ev-6c95b56c71037cfe"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "policy_changed": true
+    },
+    {
+      "from": "g2",
+      "to": "g3",
+      "changed_fields": [
+        "rag_score",
+        "rag_top_k"
+      ],
+      "parent_loaded_hash": "6b15989f4e54d252f5b789e355576847f18b5f199b11318138a9c99144e735f2",
+      "mechanism_adopted": true,
+      "dev_before": 0.5714285714285714,
+      "dev_after": 0.7142857142857143,
+      "actual_current_branches": [
+        "prompt",
+        "rag"
+      ],
+      "next_policy_counterfactual_choice_changed": false,
+      "actual_next_branches": [
+        "tools",
+        "recovery"
+      ],
+      "policy_claim": "unchanged policy reused; not a new P generation",
+      "witnesses": [
+        {
+          "task_id": "task-c107483b750a593b",
+          "family": "rag_authority",
+          "old_output": {
+            "answer": "UNKNOWN",
+            "evidence_ids": [
+              "ev-2b7583a6780c1b61",
+              "ev-45133327c22b7c20"
+            ]
+          },
+          "new_output": {
+            "answer": "V388EE8A67D",
+            "evidence_ids": [
+              "ev-2b7583a6780c1b61",
+              "ev-45133327c22b7c20"
+            ]
+          },
+          "old_decisions": {
+            "memory": [
+              {
+                "index": 0,
+                "id": "ev-81476fc2bc54235d",
+                "features": {
+                  "overlap": 0.09090909090909091,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 5.590909090909091
+              }
+            ],
+            "rag": [
+              {
+                "index": 1,
+                "id": "ev-469bc5932a71cac5",
+                "features": {
+                  "overlap": 1.0,
+                  "age": 0.0,
+                  "trusted": 0.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 1.0
+              },
+              {
+                "index": 0,
+                "id": "ev-2b7583a6780c1b61",
+                "features": {
+                  "overlap": 0.15151515151515152,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.15151515151515152
+              },
+              {
+                "index": 2,
+                "id": "ev-df301743fcb09e2d",
+                "features": {
+                  "overlap": 0.12121212121212122,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 0.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.12121212121212122
+              },
+              {
+                "index": 3,
+                "id": "ev-7387eb81a0cd43a7",
+                "features": {
+                  "overlap": 0.12121212121212122,
+                  "age": 36.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.12121212121212122
+              }
+            ],
+            "tools": [
+              {
+                "index": 2,
+                "id": "read_current_registry",
+                "features": {
+                  "overlap": 0.2727272727272727,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.2727272727272727
+              },
+              {
+                "index": 1,
+                "id": "read_archived_registry",
+                "features": {
+                  "overlap": 0.09090909090909091,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 1.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.09090909090909091
+              },
+              {
+                "index": 0,
+                "id": "update_registry",
+                "features": {
+                  "overlap": 0.06060606060606061,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 0.0
+                },
+                "score": 0.06060606060606061
+              }
+            ],
+            "tool_events": [
+              {
+                "tool": "read_current_registry",
+                "attempt": 1,
+                "result": {
+                  "status": "ok",
+                  "retryable": false,
+                  "text": "Live registry confirms Aster-69ac6a is active. Registration token: V0C356BDA44.",
+                  "evidence_ids": [
+                    "ev-45133327c22b7c20"
+                  ]
+                }
+              }
+            ]
+          },
+          "new_decisions": {
+            "memory": [
+              {
+                "index": 0,
+                "id": "ev-81476fc2bc54235d",
+                "features": {
+                  "overlap": 0.09090909090909091,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 5.590909090909091
+              }
+            ],
+            "rag": [
+              {
+                "index": 0,
+                "id": "ev-2b7583a6780c1b61",
+                "features": {
+                  "overlap": 0.15151515151515152,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 4.151515151515151
+              },
+              {
+                "index": 3,
+                "id": "ev-7387eb81a0cd43a7",
+                "features": {
+                  "overlap": 0.12121212121212122,
+                  "age": 36.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 3.6347256347256347
+              },
+              {
+                "index": 1,
+                "id": "ev-469bc5932a71cac5",
+                "features": {
+                  "overlap": 1.0,
+                  "age": 0.0,
+                  "trusted": 0.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 3.0
+              },
+              {
+                "index": 2,
+                "id": "ev-df301743fcb09e2d",
+                "features": {
+                  "overlap": 0.12121212121212122,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 0.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 2.621212121212121
+              }
+            ],
+            "tools": [
+              {
+                "index": 2,
+                "id": "read_current_registry",
+                "features": {
+                  "overlap": 0.2727272727272727,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.2727272727272727
+              },
+              {
+                "index": 1,
+                "id": "read_archived_registry",
+                "features": {
+                  "overlap": 0.09090909090909091,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 1.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.09090909090909091
+              },
+              {
+                "index": 0,
+                "id": "update_registry",
+                "features": {
+                  "overlap": 0.06060606060606061,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 0.0
+                },
+                "score": 0.06060606060606061
+              }
+            ],
+            "tool_events": [
+              {
+                "tool": "read_current_registry",
+                "attempt": 1,
+                "result": {
+                  "status": "ok",
+                  "retryable": false,
+                  "text": "Live registry confirms Aster-69ac6a is active. Registration token: V0C356BDA44.",
+                  "evidence_ids": [
+                    "ev-45133327c22b7c20"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "task_id": "task-777d5dffc3eacf04",
+          "family": "composition",
+          "old_output": {
+            "answer": "VE40BB19AEE|V24B4BD156A|V769E6E7E0B",
+            "evidence_ids": [
+              "ev-9d92546ca814bff1",
+              "ev-c1fbdde9fc0d170b",
+              "ev-b02109beb8cc7964"
+            ]
+          },
+          "new_output": {
+            "answer": "VE40BB19AEE|VBA49B01266|V769E6E7E0B",
+            "evidence_ids": [
+              "ev-9d92546ca814bff1",
+              "ev-5a43af009d8e72fb",
+              "ev-b02109beb8cc7964"
+            ]
+          },
+          "old_decisions": {
+            "memory": [
+              {
+                "index": 3,
+                "id": "ev-5481370549eb6485",
+                "features": {
+                  "overlap": 1.0,
+                  "age": 18.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 6.026315789473684
+              },
+              {
+                "index": 0,
+                "id": "ev-9d92546ca814bff1",
+                "features": {
+                  "overlap": 0.13333333333333333,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 5.633333333333334
+              },
+              {
+                "index": 2,
+                "id": "ev-44b3b78af7c8a092",
+                "features": {
+                  "overlap": 0.2,
+                  "age": 47.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 5.210416666666667
+              },
+              {
+                "index": 1,
+                "id": "ev-3ac4c4c22f5664da",
+                "features": {
+                  "overlap": 0.1,
+                  "age": 3.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 3.725
+              },
+              {
+                "index": 4,
+                "id": "ev-6b9c1d344a7cff2d",
+                "features": {
+                  "overlap": 0.13333333333333333,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 0.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 3.6333333333333333
+              },
+              {
+                "index": 5,
+                "id": "ev-ff0d45c7dc1f1ed4",
+                "features": {
+                  "overlap": 0.13333333333333333,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 0.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 3.6333333333333333
+              }
+            ],
+            "rag": [
+              {
+                "index": 0,
+                "id": "ev-c1fbdde9fc0d170b",
+                "features": {
+                  "overlap": 1.0,
+                  "age": 0.0,
+                  "trusted": 0.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 1.0
+              },
+              {
+                "index": 1,
+                "id": "ev-15caf412e03a85d6",
+                "features": {
+                  "overlap": 0.13333333333333333,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 0.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.13333333333333333
+              },
+              {
+                "index": 2,
+                "id": "ev-773a137f584471b8",
+                "features": {
+                  "overlap": 0.13333333333333333,
+                  "age": 36.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.13333333333333333
+              },
+              {
+                "index": 3,
+                "id": "ev-5a43af009d8e72fb",
+                "features": {
+                  "overlap": 0.13333333333333333,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.13333333333333333
+              }
+            ],
+            "tools": [
+              {
+                "index": 0,
+                "id": "read_current_registry",
+                "features": {
+                  "overlap": 0.26666666666666666,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.26666666666666666
+              },
+              {
+                "index": 1,
+                "id": "update_registry",
+                "features": {
+                  "overlap": 0.13333333333333333,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 0.0
+                },
+                "score": 0.13333333333333333
+              },
+              {
+                "index": 2,
+                "id": "read_archived_registry",
+                "features": {
+                  "overlap": 0.06666666666666667,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 1.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.06666666666666667
+              }
+            ],
+            "tool_events": [
+              {
+                "tool": "read_current_registry",
+                "attempt": 1,
+                "result": {
+                  "status": "ok",
+                  "retryable": false,
+                  "text": "Live registry confirms Aster-94c646 is active. Registration token: V769E6E7E0B.",
+                  "evidence_ids": [
+                    "ev-b02109beb8cc7964"
+                  ]
+                }
+              }
+            ]
+          },
+          "new_decisions": {
+            "memory": [
+              {
+                "index": 3,
+                "id": "ev-5481370549eb6485",
+                "features": {
+                  "overlap": 1.0,
+                  "age": 18.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 6.026315789473684
+              },
+              {
+                "index": 0,
+                "id": "ev-9d92546ca814bff1",
+                "features": {
+                  "overlap": 0.13333333333333333,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 5.633333333333334
+              },
+              {
+                "index": 2,
+                "id": "ev-44b3b78af7c8a092",
+                "features": {
+                  "overlap": 0.2,
+                  "age": 47.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 5.210416666666667
+              },
+              {
+                "index": 1,
+                "id": "ev-3ac4c4c22f5664da",
+                "features": {
+                  "overlap": 0.1,
+                  "age": 3.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 3.725
+              },
+              {
+                "index": 4,
+                "id": "ev-6b9c1d344a7cff2d",
+                "features": {
+                  "overlap": 0.13333333333333333,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 0.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 3.6333333333333333
+              },
+              {
+                "index": 5,
+                "id": "ev-ff0d45c7dc1f1ed4",
+                "features": {
+                  "overlap": 0.13333333333333333,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 1.0,
+                  "global_scope": 0.0,
+                  "entity_match": 0.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 3.6333333333333333
+              }
+            ],
+            "rag": [
+              {
+                "index": 3,
+                "id": "ev-5a43af009d8e72fb",
+                "features": {
+                  "overlap": 0.13333333333333333,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 4.133333333333334
+              },
+              {
+                "index": 2,
+                "id": "ev-773a137f584471b8",
+                "features": {
+                  "overlap": 0.13333333333333333,
+                  "age": 36.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 3.646846846846847
+              },
+              {
+                "index": 0,
+                "id": "ev-c1fbdde9fc0d170b",
+                "features": {
+                  "overlap": 1.0,
+                  "age": 0.0,
+                  "trusted": 0.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 3.0
+              },
+              {
+                "index": 1,
+                "id": "ev-15caf412e03a85d6",
+                "features": {
+                  "overlap": 0.13333333333333333,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 0.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 2.6333333333333333
+              }
+            ],
+            "tools": [
+              {
+                "index": 0,
+                "id": "read_current_registry",
+                "features": {
+                  "overlap": 0.26666666666666666,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.26666666666666666
+              },
+              {
+                "index": 1,
+                "id": "update_registry",
+                "features": {
+                  "overlap": 0.13333333333333333,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 0.0,
+                  "available": 1.0,
+                  "read_only": 0.0
+                },
+                "score": 0.13333333333333333
+              },
+              {
+                "index": 2,
+                "id": "read_archived_registry",
+                "features": {
+                  "overlap": 0.06666666666666667,
+                  "age": 0.0,
+                  "trusted": 1.0,
+                  "scope_match": 0.0,
+                  "global_scope": 1.0,
+                  "entity_match": 1.0,
+                  "deprecated": 1.0,
+                  "available": 1.0,
+                  "read_only": 1.0
+                },
+                "score": 0.06666666666666667
+              }
+            ],
+            "tool_events": [
+              {
+                "tool": "read_current_registry",
+                "attempt": 1,
+                "result": {
+                  "status": "ok",
+                  "retryable": false,
+                  "text": "Live registry confirms Aster-94c646 is active. Registration token: V769E6E7E0B.",
+                  "evidence_ids": [
+                    "ev-b02109beb8cc7964"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "policy_changed": false
+    },
+    {
+      "from": "g3",
+      "to": "g4",
+      "changed_fields": [
+        "retry",
+        "policy"
+      ],
+      "parent_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+      "mechanism_adopted": true,
+      "dev_before": 0.7142857142857143,
+      "dev_after": 0.8571428571428571,
+      "actual_current_branches": [
+        "tools",
+        "recovery"
+      ],
+      "next_policy_counterfactual_choice_changed": true,
+      "actual_next_branches": null,
+      "policy_claim": "stored prospective policy; no next search yet",
+      "policy_changed": true
+    }
+  ]
+}

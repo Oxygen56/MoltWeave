@@ -1,0 +1,85 @@
+{
+  "generation": 0,
+  "branch": 1,
+  "module": "recovery",
+  "base_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+  "proposal": {
+    "hypothesis": "Failures split into two classes: (1) transient tool errors where retry is currently disabled (retry=0), causing premature UNKNOWN and lost answers; (2) retrieval ranking that surfaces stale/high-overlap memory over the correct scoped entity, and tool routing that picks unavailable or non-read-only tools. Since only retry/max_attempts are editable, the highest-leverage general fix is enabling retry on retryable (transient) errors while keeping permanent errors non-retryable, and raising max_attempts so transient timeouts recover within budget. This is a general recovery policy keyed on error_retryable/error_permanent features, not task-specific.",
+    "changes": {
+      "retry": {
+        "op": "and",
+        "args": [
+          {
+            "var": "error_retryable"
+          },
+          {
+            "op": "not",
+            "args": [
+              {
+                "var": "error_permanent"
+              }
+            ]
+          }
+        ]
+      },
+      "max_attempts": 3
+    },
+    "predicted_behavior": "On transient_error tool results (retryable=1, permanent=0) the agent retries the same read-only tool up to max_attempts, recovering the live token and producing the correct answer with evidence instead of UNKNOWN; permanent_error results (retryable=0 or permanent=1) still do not retry, avoiding wasted attempts. tool_recovery and composition families with transient timeouts should now pass answer/evidence/attempts checks.",
+    "regression_risk": "Low-moderate: retrying transient errors increases attempt counts, which could exceed expected tool_attempts bounds if the harness expects exactly 1 attempt on success-after-retry, and repeated retries on a persistently flaky endpoint could inflate latency; permanent-error and non-retryable paths are unaffected, and no authority or policy fields are changed."
+  },
+  "program": {
+    "schema": 1,
+    "memory_score": {
+      "var": "overlap"
+    },
+    "rag_score": {
+      "var": "overlap"
+    },
+    "tool_score": {
+      "var": "overlap"
+    },
+    "retry": {
+      "op": "and",
+      "args": [
+        {
+          "var": "error_retryable"
+        },
+        {
+          "op": "not",
+          "args": [
+            {
+              "var": "error_permanent"
+            }
+          ]
+        }
+      ]
+    },
+    "memory_top_k": 2,
+    "rag_top_k": 2,
+    "max_attempts": 3,
+    "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+    "policy": {
+      "score": {
+        "var": "failure_rate"
+      },
+      "branches": 2
+    }
+  },
+  "risk": {
+    "sensitive": false,
+    "blocked": false,
+    "classification": "ordinary",
+    "reasons": [],
+    "changed_paths": [
+      "retry"
+    ],
+    "before_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+    "after_hash": "c7215e8f6a9a65614c57b9b3648007437c27c310fd8ad483cc25f6054e2c3191"
+  },
+  "status": "executed",
+  "gain": 0.09523809523809523,
+  "dev_rate": 0.42857142857142855,
+  "guard_rate": 0.5714285714285714,
+  "program_hash": "c7215e8f6a9a65614c57b9b3648007437c27c310fd8ad483cc25f6054e2c3191",
+  "actual_loaded_hash": "c7215e8f6a9a65614c57b9b3648007437c27c310fd8ad483cc25f6054e2c3191"
+}

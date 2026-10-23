@@ -1,0 +1,191 @@
+{
+  "generation": 1,
+  "branch": 0,
+  "module": "recovery",
+  "base_hash": "5d073f1f320581ac13522514829e1a4564f166300224eac34c374b9348a790c4",
+  "proposal": {
+    "hypothesis": "The recovery module's retry field is a static 0, so transient (retryable) tool errors are never retried, causing tool_recovery and composition failures where a single transient timeout aborts the task. Making retry a general expression that fires only when the last error is retryable and non-permanent, and the attempt budget is not exhausted, will recover these cases without retrying permanent errors or mutating authority.",
+    "changes": {
+      "retry": {
+        "op": "and",
+        "args": [
+          {
+            "var": "error_retryable"
+          },
+          {
+            "op": "not",
+            "args": [
+              {
+                "var": "error_permanent"
+              }
+            ]
+          },
+          {
+            "op": "lt",
+            "args": [
+              {
+                "var": "attempt"
+              },
+              3
+            ]
+          }
+        ]
+      },
+      "max_attempts": 3
+    },
+    "predicted_behavior": "On transient_error (retryable=1, permanent=0, attempt<3) the recovery module retries the same read-only tool, so tool_recovery and composition families that currently return UNKNOWN after one timeout will obtain the live token and produce the correct answer with tool_attempts 2-3. Permanent errors (retryable=0/permanent=1) still yield no retry, preserving tool_routing behavior.",
+    "regression_risk": "Low-moderate: if a tool reports retryable but keeps failing, up to max_attempts=3 attempts are consumed, slightly increasing latency; no authority or policy changes since retry only re-invokes the already-selected read-only tool and never escalates to write tools."
+  },
+  "program": {
+    "schema": 1,
+    "memory_score": {
+      "op": "add",
+      "args": [
+        {
+          "op": "mul",
+          "args": [
+            {
+              "var": "overlap"
+            },
+            0.5
+          ]
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "entity_match"
+                },
+                0.2
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    {
+                      "var": "scope_match"
+                    },
+                    0.1
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        {
+                          "var": "trusted"
+                        },
+                        0.05
+                      ]
+                    },
+                    {
+                      "op": "add",
+                      "args": [
+                        {
+                          "op": "mul",
+                          "args": [
+                            {
+                              "var": "available"
+                            },
+                            0.05
+                          ]
+                        },
+                        {
+                          "op": "mul",
+                          "args": [
+                            {
+                              "op": "div",
+                              "args": [
+                                1,
+                                {
+                                  "op": "add",
+                                  "args": [
+                                    1,
+                                    {
+                                      "var": "age"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            0.1
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rag_score": {
+      "var": "overlap"
+    },
+    "tool_score": {
+      "var": "overlap"
+    },
+    "retry": {
+      "op": "and",
+      "args": [
+        {
+          "var": "error_retryable"
+        },
+        {
+          "op": "not",
+          "args": [
+            {
+              "var": "error_permanent"
+            }
+          ]
+        },
+        {
+          "op": "lt",
+          "args": [
+            {
+              "var": "attempt"
+            },
+            3
+          ]
+        }
+      ]
+    },
+    "memory_top_k": 3,
+    "rag_top_k": 2,
+    "max_attempts": 3,
+    "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+    "policy": {
+      "score": {
+        "var": "failure_rate"
+      },
+      "branches": 2
+    }
+  },
+  "risk": {
+    "sensitive": false,
+    "blocked": false,
+    "classification": "ordinary",
+    "reasons": [],
+    "changed_paths": [
+      "retry"
+    ],
+    "before_hash": "5d073f1f320581ac13522514829e1a4564f166300224eac34c374b9348a790c4",
+    "after_hash": "5dd7a586ea18b3cfb37453d3c3984c211b4136fbb055a52f5c631ba776a33603"
+  },
+  "status": "executed",
+  "gain": 0.09523809523809523,
+  "dev_rate": 0.6190476190476191,
+  "guard_rate": 0.7857142857142857,
+  "program_hash": "5dd7a586ea18b3cfb37453d3c3984c211b4136fbb055a52f5c631ba776a33603",
+  "actual_loaded_hash": "5dd7a586ea18b3cfb37453d3c3984c211b4136fbb055a52f5c631ba776a33603"
+}

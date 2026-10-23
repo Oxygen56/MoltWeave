@@ -1,0 +1,178 @@
+{
+  "generation": 1,
+  "branch": 0,
+  "module": "rag",
+  "base_hash": "daf7facc98e6468aea7202330420be40d94f984547b03a1bab2b1aca5758da58",
+  "proposal": {
+    "hypothesis": "Failures split into two root causes: (1) memory_temporal/rag_authority/composition cases where the top-ranked memory item is a stale high-overlap record (age>0) that crowds out the fresh live-registry evidence, causing the model to answer UNKNOWN or use an outdated tier; (2) tool_routing/tool_recovery cases where an unavailable or erroring tool is selected first and the retry/fallback logic never re-routes to a working read-only tool. Fixing memory ranking to strongly penalize stale (age>0) items and boosting fresh, entity-matching, scope-matching evidence, plus raising rag_top_k so the authoritative (trusted) RAG evidence is retained alongside the untrusted high-overlap one, should let the model find the live token and correct tier. Separately, the retry expression must be made to actually retry on retryable errors and fall back to the next available read-only tool on permanent errors.",
+    "changes": {
+      "rag_score": {
+        "op": "add",
+        "args": [
+          {
+            "var": "overlap"
+          },
+          {
+            "op": "mul",
+            "args": [
+              0.5,
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "var": "trusted"
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "var": "entity_match"
+                      },
+                      {
+                        "op": "div",
+                        "args": [
+                          1.0,
+                          {
+                            "op": "add",
+                            "args": [
+                              1.0,
+                              {
+                                "var": "age"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "rag_top_k": 3
+    },
+    "predicted_behavior": "RAG ranking now favors trusted, entity-matching, fresh evidence over untrusted high-overlap distractors, and top_k=3 keeps the authoritative policy-tier evidence in context. Combined with the existing memory freshness term, the model should retrieve the live registration token and correct tier, producing the expected channel|tier|token answers and citing the fresh evidence IDs instead of returning UNKNOWN.",
+    "regression_risk": "Moderate: raising rag_top_k to 3 adds one extra context item per query, slightly increasing prompt size and the chance of including a marginally relevant distractor; the trusted-boost could also demote a genuinely relevant untrusted-but-correct document. Tool routing/recovery failures are not addressed by these two fields, so those families may still fail."
+  },
+  "program": {
+    "schema": 1,
+    "memory_score": {
+      "op": "add",
+      "args": [
+        {
+          "var": "overlap"
+        },
+        {
+          "op": "mul",
+          "args": [
+            0.5,
+            {
+              "op": "add",
+              "args": [
+                {
+                  "var": "entity_match"
+                },
+                {
+                  "op": "div",
+                  "args": [
+                    1.0,
+                    {
+                      "op": "add",
+                      "args": [
+                        1.0,
+                        {
+                          "var": "age"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rag_score": {
+      "op": "add",
+      "args": [
+        {
+          "var": "overlap"
+        },
+        {
+          "op": "mul",
+          "args": [
+            0.5,
+            {
+              "op": "add",
+              "args": [
+                {
+                  "var": "trusted"
+                },
+                {
+                  "op": "mul",
+                  "args": [
+                    {
+                      "var": "entity_match"
+                    },
+                    {
+                      "op": "div",
+                      "args": [
+                        1.0,
+                        {
+                          "op": "add",
+                          "args": [
+                            1.0,
+                            {
+                              "var": "age"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "tool_score": {
+      "var": "overlap"
+    },
+    "retry": 0,
+    "memory_top_k": 4,
+    "rag_top_k": 3,
+    "max_attempts": 3,
+    "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+    "policy": {
+      "score": {
+        "var": "failure_rate"
+      },
+      "branches": 2
+    }
+  },
+  "risk": {
+    "sensitive": false,
+    "blocked": false,
+    "classification": "ordinary",
+    "reasons": [],
+    "changed_paths": [
+      "rag_score.args",
+      "rag_score.op",
+      "rag_score.var",
+      "rag_top_k"
+    ],
+    "before_hash": "daf7facc98e6468aea7202330420be40d94f984547b03a1bab2b1aca5758da58",
+    "after_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911"
+  },
+  "status": "executed",
+  "gain": 0.23809523809523814,
+  "dev_rate": 0.8095238095238095,
+  "guard_rate": 0.8571428571428571,
+  "program_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+  "actual_loaded_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911"
+}

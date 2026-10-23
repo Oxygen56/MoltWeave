@@ -1,0 +1,269 @@
+{
+  "generation": 3,
+  "branch": 1,
+  "module": "recovery",
+  "base_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+  "proposal": {
+    "hypothesis": "The recovery module's retry field is a static 0, so transient (retryable) tool errors are never retried, causing tool_recovery and composition failures where a single transient timeout yields UNKNOWN. Making retry a general expression that triggers a retry only when the last error is retryable and not permanent (and attempts remain) will recover transient failures without retrying permanent errors, while keeping max_attempts at 3 to bound total attempts.",
+    "changes": {
+      "retry": {
+        "op": "and",
+        "args": [
+          {
+            "var": "error_retryable"
+          },
+          {
+            "op": "not",
+            "args": [
+              {
+                "var": "error_permanent"
+              }
+            ]
+          }
+        ]
+      },
+      "max_attempts": 3
+    },
+    "predicted_behavior": "On transient_error events (retryable=1, permanent=0) the agent retries the same read-only tool, succeeding on attempt 2-3 and producing the correct token/answer with proper evidence. On permanent_error events (retryable=0) no retry occurs, avoiding wasted attempts. tool_recovery and composition families should flip from UNKNOWN to correct answers; memory_temporal/memory_scope failures (which are ranking, not retry, issues) remain unaffected.",
+    "regression_risk": "Low-moderate: if a tool reports retryable=1 but never succeeds, up to max_attempts=3 attempts are consumed, slightly increasing latency/attempt counts; the attempts check could fail if the harness expects exactly 1 attempt on cases that are actually transient. No authority or policy changes are made."
+  },
+  "program": {
+    "schema": 1,
+    "memory_score": {
+      "op": "add",
+      "args": [
+        {
+          "var": "overlap"
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                2,
+                {
+                  "var": "entity_match"
+                }
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    1.5,
+                    {
+                      "var": "scope_match"
+                    }
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        1.5,
+                        {
+                          "var": "trusted"
+                        }
+                      ]
+                    },
+                    {
+                      "op": "mul",
+                      "args": [
+                        0.5,
+                        {
+                          "op": "div",
+                          "args": [
+                            1,
+                            {
+                              "op": "add",
+                              "args": [
+                                1,
+                                {
+                                  "var": "age"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rag_score": {
+      "op": "add",
+      "args": [
+        {
+          "var": "overlap"
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                2,
+                {
+                  "var": "trusted"
+                }
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    1.5,
+                    {
+                      "var": "scope_match"
+                    }
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        1.5,
+                        {
+                          "var": "entity_match"
+                        }
+                      ]
+                    },
+                    {
+                      "op": "mul",
+                      "args": [
+                        0.5,
+                        {
+                          "op": "div",
+                          "args": [
+                            1,
+                            {
+                              "op": "add",
+                              "args": [
+                                1,
+                                {
+                                  "var": "age"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "tool_score": {
+      "var": "overlap"
+    },
+    "retry": {
+      "op": "and",
+      "args": [
+        {
+          "var": "error_retryable"
+        },
+        {
+          "op": "not",
+          "args": [
+            {
+              "var": "error_permanent"
+            }
+          ]
+        }
+      ]
+    },
+    "memory_top_k": 3,
+    "rag_top_k": 3,
+    "max_attempts": 3,
+    "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+    "policy": {
+      "score": {
+        "op": "add",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              2,
+              {
+                "op": "sub",
+                "args": [
+                  1,
+                  {
+                    "var": "attempted"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "var": "failure_rate"
+              },
+              {
+                "op": "mul",
+                "args": [
+                  0.5,
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "var": "stagnation"
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          2,
+                          {
+                            "var": "invalid_count"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "branches": 2
+    }
+  },
+  "risk": {
+    "sensitive": false,
+    "blocked": false,
+    "classification": "ordinary",
+    "reasons": [],
+    "changed_paths": [
+      "retry"
+    ],
+    "before_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+    "after_hash": "1e8b1f3b98a32d27cbd43f4f15c8d0adcb096cf65f0eb96e107ead7cf6e96e6b"
+  },
+  "status": "executed",
+  "gain": 0.1428571428571428,
+  "dev_rate": 0.8571428571428571,
+  "guard_rate": 1.0,
+  "program_hash": "1e8b1f3b98a32d27cbd43f4f15c8d0adcb096cf65f0eb96e107ead7cf6e96e6b",
+  "actual_loaded_hash": "1e8b1f3b98a32d27cbd43f4f15c8d0adcb096cf65f0eb96e107ead7cf6e96e6b"
+}

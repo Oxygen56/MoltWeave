@@ -1,0 +1,260 @@
+{
+  "status": "completed",
+  "metrics": {
+    "baseline": {
+      "passed": 39,
+      "total": 70,
+      "rate": 0.5571428571428572,
+      "families": {
+        "memory_temporal": {
+          "passed": 0,
+          "total": 10
+        },
+        "memory_scope": {
+          "passed": 9,
+          "total": 10
+        },
+        "rag_authority": {
+          "passed": 10,
+          "total": 10
+        },
+        "tool_routing": {
+          "passed": 7,
+          "total": 10
+        },
+        "tool_recovery": {
+          "passed": 3,
+          "total": 10
+        },
+        "composition": {
+          "passed": 0,
+          "total": 10
+        },
+        "clean": {
+          "passed": 10,
+          "total": 10
+        }
+      },
+      "gain_vs_baseline_count": 0,
+      "gain_vs_baseline_percentage_points": 0.0,
+      "paired_improved": 0,
+      "paired_regressed": 0,
+      "check_failures": {
+        "answer": 31,
+        "evidence": 30,
+        "tool": 3,
+        "attempts": 12
+      },
+      "average_selected_memory_records": 1.4285714285714286,
+      "average_selected_document_records": 1.2857142857142858,
+      "average_context_characters": 1360.8428571428572
+    },
+    "memory_top_k_only": {
+      "passed": 44,
+      "total": 70,
+      "rate": 0.6285714285714286,
+      "families": {
+        "memory_temporal": {
+          "passed": 2,
+          "total": 10
+        },
+        "memory_scope": {
+          "passed": 10,
+          "total": 10
+        },
+        "rag_authority": {
+          "passed": 8,
+          "total": 10
+        },
+        "tool_routing": {
+          "passed": 7,
+          "total": 10
+        },
+        "tool_recovery": {
+          "passed": 3,
+          "total": 10
+        },
+        "composition": {
+          "passed": 4,
+          "total": 10
+        },
+        "clean": {
+          "passed": 10,
+          "total": 10
+        }
+      },
+      "gain_vs_baseline_count": 5,
+      "gain_vs_baseline_percentage_points": 7.14285714285714,
+      "paired_improved": 7,
+      "paired_regressed": 2,
+      "check_failures": {
+        "answer": 26,
+        "evidence": 16,
+        "tool": 3,
+        "attempts": 12
+      },
+      "average_selected_memory_records": 2.142857142857143,
+      "average_selected_document_records": 1.2857142857142858,
+      "average_context_characters": 1529.2428571428572
+    },
+    "memory_score_only": {
+      "passed": 46,
+      "total": 70,
+      "rate": 0.6571428571428571,
+      "families": {
+        "memory_temporal": {
+          "passed": 8,
+          "total": 10
+        },
+        "memory_scope": {
+          "passed": 5,
+          "total": 10
+        },
+        "rag_authority": {
+          "passed": 8,
+          "total": 10
+        },
+        "tool_routing": {
+          "passed": 7,
+          "total": 10
+        },
+        "tool_recovery": {
+          "passed": 3,
+          "total": 10
+        },
+        "composition": {
+          "passed": 5,
+          "total": 10
+        },
+        "clean": {
+          "passed": 10,
+          "total": 10
+        }
+      },
+      "gain_vs_baseline_count": 7,
+      "gain_vs_baseline_percentage_points": 9.999999999999998,
+      "paired_improved": 13,
+      "paired_regressed": 6,
+      "check_failures": {
+        "answer": 24,
+        "evidence": 15,
+        "tool": 3,
+        "attempts": 12
+      },
+      "average_selected_memory_records": 1.4285714285714286,
+      "average_selected_document_records": 1.2857142857142858,
+      "average_context_characters": 1357.9857142857143
+    },
+    "tool_score_only": {
+      "passed": 34,
+      "total": 70,
+      "rate": 0.4857142857142857,
+      "families": {
+        "memory_temporal": {
+          "passed": 0,
+          "total": 10
+        },
+        "memory_scope": {
+          "passed": 3,
+          "total": 10
+        },
+        "rag_authority": {
+          "passed": 8,
+          "total": 10
+        },
+        "tool_routing": {
+          "passed": 10,
+          "total": 10
+        },
+        "tool_recovery": {
+          "passed": 3,
+          "total": 10
+        },
+        "composition": {
+          "passed": 0,
+          "total": 10
+        },
+        "clean": {
+          "passed": 10,
+          "total": 10
+        }
+      },
+      "gain_vs_baseline_count": -5,
+      "gain_vs_baseline_percentage_points": -7.142857142857145,
+      "paired_improved": 3,
+      "paired_regressed": 8,
+      "check_failures": {
+        "answer": 36,
+        "evidence": 27,
+        "tool": 0,
+        "attempts": 12
+      },
+      "average_selected_memory_records": 1.4285714285714286,
+      "average_selected_document_records": 1.2857142857142858,
+      "average_context_characters": 1359.0
+    },
+    "full_g4": {
+      "passed": 56,
+      "total": 70,
+      "rate": 0.8,
+      "families": {
+        "memory_temporal": {
+          "passed": 10,
+          "total": 10
+        },
+        "memory_scope": {
+          "passed": 10,
+          "total": 10
+        },
+        "rag_authority": {
+          "passed": 8,
+          "total": 10
+        },
+        "tool_routing": {
+          "passed": 10,
+          "total": 10
+        },
+        "tool_recovery": {
+          "passed": 3,
+          "total": 10
+        },
+        "composition": {
+          "passed": 5,
+          "total": 10
+        },
+        "clean": {
+          "passed": 10,
+          "total": 10
+        }
+      },
+      "gain_vs_baseline_count": 17,
+      "gain_vs_baseline_percentage_points": 24.28571428571429,
+      "paired_improved": 19,
+      "paired_regressed": 2,
+      "check_failures": {
+        "answer": 14,
+        "evidence": 12,
+        "tool": 0,
+        "attempts": 12
+      },
+      "average_selected_memory_records": 2.142857142857143,
+      "average_selected_document_records": 1.2857142857142858,
+      "average_context_characters": 1524.3714285714286
+    }
+  },
+  "calls": {
+    "logical_calls": 350,
+    "physical_attempts": 350,
+    "completed_logical_calls": 350,
+    "prompt_tokens": 207621,
+    "completion_tokens": 13247,
+    "total_tokens": 220868,
+    "physical_attempts_with_usage": 350
+  },
+  "finished_at": 1792746478.8937888,
+  "selection_allowed": false,
+  "optimization_feedback_allowed": false,
+  "claim_scope": "One predeclared five-variant component readout on 70 new authored synthetic cases; no P causal estimate, no real-business claim",
+  "context_interpretation": "memory_top_k_only isolates more lexical memory context; memory_score_only keeps k=2; full_g4 includes multiple changed mechanisms and their interactions",
+  "uncertainty": "One stochastic model readout per task/variant; retain all zero gains and regressions, do not choose or tune a version"
+}

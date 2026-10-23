@@ -1,0 +1,102 @@
+{
+  "loaded_program_hash": "5dd7a586ea18b3cfb37453d3c3984c211b4136fbb055a52f5c631ba776a33603",
+  "state": {
+    "memory": {
+      "failure_count": 3,
+      "failure_rate": 0.5,
+      "attempted": 1,
+      "last_gain": 0.19047619047619052,
+      "has_gain": 1.0,
+      "success_rate": 1.0,
+      "stagnation": 0,
+      "invalid_count": 0,
+      "blocked_count": 0
+    },
+    "rag": {
+      "failure_count": 1,
+      "failure_rate": 0.3333333333333333,
+      "attempted": 0,
+      "last_gain": 0,
+      "has_gain": 0.0,
+      "success_rate": 0.0,
+      "stagnation": 0,
+      "invalid_count": 0,
+      "blocked_count": 0
+    },
+    "tools": {
+      "failure_count": 1,
+      "failure_rate": 0.3333333333333333,
+      "attempted": 0,
+      "last_gain": 0,
+      "has_gain": 0.0,
+      "success_rate": 0.0,
+      "stagnation": 0,
+      "invalid_count": 0,
+      "blocked_count": 0
+    },
+    "recovery": {
+      "failure_count": 0,
+      "failure_rate": 0.0,
+      "attempted": 2,
+      "last_gain": 0.09523809523809523,
+      "has_gain": 1.0,
+      "success_rate": 1.0,
+      "stagnation": 0,
+      "invalid_count": 0,
+      "blocked_count": 0
+    },
+    "prompt": {
+      "failure_count": 3,
+      "failure_rate": 0.5,
+      "attempted": 1,
+      "last_gain": 0.19047619047619047,
+      "has_gain": 1.0,
+      "success_rate": 1.0,
+      "stagnation": 0,
+      "invalid_count": 0,
+      "blocked_count": 0
+    }
+  },
+  "selected": [
+    {
+      "module": "memory",
+      "score": 0.5,
+      "features": {
+        "failure_count": 3,
+        "failure_rate": 0.5,
+        "attempted": 1,
+        "last_gain": 0.19047619047619052,
+        "has_gain": 1.0,
+        "success_rate": 1.0,
+        "stagnation": 0,
+        "invalid_count": 0,
+        "blocked_count": 0,
+        "is_memory": 1.0,
+        "is_rag": 0.0,
+        "is_tools": 0.0,
+        "is_recovery": 0.0,
+        "is_prompt": 0.0
+      }
+    },
+    {
+      "module": "prompt",
+      "score": 0.5,
+      "features": {
+        "failure_count": 3,
+        "failure_rate": 0.5,
+        "attempted": 1,
+        "last_gain": 0.19047619047619047,
+        "has_gain": 1.0,
+        "success_rate": 1.0,
+        "stagnation": 0,
+        "invalid_count": 0,
+        "blocked_count": 0,
+        "is_memory": 0.0,
+        "is_rag": 0.0,
+        "is_tools": 0.0,
+        "is_recovery": 0.0,
+        "is_prompt": 1.0
+      }
+    }
+  ]
+}

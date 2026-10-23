@@ -1,0 +1,5 @@
+{
+  "status": "aborted_infrastructure_preflight",
+  "at": 1792744473.870314,
+  "reason": "Some task responses were truncated at 768 tokens. Measurement failures must not count as mechanism failures; no independent evaluation performed. All original receipts retained."
+}

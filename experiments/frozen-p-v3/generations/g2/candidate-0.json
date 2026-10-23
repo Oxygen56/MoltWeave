@@ -1,0 +1,184 @@
+{
+  "generation": 2,
+  "branch": 0,
+  "module": "memory",
+  "base_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+  "proposal": {
+    "hypothesis": "Failures stem from two separable defects: (1) memory/rag scoring lets a high-overlap but stale (large age) or untrusted record outrank the fresh, trusted, entity-matched record, so the correct current value is buried below top_k and the model answers UNKNOWN; (2) tool routing/recovery ignores availability and read_only, selecting unavailable or mutating tools and never retrying transient errors. Fixing memory_score to strongly penalize age and require entity_match/trusted, plus raising memory_top_k so the fresh record survives truncation, should surface the current record. Tool-side retry is out of this module's allowed fields, so I only adjust memory_score and memory_top_k.",
+    "changes": {
+      "memory_score": {
+        "op": "add",
+        "args": [
+          {
+            "var": "overlap"
+          },
+          {
+            "op": "mul",
+            "args": [
+              0.5,
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "var": "entity_match"
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "var": "trusted"
+                      },
+                      {
+                        "op": "div",
+                        "args": [
+                          1.0,
+                          {
+                            "op": "add",
+                            "args": [
+                              1.0,
+                              {
+                                "var": "age"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "memory_top_k": 6
+    },
+    "predicted_behavior": "Fresh (age=0), trusted, entity-matched records receive a large bonus (~1.0) while stale high-overlap records (age>=18) lose the age bonus, so the current record ranks first and is retained within top_k=6; the model then reads the correct current value instead of UNKNOWN for memory_temporal and memory_scope families. Untrusted records no longer gain the trust bonus, reducing rag_authority leakage into memory.",
+    "regression_risk": "Raising top_k to 6 increases context size and may admit more distractor records, slightly raising noise for simple queries; the age penalty could demote legitimately relevant older-but-valid records when no fresh record exists, though overlap still dominates. Tool routing/recovery and composition failures are unaffected since they require fields outside this module."
+  },
+  "program": {
+    "schema": 1,
+    "memory_score": {
+      "op": "add",
+      "args": [
+        {
+          "var": "overlap"
+        },
+        {
+          "op": "mul",
+          "args": [
+            0.5,
+            {
+              "op": "add",
+              "args": [
+                {
+                  "var": "entity_match"
+                },
+                {
+                  "op": "mul",
+                  "args": [
+                    {
+                      "var": "trusted"
+                    },
+                    {
+                      "op": "div",
+                      "args": [
+                        1.0,
+                        {
+                          "op": "add",
+                          "args": [
+                            1.0,
+                            {
+                              "var": "age"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rag_score": {
+      "op": "add",
+      "args": [
+        {
+          "var": "overlap"
+        },
+        {
+          "op": "mul",
+          "args": [
+            0.5,
+            {
+              "op": "add",
+              "args": [
+                {
+                  "var": "trusted"
+                },
+                {
+                  "op": "mul",
+                  "args": [
+                    {
+                      "var": "entity_match"
+                    },
+                    {
+                      "op": "div",
+                      "args": [
+                        1.0,
+                        {
+                          "op": "add",
+                          "args": [
+                            1.0,
+                            {
+                              "var": "age"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "tool_score": {
+      "var": "overlap"
+    },
+    "retry": 0,
+    "memory_top_k": 6,
+    "rag_top_k": 3,
+    "max_attempts": 3,
+    "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+    "policy": {
+      "score": {
+        "var": "failure_rate"
+      },
+      "branches": 2
+    }
+  },
+  "risk": {
+    "sensitive": false,
+    "blocked": false,
+    "classification": "ordinary",
+    "reasons": [],
+    "changed_paths": [
+      "memory_score.args",
+      "memory_top_k"
+    ],
+    "before_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+    "after_hash": "dd57bbd8705fb2b57ab47de91a9c6ac8456c43344c23bfe3b0e71acb398b8561"
+  },
+  "status": "executed",
+  "gain": 0.0,
+  "dev_rate": 0.7619047619047619,
+  "guard_rate": 0.8571428571428571,
+  "program_hash": "dd57bbd8705fb2b57ab47de91a9c6ac8456c43344c23bfe3b0e71acb398b8561",
+  "actual_loaded_hash": "dd57bbd8705fb2b57ab47de91a9c6ac8456c43344c23bfe3b0e71acb398b8561"
+}

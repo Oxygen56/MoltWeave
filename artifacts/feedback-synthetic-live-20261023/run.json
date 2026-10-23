@@ -1,0 +1,22 @@
+{
+  "data_classification": "explicitly synthetic generated interaction; no external user data",
+  "external_user_data_used": false,
+  "candidate_executed": false,
+  "candidate_adopted": false,
+  "model_changed_for_retry": false,
+  "started_at": 1792745763.550789,
+  "model_requested": "deepseek-flash",
+  "endpoint": "https://api.deepseek.com",
+  "status": "real_model_attribution_and_proposal_completed",
+  "candidate_hash": "3feb046322c06f6d5baf914149168b742fc20278f78b8f1ba6f6419f3af9ebf1",
+  "base_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+  "candidate_status": "proposed_not_executed",
+  "schema_compatible": true,
+  "effect_established": false,
+  "derivative_id": "derived_f9194816b6ce05543c23068f43924cbb",
+  "call_receipt_ids": [
+    "derived_e8b1d16cd7a25da73ca8f3678032d10a",
+    "derived_7f36db4b052c8eda4ef11b86669a4ca4"
+  ],
+  "finished_at": 1792745769.917471
+}

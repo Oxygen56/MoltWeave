@@ -1,0 +1,45 @@
+{
+  "kind": "post_experiment_release_transport_smoke",
+  "public_nonsensitive_question": true,
+  "uses_external_user_data": false,
+  "formal_experiment": false,
+  "automatic_rsi_change": false,
+  "status": "completed",
+  "started_at": 1792747092.951581,
+  "transport": {
+    "redirects_allowed": false,
+    "allow_env_proxy": false,
+    "allow_http_loopback": false
+  },
+  "expected": {
+    "answer": 4
+  },
+  "private_receipt_directory": "private/transport-smoke-20261023/model-calls/",
+  "model_requested": "deepseek-flash",
+  "endpoint_host": "api.deepseek.com",
+  "result": {
+    "answer": 4
+  },
+  "receipts": [
+    {
+      "file": "private/transport-smoke-20261023/model-calls/f12ffc24b7ce427993b24757383e30b4.json",
+      "sha256": "f5df8a402c396d42d3a556a41a25b93ae7c837f9ddf4fc7a1f94a1c3452c197e",
+      "status": "completed",
+      "model_returned": "deepseek-flash",
+      "physical_attempts": 1,
+      "usage": {
+        "prompt_tokens": 57,
+        "completion_tokens": 6,
+        "total_tokens": 63,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 57
+      },
+      "elapsed_seconds": 0.729,
+      "error_type": null
+    }
+  ],
+  "elapsed_seconds": 0.736
+}

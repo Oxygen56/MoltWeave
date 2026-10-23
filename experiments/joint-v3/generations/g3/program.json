@@ -1,0 +1,193 @@
+{
+  "schema": 1,
+  "memory_score": {
+    "op": "add",
+    "args": [
+      {
+        "op": "add",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "entity_match"
+              },
+              2.0
+            ]
+          },
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "scope_match"
+              },
+              1.0
+            ]
+          }
+        ]
+      },
+      {
+        "op": "add",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "overlap"
+              },
+              1.0
+            ]
+          },
+          {
+            "op": "div",
+            "args": [
+              1.0,
+              {
+                "op": "add",
+                "args": [
+                  1.0,
+                  {
+                    "var": "age"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "rag_score": {
+    "var": "overlap"
+  },
+  "tool_score": {
+    "op": "add",
+    "args": [
+      {
+        "op": "mul",
+        "args": [
+          {
+            "var": "overlap"
+          },
+          1.0
+        ]
+      },
+      {
+        "op": "add",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "entity_match"
+              },
+              1.0
+            ]
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "read_only"
+                  },
+                  1.0
+                ]
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "var": "available"
+                      },
+                      1.0
+                    ]
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      -1.0,
+                      {
+                        "var": "deprecated"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "retry": 0,
+  "memory_top_k": 3,
+  "rag_top_k": 2,
+  "max_attempts": 3,
+  "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+  "policy": {
+    "score": {
+      "op": "add",
+      "args": [
+        {
+          "op": "mul",
+          "args": [
+            0.6,
+            {
+              "var": "failure_rate"
+            }
+          ]
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                0.9,
+                {
+                  "op": "sub",
+                  "args": [
+                    1,
+                    {
+                      "var": "attempted"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    0.7,
+                    {
+                      "var": "last_gain"
+                    }
+                  ]
+                },
+                {
+                  "op": "mul",
+                  "args": [
+                    -1.2,
+                    {
+                      "var": "stagnation"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "branches": 2
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "generation": 1,
+  "branch": 1,
+  "module": "recovery",
+  "base_hash": "daf7facc98e6468aea7202330420be40d94f984547b03a1bab2b1aca5758da58",
+  "status": "rejected_or_failed",
+  "error": "Unsupported expression",
+  "gain": 0
+}

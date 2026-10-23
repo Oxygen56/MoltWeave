@@ -1,0 +1,204 @@
+{
+  "kind": "post_experiment_archive_integrity_check",
+  "all_archived_sources_match_manifest": true,
+  "current_release_differs_from_v4_in": [
+    "llm.py"
+  ],
+  "release_llm_raw_sha256": "0b626ee83a66fbb304be7dd974b21feff7955cbfba874250887160ee363d8416",
+  "hash_semantics": "manifest uses sha256(canonical_json(source_text)), release_llm_raw_sha256 uses file bytes",
+  "experiments": [
+    {
+      "experiment": "joint-v3",
+      "all_frozen_sources_match": true,
+      "files": [
+        {
+          "file": "experiments/joint-v3/frozen-source/moltweave/benchmarks.py",
+          "manifest_digest": "9701ce959ca54fd03a23dc060c8fb1a7b65179727694341640a7c97ff6ada619",
+          "actual_digest": "9701ce959ca54fd03a23dc060c8fb1a7b65179727694341640a7c97ff6ada619",
+          "matches": true
+        },
+        {
+          "file": "experiments/joint-v3/frozen-source/moltweave/runtime.py",
+          "manifest_digest": "084ddef403355d0d77e5f211e6e2197b57715bab902eafaa29fd633d7d3b1789",
+          "actual_digest": "084ddef403355d0d77e5f211e6e2197b57715bab902eafaa29fd633d7d3b1789",
+          "matches": true
+        },
+        {
+          "file": "experiments/joint-v3/frozen-source/moltweave/program.py",
+          "manifest_digest": "c6bcb8964861bf7a08bdef8ec0a5f1c3af9c5ce070e03dcac2f7f368573c291a",
+          "actual_digest": "c6bcb8964861bf7a08bdef8ec0a5f1c3af9c5ce070e03dcac2f7f368573c291a",
+          "matches": true
+        },
+        {
+          "file": "experiments/joint-v3/frozen-source/moltweave/evolution.py",
+          "manifest_digest": "0fe800dc7dc4478c2c91cb5b33d5ba995bfa85e947bc94e8ace6bf0ec327835b",
+          "actual_digest": "0fe800dc7dc4478c2c91cb5b33d5ba995bfa85e947bc94e8ace6bf0ec327835b",
+          "matches": true
+        },
+        {
+          "file": "experiments/joint-v3/frozen-source/moltweave/llm.py",
+          "manifest_digest": "44b8064963a2032f059dfdea041e6285d8fb575f2a38af0f4f905a03fa5d2171",
+          "actual_digest": "44b8064963a2032f059dfdea041e6285d8fb575f2a38af0f4f905a03fa5d2171",
+          "matches": true
+        },
+        {
+          "file": "experiments/joint-v3/frozen-source/moltweave/governance.py",
+          "manifest_digest": "3e367a1ba7b65a0e5d46f6ae866875f7fd4e216745929e4a137fd9479941c0fa",
+          "actual_digest": "3e367a1ba7b65a0e5d46f6ae866875f7fd4e216745929e4a137fd9479941c0fa",
+          "matches": true
+        },
+        {
+          "file": "experiments/joint-v3/frozen-source/moltweave/common.py",
+          "manifest_digest": "77671ea007a9fdd71935a3683e37d7a16c2424914a884ab5d12157c89d82f78c",
+          "actual_digest": "77671ea007a9fdd71935a3683e37d7a16c2424914a884ab5d12157c89d82f78c",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "experiment": "frozen-p-v3",
+      "all_frozen_sources_match": true,
+      "files": [
+        {
+          "file": "experiments/frozen-p-v3/frozen-source/moltweave/benchmarks.py",
+          "manifest_digest": "9701ce959ca54fd03a23dc060c8fb1a7b65179727694341640a7c97ff6ada619",
+          "actual_digest": "9701ce959ca54fd03a23dc060c8fb1a7b65179727694341640a7c97ff6ada619",
+          "matches": true
+        },
+        {
+          "file": "experiments/frozen-p-v3/frozen-source/moltweave/runtime.py",
+          "manifest_digest": "084ddef403355d0d77e5f211e6e2197b57715bab902eafaa29fd633d7d3b1789",
+          "actual_digest": "084ddef403355d0d77e5f211e6e2197b57715bab902eafaa29fd633d7d3b1789",
+          "matches": true
+        },
+        {
+          "file": "experiments/frozen-p-v3/frozen-source/moltweave/program.py",
+          "manifest_digest": "c6bcb8964861bf7a08bdef8ec0a5f1c3af9c5ce070e03dcac2f7f368573c291a",
+          "actual_digest": "c6bcb8964861bf7a08bdef8ec0a5f1c3af9c5ce070e03dcac2f7f368573c291a",
+          "matches": true
+        },
+        {
+          "file": "experiments/frozen-p-v3/frozen-source/moltweave/evolution.py",
+          "manifest_digest": "0fe800dc7dc4478c2c91cb5b33d5ba995bfa85e947bc94e8ace6bf0ec327835b",
+          "actual_digest": "0fe800dc7dc4478c2c91cb5b33d5ba995bfa85e947bc94e8ace6bf0ec327835b",
+          "matches": true
+        },
+        {
+          "file": "experiments/frozen-p-v3/frozen-source/moltweave/llm.py",
+          "manifest_digest": "44b8064963a2032f059dfdea041e6285d8fb575f2a38af0f4f905a03fa5d2171",
+          "actual_digest": "44b8064963a2032f059dfdea041e6285d8fb575f2a38af0f4f905a03fa5d2171",
+          "matches": true
+        },
+        {
+          "file": "experiments/frozen-p-v3/frozen-source/moltweave/governance.py",
+          "manifest_digest": "3e367a1ba7b65a0e5d46f6ae866875f7fd4e216745929e4a137fd9479941c0fa",
+          "actual_digest": "3e367a1ba7b65a0e5d46f6ae866875f7fd4e216745929e4a137fd9479941c0fa",
+          "matches": true
+        },
+        {
+          "file": "experiments/frozen-p-v3/frozen-source/moltweave/common.py",
+          "manifest_digest": "77671ea007a9fdd71935a3683e37d7a16c2424914a884ab5d12157c89d82f78c",
+          "actual_digest": "77671ea007a9fdd71935a3683e37d7a16c2424914a884ab5d12157c89d82f78c",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "experiment": "joint-v4",
+      "all_frozen_sources_match": true,
+      "files": [
+        {
+          "file": "experiments/joint-v4/frozen-source/moltweave/benchmarks.py",
+          "manifest_digest": "9701ce959ca54fd03a23dc060c8fb1a7b65179727694341640a7c97ff6ada619",
+          "actual_digest": "9701ce959ca54fd03a23dc060c8fb1a7b65179727694341640a7c97ff6ada619",
+          "matches": true
+        },
+        {
+          "file": "experiments/joint-v4/frozen-source/moltweave/runtime.py",
+          "manifest_digest": "084ddef403355d0d77e5f211e6e2197b57715bab902eafaa29fd633d7d3b1789",
+          "actual_digest": "084ddef403355d0d77e5f211e6e2197b57715bab902eafaa29fd633d7d3b1789",
+          "matches": true
+        },
+        {
+          "file": "experiments/joint-v4/frozen-source/moltweave/program.py",
+          "manifest_digest": "df2fda256db06def686b652ace7e92097f53cf0333acb05c2ddb6355b68b13ad",
+          "actual_digest": "df2fda256db06def686b652ace7e92097f53cf0333acb05c2ddb6355b68b13ad",
+          "matches": true
+        },
+        {
+          "file": "experiments/joint-v4/frozen-source/moltweave/evolution.py",
+          "manifest_digest": "2476731045890ebdb91b3bdc38593bde14e39a2c036d25b099d4e85a60f2c335",
+          "actual_digest": "2476731045890ebdb91b3bdc38593bde14e39a2c036d25b099d4e85a60f2c335",
+          "matches": true
+        },
+        {
+          "file": "experiments/joint-v4/frozen-source/moltweave/llm.py",
+          "manifest_digest": "44b8064963a2032f059dfdea041e6285d8fb575f2a38af0f4f905a03fa5d2171",
+          "actual_digest": "44b8064963a2032f059dfdea041e6285d8fb575f2a38af0f4f905a03fa5d2171",
+          "matches": true
+        },
+        {
+          "file": "experiments/joint-v4/frozen-source/moltweave/governance.py",
+          "manifest_digest": "3e367a1ba7b65a0e5d46f6ae866875f7fd4e216745929e4a137fd9479941c0fa",
+          "actual_digest": "3e367a1ba7b65a0e5d46f6ae866875f7fd4e216745929e4a137fd9479941c0fa",
+          "matches": true
+        },
+        {
+          "file": "experiments/joint-v4/frozen-source/moltweave/common.py",
+          "manifest_digest": "77671ea007a9fdd71935a3683e37d7a16c2424914a884ab5d12157c89d82f78c",
+          "actual_digest": "77671ea007a9fdd71935a3683e37d7a16c2424914a884ab5d12157c89d82f78c",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "experiment": "frozen-p-v4",
+      "all_frozen_sources_match": true,
+      "files": [
+        {
+          "file": "experiments/frozen-p-v4/frozen-source/moltweave/benchmarks.py",
+          "manifest_digest": "9701ce959ca54fd03a23dc060c8fb1a7b65179727694341640a7c97ff6ada619",
+          "actual_digest": "9701ce959ca54fd03a23dc060c8fb1a7b65179727694341640a7c97ff6ada619",
+          "matches": true
+        },
+        {
+          "file": "experiments/frozen-p-v4/frozen-source/moltweave/runtime.py",
+          "manifest_digest": "084ddef403355d0d77e5f211e6e2197b57715bab902eafaa29fd633d7d3b1789",
+          "actual_digest": "084ddef403355d0d77e5f211e6e2197b57715bab902eafaa29fd633d7d3b1789",
+          "matches": true
+        },
+        {
+          "file": "experiments/frozen-p-v4/frozen-source/moltweave/program.py",
+          "manifest_digest": "df2fda256db06def686b652ace7e92097f53cf0333acb05c2ddb6355b68b13ad",
+          "actual_digest": "df2fda256db06def686b652ace7e92097f53cf0333acb05c2ddb6355b68b13ad",
+          "matches": true
+        },
+        {
+          "file": "experiments/frozen-p-v4/frozen-source/moltweave/evolution.py",
+          "manifest_digest": "2476731045890ebdb91b3bdc38593bde14e39a2c036d25b099d4e85a60f2c335",
+          "actual_digest": "2476731045890ebdb91b3bdc38593bde14e39a2c036d25b099d4e85a60f2c335",
+          "matches": true
+        },
+        {
+          "file": "experiments/frozen-p-v4/frozen-source/moltweave/llm.py",
+          "manifest_digest": "44b8064963a2032f059dfdea041e6285d8fb575f2a38af0f4f905a03fa5d2171",
+          "actual_digest": "44b8064963a2032f059dfdea041e6285d8fb575f2a38af0f4f905a03fa5d2171",
+          "matches": true
+        },
+        {
+          "file": "experiments/frozen-p-v4/frozen-source/moltweave/governance.py",
+          "manifest_digest": "3e367a1ba7b65a0e5d46f6ae866875f7fd4e216745929e4a137fd9479941c0fa",
+          "actual_digest": "3e367a1ba7b65a0e5d46f6ae866875f7fd4e216745929e4a137fd9479941c0fa",
+          "matches": true
+        },
+        {
+          "file": "experiments/frozen-p-v4/frozen-source/moltweave/common.py",
+          "manifest_digest": "77671ea007a9fdd71935a3683e37d7a16c2424914a884ab5d12157c89d82f78c",
+          "actual_digest": "77671ea007a9fdd71935a3683e37d7a16c2424914a884ab5d12157c89d82f78c",
+          "matches": true
+        }
+      ]
+    }
+  ],
+  "old_receipts_or_manifests_modified": false
+}

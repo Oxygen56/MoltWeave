@@ -1,0 +1,294 @@
+{
+  "generation": 3,
+  "branch": 0,
+  "module": "memory",
+  "base_hash": "63d4534c6ca256ac30f3ff4e8951a463ca618b14d37a69ae353d19aeba968c18",
+  "proposal": {
+    "hypothesis": "The memory scorer over-weights entity_match (weight 2.0) relative to recency, so a stale record with high lexical overlap (age 18-20, overlap 1.0) ranks nearly equal to the fresh authoritative record (age 0, overlap ~0.13). In memory_temporal and composition failures the correct current record (age 0, entity_match 1.0) is being crowded out by older high-overlap entries, and the agent then answers UNKNOWN. Increasing the recency term's influence and slightly reducing the entity_match dominance will let the freshest entity-matching record rank first, while keeping scope_match as a tiebreaker.",
+    "changes": {
+      "memory_score": {
+        "op": "add",
+        "args": [
+          {
+            "op": "add",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "entity_match"
+                  },
+                  1.5
+                ]
+              },
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "scope_match"
+                  },
+                  1.0
+                ]
+              }
+            ]
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "overlap"
+                  },
+                  0.5
+                ]
+              },
+              {
+                "op": "mul",
+                "args": [
+                  2.0,
+                  {
+                    "op": "div",
+                    "args": [
+                      1.0,
+                      {
+                        "op": "add",
+                        "args": [
+                          1.0,
+                          {
+                            "var": "age"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "memory_top_k": 4
+    },
+    "predicted_behavior": "For memory_temporal and composition queries, the age-0 entity-matching record (score ~1.5+1.0+0.065+2.0=4.57) outranks the age-18 overlap-1.0 record (~1.5+1.0+0.5+0.105=3.11), so the current record is retrieved within top_k=4 and the agent can return the correct channel/tier/token instead of UNKNOWN. Evidence IDs should shift to the fresh record.",
+    "regression_risk": "Raising memory_top_k to 4 adds one more candidate, slightly increasing context noise and token cost; if a stale record has both high overlap and moderate age it may still appear but should rank below fresh ones. Recency weighting could hurt cases where the authoritative record is intentionally older (e.g., archived-but-valid), though scope_match and entity_match still gate relevance."
+  },
+  "program": {
+    "schema": 1,
+    "memory_score": {
+      "op": "add",
+      "args": [
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "entity_match"
+                },
+                1.5
+              ]
+            },
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "scope_match"
+                },
+                1.0
+              ]
+            }
+          ]
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "overlap"
+                },
+                0.5
+              ]
+            },
+            {
+              "op": "mul",
+              "args": [
+                2.0,
+                {
+                  "op": "div",
+                  "args": [
+                    1.0,
+                    {
+                      "op": "add",
+                      "args": [
+                        1.0,
+                        {
+                          "var": "age"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rag_score": {
+      "var": "overlap"
+    },
+    "tool_score": {
+      "op": "add",
+      "args": [
+        {
+          "op": "mul",
+          "args": [
+            {
+              "var": "overlap"
+            },
+            1.0
+          ]
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "entity_match"
+                },
+                1.0
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    {
+                      "var": "read_only"
+                    },
+                    1.0
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        {
+                          "var": "available"
+                        },
+                        1.0
+                      ]
+                    },
+                    {
+                      "op": "mul",
+                      "args": [
+                        -1.0,
+                        {
+                          "var": "deprecated"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "retry": 0,
+    "memory_top_k": 4,
+    "rag_top_k": 2,
+    "max_attempts": 3,
+    "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+    "policy": {
+      "score": {
+        "op": "add",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              0.6,
+              {
+                "var": "failure_rate"
+              }
+            ]
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  0.9,
+                  {
+                    "op": "sub",
+                    "args": [
+                      1,
+                      {
+                        "var": "attempted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      0.7,
+                      {
+                        "var": "last_gain"
+                      }
+                    ]
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      -1.2,
+                      {
+                        "var": "stagnation"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "branches": 2
+    }
+  },
+  "risk": {
+    "sensitive": false,
+    "blocked": false,
+    "classification": "ordinary",
+    "reasons": [],
+    "changed_paths": [
+      "memory_score.args",
+      "memory_top_k"
+    ],
+    "before_hash": "63d4534c6ca256ac30f3ff4e8951a463ca618b14d37a69ae353d19aeba968c18",
+    "after_hash": "f363ea45c3620b1a0ea80ca9f9d8c49fd9a0ff72fa9ee7e0f465279e26bb2881"
+  },
+  "status": "executed",
+  "gain": 0.09523809523809523,
+  "dev_rate": 0.6666666666666666,
+  "guard_rate": 0.7857142857142857,
+  "program_hash": "f363ea45c3620b1a0ea80ca9f9d8c49fd9a0ff72fa9ee7e0f465279e26bb2881",
+  "actual_loaded_hash": "f363ea45c3620b1a0ea80ca9f9d8c49fd9a0ff72fa9ee7e0f465279e26bb2881"
+}

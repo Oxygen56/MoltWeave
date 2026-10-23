@@ -1,0 +1,16 @@
+{
+  "consent_id": "consent_8aa25ddb7d13eb72e6adde3524e383ff",
+  "tenant_id": "synthetic-live-tenant",
+  "user_id": "synthetic-live-user",
+  "session_ids": [
+    "synthetic-live-session"
+  ],
+  "full_trace": true,
+  "personal_evolution": true,
+  "general_evolution": false,
+  "expires_at": 1792749363.560069,
+  "retention_days": 1,
+  "created_at": 1792745763.561117,
+  "revoked": false,
+  "credential_filter": "fixed-best-effort-v1"
+}

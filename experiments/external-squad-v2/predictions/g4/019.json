@@ -1,0 +1,101 @@
+{
+  "question_id": "5725d0e3271a42140099d237",
+  "program_hash": "53ee13bae5ba6e37606bda2bb4bed5355ba61214fb848b58c8c111b7b02415b0",
+  "prediction": "Pegasus satellites",
+  "exact_match": 1.0,
+  "f1": 1.0,
+  "output": {
+    "answer": "Pegasus satellites",
+    "evidence_ids": [
+      "squad-p-cf4627b3786c8bad"
+    ]
+  },
+  "ranking": [
+    {
+      "index": 0,
+      "id": "squad-p-cf4627b3786c8bad",
+      "features": {
+        "overlap": 0.5,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.5
+    },
+    {
+      "index": 4,
+      "id": "squad-p-5c856f97535c276d",
+      "features": {
+        "overlap": 0.3333333333333333,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.3333333333333333
+    },
+    {
+      "index": 2,
+      "id": "squad-p-40d78a210d2311aa",
+      "features": {
+        "overlap": 0.25,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.25
+    },
+    {
+      "index": 3,
+      "id": "squad-p-1743b463c2b2fd3a",
+      "features": {
+        "overlap": 0.25,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.25
+    },
+    {
+      "index": 1,
+      "id": "squad-p-8873ebe3f3aea46d",
+      "features": {
+        "overlap": 0.16666666666666666,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.16666666666666666
+    }
+  ],
+  "selected_ids": [
+    "squad-p-5c856f97535c276d",
+    "squad-p-cf4627b3786c8bad"
+  ],
+  "gold_paragraph_retrieved": true,
+  "citation_ids_visible": true
+}

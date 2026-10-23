@@ -1,0 +1,101 @@
+{
+  "question_id": "56d7096b0d65d214001982fc",
+  "program_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+  "prediction": "1998 NFL draft",
+  "exact_match": 0.0,
+  "f1": 0.5,
+  "output": {
+    "answer": "1998 NFL draft",
+    "evidence_ids": [
+      "squad-p-7dea4c469c3e364f"
+    ]
+  },
+  "ranking": [
+    {
+      "index": 0,
+      "id": "squad-p-7dea4c469c3e364f",
+      "features": {
+        "overlap": 0.6666666666666666,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.6666666666666666
+    },
+    {
+      "index": 1,
+      "id": "squad-p-91ce123f4eaf1fcf",
+      "features": {
+        "overlap": 0.4444444444444444,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.4444444444444444
+    },
+    {
+      "index": 3,
+      "id": "squad-p-4459c090a809bcc1",
+      "features": {
+        "overlap": 0.3333333333333333,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.3333333333333333
+    },
+    {
+      "index": 4,
+      "id": "squad-p-2285a5e9976b1945",
+      "features": {
+        "overlap": 0.3333333333333333,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.3333333333333333
+    },
+    {
+      "index": 2,
+      "id": "squad-p-48f03bc9419d2b28",
+      "features": {
+        "overlap": 0.2222222222222222,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.2222222222222222
+    }
+  ],
+  "selected_ids": [
+    "squad-p-7dea4c469c3e364f",
+    "squad-p-91ce123f4eaf1fcf"
+  ],
+  "gold_paragraph_retrieved": true,
+  "citation_ids_visible": true
+}

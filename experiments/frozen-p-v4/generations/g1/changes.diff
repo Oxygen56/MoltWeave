@@ -1,0 +1,35 @@
+--- parent.json
++++ candidate.json
+@@ -103,7 +103,31 @@
+     "var": "overlap"
+   },
+   "rag_top_k": 2,
+-  "retry": 0,
++  "retry": {
++    "args": [
++      {
++        "var": "error_retryable"
++      },
++      {
++        "args": [
++          {
++            "var": "error_permanent"
++          }
++        ],
++        "op": "not"
++      },
++      {
++        "args": [
++          {
++            "var": "attempt"
++          },
++          3
++        ],
++        "op": "lt"
++      }
++    ],
++    "op": "and"
++  },
+   "schema": 1,
+   "tool_score": {
+     "var": "overlap"

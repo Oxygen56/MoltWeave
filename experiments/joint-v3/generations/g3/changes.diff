@@ -1,0 +1,127 @@
+--- parent.json
++++ candidate.json
+@@ -9,7 +9,7 @@
+               {
+                 "var": "entity_match"
+               },
+-              2.0
++              1.5
+             ],
+             "op": "mul"
+           },
+@@ -32,24 +32,30 @@
+               {
+                 "var": "overlap"
+               },
+-              1.0
+-            ],
+-            "op": "mul"
+-          },
+-          {
+-            "args": [
+-              1.0,
++              0.5
++            ],
++            "op": "mul"
++          },
++          {
++            "args": [
++              2.0,
+               {
+                 "args": [
+                   1.0,
+                   {
+-                    "var": "age"
++                    "args": [
++                      1.0,
++                      {
++                        "var": "age"
++                      }
++                    ],
++                    "op": "add"
+                   }
+                 ],
+-                "op": "add"
++                "op": "div"
+               }
+             ],
+-            "op": "div"
++            "op": "mul"
+           }
+         ],
+         "op": "add"
+@@ -57,22 +63,22 @@
+     ],
+     "op": "add"
+   },
+-  "memory_top_k": 3,
++  "memory_top_k": 4,
+   "policy": {
+     "branches": 2,
+     "score": {
+       "args": [
+         {
+           "args": [
+-            0.6,
+-            {
+-              "var": "failure_rate"
+-            }
+-          ],
+-          "op": "mul"
+-        },
+-        {
+-          "args": [
++            {
++              "args": [
++                0.5,
++                {
++                  "var": "failure_rate"
++                }
++              ],
++              "op": "mul"
++            },
+             {
+               "args": [
+                 0.9,
+@@ -87,23 +93,37 @@
+                 }
+               ],
+               "op": "mul"
++            }
++          ],
++          "op": "add"
++        },
++        {
++          "args": [
++            {
++              "args": [
++                0.8,
++                {
++                  "var": "last_gain"
++                }
++              ],
++              "op": "mul"
+             },
+             {
+               "args": [
+                 {
+                   "args": [
+-                    0.7,
++                    -1.5,
+                     {
+-                      "var": "last_gain"
++                      "var": "stagnation"
+                     }
+                   ],
+                   "op": "mul"
+                 },
+                 {
+                   "args": [
+-                    -1.2,
++                    0.6,
+                     {
+-                      "var": "stagnation"
++                      "var": "success_rate"
+                     }
+                   ],
+                   "op": "mul"

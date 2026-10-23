@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "seed": 17,
+  "started_at": 1792744328.7909162,
+  "generations_requested": 4,
+  "model": "deepseek-flash",
+  "evolve_p": false,
+  "evolve_m": true,
+  "acceptance_per_family": 10,
+  "frozen_code": {
+    "benchmarks.py": "43cb8e19e6210d7d9bfcccf223a3eaceb3b40af491c902ac021948b7bafea4ef",
+    "runtime.py": "28f6523ab973bf13af5ec72624b589bc9481caf314a35914cfbdecea34c8556d",
+    "program.py": "10cb75254921f8401c7411d433b2fa8c86fa5304e2b72e38f2ecb5a7c67d5592"
+  },
+  "split_hashes": {
+    "train": "5daf80e9dbe12ec2de012924c6119efd5e850bb0711817f2d87929277f0d8f42",
+    "dev": "15ab76d78dc3d0b86ada6ef246a924ed4dd8ae4c405713cb4221d3752cb82c72",
+    "guard": "7c003abdf637525a3111cb7325731b1b1d670a217fce729395f387772d9bfde9",
+    "final": "a9769262c7046f225d463c42cee5fd1c75c7f17a781d21583e2800b97df4901a",
+    "transfer": "d603f05cbaee99ff39d13354f9f616c6b94bb8c7dad71f6152449d16f6ff470f"
+  },
+  "protocol": {
+    "primary": "exact answer + visible supporting evidence + correct executed tool and attempts",
+    "promotion": "strict development gain and no guard aggregate regression; final never used for selection",
+    "policy_promotion": "legal changed program and prospective branch decision; benefit tested separately, not assumed",
+    "scope": "authored public synthetic mechanism benchmark; not official benchmark reproduction"
+  }
+}

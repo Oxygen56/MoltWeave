@@ -1,0 +1,9 @@
+{
+  "generation": 0,
+  "branch": 1,
+  "module": "recovery",
+  "base_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+  "status": "invalid_candidate",
+  "error": "Invalid candidate after one model repair: Unsupported expression",
+  "gain": null
+}

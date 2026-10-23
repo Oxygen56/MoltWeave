@@ -1,0 +1,69 @@
+{
+  "id": "a828b4f59fee47d4a184212acc417064",
+  "purpose": "policy_proposal",
+  "metadata": {
+    "generation": 2
+  },
+  "model_requested": "deepseek-flash",
+  "endpoint_host": "api.deepseek.com",
+  "request_hash": "0774f3493abdc3f5a8de4e4863eabc23710530a84abb71ca64335a8f70b3aceb",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Evolve the agent's executable meta-exploration policy, not the task answers. Return JSON {hypothesis:string, policy:{score:expression,branches:int}, predicted_decision_change:string}. This policy ranks which mechanism to improve next. Learn from unsuccessful/repeated module attempts and observed gains. Preserve exploration of remaining real defects. Use the bounded numeric IR. Keep branches=2 for comparable proposal opportunities. No permissions/evaluation modifications."
+    },
+    {
+      "role": "user",
+      "content": "{\"current_policy\": {\"score\": {\"op\": \"add\", \"args\": [{\"var\": \"failure_rate\"}, {\"op\": \"add\", \"args\": [{\"op\": \"mul\", \"args\": [0.8, {\"op\": \"sub\", \"args\": [1, {\"var\": \"attempted\"}]}]}, {\"op\": \"add\", \"args\": [{\"op\": \"mul\", \"args\": [0.5, {\"var\": \"last_gain\"}]}, {\"op\": \"mul\", \"args\": [-0.6, {\"var\": \"stagnation\"}]}]}]}]}, \"branches\": 2}, \"state\": {\"memory\": {\"failure_count\": 4, \"failure_rate\": 0.6666666666666666, \"attempted\": 1, \"last_gain\": 0.23809523809523814, \"success_rate\": 1.0, \"stagnation\": 0}, \"rag\": {\"failure_count\": 3, \"failure_rate\": 1.0, \"attempted\": 1, \"last_gain\": 0, \"success_rate\": 0.0, \"stagnation\": 1}, \"tools\": {\"failure_count\": 1, \"failure_rate\": 0.3333333333333333, \"attempted\": 0, \"last_gain\": 0, \"success_rate\": 0.0, \"stagnation\": 0}, \"recovery\": {\"failure_count\": 2, \"failure_rate\": 0.6666666666666666, \"attempted\": 2, \"last_gain\": 0, \"success_rate\": 0.0, \"stagnation\": 2}, \"prompt\": {\"failure_count\": 2, \"failure_rate\": 0.3333333333333333, \"attempted\": 0, \"last_gain\": 0, \"success_rate\": 0.0, \"stagnation\": 0}}, \"executed_history\": [{\"generation\": 0, \"branch\": 0, \"module\": \"memory\", \"status\": \"executed\", \"gain\": 0.23809523809523814}, {\"generation\": 0, \"branch\": 1, \"module\": \"recovery\", \"status\": \"rejected_or_failed\", \"gain\": 0}, {\"generation\": 1, \"branch\": 0, \"module\": \"recovery\", \"status\": \"rejected_or_failed\", \"gain\": 0}, {\"generation\": 1, \"branch\": 1, \"module\": \"rag\", \"status\": \"rejected_or_failed\", \"gain\": 0}, {\"generation\": 2, \"branch\": 0, \"module\": \"tools\", \"status\": \"executed\", \"gain\": 0.04761904761904756}, {\"generation\": 2, \"branch\": 1, \"module\": \"prompt\", \"status\": \"executed\", \"gain\": -0.28571428571428575}], \"IR\": {\"format\": {\"variable\": {\"var\": \"feature_name\"}, \"operation\": {\"op\": \"add\", \"args\": [1, {\"var\": \"overlap\"}]}}, \"ops\": [\"abs\", \"add\", \"and\", \"div\", \"eq\", \"ge\", \"gt\", \"if\", \"log1p\", \"lt\", \"max\", \"min\", \"mul\", \"neg\", \"not\", \"or\", \"sub\"], \"features\": [\"age\", \"attempt\", \"attempted\", \"available\", \"deprecated\", \"entity_match\", \"error_permanent\", \"error_retryable\", \"failure_count\", \"failure_rate\", \"global_scope\", \"is_memory\", \"is_prompt\", \"is_rag\", \"is_recovery\", \"is_tools\", \"last_gain\", \"overlap\", \"read_only\", \"scope_match\", \"stagnation\", \"success_rate\", \"trusted\"], \"semantics\": \"Larger scores rank first. age=0 means latest, positive means older; scope_match/global_scope/trusted/entity_match are 0/1. Retry is a boolean numeric expression. No imports, strings-as-code, I/O or authority changes. top_k 1..6, max_attempts 1..3. No task-specific answers, IDs or names in programs.\"}}"
+    }
+  ],
+  "started_at": 1792745300.4888582,
+  "request_parameters": {
+    "model": "deepseek-flash",
+    "temperature": 0,
+    "max_tokens": 4000,
+    "response_format": {
+      "type": "json_object"
+    },
+    "thinking": {
+      "type": "disabled"
+    }
+  },
+  "physical_attempts": [
+    {
+      "number": 1,
+      "started_at": 1792745300.4888608,
+      "status": "completed",
+      "content": "{\n  \"hypothesis\": \"The current policy overweights failure_rate and underweights stagnation, causing repeated attempts on the stagnant 'recovery' module while ignoring 'rag' which has high failure_rate but no stagnation penalty. A revised score should penalize stagnation more strongly and reward last_gain to prioritize modules with recent success or untried potential, while still exploring high-failure modules.\",\n  \"policy\": {\n    \"score\": {\n      \"op\": \"add\",\n      \"args\": [\n        {\n          \"op\": \"mul\",\n          \"args\": [\n            0.6,\n            {\n              \"var\": \"failure_rate\"\n            }\n          ]\n        },\n        {\n          \"op\": \"add\",\n          \"args\": [\n            {\n              \"op\": \"mul\",\n              \"args\": [\n                0.9,\n                {\n                  \"op\": \"sub\",\n                  \"args\": [\n                    1,\n                    {\n                      \"var\": \"attempted\"\n                    }\n                  ]\n                }\n              ]\n            },\n            {\n              \"op\": \"add\",\n              \"args\": [\n                {\n                  \"op\": \"mul\",\n                  \"args\": [\n                    0.7,\n                    {\n                      \"var\": \"last_gain\"\n                    }\n                  ]\n                },\n                {\n                  \"op\": \"mul\",\n                  \"args\": [\n                    -1.2,\n                    {\n                      \"var\": \"stagnation\"\n                    }\n                  ]\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    },\n    \"branches\": 2\n  },\n  \"predicted_decision_change\": \"The revised policy will rank 'rag' (failure_rate=1.0, attempted=1, stagnation=1) higher than 'recovery' (failure_rate=0.667, attempted=2, stagnation=2) due to stronger stagnation penalty and higher failure_rate weight. 'tools' (failure_rate=0.333, attempted=0, last_gain=0.048) and 'prompt' (failure_rate=0.333, attempted=0, last_gain=0) will also be explored more, reducing repeated attempts on stagnant modules and increasing exploration of untried or recently successful ones.\"\n}",
+      "usage": {
+        "prompt_tokens": 1062,
+        "completion_tokens": 450,
+        "total_tokens": 1512,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1062
+      },
+      "response_id": "7cf2e2d6-cd1c-4a33-a336-1bc57b012dd9",
+      "finish_reason": "stop"
+    }
+  ],
+  "status": "completed",
+  "model_returned": "deepseek-flash",
+  "usage": {
+    "prompt_tokens": 1062,
+    "completion_tokens": 450,
+    "total_tokens": 1512,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1062
+  },
+  "response_id": "7cf2e2d6-cd1c-4a33-a336-1bc57b012dd9",
+  "content": "{\n  \"hypothesis\": \"The current policy overweights failure_rate and underweights stagnation, causing repeated attempts on the stagnant 'recovery' module while ignoring 'rag' which has high failure_rate but no stagnation penalty. A revised score should penalize stagnation more strongly and reward last_gain to prioritize modules with recent success or untried potential, while still exploring high-failure modules.\",\n  \"policy\": {\n    \"score\": {\n      \"op\": \"add\",\n      \"args\": [\n        {\n          \"op\": \"mul\",\n          \"args\": [\n            0.6,\n            {\n              \"var\": \"failure_rate\"\n            }\n          ]\n        },\n        {\n          \"op\": \"add\",\n          \"args\": [\n            {\n              \"op\": \"mul\",\n              \"args\": [\n                0.9,\n                {\n                  \"op\": \"sub\",\n                  \"args\": [\n                    1,\n                    {\n                      \"var\": \"attempted\"\n                    }\n                  ]\n                }\n              ]\n            },\n            {\n              \"op\": \"add\",\n              \"args\": [\n                {\n                  \"op\": \"mul\",\n                  \"args\": [\n                    0.7,\n                    {\n                      \"var\": \"last_gain\"\n                    }\n                  ]\n                },\n                {\n                  \"op\": \"mul\",\n                  \"args\": [\n                    -1.2,\n                    {\n                      \"var\": \"stagnation\"\n                    }\n                  ]\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    },\n    \"branches\": 2\n  },\n  \"predicted_decision_change\": \"The revised policy will rank 'rag' (failure_rate=1.0, attempted=1, stagnation=1) higher than 'recovery' (failure_rate=0.667, attempted=2, stagnation=2) due to stronger stagnation penalty and higher failure_rate weight. 'tools' (failure_rate=0.333, attempted=0, last_gain=0.048) and 'prompt' (failure_rate=0.333, attempted=0, last_gain=0) will also be explored more, reducing repeated attempts on stagnant modules and increasing exploration of untried or recently successful ones.\"\n}",
+  "finish_reason": "stop",
+  "attempts": 1,
+  "elapsed_seconds": 3.766
+}

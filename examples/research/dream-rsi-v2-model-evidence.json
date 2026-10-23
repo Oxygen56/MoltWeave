@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "kind": "real_model_assisted_public_paper_review_projection",
+  "pack_id": "rp_ed864aa728174e23b6b6d201a3744053",
+  "created_at": "2026-10-23T08:50:17.693687+00:00",
+  "status": "ready_for_review",
+  "paper": {
+    "paper_id": "2609.14858",
+    "version": 2,
+    "version_id": "2609.14858v2",
+    "title": "Dream-RSI: Recursive Self-Improvement through Evolving Worlds",
+    "landing_url": "https://arxiv.org/abs/2609.14858v2",
+    "published": "2026-09-14T00:10:47Z",
+    "updated": "2026-10-06T09:37:58Z"
+  },
+  "scope": {
+    "kind": "html_or_text_document",
+    "full_text_read": true,
+    "source_url": "https://arxiv.org/html/2609.14858v2",
+    "source_version": "2609.14858v2",
+    "code_inspected": false,
+    "experiments_reproduced": false,
+    "fetch_error": null,
+    "attempted_url": "https://arxiv.org/html/2609.14858v2",
+    "fetched_at": "2026-10-23T08:50:17.545495+00:00",
+    "characters_available": 122299,
+    "characters_read": 122299,
+    "truncated": false,
+    "read_scope_note": "Text extraction only; figures, tables/layout and supplementary files have not been independently checked"
+  },
+  "source_sha256": "59e4289e6a447802690ac25b795553a4e825fe67b7e2db71e57ea17ea6aba995",
+  "analysis_mode": "model_assisted",
+  "analysis_trust": "untrusted_pending_human_review",
+  "model_error": null,
+  "approval_status": "not_requested",
+  "effect_status": "not_measured",
+  "decision_context": {
+    "opt_in": false,
+    "actor": "owner",
+    "selection_context": {},
+    "selected_count": 0,
+    "provided_to_model_client": false,
+    "content_sha256": null,
+    "provenance": "local_actor_scoped_lexical_retrieval_v1",
+    "trust": "preference_only_not_scientific_fact_or_release_approval",
+    "human_judgment_improvement_verified": false
+  },
+  "private_feedback_sent_to_model": false,
+  "analysis_projection": {
+    "summary_excerpt": "Dream-RSI is an author-reported framework that turns completed discovery trees from LLM-driven search into replay simulators ('worlds') for cheap off-policy evaluation of exploration policies, then redeploys the best policy online in a recursive loop. A lightweight orchestration layer makes branching, batching and stopping explicit while […]",
+    "architecture": {
+      "mutable": [
+        "Exploration policy code (only component changed across rounds)"
+      ],
+      "fixed": [
+        "Base discovery agent model",
+        "Evaluator and scoring protocol",
+        "Execution interfaces and workspace semantics"
+      ]
+    },
+    "experiment_author_claim": {
+      "result": "Author-reported 2.43x and 1.79x fewer generations on VGG16 and LayerNorm; 2.09x and 1.44x higher performance on ConvDiv and ConvMax under comparable budgets",
+      "independently_verified": false
+    },
+    "evidence_anchors": [
+      {
+        "claim": "The framework makes exploration explicit and programmable via a lightweight orchestration layer while leaving the base agent unchanged.",
+        "quote": "leaving the underlying base agent unchanged",
+        "quote_found_in_read_scope": true,
+        "provenance": "model_extracted_author_claim",
+        "verified": false,
+        "requires_semantic_check": true
+      },
+      {
+        "claim": "Completed discovery trees are reused as replay simulators so alternative policies can be scored from stored outcomes without rerunning the agent.",
+        "quote": "no rerun of the coding agent or evaluator is needed",
+        "quote_found_in_read_scope": true,
+        "provenance": "model_extracted_author_claim",
+        "verified": false,
+        "requires_semantic_check": true
+      }
+    ],
+    "omitted_fields": [
+      "remaining summary",
+      "full architecture",
+      "most experiment records",
+      "proposals",
+      "unknowns",
+      "remaining evidence anchors"
+    ],
+    "is_complete_model_response": false
+  },
+  "full_private_packet_sha256": "9cf07e4ee7ce4f5a409150ef45b96669e3da8f680d181c6c5af1bd7f2e8a1332",
+  "public_model_receipt": "dream-rsi-v2-model-call-receipt.json",
+  "publication_notes": [
+    "Model output is untrusted and has not received a semantic source audit.",
+    "Only two brief quotation anchors are published; the provider returned more anchors than requested.",
+    "Full document text, feed abstract and complete request/response are omitted from this public projection.",
+    "No human feedback was created and no preference-learning benefit was measured.",
+    "This is not a source-code review or a reproduction of the paper experiments."
+  ]
+}

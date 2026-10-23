@@ -1,0 +1,247 @@
+{
+  "schema": 1,
+  "kind": "feedback_mechanism_candidate",
+  "status": "proposed_not_executed",
+  "purpose": "personal",
+  "tenant_id": "synthetic-live-tenant",
+  "user_id": "synthetic-live-user",
+  "created_at": 1792745769.90782,
+  "base_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+  "candidate_hash": "3feb046322c06f6d5baf914149168b742fc20278f78b8f1ba6f6419f3af9ebf1",
+  "candidate_program": {
+    "schema": 1,
+    "memory_score": {
+      "op": "add",
+      "args": [
+        {
+          "var": "overlap"
+        },
+        {
+          "op": "mul",
+          "args": [
+            {
+              "op": "if",
+              "args": [
+                {
+                  "op": "and",
+                  "args": [
+                    {
+                      "var": "trusted"
+                    },
+                    {
+                      "var": "scope_match"
+                    }
+                  ]
+                },
+                {
+                  "op": "div",
+                  "args": [
+                    {
+                      "op": "log1p",
+                      "args": [
+                        {
+                          "op": "add",
+                          "args": [
+                            {
+                              "var": "age"
+                            },
+                            {
+                              "op": "neg",
+                              "args": [
+                                {
+                                  "var": "age"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "op": "add",
+                      "args": [
+                        {
+                          "var": "age"
+                        },
+                        {
+                          "op": "neg",
+                          "args": [
+                            {
+                              "var": "age"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "op": "neg",
+                  "args": [
+                    {
+                      "var": "age"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "op": "div",
+              "args": [
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "var": "age"
+                    },
+                    {
+                      "op": "neg",
+                      "args": [
+                        {
+                          "var": "age"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "var": "age"
+                    },
+                    {
+                      "op": "neg",
+                      "args": [
+                        {
+                          "var": "age"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rag_score": {
+      "var": "overlap"
+    },
+    "tool_score": {
+      "var": "overlap"
+    },
+    "retry": 0,
+    "memory_top_k": 3,
+    "rag_top_k": 2,
+    "max_attempts": 3,
+    "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. When multiple same-scope memories conflict, prefer the most recent trusted memory and state the current value; if the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+    "policy": {
+      "score": {
+        "var": "failure_rate"
+      },
+      "branches": 2
+    }
+  },
+  "risk": {
+    "sensitive": false,
+    "blocked": false,
+    "classification": "ordinary",
+    "reasons": [],
+    "changed_paths": [
+      "memory_score.args",
+      "memory_score.op",
+      "memory_score.var",
+      "memory_top_k",
+      "prompt"
+    ],
+    "before_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+    "after_hash": "3feb046322c06f6d5baf914149168b742fc20278f78b8f1ba6f6419f3af9ebf1"
+  },
+  "diagnosis": {
+    "issues": [
+      {
+        "module": "memory",
+        "hypothesis": "The memory selection used lexical overlap only and ordered the older memory ahead of the newer same-scope memory, so the stale 'amber' value was retrieved and surfaced instead of the newer 'violet' value.",
+        "evidence": [
+          {
+            "trace_id": "trace_ec5d460b247c8f826c4a3026e1b423f8",
+            "pointer": "/trace/decisions/memory_order",
+            "evidence_status": "recorded_observation_not_independent_verification"
+          },
+          {
+            "trace_id": "trace_ec5d460b247c8f826c4a3026e1b423f8",
+            "pointer": "/trace/decisions/selection_method",
+            "evidence_status": "recorded_observation_not_independent_verification"
+          },
+          {
+            "trace_id": "trace_ec5d460b247c8f826c4a3026e1b423f8",
+            "pointer": "/trace/memory_reads/0/text",
+            "evidence_status": "recorded_observation_not_independent_verification"
+          },
+          {
+            "trace_id": "trace_ec5d460b247c8f826c4a3026e1b423f8",
+            "pointer": "/trace/memory_reads/1/text",
+            "evidence_status": "recorded_observation_not_independent_verification"
+          }
+        ]
+      },
+      {
+        "module": "prompt",
+        "hypothesis": "The assistant asserted the stale value as current without reconciling the conflicting same-scope memories or noting recency, producing a confident but outdated answer.",
+        "evidence": [
+          {
+            "trace_id": "trace_ec5d460b247c8f826c4a3026e1b423f8",
+            "pointer": "/trace/messages/1/content",
+            "evidence_status": "recorded_observation_not_independent_verification"
+          },
+          {
+            "trace_id": "trace_ec5d460b247c8f826c4a3026e1b423f8",
+            "pointer": "/trace/messages/0/content",
+            "evidence_status": "recorded_observation_not_independent_verification"
+          }
+        ]
+      }
+    ],
+    "status": "model_hypotheses_not_verified",
+    "self_reported_success_is_not_certified": true
+  },
+  "proposal": {
+    "hypothesis": "Memory ranking by lexical overlap alone ignores recency and trust, so an older same-scope memory can outrank a newer one. A generalizable fix is to make memory_score favor trusted, scope-matching, recent memories by combining overlap with a recency term derived from age, while leaving RAG and tool scoring unchanged.",
+    "predicted_behavior": "For conflicting same-scope memories, the newer trusted memory receives a higher memory_score than the older one, so the newer value is retrieved and surfaced; when no conflict exists, overlap still dominates and behavior is unchanged.",
+    "regression_risk": "The recency term is expressed with a degenerate age-age construction that evaluates to a constant, so it may not actually differentiate memories by age; increasing memory_top_k to 3 adds context and could introduce distractor memories, and the prompt change may alter answer formatting in edge cases."
+  },
+  "ignored_model_assertions": {},
+  "provenance": {
+    "trace_ids": [
+      "trace_ec5d460b247c8f826c4a3026e1b423f8"
+    ],
+    "trace_hashes": {
+      "trace_ec5d460b247c8f826c4a3026e1b423f8": "de13e693628dfc10f4b7c120d7cfe2a7d1ad276fcc603ed391cce5b80af0e637"
+    },
+    "source_consent_ids": [
+      "consent_8aa25ddb7d13eb72e6adde3524e383ff"
+    ],
+    "model_consent_id": "model_consent_69ceff1ecd4ec8b8ab3fc7974d943cdb",
+    "model_endpoint": "https://api.deepseek.com",
+    "model": "deepseek-flash",
+    "thirdparty_authorized": true,
+    "call_receipt_derivative_ids": [
+      "derived_e8b1d16cd7a25da73ca8f3678032d10a",
+      "derived_7f36db4b052c8eda4ef11b86669a4ca4"
+    ]
+  },
+  "evaluation": {
+    "status": "not_executed",
+    "trace_replay_performed": false,
+    "effect_established": false,
+    "success_certified": false
+  },
+  "adopted": false,
+  "execution_allowed_by_this_artifact": false,
+  "next_step": "fixed independent execution/assessment; sensitive changes require owner approval first",
+  "derivative_id": "derived_f9194816b6ce05543c23068f43924cbb",
+  "artifact_hash": "fffbfa2ef6d610fd3f7cddc08483c9993ba41069366836636060a03d4861a702",
+  "credential_redactions": []
+}

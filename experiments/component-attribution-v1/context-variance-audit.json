@@ -1,0 +1,135 @@
+{
+  "kind": "post_readout_diagnostic_only",
+  "extra_model_calls": 0,
+  "model_returned_counts": {
+    "deepseek-flash": 350
+  },
+  "finish_reason_counts": {
+    "stop": 350
+  },
+  "variants": {
+    "memory_top_k_only": {
+      "rag_authority": {
+        "same_request": 10,
+        "changed_outcome_on_same_request": 2,
+        "gains_on_same_request": 0,
+        "losses_on_same_request": 2
+      },
+      "tool_routing": {
+        "same_request": 10,
+        "changed_outcome_on_same_request": 0,
+        "gains_on_same_request": 0,
+        "losses_on_same_request": 0
+      },
+      "tool_recovery": {
+        "same_request": 10,
+        "changed_outcome_on_same_request": 0,
+        "gains_on_same_request": 0,
+        "losses_on_same_request": 0
+      },
+      "clean": {
+        "same_request": 10,
+        "changed_outcome_on_same_request": 0,
+        "gains_on_same_request": 0,
+        "losses_on_same_request": 0
+      }
+    },
+    "memory_score_only": {
+      "rag_authority": {
+        "same_request": 10,
+        "changed_outcome_on_same_request": 2,
+        "gains_on_same_request": 0,
+        "losses_on_same_request": 2
+      },
+      "tool_routing": {
+        "same_request": 10,
+        "changed_outcome_on_same_request": 0,
+        "gains_on_same_request": 0,
+        "losses_on_same_request": 0
+      },
+      "tool_recovery": {
+        "same_request": 10,
+        "changed_outcome_on_same_request": 0,
+        "gains_on_same_request": 0,
+        "losses_on_same_request": 0
+      },
+      "clean": {
+        "same_request": 10,
+        "changed_outcome_on_same_request": 0,
+        "gains_on_same_request": 0,
+        "losses_on_same_request": 0
+      }
+    },
+    "tool_score_only": {
+      "memory_temporal": {
+        "same_request": 10,
+        "changed_outcome_on_same_request": 0,
+        "gains_on_same_request": 0,
+        "losses_on_same_request": 0
+      },
+      "memory_scope": {
+        "same_request": 10,
+        "changed_outcome_on_same_request": 6,
+        "gains_on_same_request": 0,
+        "losses_on_same_request": 6
+      },
+      "rag_authority": {
+        "same_request": 10,
+        "changed_outcome_on_same_request": 2,
+        "gains_on_same_request": 0,
+        "losses_on_same_request": 2
+      },
+      "tool_routing": {
+        "same_request": 7,
+        "changed_outcome_on_same_request": 0,
+        "gains_on_same_request": 0,
+        "losses_on_same_request": 0
+      },
+      "tool_recovery": {
+        "same_request": 10,
+        "changed_outcome_on_same_request": 0,
+        "gains_on_same_request": 0,
+        "losses_on_same_request": 0
+      },
+      "composition": {
+        "same_request": 10,
+        "changed_outcome_on_same_request": 0,
+        "gains_on_same_request": 0,
+        "losses_on_same_request": 0
+      },
+      "clean": {
+        "same_request": 10,
+        "changed_outcome_on_same_request": 0,
+        "gains_on_same_request": 0,
+        "losses_on_same_request": 0
+      }
+    },
+    "full_g4": {
+      "rag_authority": {
+        "same_request": 10,
+        "changed_outcome_on_same_request": 2,
+        "gains_on_same_request": 0,
+        "losses_on_same_request": 2
+      },
+      "tool_routing": {
+        "same_request": 7,
+        "changed_outcome_on_same_request": 0,
+        "gains_on_same_request": 0,
+        "losses_on_same_request": 0
+      },
+      "tool_recovery": {
+        "same_request": 10,
+        "changed_outcome_on_same_request": 0,
+        "gains_on_same_request": 0,
+        "losses_on_same_request": 0
+      },
+      "clean": {
+        "same_request": 10,
+        "changed_outcome_on_same_request": 0,
+        "gains_on_same_request": 0,
+        "losses_on_same_request": 0
+      }
+    }
+  },
+  "interpretation": "Identical serialized requests can yield different answers; these contrasts are not component effects. Preserve original scores and do not rerun or select."
+}

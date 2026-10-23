@@ -1,0 +1,4512 @@
+{
+  "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+  "passed": 0,
+  "total": 21,
+  "measurement_errors": 0,
+  "rate": 0.0,
+  "families": {
+    "memory_temporal": {
+      "passed": 0,
+      "total": 3
+    },
+    "memory_scope": {
+      "passed": 0,
+      "total": 3
+    },
+    "rag_authority": {
+      "passed": 0,
+      "total": 3
+    },
+    "tool_routing": {
+      "passed": 0,
+      "total": 3
+    },
+    "tool_recovery": {
+      "passed": 0,
+      "total": 3
+    },
+    "composition": {
+      "passed": 0,
+      "total": 3
+    },
+    "clean": {
+      "passed": 0,
+      "total": 3
+    }
+  },
+  "traces": [
+    {
+      "task_id": "task-d04b914dce73268c",
+      "family": "memory_temporal",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "UNKNOWN — the read-only live registry confirms Aster-7c2ed6 is active, but it does not return a current assigned channel code. Historical records mention channel codes VC8C41E31DF and VD315A5ACB7, but those are not confirmed by the live registry as the current assigned channel.",
+        "evidence_ids": [
+          "ev-b8b3396260a7157b",
+          "ev-a26e1e1c0f86a260",
+          "ev-6dcffc8aad87d024"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": false,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-a26e1e1c0f86a260",
+            "features": {
+              "overlap": 1.0,
+              "age": 18.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0
+          },
+          {
+            "index": 3,
+            "id": "ev-6dcffc8aad87d024",
+            "features": {
+              "overlap": 0.22580645161290322,
+              "age": 47.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.22580645161290322
+          },
+          {
+            "index": 2,
+            "id": "ev-43e03cd06f321dec",
+            "features": {
+              "overlap": 0.16129032258064516,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.16129032258064516
+          },
+          {
+            "index": 1,
+            "id": "ev-6bd78d8954b4da9d",
+            "features": {
+              "overlap": 0.12903225806451613,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12903225806451613
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-c57f4204b64a29de",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          }
+        ],
+        "tools": [
+          {
+            "index": 2,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.25806451612903225,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.25806451612903225
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.12903225806451613,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.12903225806451613
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Aster-7c2ed6 is active. Registration token: VCE2F884FDC.",
+              "evidence_ids": [
+                "ev-b8b3396260a7157b"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-6615e5e7872e03ae",
+        "query": "Please verify the current record for Aster-7c2ed6. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-a26e1e1c0f86a260",
+            "text": "Archived note: Please verify the current record for Aster-7c2ed6. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Assigned channel was VC8C41E31DF.",
+            "entity": "Aster-7c2ed6",
+            "age": 18,
+            "trusted": 1,
+            "scope": "usr-6615e5e7872e03ae",
+            "source_id": "src-639d139bb73f43cf"
+          },
+          {
+            "id": "ev-6dcffc8aad87d024",
+            "text": "Previous record for Aster-7c2ed6: assigned channel VD315A5ACB7; live registry checked.",
+            "entity": "Aster-7c2ed6",
+            "age": 47,
+            "trusted": 1,
+            "scope": "usr-6615e5e7872e03ae",
+            "source_id": "src-44abb93df2e2af22"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-c57f4204b64a29de",
+            "text": "Effective policy for Aster-7c2ed6: tier V71F8B0381F. Issued by registry authority.",
+            "entity": "Aster-7c2ed6",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-6a96057be18364b1"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Aster-7c2ed6 is active. Registration token: VCE2F884FDC.",
+              "evidence_ids": [
+                "ev-b8b3396260a7157b"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-74b42dc5b0395dba",
+      "family": "memory_temporal",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "UNKNOWN — the read-only live registry lookup confirmed Birch-6b3397 is active and returned registration token V733D7CCA14, but it did not provide a current assigned channel code. The available memory records only show an archived assigned channel (V7081F67403) and a previous record channel (VA9B8C1D5D3), so the current assigned channel code cannot be established from the required live evidence.",
+        "evidence_ids": [
+          "ev-3c175784e3d0a90a",
+          "ev-cc2ee6cb8ab6d6e5",
+          "ev-c67def3a10568d5f"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": false,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 3,
+            "id": "ev-cc2ee6cb8ab6d6e5",
+            "features": {
+              "overlap": 1.0,
+              "age": 19.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0
+          },
+          {
+            "index": 2,
+            "id": "ev-c67def3a10568d5f",
+            "features": {
+              "overlap": 0.22580645161290322,
+              "age": 47.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.22580645161290322
+          },
+          {
+            "index": 0,
+            "id": "ev-ec439b6d287e747e",
+            "features": {
+              "overlap": 0.16129032258064516,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.16129032258064516
+          },
+          {
+            "index": 1,
+            "id": "ev-4f5c92a4be8feb29",
+            "features": {
+              "overlap": 0.12903225806451613,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12903225806451613
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-0b52bf72327d1203",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          }
+        ],
+        "tools": [
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.25806451612903225,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.25806451612903225
+          },
+          {
+            "index": 2,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.12903225806451613,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.12903225806451613
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Birch-6b3397 is active. Registration token: V733D7CCA14.",
+              "evidence_ids": [
+                "ev-3c175784e3d0a90a"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-ab642f77928a521b",
+        "query": "Please verify the current record for Birch-6b3397. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-cc2ee6cb8ab6d6e5",
+            "text": "Archived note: Please verify the current record for Birch-6b3397. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Assigned channel was V7081F67403.",
+            "entity": "Birch-6b3397",
+            "age": 19,
+            "trusted": 1,
+            "scope": "usr-ab642f77928a521b",
+            "source_id": "src-4210384b9d9e38bb"
+          },
+          {
+            "id": "ev-c67def3a10568d5f",
+            "text": "Previous record for Birch-6b3397: assigned channel VA9B8C1D5D3; live registry checked.",
+            "entity": "Birch-6b3397",
+            "age": 47,
+            "trusted": 1,
+            "scope": "usr-ab642f77928a521b",
+            "source_id": "src-a6426d4ea8fe96ee"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-0b52bf72327d1203",
+            "text": "Effective policy for Birch-6b3397: tier V2CB2596E5E. Issued by registry authority.",
+            "entity": "Birch-6b3397",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-0d99fc67f30d149d"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Birch-6b3397 is active. Registration token: V733D7CCA14.",
+              "evidence_ids": [
+                "ev-3c175784e3d0a90a"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-2af94dd2ac891819",
+      "family": "memory_temporal",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "UNKNOWN — the live registry confirms Cedar-8a8040 is active (evidence ev-a8bece77c1b14d30), but it does not provide a current assigned channel code. Prior records show conflicting assigned channels (ev-ce73e3f4bb429c8e: VA3A1AC9737; ev-7ee1cb1192f3b8a7: V751834BAC2), so the current assigned channel code cannot be established.",
+        "evidence_ids": [
+          "ev-a8bece77c1b14d30",
+          "ev-ce73e3f4bb429c8e",
+          "ev-7ee1cb1192f3b8a7"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": false,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 3,
+            "id": "ev-ce73e3f4bb429c8e",
+            "features": {
+              "overlap": 1.0,
+              "age": 20.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0
+          },
+          {
+            "index": 1,
+            "id": "ev-7ee1cb1192f3b8a7",
+            "features": {
+              "overlap": 0.22580645161290322,
+              "age": 47.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.22580645161290322
+          },
+          {
+            "index": 0,
+            "id": "ev-4b807965c7126b68",
+            "features": {
+              "overlap": 0.16129032258064516,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.16129032258064516
+          },
+          {
+            "index": 2,
+            "id": "ev-66a0e3ba7c40862b",
+            "features": {
+              "overlap": 0.12903225806451613,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12903225806451613
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-453b05be0aaa6c0b",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          }
+        ],
+        "tools": [
+          {
+            "index": 0,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.25806451612903225,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.25806451612903225
+          },
+          {
+            "index": 2,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.12903225806451613,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.12903225806451613
+          },
+          {
+            "index": 1,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Cedar-8a8040 is active. Registration token: VE4FC83FC02.",
+              "evidence_ids": [
+                "ev-a8bece77c1b14d30"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-be20ff904a18ab1b",
+        "query": "Please verify the current record for Cedar-8a8040. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-ce73e3f4bb429c8e",
+            "text": "Archived note: Please verify the current record for Cedar-8a8040. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Assigned channel was VA3A1AC9737.",
+            "entity": "Cedar-8a8040",
+            "age": 20,
+            "trusted": 1,
+            "scope": "usr-be20ff904a18ab1b",
+            "source_id": "src-58a16de2c81a633c"
+          },
+          {
+            "id": "ev-7ee1cb1192f3b8a7",
+            "text": "Previous record for Cedar-8a8040: assigned channel V751834BAC2; live registry checked.",
+            "entity": "Cedar-8a8040",
+            "age": 47,
+            "trusted": 1,
+            "scope": "usr-be20ff904a18ab1b",
+            "source_id": "src-7ddd187c0a93e707"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-453b05be0aaa6c0b",
+            "text": "Effective policy for Cedar-8a8040: tier V93B9BB0074. Issued by registry authority.",
+            "entity": "Cedar-8a8040",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-820a82780aa30264"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Cedar-8a8040 is active. Registration token: VE4FC83FC02.",
+              "evidence_ids": [
+                "ev-a8bece77c1b14d30"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-dbaa97a7e6055d27",
+      "family": "memory_scope",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "UNKNOWN — I can't establish your current assigned channel code for Aster-fa0e53 from the available evidence. The live read-only registry lookup (ev-ca75abc0f70dc10a) only confirms that Aster-fa0e53 is active and returns registration token VA621CDF832, which is not a channel code. The scoped memory ev-fddad8107a1918df records a channel VF828664D69 for Aster-fa0e53, but describes it as the 'current owner's assignment' rather than your assigned channel, so ownership by you is not established. The policy document ev-e32d0dd2466e1eb3 lists a tier (V2179A36991), not a channel, and is therefore irrelevant to this request. No verified live registry confirmation of your assigned channel code exists, so the answer is UNKNOWN.",
+        "evidence_ids": [
+          "ev-ca75abc0f70dc10a",
+          "ev-fddad8107a1918df",
+          "ev-e32d0dd2466e1eb3"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 2,
+            "id": "ev-9bfc7ad2df9392e2",
+            "features": {
+              "overlap": 0.1935483870967742,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.1935483870967742
+          },
+          {
+            "index": 1,
+            "id": "ev-fddad8107a1918df",
+            "features": {
+              "overlap": 0.12903225806451613,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12903225806451613
+          },
+          {
+            "index": 0,
+            "id": "ev-307c4d87650c1493",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 3.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-e32d0dd2466e1eb3",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          }
+        ],
+        "tools": [
+          {
+            "index": 0,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.25806451612903225,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.25806451612903225
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.12903225806451613,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.12903225806451613
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Aster-fa0e53 is active. Registration token: VA621CDF832.",
+              "evidence_ids": [
+                "ev-ca75abc0f70dc10a"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-35e84f861309cba5",
+        "query": "Please verify the current record for Aster-fa0e53. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-9bfc7ad2df9392e2",
+            "text": "My current assigned channel code for Birch-cd1435 is VBD47692213.",
+            "entity": "Birch-cd1435",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-35e84f861309cba5",
+            "source_id": "src-b9b2c4eb93473f07"
+          },
+          {
+            "id": "ev-fddad8107a1918df",
+            "text": "Assignment for Aster-fa0e53: channel VF828664D69. Current owner's assignment.",
+            "entity": "Aster-fa0e53",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-35e84f861309cba5",
+            "source_id": "src-9d65a866c62a1eb9"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-e32d0dd2466e1eb3",
+            "text": "Effective policy for Aster-fa0e53: tier V2179A36991. Issued by registry authority.",
+            "entity": "Aster-fa0e53",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-dce55801e6fdb5fa"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Aster-fa0e53 is active. Registration token: VA621CDF832.",
+              "evidence_ids": [
+                "ev-ca75abc0f70dc10a"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-acec781d31f336d6",
+      "family": "memory_scope",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "Birch-107c73 is confirmed active via the live registry. Your current assigned channel code is V5803DFEDB8.",
+        "evidence_ids": [
+          "ev-29b73d6d75f3f01a",
+          "ev-1718df36f5f5fe0d"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-ee4bfd76fe183e84",
+            "features": {
+              "overlap": 0.1935483870967742,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.1935483870967742
+          },
+          {
+            "index": 2,
+            "id": "ev-29b73d6d75f3f01a",
+            "features": {
+              "overlap": 0.12903225806451613,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12903225806451613
+          },
+          {
+            "index": 1,
+            "id": "ev-04d3ed7c9134e55d",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 3.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-560bd1225fe5e093",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          }
+        ],
+        "tools": [
+          {
+            "index": 2,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.25806451612903225,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.25806451612903225
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.12903225806451613,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.12903225806451613
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Birch-107c73 is active. Registration token: V2B15EBCB75.",
+              "evidence_ids": [
+                "ev-1718df36f5f5fe0d"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-aa1d306d312a00a3",
+        "query": "Please verify the current record for Birch-107c73. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-ee4bfd76fe183e84",
+            "text": "My current assigned channel code for Cedar-8c86ec is V175A836712.",
+            "entity": "Cedar-8c86ec",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-aa1d306d312a00a3",
+            "source_id": "src-01775048f5e00292"
+          },
+          {
+            "id": "ev-29b73d6d75f3f01a",
+            "text": "Assignment for Birch-107c73: channel V5803DFEDB8. Current owner's assignment.",
+            "entity": "Birch-107c73",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-aa1d306d312a00a3",
+            "source_id": "src-f088e63e12030f82"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-560bd1225fe5e093",
+            "text": "Effective policy for Birch-107c73: tier V079FDD095A. Issued by registry authority.",
+            "entity": "Birch-107c73",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-b679752346211986"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Birch-107c73 is active. Registration token: V2B15EBCB75.",
+              "evidence_ids": [
+                "ev-1718df36f5f5fe0d"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-f56ee1b33575b7e2",
+      "family": "memory_scope",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "Cedar-4e6eac is confirmed active by the read-only live registry lookup. Its current assigned channel code is VE10D493B21.",
+        "evidence_ids": [
+          "ev-a5fbefb613f1c910",
+          "ev-0229d58cf2cfcf0e"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 1,
+            "id": "ev-c57871cb79b19fbd",
+            "features": {
+              "overlap": 0.1935483870967742,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.1935483870967742
+          },
+          {
+            "index": 0,
+            "id": "ev-a5fbefb613f1c910",
+            "features": {
+              "overlap": 0.12903225806451613,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12903225806451613
+          },
+          {
+            "index": 2,
+            "id": "ev-b78ebc06b5e80988",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 3.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-1ce991004c71c79b",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          }
+        ],
+        "tools": [
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.25806451612903225,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.25806451612903225
+          },
+          {
+            "index": 0,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.12903225806451613,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.12903225806451613
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.0967741935483871,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.0967741935483871
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Cedar-4e6eac is active. Registration token: VED4B25C293.",
+              "evidence_ids": [
+                "ev-0229d58cf2cfcf0e"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-ec510b6eb587dff5",
+        "query": "Please verify the current record for Cedar-4e6eac. Return my current assigned channel code. Confirm the object using a read-only live registry lookup. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-c57871cb79b19fbd",
+            "text": "My current assigned channel code for Aster-137d32 is V293AC2E0E3.",
+            "entity": "Aster-137d32",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-ec510b6eb587dff5",
+            "source_id": "src-bb193d965d246ece"
+          },
+          {
+            "id": "ev-a5fbefb613f1c910",
+            "text": "Assignment for Cedar-4e6eac: channel VE10D493B21. Current owner's assignment.",
+            "entity": "Cedar-4e6eac",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-ec510b6eb587dff5",
+            "source_id": "src-34eb2c913c035b7f"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-1ce991004c71c79b",
+            "text": "Effective policy for Cedar-4e6eac: tier VC9AFEE7D86. Issued by registry authority.",
+            "entity": "Cedar-4e6eac",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-a3366369b153798d"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Cedar-4e6eac is active. Registration token: VED4B25C293.",
+              "evidence_ids": [
+                "ev-0229d58cf2cfcf0e"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-034e709b3b25bcde",
+      "family": "rag_authority",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "Aster-78f87e is confirmed active in the read-only live registry. The currently applicable policy tier, per the trusted registry-authority effective policy record, is VE5EB124352.",
+        "evidence_ids": [
+          "ev-3842dbe7dcd2efb3",
+          "ev-0518ad05b553dcc1"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-48e8065097991c6d",
+            "features": {
+              "overlap": 0.09090909090909091,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.09090909090909091
+          }
+        ],
+        "rag": [
+          {
+            "index": 2,
+            "id": "ev-8bc6ed3e447c2fab",
+            "features": {
+              "overlap": 1.0,
+              "age": 0.0,
+              "trusted": 0.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0
+          },
+          {
+            "index": 1,
+            "id": "ev-3842dbe7dcd2efb3",
+            "features": {
+              "overlap": 0.15151515151515152,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.15151515151515152
+          },
+          {
+            "index": 0,
+            "id": "ev-14325739671e3c0e",
+            "features": {
+              "overlap": 0.12121212121212122,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12121212121212122
+          },
+          {
+            "index": 3,
+            "id": "ev-92f49e8fac203ed6",
+            "features": {
+              "overlap": 0.12121212121212122,
+              "age": 36.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12121212121212122
+          }
+        ],
+        "tools": [
+          {
+            "index": 2,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.2727272727272727,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.2727272727272727
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.09090909090909091,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.09090909090909091
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.06060606060606061,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.06060606060606061
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Aster-78f87e is active. Registration token: VFF3ECF9B67.",
+              "evidence_ids": [
+                "ev-0518ad05b553dcc1"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-64d9cb97089220bf",
+        "query": "Please verify the current record for Aster-78f87e. Return the currently applicable policy tier from an authoritative source. Confirm the object with the read-only live registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-48e8065097991c6d",
+            "text": "Assignment for Aster-78f87e: channel V4FC528B973. Current owner's assignment.",
+            "entity": "Aster-78f87e",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-64d9cb97089220bf",
+            "source_id": "src-adbde50fabcd18e9"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-8bc6ed3e447c2fab",
+            "text": "Search excerpt: Please verify the current record for Aster-78f87e. Return the currently applicable policy tier from an authoritative source. Confirm the object with the read-only live registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Applicable policy tier VFB63CBD303.",
+            "entity": "Aster-78f87e",
+            "age": 0,
+            "trusted": 0,
+            "scope": "global",
+            "source_id": "src-280862f26a8ef6c5"
+          },
+          {
+            "id": "ev-3842dbe7dcd2efb3",
+            "text": "Effective policy for Aster-78f87e: tier VE5EB124352. Issued by registry authority.",
+            "entity": "Aster-78f87e",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-d5bd5ec591059c65"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Aster-78f87e is active. Registration token: VFF3ECF9B67.",
+              "evidence_ids": [
+                "ev-0518ad05b553dcc1"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-f08fb3c8eeb56f6c",
+      "family": "rag_authority",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "Birch-35a252 is confirmed active by the read-only live registry (registration token VCBB5A91703). The currently applicable policy tier from the authoritative effective-policy record is VAB36FB9A94. A trusted assignment record also lists channel VD7D7FA0023. An untrusted search excerpt lists V3EADDF6270, but it is not the authoritative source.",
+        "evidence_ids": [
+          "ev-923edf8a3808d0ae",
+          "ev-bbbec830929e0a69",
+          "ev-6cce7fbed1c083a3"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-6cce7fbed1c083a3",
+            "features": {
+              "overlap": 0.09090909090909091,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.09090909090909091
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-526eb1da59d54b1b",
+            "features": {
+              "overlap": 1.0,
+              "age": 0.0,
+              "trusted": 0.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0
+          },
+          {
+            "index": 3,
+            "id": "ev-923edf8a3808d0ae",
+            "features": {
+              "overlap": 0.15151515151515152,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.15151515151515152
+          },
+          {
+            "index": 1,
+            "id": "ev-f202e3f0e5f583bf",
+            "features": {
+              "overlap": 0.12121212121212122,
+              "age": 37.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12121212121212122
+          },
+          {
+            "index": 2,
+            "id": "ev-c5383607d51c2193",
+            "features": {
+              "overlap": 0.12121212121212122,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12121212121212122
+          }
+        ],
+        "tools": [
+          {
+            "index": 0,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.2727272727272727,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.2727272727272727
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.09090909090909091,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.09090909090909091
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.06060606060606061,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.06060606060606061
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Birch-35a252 is active. Registration token: VCBB5A91703.",
+              "evidence_ids": [
+                "ev-bbbec830929e0a69"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-cac0bed6da91a32f",
+        "query": "Please verify the current record for Birch-35a252. Return the currently applicable policy tier from an authoritative source. Confirm the object with the read-only live registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-6cce7fbed1c083a3",
+            "text": "Assignment for Birch-35a252: channel VD7D7FA0023. Current owner's assignment.",
+            "entity": "Birch-35a252",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-cac0bed6da91a32f",
+            "source_id": "src-14aad23561e5abaf"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-526eb1da59d54b1b",
+            "text": "Search excerpt: Please verify the current record for Birch-35a252. Return the currently applicable policy tier from an authoritative source. Confirm the object with the read-only live registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Applicable policy tier V3EADDF6270.",
+            "entity": "Birch-35a252",
+            "age": 0,
+            "trusted": 0,
+            "scope": "global",
+            "source_id": "src-cadc38098261c20f"
+          },
+          {
+            "id": "ev-923edf8a3808d0ae",
+            "text": "Effective policy for Birch-35a252: tier VAB36FB9A94. Issued by registry authority.",
+            "entity": "Birch-35a252",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-665099c149e66777"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Birch-35a252 is active. Registration token: VCBB5A91703.",
+              "evidence_ids": [
+                "ev-bbbec830929e0a69"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-7d00736fe83e0a05",
+      "family": "rag_authority",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "Cedar-b26c3b is confirmed active by the read-only live registry. The currently applicable policy tier, per the authoritative registry-issued policy record, is V4C41633534.",
+        "evidence_ids": [
+          "ev-3b4774e602b6c2e6",
+          "ev-be459b0c5934de7d"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-863b4db75c4fcf67",
+            "features": {
+              "overlap": 0.09090909090909091,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.09090909090909091
+          }
+        ],
+        "rag": [
+          {
+            "index": 1,
+            "id": "ev-11e9a7bf9e2eef19",
+            "features": {
+              "overlap": 1.0,
+              "age": 0.0,
+              "trusted": 0.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0
+          },
+          {
+            "index": 0,
+            "id": "ev-3b4774e602b6c2e6",
+            "features": {
+              "overlap": 0.15151515151515152,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.15151515151515152
+          },
+          {
+            "index": 2,
+            "id": "ev-a4a53c70bbe1b6fe",
+            "features": {
+              "overlap": 0.12121212121212122,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12121212121212122
+          },
+          {
+            "index": 3,
+            "id": "ev-afa7228a9e305f3e",
+            "features": {
+              "overlap": 0.12121212121212122,
+              "age": 38.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12121212121212122
+          }
+        ],
+        "tools": [
+          {
+            "index": 2,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.2727272727272727,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.2727272727272727
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.09090909090909091,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.09090909090909091
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.06060606060606061,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.06060606060606061
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Cedar-b26c3b is active. Registration token: VAA9B04EC59.",
+              "evidence_ids": [
+                "ev-be459b0c5934de7d"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-64dc18af601ed405",
+        "query": "Please verify the current record for Cedar-b26c3b. Return the currently applicable policy tier from an authoritative source. Confirm the object with the read-only live registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-863b4db75c4fcf67",
+            "text": "Assignment for Cedar-b26c3b: channel V92103E031E. Current owner's assignment.",
+            "entity": "Cedar-b26c3b",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-64dc18af601ed405",
+            "source_id": "src-9d25d89741826b83"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-11e9a7bf9e2eef19",
+            "text": "Search excerpt: Please verify the current record for Cedar-b26c3b. Return the currently applicable policy tier from an authoritative source. Confirm the object with the read-only live registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Applicable policy tier VFB67DE8455.",
+            "entity": "Cedar-b26c3b",
+            "age": 0,
+            "trusted": 0,
+            "scope": "global",
+            "source_id": "src-a5ef3932df2d607c"
+          },
+          {
+            "id": "ev-3b4774e602b6c2e6",
+            "text": "Effective policy for Cedar-b26c3b: tier V4C41633534. Issued by registry authority.",
+            "entity": "Cedar-b26c3b",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-0fa63268eff5c693"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Cedar-b26c3b is active. Registration token: VAA9B04EC59.",
+              "evidence_ids": [
+                "ev-be459b0c5934de7d"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-6d3d9b66a25083eb",
+      "family": "tool_routing",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "Live registry confirms Aster-4eb684 is active. Registration token: VEEA1E637FF.",
+        "evidence_ids": [
+          "ev-19a98f3a7e63c729"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-7f0da84350539c3a",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-1ee16d5e58901ea9",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "tools": [
+          {
+            "index": 0,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.32,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.32
+          },
+          {
+            "index": 3,
+            "id": "read_registry_preview",
+            "features": {
+              "overlap": 0.28,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 0.0,
+              "read_only": 1.0
+            },
+            "score": 0.28
+          },
+          {
+            "index": 1,
+            "id": "read_neighbor_registry",
+            "features": {
+              "overlap": 0.24,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.24
+          },
+          {
+            "index": 4,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.16,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.16
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Aster-4eb684 is active. Registration token: VEEA1E637FF.",
+              "evidence_ids": [
+                "ev-19a98f3a7e63c729"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-f1b0b2f45748cc8e",
+        "query": "Please verify the current record for Aster-4eb684. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-7f0da84350539c3a",
+            "text": "Assignment for Aster-4eb684: channel V192FEABE7E. Current owner's assignment.",
+            "entity": "Aster-4eb684",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-f1b0b2f45748cc8e",
+            "source_id": "src-95a8818b756262bb"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-1ee16d5e58901ea9",
+            "text": "Effective policy for Aster-4eb684: tier VE309741C9B. Issued by registry authority.",
+            "entity": "Aster-4eb684",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-109f0b51c3c7324b"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Aster-4eb684 is active. Registration token: VEEA1E637FF.",
+              "evidence_ids": [
+                "ev-19a98f3a7e63c729"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-0c0cbbe87c33cf82",
+      "family": "tool_routing",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "Verified: the live read-only registry reports Birch-d10cbd as active, and its live registration token is V1ADCD48D58. Supporting records: assignment channel V30C64C62A3 (ev-966f81b6e6d3fb6f) and effective policy tier V0A9EE4860F (ev-300e9152c14050e1).",
+        "evidence_ids": [
+          "ev-3c99f9f03f4c23ff",
+          "ev-966f81b6e6d3fb6f",
+          "ev-300e9152c14050e1"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-966f81b6e6d3fb6f",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-300e9152c14050e1",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "tools": [
+          {
+            "index": 2,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.32,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.32
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.28,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.28
+          },
+          {
+            "index": 4,
+            "id": "read_registry_preview",
+            "features": {
+              "overlap": 0.28,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 0.0,
+              "read_only": 1.0
+            },
+            "score": 0.28
+          },
+          {
+            "index": 1,
+            "id": "read_neighbor_registry",
+            "features": {
+              "overlap": 0.24,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.24
+          },
+          {
+            "index": 3,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.16,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.16
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Birch-d10cbd is active. Registration token: V1ADCD48D58.",
+              "evidence_ids": [
+                "ev-3c99f9f03f4c23ff"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-c9a463a106dfcbf5",
+        "query": "Please verify the current record for Birch-d10cbd. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-966f81b6e6d3fb6f",
+            "text": "Assignment for Birch-d10cbd: channel V30C64C62A3. Current owner's assignment.",
+            "entity": "Birch-d10cbd",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-c9a463a106dfcbf5",
+            "source_id": "src-961a9571f3050531"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-300e9152c14050e1",
+            "text": "Effective policy for Birch-d10cbd: tier V0A9EE4860F. Issued by registry authority.",
+            "entity": "Birch-d10cbd",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-0e521ed4dbc5185e"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Birch-d10cbd is active. Registration token: V1ADCD48D58.",
+              "evidence_ids": [
+                "ev-3c99f9f03f4c23ff"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-ce0a92cded49577f",
+      "family": "tool_routing",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "UNKNOWN — the live registration token for Cedar-0f5e31 cannot be established. The read-only registry lookup (read_registry_preview, attempt 1) failed with a non-retryable permanent error: \"Endpoint unavailable.\" The available records only show an assignment channel (VEEB12D27B6, ev-2118ee74bde8fe6a) and an effective policy tier (VAA82222B91, ev-c3eadeebc5cf2886); neither is a registration token, so no live token value can be returned.",
+        "evidence_ids": [
+          "ev-2118ee74bde8fe6a",
+          "ev-c3eadeebc5cf2886"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": false,
+        "tool": false,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-2118ee74bde8fe6a",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-c3eadeebc5cf2886",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "tools": [
+          {
+            "index": 0,
+            "id": "read_registry_preview",
+            "features": {
+              "overlap": 0.28,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 0.0,
+              "read_only": 1.0
+            },
+            "score": 0.28
+          },
+          {
+            "index": 2,
+            "id": "read_neighbor_registry",
+            "features": {
+              "overlap": 0.24,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.24
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.16,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.16
+          },
+          {
+            "index": 3,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          },
+          {
+            "index": 4,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_registry_preview",
+            "attempt": 1,
+            "result": {
+              "status": "permanent_error",
+              "retryable": false,
+              "text": "Endpoint unavailable.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 0.0,
+                "error_permanent": 1.0
+              }
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-027ef05ffc27d6aa",
+        "query": "Please verify the current record for Cedar-0f5e31. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-2118ee74bde8fe6a",
+            "text": "Assignment for Cedar-0f5e31: channel VEEB12D27B6. Current owner's assignment.",
+            "entity": "Cedar-0f5e31",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-027ef05ffc27d6aa",
+            "source_id": "src-b27a52d33340cdda"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-c3eadeebc5cf2886",
+            "text": "Effective policy for Cedar-0f5e31: tier VAA82222B91. Issued by registry authority.",
+            "entity": "Cedar-0f5e31",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-3cf6bc61f3edf87f"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_registry_preview",
+            "attempt": 1,
+            "result": {
+              "status": "permanent_error",
+              "retryable": false,
+              "text": "Endpoint unavailable.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 0.0,
+                "error_permanent": 1.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-6933d02cbfb867d1",
+      "family": "tool_recovery",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "UNKNOWN — the live registration token for Aster-905e31 cannot be established. The read-only registry lookup (read_current_registry, attempt 1) failed with a transient error: \"Read timed out before any result; retry is permitted,\" and returned no evidence, so no live registry value was obtained. The records on file for Aster-905e31 contain only an assignment channel (VCA4EAC8EE6) and a policy tier (V6EBE976309); neither is a registration token, and no registration token appears in any supplied evidence. Since the required fact cannot be verified from the current read-only registry, the result is UNKNOWN.",
+        "evidence_ids": [
+          "ev-dfc931a060474581",
+          "ev-e78361e97fdcfdaa"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": false,
+        "tool": true,
+        "attempts": false
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-dfc931a060474581",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-e78361e97fdcfdaa",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "tools": [
+          {
+            "index": 2,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.32,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.32
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.16,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.16
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "transient_error",
+              "retryable": true,
+              "text": "Read timed out before any result; retry is permitted.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 1.0,
+                "error_permanent": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-bed011040e34e89d",
+        "query": "Please verify the current record for Aster-905e31. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-dfc931a060474581",
+            "text": "Assignment for Aster-905e31: channel VCA4EAC8EE6. Current owner's assignment.",
+            "entity": "Aster-905e31",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-bed011040e34e89d",
+            "source_id": "src-376b1c1dfebac4b7"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-e78361e97fdcfdaa",
+            "text": "Effective policy for Aster-905e31: tier V6EBE976309. Issued by registry authority.",
+            "entity": "Aster-905e31",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-b04a5911c257a8b1"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "transient_error",
+              "retryable": true,
+              "text": "Read timed out before any result; retry is permitted.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 1.0,
+                "error_permanent": 0.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-d1f9e0f07f1eb94f",
+      "family": "tool_recovery",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "UNKNOWN — the live registration token for Birch-cc64d6 cannot be established from the available evidence. The read-only registry lookup (read_current_registry, attempt 1) failed with a permanent, non-retryable access-denied error and returned no evidence, so no live token was retrieved. The available records only state an assignment channel (V5069F5228E) and an effective policy tier (V01E5FEDAEB); neither is a registration token, and no record supplies one.",
+        "evidence_ids": [
+          "ev-e177880a4e4a2f8c",
+          "ev-2c1aab921b37c2d5"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-e177880a4e4a2f8c",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-2c1aab921b37c2d5",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "tools": [
+          {
+            "index": 0,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.32,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.32
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.16,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.16
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "permanent_error",
+              "retryable": false,
+              "text": "Access denied; unchanged credentials must not be retried.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 0.0,
+                "error_permanent": 1.0
+              }
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-08e567140f5dd30d",
+        "query": "Please verify the current record for Birch-cc64d6. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-e177880a4e4a2f8c",
+            "text": "Assignment for Birch-cc64d6: channel V5069F5228E. Current owner's assignment.",
+            "entity": "Birch-cc64d6",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-08e567140f5dd30d",
+            "source_id": "src-10c37fafb004617b"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-2c1aab921b37c2d5",
+            "text": "Effective policy for Birch-cc64d6: tier V01E5FEDAEB. Issued by registry authority.",
+            "entity": "Birch-cc64d6",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-30def7498bd63094"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "permanent_error",
+              "retryable": false,
+              "text": "Access denied; unchanged credentials must not be retried.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 0.0,
+                "error_permanent": 1.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-34c171e55c510d66",
+      "family": "tool_recovery",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "UNKNOWN — the live registration token for Cedar-47d49f cannot be established. The read-only registry lookup (read_current_registry, attempt 1) returned a transient error and timed out before any result, with no evidence IDs returned, so no live token was retrieved. The available records only show an assignment channel (VE3865F6DBA) and a policy tier (VA6EE0197AF); neither contains a registration token. A permitted retry of the registry read would be required to obtain the token.",
+        "evidence_ids": [
+          "ev-e55aafdc954f9174",
+          "ev-239a9ffdc6f1c9a4"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": false,
+        "tool": true,
+        "attempts": false
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-e55aafdc954f9174",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-239a9ffdc6f1c9a4",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "tools": [
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.32,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.32
+          },
+          {
+            "index": 2,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.16,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.16
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "transient_error",
+              "retryable": true,
+              "text": "Read timed out before any result; retry is permitted.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 1.0,
+                "error_permanent": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-8cbe6aaf3188b2a4",
+        "query": "Please verify the current record for Cedar-47d49f. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-e55aafdc954f9174",
+            "text": "Assignment for Cedar-47d49f: channel VE3865F6DBA. Current owner's assignment.",
+            "entity": "Cedar-47d49f",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-8cbe6aaf3188b2a4",
+            "source_id": "src-af0bbb1a1c8fe706"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-239a9ffdc6f1c9a4",
+            "text": "Effective policy for Cedar-47d49f: tier VA6EE0197AF. Issued by registry authority.",
+            "entity": "Cedar-47d49f",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-2979b3d3dc7aa72e"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "transient_error",
+              "retryable": true,
+              "text": "Read timed out before any result; retry is permitted.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 1.0,
+                "error_permanent": 0.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-071f7140a052b01a",
+      "family": "composition",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "UNKNOWN",
+        "evidence_ids": [
+          "ev-f210b4e2cddf5531",
+          "ev-92df7013256d3d93",
+          "ev-4e66373578be4f6f",
+          "ev-f12b3b8e7d34ee48"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": false,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-92df7013256d3d93",
+            "features": {
+              "overlap": 1.0,
+              "age": 18.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0
+          },
+          {
+            "index": 1,
+            "id": "ev-4e66373578be4f6f",
+            "features": {
+              "overlap": 0.2,
+              "age": 47.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.2
+          },
+          {
+            "index": 2,
+            "id": "ev-08e93952261f4254",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.13333333333333333
+          },
+          {
+            "index": 3,
+            "id": "ev-4051256b4a33e558",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.13333333333333333
+          },
+          {
+            "index": 4,
+            "id": "ev-d0d215d48c7db1da",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.13333333333333333
+          },
+          {
+            "index": 5,
+            "id": "ev-39fa9323c7339de1",
+            "features": {
+              "overlap": 0.1,
+              "age": 3.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.1
+          }
+        ],
+        "rag": [
+          {
+            "index": 1,
+            "id": "ev-f12b3b8e7d34ee48",
+            "features": {
+              "overlap": 1.0,
+              "age": 0.0,
+              "trusted": 0.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0
+          },
+          {
+            "index": 0,
+            "id": "ev-3c2d7892a66de01e",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.13333333333333333
+          },
+          {
+            "index": 2,
+            "id": "ev-f25a1945f3c335e2",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.13333333333333333
+          },
+          {
+            "index": 3,
+            "id": "ev-8f80ee5852931b60",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 36.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.13333333333333333
+          }
+        ],
+        "tools": [
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.26666666666666666,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.26666666666666666
+          },
+          {
+            "index": 2,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.13333333333333333
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.06666666666666667,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.06666666666666667
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Aster-15b6fd is active. Registration token: VDFE660D85B.",
+              "evidence_ids": [
+                "ev-f210b4e2cddf5531"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-44b399f01ede1742",
+        "query": "Please verify the current record for Aster-15b6fd. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-92df7013256d3d93",
+            "text": "Archived note: Please verify the current record for Aster-15b6fd. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Assigned channel was VB3626224CA.",
+            "entity": "Aster-15b6fd",
+            "age": 18,
+            "trusted": 1,
+            "scope": "usr-44b399f01ede1742",
+            "source_id": "src-e0c60b904c97092e"
+          },
+          {
+            "id": "ev-4e66373578be4f6f",
+            "text": "Previous record for Aster-15b6fd: assigned channel VDF199CB610; live registry checked.",
+            "entity": "Aster-15b6fd",
+            "age": 47,
+            "trusted": 1,
+            "scope": "usr-44b399f01ede1742",
+            "source_id": "src-4215de747ec4f8d9"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-f12b3b8e7d34ee48",
+            "text": "Search excerpt: Please verify the current record for Aster-15b6fd. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Applicable policy tier VDF199CB610.",
+            "entity": "Aster-15b6fd",
+            "age": 0,
+            "trusted": 0,
+            "scope": "global",
+            "source_id": "src-54e11c79e81c3f4e"
+          },
+          {
+            "id": "ev-3c2d7892a66de01e",
+            "text": "Current authority policy tier for Birch-996b2d: VD09CC653C9.",
+            "entity": "Birch-996b2d",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-7893c1f2d9085c93"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Aster-15b6fd is active. Registration token: VDFE660D85B.",
+              "evidence_ids": [
+                "ev-f210b4e2cddf5531"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-87afb54187abf48f",
+      "family": "composition",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "UNKNOWN",
+        "evidence_ids": [
+          "ev-ebcd208d59402e16",
+          "ev-f903fdbab18e9af3",
+          "ev-ac938f8d0d385537",
+          "ev-de5505cbf137af1c"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": false,
+        "tool": true,
+        "attempts": false
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 4,
+            "id": "ev-ebcd208d59402e16",
+            "features": {
+              "overlap": 1.0,
+              "age": 19.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0
+          },
+          {
+            "index": 0,
+            "id": "ev-f903fdbab18e9af3",
+            "features": {
+              "overlap": 0.2,
+              "age": 47.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.2
+          },
+          {
+            "index": 2,
+            "id": "ev-234b2935309aba12",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.13333333333333333
+          },
+          {
+            "index": 3,
+            "id": "ev-82b99daaac547288",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.13333333333333333
+          },
+          {
+            "index": 5,
+            "id": "ev-76a6a344f4e37bda",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.13333333333333333
+          },
+          {
+            "index": 1,
+            "id": "ev-a182a1731e4a6db9",
+            "features": {
+              "overlap": 0.1,
+              "age": 3.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.1
+          }
+        ],
+        "rag": [
+          {
+            "index": 1,
+            "id": "ev-ac938f8d0d385537",
+            "features": {
+              "overlap": 1.0,
+              "age": 0.0,
+              "trusted": 0.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0
+          },
+          {
+            "index": 0,
+            "id": "ev-de5505cbf137af1c",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 37.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.13333333333333333
+          },
+          {
+            "index": 2,
+            "id": "ev-96deb77b8c18a6ea",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.13333333333333333
+          },
+          {
+            "index": 3,
+            "id": "ev-da7285475a3d5ac5",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.13333333333333333
+          }
+        ],
+        "tools": [
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.26666666666666666,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.26666666666666666
+          },
+          {
+            "index": 0,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.13333333333333333
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.06666666666666667,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.06666666666666667
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "transient_error",
+              "retryable": true,
+              "text": "Transient read timeout; retry permitted.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 1.0,
+                "error_permanent": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-5edb1691a0408575",
+        "query": "Please verify the current record for Birch-c4496f. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-ebcd208d59402e16",
+            "text": "Archived note: Please verify the current record for Birch-c4496f. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Assigned channel was V2F739AAA86.",
+            "entity": "Birch-c4496f",
+            "age": 19,
+            "trusted": 1,
+            "scope": "usr-5edb1691a0408575",
+            "source_id": "src-9153e61d0d578837"
+          },
+          {
+            "id": "ev-f903fdbab18e9af3",
+            "text": "Previous record for Birch-c4496f: assigned channel VF4F598A3EC; live registry checked.",
+            "entity": "Birch-c4496f",
+            "age": 47,
+            "trusted": 1,
+            "scope": "usr-5edb1691a0408575",
+            "source_id": "src-de9c532b5e97e5ca"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-ac938f8d0d385537",
+            "text": "Search excerpt: Please verify the current record for Birch-c4496f. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Applicable policy tier VF4F598A3EC.",
+            "entity": "Birch-c4496f",
+            "age": 0,
+            "trusted": 0,
+            "scope": "global",
+            "source_id": "src-14761ca04635584a"
+          },
+          {
+            "id": "ev-de5505cbf137af1c",
+            "text": "Superseded authority bulletin for Birch-c4496f: policy tier V2F739AAA86.",
+            "entity": "Birch-c4496f",
+            "age": 37,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-fa47aab1c37c9d95"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "transient_error",
+              "retryable": true,
+              "text": "Transient read timeout; retry permitted.",
+              "evidence_ids": []
+            },
+            "retry_decision": {
+              "value": 0.0,
+              "features": {
+                "attempt": 1,
+                "error_retryable": 1.0,
+                "error_permanent": 0.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-87d6b9ce5824fede",
+      "family": "composition",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "UNKNOWN",
+        "evidence_ids": [
+          "ev-db7ab7592309a52e",
+          "ev-458b99bb87b04e94",
+          "ev-5cdc27e081a1100d",
+          "ev-82b0e47cbe21dff0"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": false,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 2,
+            "id": "ev-458b99bb87b04e94",
+            "features": {
+              "overlap": 1.0,
+              "age": 20.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0
+          },
+          {
+            "index": 4,
+            "id": "ev-5cdc27e081a1100d",
+            "features": {
+              "overlap": 0.2,
+              "age": 47.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.2
+          },
+          {
+            "index": 0,
+            "id": "ev-b812b3fb69644033",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.13333333333333333
+          },
+          {
+            "index": 3,
+            "id": "ev-c56f0f5f1cdeaf85",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.13333333333333333
+          },
+          {
+            "index": 5,
+            "id": "ev-489d7a7df79d5c93",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.13333333333333333
+          },
+          {
+            "index": 1,
+            "id": "ev-056ddd71ab3234a3",
+            "features": {
+              "overlap": 0.1,
+              "age": 3.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.1
+          }
+        ],
+        "rag": [
+          {
+            "index": 1,
+            "id": "ev-82b0e47cbe21dff0",
+            "features": {
+              "overlap": 1.0,
+              "age": 0.0,
+              "trusted": 0.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 1.0
+          },
+          {
+            "index": 0,
+            "id": "ev-e1cc51734db02037",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.13333333333333333
+          },
+          {
+            "index": 2,
+            "id": "ev-615f59e7f9fb6257",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 38.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.13333333333333333
+          },
+          {
+            "index": 3,
+            "id": "ev-f7107c2cd8738500",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.13333333333333333
+          }
+        ],
+        "tools": [
+          {
+            "index": 1,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.26666666666666666,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.26666666666666666
+          },
+          {
+            "index": 2,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.13333333333333333,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.13333333333333333
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.06666666666666667,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.06666666666666667
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Cedar-c80748 is active. Registration token: V1C28C84C57.",
+              "evidence_ids": [
+                "ev-db7ab7592309a52e"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-6fafaa3a80869d8f",
+        "query": "Please verify the current record for Cedar-c80748. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-458b99bb87b04e94",
+            "text": "Archived note: Please verify the current record for Cedar-c80748. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Assigned channel was V812BCF217C.",
+            "entity": "Cedar-c80748",
+            "age": 20,
+            "trusted": 1,
+            "scope": "usr-6fafaa3a80869d8f",
+            "source_id": "src-3d07e28b36d02625"
+          },
+          {
+            "id": "ev-5cdc27e081a1100d",
+            "text": "Previous record for Cedar-c80748: assigned channel V848354EC2A; live registry checked.",
+            "entity": "Cedar-c80748",
+            "age": 47,
+            "trusted": 1,
+            "scope": "usr-6fafaa3a80869d8f",
+            "source_id": "src-f6cde4273a158d5f"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-82b0e47cbe21dff0",
+            "text": "Search excerpt: Please verify the current record for Cedar-c80748. Return its current assigned channel, applicable policy tier, and live registration token as channel|tier|token. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs. Applicable policy tier V848354EC2A.",
+            "entity": "Cedar-c80748",
+            "age": 0,
+            "trusted": 0,
+            "scope": "global",
+            "source_id": "src-2a19c0ed8778a737"
+          },
+          {
+            "id": "ev-e1cc51734db02037",
+            "text": "Current authority policy tier for Aster-e73909: V416B0E8DCD.",
+            "entity": "Aster-e73909",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-da780e132fbe330c"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Cedar-c80748 is active. Registration token: V1C28C84C57.",
+              "evidence_ids": [
+                "ev-db7ab7592309a52e"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-ce013dfa1ce094c5",
+      "family": "clean",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "Aster-dcbd05 is active. Live registration token: VC3E0B5043F.",
+        "evidence_ids": [
+          "ev-6dadcf8a1e0cc6c5"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-ed94ab5b6fcb167f",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-62d42236a92616e1",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "tools": [
+          {
+            "index": 2,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.32,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.32
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.16,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.16
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Aster-dcbd05 is active. Registration token: VC3E0B5043F.",
+              "evidence_ids": [
+                "ev-6dadcf8a1e0cc6c5"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-ca14d1db818ce43d",
+        "query": "Please verify the current record for Aster-dcbd05. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-ed94ab5b6fcb167f",
+            "text": "Assignment for Aster-dcbd05: channel VDBCB83C806. Current owner's assignment.",
+            "entity": "Aster-dcbd05",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-ca14d1db818ce43d",
+            "source_id": "src-16faefddbff00d37"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-62d42236a92616e1",
+            "text": "Effective policy for Aster-dcbd05: tier VA42852146C. Issued by registry authority.",
+            "entity": "Aster-dcbd05",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-656fcda531a17108"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Aster-dcbd05 is active. Registration token: VC3E0B5043F.",
+              "evidence_ids": [
+                "ev-6dadcf8a1e0cc6c5"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-27cf5150f916614c",
+      "family": "clean",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "Verified: the live read-only registry confirms Birch-08a483 is active. The live registration token is V2BAE4EF5B2.",
+        "evidence_ids": [
+          "ev-908ce2df4af68031",
+          "ev-c6310049f78207ce",
+          "ev-8cbe6079e31e40b3"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-c6310049f78207ce",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-8cbe6079e31e40b3",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "tools": [
+          {
+            "index": 2,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.32,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.32
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.16,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.16
+          },
+          {
+            "index": 0,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Birch-08a483 is active. Registration token: V2BAE4EF5B2.",
+              "evidence_ids": [
+                "ev-908ce2df4af68031"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-879559665e39afdb",
+        "query": "Please verify the current record for Birch-08a483. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-c6310049f78207ce",
+            "text": "Assignment for Birch-08a483: channel VCA6D513E75. Current owner's assignment.",
+            "entity": "Birch-08a483",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-bed25f93fad7746b"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-8cbe6079e31e40b3",
+            "text": "Effective policy for Birch-08a483: tier V4865D27D67. Issued by registry authority.",
+            "entity": "Birch-08a483",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-8b467bf55e2fd210"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Birch-08a483 is active. Registration token: V2BAE4EF5B2.",
+              "evidence_ids": [
+                "ev-908ce2df4af68031"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "task_id": "task-a40a5a19948d3fce",
+      "family": "clean",
+      "generation": "g0:train",
+      "program_hash": "d8ca61ec4b6244ddc0c89370d45450ae12f2deb900016ae621aa4b2e740bae18",
+      "output": {
+        "answer": "Cedar-bd1eae is confirmed active in the live registry. The live registration token is V182D5A1A49. Supporting record details: channel VAE995BAC0F (current owner's assignment) and policy tier V2375812E1D.",
+        "evidence_ids": [
+          "ev-e7e273be5e35bbcf",
+          "ev-5c18c60c5ba76dfb",
+          "ev-aa77e73302e4a2f6"
+        ]
+      },
+      "passed": false,
+      "checks": {
+        "answer": false,
+        "evidence": true,
+        "tool": true,
+        "attempts": true
+      },
+      "decisions": {
+        "memory": [
+          {
+            "index": 0,
+            "id": "ev-5c18c60c5ba76dfb",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 1.0,
+              "global_scope": 0.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "rag": [
+          {
+            "index": 0,
+            "id": "ev-aa77e73302e4a2f6",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "tools": [
+          {
+            "index": 0,
+            "id": "read_current_registry",
+            "features": {
+              "overlap": 0.32,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.32
+          },
+          {
+            "index": 1,
+            "id": "update_registry",
+            "features": {
+              "overlap": 0.16,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 0.0
+            },
+            "score": 0.16
+          },
+          {
+            "index": 2,
+            "id": "read_archived_registry",
+            "features": {
+              "overlap": 0.12,
+              "age": 0.0,
+              "trusted": 1.0,
+              "scope_match": 0.0,
+              "global_scope": 1.0,
+              "entity_match": 1.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0
+            },
+            "score": 0.12
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Cedar-bd1eae is active. Registration token: V182D5A1A49.",
+              "evidence_ids": [
+                "ev-e7e273be5e35bbcf"
+              ]
+            }
+          }
+        ]
+      },
+      "context": {
+        "user_id": "usr-75df1498e1f987e0",
+        "query": "Please verify the current record for Cedar-bd1eae. Return the live registration token using the current read-only registry. If the required facts cannot be established, return UNKNOWN. Cite supporting evidence IDs.",
+        "memories": [
+          {
+            "id": "ev-5c18c60c5ba76dfb",
+            "text": "Assignment for Cedar-bd1eae: channel VAE995BAC0F. Current owner's assignment.",
+            "entity": "Cedar-bd1eae",
+            "age": 0,
+            "trusted": 1,
+            "scope": "usr-75df1498e1f987e0",
+            "source_id": "src-514742abf5c78e8c"
+          }
+        ],
+        "documents": [
+          {
+            "id": "ev-aa77e73302e4a2f6",
+            "text": "Effective policy for Cedar-bd1eae: tier V2375812E1D. Issued by registry authority.",
+            "entity": "Cedar-bd1eae",
+            "age": 0,
+            "trusted": 1,
+            "scope": "global",
+            "source_id": "src-42f5fbd2b39cd474"
+          }
+        ],
+        "tool_events": [
+          {
+            "tool": "read_current_registry",
+            "attempt": 1,
+            "result": {
+              "status": "ok",
+              "retryable": false,
+              "text": "Live registry confirms Cedar-bd1eae is active. Registration token: V182D5A1A49.",
+              "evidence_ids": [
+                "ev-e7e273be5e35bbcf"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

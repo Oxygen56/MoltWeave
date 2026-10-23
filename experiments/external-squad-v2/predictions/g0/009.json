@@ -1,0 +1,101 @@
+{
+  "question_id": "570d2556fed7b91900d45c47",
+  "program_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+  "prediction": "Bendigo and its environs",
+  "exact_match": 0.0,
+  "f1": 0.4,
+  "output": {
+    "answer": "Bendigo and its environs",
+    "evidence_ids": [
+      "squad-p-6c08cc63f95f37d4"
+    ]
+  },
+  "ranking": [
+    {
+      "index": 1,
+      "id": "squad-p-6c08cc63f95f37d4",
+      "features": {
+        "overlap": 0.5,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.5
+    },
+    {
+      "index": 4,
+      "id": "squad-p-dfb3008225bed094",
+      "features": {
+        "overlap": 0.5,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.5
+    },
+    {
+      "index": 0,
+      "id": "squad-p-c67ac1064aa16eb4",
+      "features": {
+        "overlap": 0.375,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.375
+    },
+    {
+      "index": 2,
+      "id": "squad-p-42b1b0e9281a53f1",
+      "features": {
+        "overlap": 0.375,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.375
+    },
+    {
+      "index": 3,
+      "id": "squad-p-384fcabee9b1d0f9",
+      "features": {
+        "overlap": 0.375,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.375
+    }
+  ],
+  "selected_ids": [
+    "squad-p-6c08cc63f95f37d4",
+    "squad-p-dfb3008225bed094"
+  ],
+  "gold_paragraph_retrieved": true,
+  "citation_ids_visible": true
+}

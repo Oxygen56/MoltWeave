@@ -1,0 +1,12 @@
+{
+  "kind": "offline_synthetic_transport_and_feedback_regression",
+  "python_version": "3.15.0",
+  "command": "PYTHONPATH=src:tests python3 -W error::ResourceWarning -m unittest test_feedback test_llm_transport -v",
+  "exit_code": 0,
+  "elapsed_seconds": 10.131,
+  "log": "docs/verification/model-transport-tests-20261023.txt",
+  "uses_real_credentials": false,
+  "uses_external_user_data": false,
+  "formal_model_experiment": false,
+  "long_term_poisoning_evidence": false
+}

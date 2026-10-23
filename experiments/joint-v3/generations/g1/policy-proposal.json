@@ -1,0 +1,177 @@
+{
+  "status": "prospective_adoption",
+  "proposal": {
+    "hypothesis": "The current policy over-weights failure_rate and stagnation, causing it to repeatedly select recovery (which has failed twice and stagnated) while ignoring modules with high failure_rate but no attempts yet (rag, tools, prompt). A better meta-exploration policy should penalize stagnation more strongly and reward unattempted modules, while still leveraging last_gain to exploit successful mechanisms like memory. Specifically, replacing the (1-attempted) term with a stronger unattempted bonus and adding a stagnation penalty will redirect exploration toward real defects in rag/tools/prompt.",
+    "policy": {
+      "score": {
+        "op": "add",
+        "args": [
+          {
+            "var": "failure_rate"
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  0.8,
+                  {
+                    "op": "sub",
+                    "args": [
+                      1,
+                      {
+                        "var": "attempted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      0.5,
+                      {
+                        "var": "last_gain"
+                      }
+                    ]
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      -0.6,
+                      {
+                        "var": "stagnation"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "branches": 2
+    },
+    "predicted_decision_change": "Next generation will rank rag and tools (failure_rate 0.667, attempted 0, stagnation 0) above recovery (failure_rate 0.667, attempted 1, stagnation 1) and memory (failure_rate 0.333, attempted 1, last_gain 0.238). The two branches will likely target rag and tools/prompt instead of recovery, shifting exploration toward unattempted high-failure modules while still allowing memory to compete via its last_gain bonus."
+  },
+  "evaluation_state": {
+    "memory": {
+      "failure_count": 2,
+      "failure_rate": 0.3333333333333333,
+      "attempted": 1,
+      "last_gain": 0.23809523809523814,
+      "success_rate": 1.0,
+      "stagnation": 0
+    },
+    "rag": {
+      "failure_count": 2,
+      "failure_rate": 0.6666666666666666,
+      "attempted": 1,
+      "last_gain": 0,
+      "success_rate": 0.0,
+      "stagnation": 1
+    },
+    "tools": {
+      "failure_count": 1,
+      "failure_rate": 0.3333333333333333,
+      "attempted": 0,
+      "last_gain": 0,
+      "success_rate": 0.0,
+      "stagnation": 0
+    },
+    "recovery": {
+      "failure_count": 2,
+      "failure_rate": 0.6666666666666666,
+      "attempted": 2,
+      "last_gain": 0,
+      "success_rate": 0.0,
+      "stagnation": 2
+    },
+    "prompt": {
+      "failure_count": 2,
+      "failure_rate": 0.3333333333333333,
+      "attempted": 0,
+      "last_gain": 0,
+      "success_rate": 0.0,
+      "stagnation": 0
+    }
+  },
+  "old_choices": [
+    {
+      "module": "recovery",
+      "score": 1.3666666666666667,
+      "features": {
+        "failure_count": 2,
+        "failure_rate": 0.6666666666666666,
+        "attempted": 2,
+        "last_gain": 0,
+        "success_rate": 0.0,
+        "stagnation": 2,
+        "is_memory": 0.0,
+        "is_rag": 0.0,
+        "is_tools": 0.0,
+        "is_recovery": 1.0,
+        "is_prompt": 0.0
+      }
+    },
+    {
+      "module": "rag",
+      "score": 1.1666666666666665,
+      "features": {
+        "failure_count": 2,
+        "failure_rate": 0.6666666666666666,
+        "attempted": 1,
+        "last_gain": 0,
+        "success_rate": 0.0,
+        "stagnation": 1,
+        "is_memory": 0.0,
+        "is_rag": 1.0,
+        "is_tools": 0.0,
+        "is_recovery": 0.0,
+        "is_prompt": 0.0
+      }
+    }
+  ],
+  "new_choices": [
+    {
+      "module": "tools",
+      "score": 1.1333333333333333,
+      "features": {
+        "failure_count": 1,
+        "failure_rate": 0.3333333333333333,
+        "attempted": 0,
+        "last_gain": 0,
+        "success_rate": 0.0,
+        "stagnation": 0,
+        "is_memory": 0.0,
+        "is_rag": 0.0,
+        "is_tools": 1.0,
+        "is_recovery": 0.0,
+        "is_prompt": 0.0
+      }
+    },
+    {
+      "module": "prompt",
+      "score": 1.1333333333333333,
+      "features": {
+        "failure_count": 2,
+        "failure_rate": 0.3333333333333333,
+        "attempted": 0,
+        "last_gain": 0,
+        "success_rate": 0.0,
+        "stagnation": 0,
+        "is_memory": 0.0,
+        "is_rag": 0.0,
+        "is_tools": 0.0,
+        "is_recovery": 0.0,
+        "is_prompt": 1.0
+      }
+    }
+  ],
+  "choice_changed": true,
+  "benefit_claim": "not established by adoption; requires later actual search and control"
+}

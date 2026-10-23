@@ -1,0 +1,9 @@
+{
+  "generation": 1,
+  "branch": 1,
+  "module": "rag",
+  "base_hash": "b1c6f028a1a3dc532e04937a963cb62e81a068707ab809aaa514c9d4f96fa4eb",
+  "status": "rejected_or_failed",
+  "error": "Proposal altered undeclared module",
+  "gain": 0
+}

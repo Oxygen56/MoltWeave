@@ -1,0 +1,166 @@
+{
+  "generation": 2,
+  "branch": 1,
+  "module": "prompt",
+  "base_hash": "5dd7a586ea18b3cfb37453d3c3984c211b4136fbb055a52f5c631ba776a33603",
+  "proposal": {
+    "hypothesis": "Failures stem from the prompt not instructing the agent to (a) prefer the freshest, entity-matched, in-scope evidence over high-overlap but stale records, (b) treat untrusted RAG sources as non-authoritative for policy tiers, and (c) fall back to the read-only live registry when the top-ranked tool is unavailable or non-read-only. The current prompt only says 'use supplied evidence' and 'answer UNKNOWN if not established', causing premature UNKNOWN or wrong values. Adding explicit, general resolution rules (recency/scope/entity precedence, authority gating, read-only tool preference, and per-field composition) will let the agent select correct evidence and tools without hardcoding any task specifics.",
+    "changes": {
+      "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string) and evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose.\n\nResolution rules (apply generally, never assume specific values):\n1. Prefer evidence that matches the queried entity (entity_match), is in the user's scope (scope_match), is trusted, available, and not deprecated. Among otherwise-valid candidates, prefer the freshest (smallest age) record over higher-overlap but older ones; treat stale records as superseded.\n2. Authority: only trusted, in-scope sources may establish authoritative facts such as policy tiers. Untrusted or global-only sources may inform but cannot grant authority; if the only source for a required fact is untrusted, treat that fact as not established.\n3. Tools: prefer read-only tools that match the entity and are available. If the top-ranked tool is unavailable or not read-only, fall back to the best available read-only tool that matches the entity (e.g., a live/current read-only lookup) before concluding failure. Retry only on retryable, non-permanent errors within the attempt limit.\n4. Composition: when multiple fields are requested, resolve each field independently using rules 1-3 and join them in the requested order/format.\n5. Only answer exactly UNKNOWN if, after applying rules 1-4, a required fact still cannot be established from trusted, in-scope, available evidence or a successful read-only tool result. Cite the evidence IDs actually used."
+    },
+    "predicted_behavior": "Memory-temporal and scope cases will select the freshest entity-matched in-scope record instead of the stale high-overlap one, yielding correct channel codes. RAG-authority cases will reject untrusted policy-tier sources and use the trusted in-scope record. Tool-routing will fall back from the unavailable preview tool to the available read-only current registry. Composition cases will resolve each field independently and produce correctly ordered channel|tier|token outputs, including after transient retries.",
+    "regression_risk": "Moderate: recency-preference could override overlap in cases where the freshest record is genuinely irrelevant, and stricter authority gating might push some answerable cases to UNKNOWN if trusted in-scope evidence is sparse. Mitigated by keeping entity/scope/trusted/available as hard filters before recency tie-breaking and by only requiring UNKNOWN when no valid source remains."
+  },
+  "program": {
+    "schema": 1,
+    "memory_score": {
+      "op": "add",
+      "args": [
+        {
+          "op": "mul",
+          "args": [
+            {
+              "var": "overlap"
+            },
+            0.5
+          ]
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "entity_match"
+                },
+                0.2
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    {
+                      "var": "scope_match"
+                    },
+                    0.1
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        {
+                          "var": "trusted"
+                        },
+                        0.05
+                      ]
+                    },
+                    {
+                      "op": "add",
+                      "args": [
+                        {
+                          "op": "mul",
+                          "args": [
+                            {
+                              "var": "available"
+                            },
+                            0.05
+                          ]
+                        },
+                        {
+                          "op": "mul",
+                          "args": [
+                            {
+                              "op": "div",
+                              "args": [
+                                1,
+                                {
+                                  "op": "add",
+                                  "args": [
+                                    1,
+                                    {
+                                      "var": "age"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            0.1
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rag_score": {
+      "var": "overlap"
+    },
+    "tool_score": {
+      "var": "overlap"
+    },
+    "retry": {
+      "op": "and",
+      "args": [
+        {
+          "var": "error_retryable"
+        },
+        {
+          "op": "not",
+          "args": [
+            {
+              "var": "error_permanent"
+            }
+          ]
+        },
+        {
+          "op": "lt",
+          "args": [
+            {
+              "var": "attempt"
+            },
+            3
+          ]
+        }
+      ]
+    },
+    "memory_top_k": 3,
+    "rag_top_k": 2,
+    "max_attempts": 3,
+    "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string) and evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose.\n\nResolution rules (apply generally, never assume specific values):\n1. Prefer evidence that matches the queried entity (entity_match), is in the user's scope (scope_match), is trusted, available, and not deprecated. Among otherwise-valid candidates, prefer the freshest (smallest age) record over higher-overlap but older ones; treat stale records as superseded.\n2. Authority: only trusted, in-scope sources may establish authoritative facts such as policy tiers. Untrusted or global-only sources may inform but cannot grant authority; if the only source for a required fact is untrusted, treat that fact as not established.\n3. Tools: prefer read-only tools that match the entity and are available. If the top-ranked tool is unavailable or not read-only, fall back to the best available read-only tool that matches the entity (e.g., a live/current read-only lookup) before concluding failure. Retry only on retryable, non-permanent errors within the attempt limit.\n4. Composition: when multiple fields are requested, resolve each field independently using rules 1-3 and join them in the requested order/format.\n5. Only answer exactly UNKNOWN if, after applying rules 1-4, a required fact still cannot be established from trusted, in-scope, available evidence or a successful read-only tool result. Cite the evidence IDs actually used.",
+    "policy": {
+      "score": {
+        "var": "failure_rate"
+      },
+      "branches": 2
+    }
+  },
+  "risk": {
+    "sensitive": false,
+    "blocked": false,
+    "classification": "ordinary",
+    "reasons": [],
+    "changed_paths": [
+      "prompt"
+    ],
+    "before_hash": "5dd7a586ea18b3cfb37453d3c3984c211b4136fbb055a52f5c631ba776a33603",
+    "after_hash": "26d137e97b6680ec76180bc8d1abcedda904ca36dfb7577f0fcbb2404967475a"
+  },
+  "status": "executed",
+  "gain": 0.09523809523809523,
+  "dev_rate": 0.7142857142857143,
+  "guard_rate": 0.7857142857142857,
+  "program_hash": "26d137e97b6680ec76180bc8d1abcedda904ca36dfb7577f0fcbb2404967475a",
+  "actual_loaded_hash": "26d137e97b6680ec76180bc8d1abcedda904ca36dfb7577f0fcbb2404967475a"
+}

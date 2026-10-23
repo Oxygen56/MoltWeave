@@ -1,0 +1,141 @@
+--- parent.json
++++ candidate.json
+@@ -1,38 +1,126 @@
+ {
+   "max_attempts": 3,
+   "memory_score": {
+-    "var": "overlap"
++    "args": [
++      {
++        "var": "overlap"
++      },
++      {
++        "args": [
++          {
++            "args": [
++              2,
++              {
++                "var": "entity_match"
++              }
++            ],
++            "op": "mul"
++          },
++          {
++            "args": [
++              {
++                "args": [
++                  1.5,
++                  {
++                    "var": "scope_match"
++                  }
++                ],
++                "op": "mul"
++              },
++              {
++                "args": [
++                  {
++                    "args": [
++                      1.5,
++                      {
++                        "var": "trusted"
++                      }
++                    ],
++                    "op": "mul"
++                  },
++                  {
++                    "args": [
++                      0.5,
++                      {
++                        "args": [
++                          1,
++                          {
++                            "args": [
++                              1,
++                              {
++                                "var": "age"
++                              }
++                            ],
++                            "op": "add"
++                          }
++                        ],
++                        "op": "div"
++                      }
++                    ],
++                    "op": "mul"
++                  }
++                ],
++                "op": "add"
++              }
++            ],
++            "op": "add"
++          }
++        ],
++        "op": "add"
++      }
++    ],
++    "op": "add"
+   },
+-  "memory_top_k": 2,
++  "memory_top_k": 3,
+   "policy": {
+     "branches": 2,
+     "score": {
+       "args": [
+         {
+-          "var": "failure_rate"
++          "args": [
++            2,
++            {
++              "args": [
++                1,
++                {
++                  "var": "attempted"
++                }
++              ],
++              "op": "sub"
++            }
++          ],
++          "op": "mul"
+         },
+         {
+           "args": [
+-            0.5,
++            {
++              "var": "failure_rate"
++            },
+             {
+               "args": [
+-                {
+-                  "var": "stagnation"
+-                },
++                0.5,
+                 {
+                   "args": [
+-                    2,
+                     {
+-                      "var": "invalid_count"
++                      "var": "stagnation"
++                    },
++                    {
++                      "args": [
++                        2,
++                        {
++                          "var": "invalid_count"
++                        }
++                      ],
++                      "op": "mul"
+                     }
+                   ],
+-                  "op": "mul"
++                  "op": "add"
+                 }
+               ],
+-              "op": "add"
++              "op": "mul"
+             }
+           ],
+-          "op": "mul"
++          "op": "add"
+         }
+       ],
+       "op": "add"

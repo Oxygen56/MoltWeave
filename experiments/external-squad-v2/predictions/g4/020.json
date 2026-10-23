@@ -1,0 +1,101 @@
+{
+  "question_id": "56beb2153aeaaa14008c9225",
+  "program_hash": "53ee13bae5ba6e37606bda2bb4bed5355ba61214fb848b58c8c111b7b02415b0",
+  "prediction": "Boston",
+  "exact_match": 1.0,
+  "f1": 1.0,
+  "output": {
+    "answer": "Boston",
+    "evidence_ids": [
+      "squad-p-2bef8ffb8bc03ce3"
+    ]
+  },
+  "ranking": [
+    {
+      "index": 2,
+      "id": "squad-p-2bef8ffb8bc03ce3",
+      "features": {
+        "overlap": 0.6,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.6
+    },
+    {
+      "index": 3,
+      "id": "squad-p-ac72368a586a18c1",
+      "features": {
+        "overlap": 0.3,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.3
+    },
+    {
+      "index": 4,
+      "id": "squad-p-c657a6578a80c278",
+      "features": {
+        "overlap": 0.3,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.3
+    },
+    {
+      "index": 0,
+      "id": "squad-p-a7bdb6898f2775f4",
+      "features": {
+        "overlap": 0.2,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.2
+    },
+    {
+      "index": 1,
+      "id": "squad-p-91ce123f4eaf1fcf",
+      "features": {
+        "overlap": 0.2,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.2
+    }
+  ],
+  "selected_ids": [
+    "squad-p-2bef8ffb8bc03ce3",
+    "squad-p-ac72368a586a18c1"
+  ],
+  "gold_paragraph_retrieved": true,
+  "citation_ids_visible": true
+}

@@ -1,0 +1,238 @@
+{
+  "status": "prospective_adoption",
+  "proposal": {
+    "hypothesis": "The current policy over-weights raw failure_rate and invalid_count, causing repeated attempts on recovery (high failure_rate, invalid_count=2) despite zero gain, while under-exploring tools (low attempted, moderate failure_rate) and memory (high last_gain but attempted=2). A policy that penalizes stagnation and invalid_count more strongly, and rewards last_gain and success_rate, will shift exploration toward modules with demonstrated or potential gains (memory, tools) and away from repeatedly failing recovery.",
+    "policy": {
+      "score": {
+        "op": "add",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              2,
+              {
+                "op": "sub",
+                "args": [
+                  1,
+                  {
+                    "var": "attempted"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  0.5,
+                  {
+                    "var": "failure_rate"
+                  }
+                ]
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      1.5,
+                      {
+                        "var": "stagnation"
+                      }
+                    ]
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "op": "mul",
+                        "args": [
+                          2,
+                          {
+                            "var": "invalid_count"
+                          }
+                        ]
+                      },
+                      {
+                        "op": "add",
+                        "args": [
+                          {
+                            "op": "mul",
+                            "args": [
+                              3,
+                              {
+                                "var": "last_gain"
+                              }
+                            ]
+                          },
+                          {
+                            "op": "mul",
+                            "args": [
+                              1,
+                              {
+                                "var": "success_rate"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "branches": 2
+    },
+    "predicted_decision_change": "Recovery's score will drop sharply due to invalid_count=2 and stagnation=0 (but high failure_rate and zero last_gain), while memory's score rises from last_gain=0.286 and success_rate=1.0, and tools' score rises from low attempted=0 and moderate failure_rate=0.333. The next two branches will likely target memory and tools instead of recovery, reducing repeated invalid attempts on recovery and exploring remaining real defects in tools."
+  },
+  "evaluation_state": {
+    "memory": {
+      "failure_count": 3,
+      "failure_rate": 0.5,
+      "attempted": 2,
+      "last_gain": 0.28571428571428575,
+      "has_gain": 1.0,
+      "success_rate": 1.0,
+      "stagnation": 0,
+      "invalid_count": 1,
+      "blocked_count": 0
+    },
+    "rag": {
+      "failure_count": 0,
+      "failure_rate": 0.0,
+      "attempted": 1,
+      "last_gain": 0.1428571428571429,
+      "has_gain": 1.0,
+      "success_rate": 1.0,
+      "stagnation": 0,
+      "invalid_count": 0,
+      "blocked_count": 0
+    },
+    "tools": {
+      "failure_count": 1,
+      "failure_rate": 0.3333333333333333,
+      "attempted": 1,
+      "last_gain": 0.04761904761904756,
+      "has_gain": 1.0,
+      "success_rate": 1.0,
+      "stagnation": 0,
+      "invalid_count": 0,
+      "blocked_count": 0
+    },
+    "recovery": {
+      "failure_count": 2,
+      "failure_rate": 0.6666666666666666,
+      "attempted": 3,
+      "last_gain": 0.1428571428571428,
+      "has_gain": 1.0,
+      "success_rate": 1.0,
+      "stagnation": 0,
+      "invalid_count": 2,
+      "blocked_count": 0
+    },
+    "prompt": {
+      "failure_count": 1,
+      "failure_rate": 0.16666666666666666,
+      "attempted": 1,
+      "last_gain": 0.1428571428571429,
+      "has_gain": 1.0,
+      "success_rate": 1.0,
+      "stagnation": 0,
+      "invalid_count": 0,
+      "blocked_count": 0
+    }
+  },
+  "old_choices": [
+    {
+      "module": "tools",
+      "score": 0.3333333333333333,
+      "features": {
+        "failure_count": 1,
+        "failure_rate": 0.3333333333333333,
+        "attempted": 1,
+        "last_gain": 0.04761904761904756,
+        "has_gain": 1.0,
+        "success_rate": 1.0,
+        "stagnation": 0,
+        "invalid_count": 0,
+        "blocked_count": 0,
+        "is_memory": 0.0,
+        "is_rag": 0.0,
+        "is_tools": 1.0,
+        "is_recovery": 0.0,
+        "is_prompt": 0.0
+      }
+    },
+    {
+      "module": "prompt",
+      "score": 0.16666666666666666,
+      "features": {
+        "failure_count": 1,
+        "failure_rate": 0.16666666666666666,
+        "attempted": 1,
+        "last_gain": 0.1428571428571429,
+        "has_gain": 1.0,
+        "success_rate": 1.0,
+        "stagnation": 0,
+        "invalid_count": 0,
+        "blocked_count": 0,
+        "is_memory": 0.0,
+        "is_rag": 0.0,
+        "is_tools": 0.0,
+        "is_recovery": 0.0,
+        "is_prompt": 1.0
+      }
+    }
+  ],
+  "new_choices": [
+    {
+      "module": "memory",
+      "score": 2.1071428571428577,
+      "features": {
+        "failure_count": 3,
+        "failure_rate": 0.5,
+        "attempted": 2,
+        "last_gain": 0.28571428571428575,
+        "has_gain": 1.0,
+        "success_rate": 1.0,
+        "stagnation": 0,
+        "invalid_count": 1,
+        "blocked_count": 0,
+        "is_memory": 1.0,
+        "is_rag": 0.0,
+        "is_tools": 0.0,
+        "is_recovery": 0.0,
+        "is_prompt": 0.0
+      }
+    },
+    {
+      "module": "recovery",
+      "score": 1.7619047619047619,
+      "features": {
+        "failure_count": 2,
+        "failure_rate": 0.6666666666666666,
+        "attempted": 3,
+        "last_gain": 0.1428571428571428,
+        "has_gain": 1.0,
+        "success_rate": 1.0,
+        "stagnation": 0,
+        "invalid_count": 2,
+        "blocked_count": 0,
+        "is_memory": 0.0,
+        "is_rag": 0.0,
+        "is_tools": 0.0,
+        "is_recovery": 1.0,
+        "is_prompt": 0.0
+      }
+    }
+  ],
+  "choice_changed": true,
+  "benefit_claim": "not established by adoption; requires later actual search and control"
+}

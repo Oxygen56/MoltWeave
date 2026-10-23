@@ -1,0 +1,48 @@
+--- parent.json
++++ candidate.json
+@@ -1,9 +1,43 @@
+ {
+   "max_attempts": 3,
+   "memory_score": {
+-    "var": "overlap"
++    "args": [
++      {
++        "var": "overlap"
++      },
++      {
++        "args": [
++          0.5,
++          {
++            "args": [
++              {
++                "var": "entity_match"
++              },
++              {
++                "args": [
++                  1.0,
++                  {
++                    "args": [
++                      1.0,
++                      {
++                        "var": "age"
++                      }
++                    ],
++                    "op": "add"
++                  }
++                ],
++                "op": "div"
++              }
++            ],
++            "op": "add"
++          }
++        ],
++        "op": "mul"
++      }
++    ],
++    "op": "add"
+   },
+-  "memory_top_k": 2,
++  "memory_top_k": 4,
+   "policy": {
+     "branches": 2,
+     "score": {

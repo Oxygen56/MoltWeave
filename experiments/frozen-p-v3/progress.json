@@ -1,0 +1,178 @@
+{
+  "completed_transitions": [
+    {
+      "generation": 0,
+      "parent_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+      "next_hash": "daf7facc98e6468aea7202330420be40d94f984547b03a1bab2b1aca5758da58",
+      "dev_before": 0.38095238095238093,
+      "dev_after": 0.6666666666666666,
+      "guard_before": 0.6428571428571429,
+      "guard_after": 0.7142857142857143,
+      "mechanism_adopted": true,
+      "changed": true,
+      "policy_changed": false,
+      "policy_choice_changed": false,
+      "trials": [
+        {
+          "generation": 0,
+          "branch": 0,
+          "module": "memory",
+          "status": "executed",
+          "gain": 0.2857142857142857
+        },
+        {
+          "generation": 0,
+          "branch": 1,
+          "module": "recovery",
+          "status": "rejected_or_failed",
+          "gain": 0
+        }
+      ]
+    },
+    {
+      "generation": 1,
+      "parent_hash": "daf7facc98e6468aea7202330420be40d94f984547b03a1bab2b1aca5758da58",
+      "next_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "dev_before": 0.5714285714285714,
+      "dev_after": 0.8095238095238095,
+      "guard_before": 0.7857142857142857,
+      "guard_after": 0.8571428571428571,
+      "mechanism_adopted": true,
+      "changed": true,
+      "policy_changed": false,
+      "policy_choice_changed": false,
+      "trials": [
+        {
+          "generation": 1,
+          "branch": 0,
+          "module": "rag",
+          "status": "executed",
+          "gain": 0.23809523809523814
+        },
+        {
+          "generation": 1,
+          "branch": 1,
+          "module": "recovery",
+          "status": "rejected_or_failed",
+          "gain": 0
+        }
+      ]
+    },
+    {
+      "generation": 2,
+      "parent_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "next_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "dev_before": 0.7619047619047619,
+      "dev_after": 0.7619047619047619,
+      "guard_before": 0.7857142857142857,
+      "guard_after": 0.7857142857142857,
+      "mechanism_adopted": false,
+      "changed": false,
+      "policy_changed": false,
+      "policy_choice_changed": false,
+      "trials": [
+        {
+          "generation": 2,
+          "branch": 0,
+          "module": "memory",
+          "status": "executed",
+          "gain": 0.0
+        },
+        {
+          "generation": 2,
+          "branch": 1,
+          "module": "recovery",
+          "status": "rejected_or_failed",
+          "gain": 0
+        }
+      ]
+    },
+    {
+      "generation": 3,
+      "parent_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "next_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+      "dev_before": 0.7619047619047619,
+      "dev_after": 0.7619047619047619,
+      "guard_before": 0.8571428571428571,
+      "guard_after": 0.8571428571428571,
+      "mechanism_adopted": false,
+      "changed": false,
+      "policy_changed": false,
+      "policy_choice_changed": false,
+      "trials": [
+        {
+          "generation": 3,
+          "branch": 0,
+          "module": "recovery",
+          "status": "rejected_or_failed",
+          "gain": 0
+        },
+        {
+          "generation": 3,
+          "branch": 1,
+          "module": "memory",
+          "status": "executed",
+          "gain": 0.0
+        }
+      ]
+    }
+  ],
+  "history": [
+    {
+      "generation": 0,
+      "branch": 0,
+      "module": "memory",
+      "status": "executed",
+      "gain": 0.2857142857142857
+    },
+    {
+      "generation": 0,
+      "branch": 1,
+      "module": "recovery",
+      "status": "rejected_or_failed",
+      "gain": 0
+    },
+    {
+      "generation": 1,
+      "branch": 0,
+      "module": "rag",
+      "status": "executed",
+      "gain": 0.23809523809523814
+    },
+    {
+      "generation": 1,
+      "branch": 1,
+      "module": "recovery",
+      "status": "rejected_or_failed",
+      "gain": 0
+    },
+    {
+      "generation": 2,
+      "branch": 0,
+      "module": "memory",
+      "status": "executed",
+      "gain": 0.0
+    },
+    {
+      "generation": 2,
+      "branch": 1,
+      "module": "recovery",
+      "status": "rejected_or_failed",
+      "gain": 0
+    },
+    {
+      "generation": 3,
+      "branch": 0,
+      "module": "recovery",
+      "status": "rejected_or_failed",
+      "gain": 0
+    },
+    {
+      "generation": 3,
+      "branch": 1,
+      "module": "memory",
+      "status": "executed",
+      "gain": 0.0
+    }
+  ]
+}

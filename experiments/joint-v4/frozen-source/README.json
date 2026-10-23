@@ -1,0 +1,12 @@
+{
+  "reason": "Exact execution and scoring source for immutable v4 experiment.",
+  "source_files_verified": [
+    "benchmarks.py",
+    "runtime.py",
+    "program.py",
+    "evolution.py",
+    "llm.py",
+    "governance.py",
+    "common.py"
+  ]
+}

@@ -1,0 +1,112 @@
+--- parent.json
++++ candidate.json
+@@ -63,13 +63,19 @@
+     "score": {
+       "args": [
+         {
+-          "var": "failure_rate"
++          "args": [
++            0.6,
++            {
++              "var": "failure_rate"
++            }
++          ],
++          "op": "mul"
+         },
+         {
+           "args": [
+             {
+               "args": [
+-                0.8,
++                0.9,
+                 {
+                   "args": [
+                     1,
+@@ -86,7 +92,7 @@
+               "args": [
+                 {
+                   "args": [
+-                    0.5,
++                    0.7,
+                     {
+                       "var": "last_gain"
+                     }
+@@ -95,7 +101,7 @@
+                 },
+                 {
+                   "args": [
+-                    -0.6,
++                    -1.2,
+                     {
+                       "var": "stagnation"
+                     }
+@@ -120,6 +126,68 @@
+   "retry": 0,
+   "schema": 1,
+   "tool_score": {
+-    "var": "overlap"
++    "args": [
++      {
++        "args": [
++          {
++            "var": "overlap"
++          },
++          1.0
++        ],
++        "op": "mul"
++      },
++      {
++        "args": [
++          {
++            "args": [
++              {
++                "var": "entity_match"
++              },
++              1.0
++            ],
++            "op": "mul"
++          },
++          {
++            "args": [
++              {
++                "args": [
++                  {
++                    "var": "read_only"
++                  },
++                  1.0
++                ],
++                "op": "mul"
++              },
++              {
++                "args": [
++                  {
++                    "args": [
++                      {
++                        "var": "available"
++                      },
++                      1.0
++                    ],
++                    "op": "mul"
++                  },
++                  {
++                    "args": [
++                      -1.0,
++                      {
++                        "var": "deprecated"
++                      }
++                    ],
++                    "op": "mul"
++                  }
++                ],
++                "op": "add"
++              }
++            ],
++            "op": "add"
++          }
++        ],
++        "op": "add"
++      }
++    ],
++    "op": "add"
+   }
+ }

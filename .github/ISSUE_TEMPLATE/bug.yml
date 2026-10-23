@@ -1,0 +1,23 @@
+name: Execution or evidence defect
+description: Report a reproducible failure, regression, or measurement problem.
+body:
+  - type: textarea
+    attributes:
+      label: What happened?
+      description: Include expected behavior, actual behavior and affected version.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Reproduction and evidence
+      description: Use public/synthetic inputs only. Link a manifest and minimal trace; do not upload keys or private usage records.
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Evidence category
+      options:
+        - Runtime implementation
+        - Mechanism behavior
+        - Measurement or evaluation contract
+        - Permissions or consent (use private reporting for vulnerabilities)

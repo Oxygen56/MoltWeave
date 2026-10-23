@@ -1,0 +1,47 @@
+{
+  "kind": "post_experiment_release_transport_and_credential_binding_smoke",
+  "public_nonsensitive_question": true,
+  "uses_external_user_data": false,
+  "formal_experiment": false,
+  "automatic_rsi_change": false,
+  "status": "completed",
+  "started_at": 1792747354.7454789,
+  "transport": {
+    "redirects_allowed": false,
+    "allow_env_proxy": false,
+    "allow_http_loopback": false
+  },
+  "expected": {
+    "answer": 4
+  },
+  "private_receipt_directory": "private/transport-bound-smoke-20261023/model-calls/",
+  "release_llm_sha256": "0b626ee83a66fbb304be7dd974b21feff7955cbfba874250887160ee363d8416",
+  "model_requested": "deepseek-flash",
+  "endpoint_host": "api.deepseek.com",
+  "credential_source": "anthropic",
+  "result": {
+    "answer": 4
+  },
+  "receipts": [
+    {
+      "file": "private/transport-bound-smoke-20261023/model-calls/7bc1a97b59364fe5b2b1c773a6faa97e.json",
+      "sha256": "8377fcfe2ba0ddec3d3ff9372dc8269202c25e6ce170621dcc0be361c49949d8",
+      "status": "completed",
+      "model_returned": "deepseek-flash",
+      "physical_attempts": 1,
+      "usage": {
+        "prompt_tokens": 57,
+        "completion_tokens": 6,
+        "total_tokens": 63,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 57
+      },
+      "elapsed_seconds": 0.847,
+      "error_type": null
+    }
+  ],
+  "elapsed_seconds": 0.857
+}

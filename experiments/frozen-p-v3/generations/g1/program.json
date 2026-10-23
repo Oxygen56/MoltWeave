@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "memory_score": {
+    "op": "add",
+    "args": [
+      {
+        "var": "overlap"
+      },
+      {
+        "op": "mul",
+        "args": [
+          0.5,
+          {
+            "op": "add",
+            "args": [
+              {
+                "var": "entity_match"
+              },
+              {
+                "op": "div",
+                "args": [
+                  1.0,
+                  {
+                    "op": "add",
+                    "args": [
+                      1.0,
+                      {
+                        "var": "age"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "rag_score": {
+    "var": "overlap"
+  },
+  "tool_score": {
+    "var": "overlap"
+  },
+  "retry": 0,
+  "memory_top_k": 4,
+  "rag_top_k": 2,
+  "max_attempts": 3,
+  "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+  "policy": {
+    "score": {
+      "var": "failure_rate"
+    },
+    "branches": 2
+  }
+}

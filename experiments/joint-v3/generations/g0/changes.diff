@@ -1,0 +1,107 @@
+--- parent.json
++++ candidate.json
+@@ -1,13 +1,101 @@
+ {
+   "max_attempts": 3,
+   "memory_score": {
+-    "var": "overlap"
++    "args": [
++      {
++        "args": [
++          {
++            "args": [
++              {
++                "var": "entity_match"
++              },
++              2.0
++            ],
++            "op": "mul"
++          },
++          {
++            "args": [
++              {
++                "var": "scope_match"
++              },
++              1.0
++            ],
++            "op": "mul"
++          }
++        ],
++        "op": "add"
++      },
++      {
++        "args": [
++          {
++            "args": [
++              {
++                "var": "overlap"
++              },
++              1.0
++            ],
++            "op": "mul"
++          },
++          {
++            "args": [
++              1.0,
++              {
++                "args": [
++                  1.0,
++                  {
++                    "var": "age"
++                  }
++                ],
++                "op": "add"
++              }
++            ],
++            "op": "div"
++          }
++        ],
++        "op": "add"
++      }
++    ],
++    "op": "add"
+   },
+-  "memory_top_k": 2,
++  "memory_top_k": 3,
+   "policy": {
+     "branches": 2,
+     "score": {
+-      "var": "failure_rate"
++      "args": [
++        {
++          "var": "failure_rate"
++        },
++        {
++          "args": [
++            {
++              "args": [
++                0.5,
++                {
++                  "var": "stagnation"
++                }
++              ],
++              "op": "mul"
++            },
++            {
++              "args": [
++                0.3,
++                {
++                  "args": [
++                    1,
++                    {
++                      "var": "attempted"
++                    }
++                  ],
++                  "op": "sub"
++                }
++              ],
++              "op": "mul"
++            }
++          ],
++          "op": "add"
++        }
++      ],
++      "op": "add"
+     }
+   },
+   "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",

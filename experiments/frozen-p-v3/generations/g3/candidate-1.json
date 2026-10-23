@@ -1,0 +1,207 @@
+{
+  "generation": 3,
+  "branch": 1,
+  "module": "memory",
+  "base_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+  "proposal": {
+    "hypothesis": "The memory scorer over-weights lexical overlap (weight 1.0) relative to recency, so stale high-overlap records (age 18-20, overlap 1.0) outrank the fresh authoritative record (age 0, overlap ~0.13) that actually holds the current value. Because the answer must reflect the *current* record, recency should dominate: a fresh, entity-matching, in-scope record should rank above an old one even when the old one has higher lexical overlap. Rebalancing memory_score to weight recency (1/(1+age)) and entity/scope match more heavily, while reducing the raw overlap weight, will surface the current record first and let the answer be established instead of falling back to UNKNOWN.",
+    "changes": {
+      "memory_score": {
+        "op": "add",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              0.3,
+              {
+                "var": "overlap"
+              }
+            ]
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  0.4,
+                  {
+                    "op": "div",
+                    "args": [
+                      1.0,
+                      {
+                        "op": "add",
+                        "args": [
+                          1.0,
+                          {
+                            "var": "age"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "op": "mul",
+                "args": [
+                  0.3,
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "var": "entity_match"
+                      },
+                      {
+                        "var": "scope_match"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "memory_top_k": 4
+    },
+    "predicted_behavior": "For memory_temporal and memory_scope failures, the age-0 entity-matching in-scope record (score ~0.3*0.13 + 0.4*1.0 + 0.3*1.0 = 0.74) now outranks the stale age-18/20 overlap-1.0 record (score ~0.3*1.0 + 0.4*0.05 + 0.3*1.0 = 0.62), so the current record is retrieved and the answer can be produced rather than UNKNOWN. Composition cases with a fresh in-scope record similarly improve. Tool-routing/recovery failures are unaffected since they stem from tool selection/retry, not memory ranking.",
+    "regression_risk": "Moderate: reducing overlap weight may demote highly relevant but slightly older records in cases where the correct answer genuinely lives in an older record (e.g., historical lookups), and the 0.3/0.4/0.3 split is a heuristic that could under-rank records with strong lexical signal but age>0. Tool-routing and recovery families remain unaddressed by this memory-only change."
+  },
+  "program": {
+    "schema": 1,
+    "memory_score": {
+      "op": "add",
+      "args": [
+        {
+          "op": "mul",
+          "args": [
+            0.3,
+            {
+              "var": "overlap"
+            }
+          ]
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                0.4,
+                {
+                  "op": "div",
+                  "args": [
+                    1.0,
+                    {
+                      "op": "add",
+                      "args": [
+                        1.0,
+                        {
+                          "var": "age"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "op": "mul",
+              "args": [
+                0.3,
+                {
+                  "op": "mul",
+                  "args": [
+                    {
+                      "var": "entity_match"
+                    },
+                    {
+                      "var": "scope_match"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rag_score": {
+      "op": "add",
+      "args": [
+        {
+          "var": "overlap"
+        },
+        {
+          "op": "mul",
+          "args": [
+            0.5,
+            {
+              "op": "add",
+              "args": [
+                {
+                  "var": "trusted"
+                },
+                {
+                  "op": "mul",
+                  "args": [
+                    {
+                      "var": "entity_match"
+                    },
+                    {
+                      "op": "div",
+                      "args": [
+                        1.0,
+                        {
+                          "op": "add",
+                          "args": [
+                            1.0,
+                            {
+                              "var": "age"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "tool_score": {
+      "var": "overlap"
+    },
+    "retry": 0,
+    "memory_top_k": 4,
+    "rag_top_k": 3,
+    "max_attempts": 3,
+    "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+    "policy": {
+      "score": {
+        "var": "failure_rate"
+      },
+      "branches": 2
+    }
+  },
+  "risk": {
+    "sensitive": false,
+    "blocked": false,
+    "classification": "ordinary",
+    "reasons": [],
+    "changed_paths": [
+      "memory_score.args"
+    ],
+    "before_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+    "after_hash": "c235327eb1d98d900aae93279da3f884a3d0d58e828d1d05271c4e4c9637ea36"
+  },
+  "status": "executed",
+  "gain": 0.0,
+  "dev_rate": 0.7619047619047619,
+  "guard_rate": 0.8571428571428571,
+  "program_hash": "c235327eb1d98d900aae93279da3f884a3d0d58e828d1d05271c4e4c9637ea36",
+  "actual_loaded_hash": "c235327eb1d98d900aae93279da3f884a3d0d58e828d1d05271c4e4c9637ea36"
+}

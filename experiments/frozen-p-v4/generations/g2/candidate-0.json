@@ -1,0 +1,258 @@
+{
+  "generation": 2,
+  "branch": 0,
+  "module": "memory",
+  "base_hash": "5dd7a586ea18b3cfb37453d3c3984c211b4136fbb055a52f5c631ba776a33603",
+  "proposal": {
+    "hypothesis": "The memory scorer over-weights lexical overlap (0.5) and entity_match (0.2) while under-weighting recency, so stale high-overlap records (age 18-20, overlap 1.0) outrank fresh authoritative records (age 0, overlap ~0.13) that actually carry the current value. The failures show the correct evidence is consistently the age=0, scope_match=1, entity_match=1 record, but it loses to an older record with full overlap. Rebalancing toward recency and scope/entity correctness (and reducing raw overlap weight) should promote the current record into top_k, letting the answer be established instead of UNKNOWN.",
+    "changes": {
+      "memory_score": {
+        "op": "add",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "overlap"
+              },
+              0.25
+            ]
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "entity_match"
+                  },
+                  0.2
+                ]
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "var": "scope_match"
+                      },
+                      0.15
+                    ]
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "var": "trusted"
+                          },
+                          0.05
+                        ]
+                      },
+                      {
+                        "op": "add",
+                        "args": [
+                          {
+                            "op": "mul",
+                            "args": [
+                              {
+                                "var": "available"
+                              },
+                              0.05
+                            ]
+                          },
+                          {
+                            "op": "mul",
+                            "args": [
+                              {
+                                "op": "div",
+                                "args": [
+                                  1,
+                                  {
+                                    "op": "add",
+                                    "args": [
+                                      1,
+                                      {
+                                        "var": "age"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              0.3
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "memory_top_k": 4
+    },
+    "predicted_behavior": "Fresh records (age=0) with matching entity and scope gain a large recency bonus (~0.3 vs ~0.015 for age 19), so they rank above stale full-overlap records; the current authoritative evidence enters the top_k window and the model can extract the live value rather than returning UNKNOWN. Raising top_k to 4 keeps the correct record visible even when several stale high-overlap entries compete.",
+    "regression_risk": "Lowering overlap weight may demote genuinely relevant but older records in non-temporal queries, and a larger top_k adds distractor context that could dilute precision or increase token cost; recency dominance could also favor a fresh-but-irrelevant record if entity/scope signals are noisy."
+  },
+  "program": {
+    "schema": 1,
+    "memory_score": {
+      "op": "add",
+      "args": [
+        {
+          "op": "mul",
+          "args": [
+            {
+              "var": "overlap"
+            },
+            0.25
+          ]
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "entity_match"
+                },
+                0.2
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    {
+                      "var": "scope_match"
+                    },
+                    0.15
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        {
+                          "var": "trusted"
+                        },
+                        0.05
+                      ]
+                    },
+                    {
+                      "op": "add",
+                      "args": [
+                        {
+                          "op": "mul",
+                          "args": [
+                            {
+                              "var": "available"
+                            },
+                            0.05
+                          ]
+                        },
+                        {
+                          "op": "mul",
+                          "args": [
+                            {
+                              "op": "div",
+                              "args": [
+                                1,
+                                {
+                                  "op": "add",
+                                  "args": [
+                                    1,
+                                    {
+                                      "var": "age"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            0.3
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rag_score": {
+      "var": "overlap"
+    },
+    "tool_score": {
+      "var": "overlap"
+    },
+    "retry": {
+      "op": "and",
+      "args": [
+        {
+          "var": "error_retryable"
+        },
+        {
+          "op": "not",
+          "args": [
+            {
+              "var": "error_permanent"
+            }
+          ]
+        },
+        {
+          "op": "lt",
+          "args": [
+            {
+              "var": "attempt"
+            },
+            3
+          ]
+        }
+      ]
+    },
+    "memory_top_k": 4,
+    "rag_top_k": 2,
+    "max_attempts": 3,
+    "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+    "policy": {
+      "score": {
+        "var": "failure_rate"
+      },
+      "branches": 2
+    }
+  },
+  "risk": {
+    "sensitive": false,
+    "blocked": false,
+    "classification": "ordinary",
+    "reasons": [],
+    "changed_paths": [
+      "memory_score.args",
+      "memory_top_k"
+    ],
+    "before_hash": "5dd7a586ea18b3cfb37453d3c3984c211b4136fbb055a52f5c631ba776a33603",
+    "after_hash": "6106e9025dbdaf36b816982513f8ba31b3b2e30abdef59bf5f60c61d18209f1f"
+  },
+  "status": "executed",
+  "gain": 0.0,
+  "dev_rate": 0.6190476190476191,
+  "guard_rate": 0.7857142857142857,
+  "program_hash": "6106e9025dbdaf36b816982513f8ba31b3b2e30abdef59bf5f60c61d18209f1f",
+  "actual_loaded_hash": "6106e9025dbdaf36b816982513f8ba31b3b2e30abdef59bf5f60c61d18209f1f"
+}

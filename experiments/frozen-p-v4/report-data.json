@@ -1,0 +1,1968 @@
+{
+  "manifest": {
+    "schema": 1,
+    "seed": 29,
+    "started_at": 1792745930.886432,
+    "generations_requested": 4,
+    "model": "deepseek-flash",
+    "evolve_p": false,
+    "evolve_m": true,
+    "acceptance_per_family": 10,
+    "frozen_code": {
+      "benchmarks.py": "9701ce959ca54fd03a23dc060c8fb1a7b65179727694341640a7c97ff6ada619",
+      "runtime.py": "084ddef403355d0d77e5f211e6e2197b57715bab902eafaa29fd633d7d3b1789",
+      "program.py": "df2fda256db06def686b652ace7e92097f53cf0333acb05c2ddb6355b68b13ad",
+      "evolution.py": "2476731045890ebdb91b3bdc38593bde14e39a2c036d25b099d4e85a60f2c335",
+      "llm.py": "44b8064963a2032f059dfdea041e6285d8fb575f2a38af0f4f905a03fa5d2171",
+      "governance.py": "3e367a1ba7b65a0e5d46f6ae866875f7fd4e216745929e4a137fd9479941c0fa",
+      "common.py": "77671ea007a9fdd71935a3683e37d7a16c2424914a884ab5d12157c89d82f78c"
+    },
+    "provider_contract": {
+      "task_max_tokens": 2048,
+      "temperature_requested": 0,
+      "thinking": "disabled on DeepSeek",
+      "physical_attempts_retained": true
+    },
+    "split_hashes": {
+      "train": "616a3adeb1dbb8a6cd83bade08a4b67b3b0ef8560fc52c86206fbc6d5aeafdef",
+      "dev": "6c47bfeecc05f3dad77ef5d0edd852193d6ace2b368196857577766f0a46a61b",
+      "guard": "fa483ce78dfc2cd6e51c1754eb199f4fca6934f30a5e319264f7ec6eff0a13ae",
+      "final": "4a175b4716f045548c9c12a80a8afd86b91f65876760aee2439bb97e9382cd23",
+      "transfer": "464b929422bac4dd7158e5099cd0074bfaa5539a0b7de941e4b7f735724a9de5"
+    },
+    "protocol": {
+      "primary": "exact answer + visible supporting evidence + correct executed tool and attempts",
+      "promotion": "strict development gain and no guard aggregate regression; final never used for selection",
+      "policy_promotion": "legal changed program and prospective branch decision; benefit tested separately, not assumed",
+      "invalid_candidate": "one actual model repair; unresolved effect unknown; never counted as observed zero gain",
+      "scope": "authored public synthetic mechanism benchmark; not official benchmark reproduction"
+    }
+  },
+  "summary": {
+    "manifest": {
+      "schema": 1,
+      "seed": 29,
+      "started_at": 1792745930.886432,
+      "generations_requested": 4,
+      "model": "deepseek-flash",
+      "evolve_p": false,
+      "evolve_m": true,
+      "acceptance_per_family": 10,
+      "frozen_code": {
+        "benchmarks.py": "9701ce959ca54fd03a23dc060c8fb1a7b65179727694341640a7c97ff6ada619",
+        "runtime.py": "084ddef403355d0d77e5f211e6e2197b57715bab902eafaa29fd633d7d3b1789",
+        "program.py": "df2fda256db06def686b652ace7e92097f53cf0333acb05c2ddb6355b68b13ad",
+        "evolution.py": "2476731045890ebdb91b3bdc38593bde14e39a2c036d25b099d4e85a60f2c335",
+        "llm.py": "44b8064963a2032f059dfdea041e6285d8fb575f2a38af0f4f905a03fa5d2171",
+        "governance.py": "3e367a1ba7b65a0e5d46f6ae866875f7fd4e216745929e4a137fd9479941c0fa",
+        "common.py": "77671ea007a9fdd71935a3683e37d7a16c2424914a884ab5d12157c89d82f78c"
+      },
+      "provider_contract": {
+        "task_max_tokens": 2048,
+        "temperature_requested": 0,
+        "thinking": "disabled on DeepSeek",
+        "physical_attempts_retained": true
+      },
+      "split_hashes": {
+        "train": "616a3adeb1dbb8a6cd83bade08a4b67b3b0ef8560fc52c86206fbc6d5aeafdef",
+        "dev": "6c47bfeecc05f3dad77ef5d0edd852193d6ace2b368196857577766f0a46a61b",
+        "guard": "fa483ce78dfc2cd6e51c1754eb199f4fca6934f30a5e319264f7ec6eff0a13ae",
+        "final": "4a175b4716f045548c9c12a80a8afd86b91f65876760aee2439bb97e9382cd23",
+        "transfer": "464b929422bac4dd7158e5099cd0074bfaa5539a0b7de941e4b7f735724a9de5"
+      },
+      "protocol": {
+        "primary": "exact answer + visible supporting evidence + correct executed tool and attempts",
+        "promotion": "strict development gain and no guard aggregate regression; final never used for selection",
+        "policy_promotion": "legal changed program and prospective branch decision; benefit tested separately, not assumed",
+        "invalid_candidate": "one actual model repair; unresolved effect unknown; never counted as observed zero gain",
+        "scope": "authored public synthetic mechanism benchmark; not official benchmark reproduction"
+      }
+    },
+    "transitions": [
+      {
+        "generation": 0,
+        "parent_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+        "next_hash": "5d073f1f320581ac13522514829e1a4564f166300224eac34c374b9348a790c4",
+        "dev_before": 0.3333333333333333,
+        "dev_after": 0.5238095238095238,
+        "guard_before": 0.5,
+        "guard_after": 0.5714285714285714,
+        "mechanism_adopted": true,
+        "changed": true,
+        "policy_changed": false,
+        "policy_choice_changed": false,
+        "trials": [
+          {
+            "generation": 0,
+            "branch": 0,
+            "module": "memory",
+            "status": "executed",
+            "gain": 0.19047619047619052
+          },
+          {
+            "generation": 0,
+            "branch": 1,
+            "module": "recovery",
+            "status": "executed",
+            "gain": 0.09523809523809523
+          }
+        ]
+      },
+      {
+        "generation": 1,
+        "parent_hash": "5d073f1f320581ac13522514829e1a4564f166300224eac34c374b9348a790c4",
+        "next_hash": "5dd7a586ea18b3cfb37453d3c3984c211b4136fbb055a52f5c631ba776a33603",
+        "dev_before": 0.5238095238095238,
+        "dev_after": 0.6190476190476191,
+        "guard_before": 0.6428571428571429,
+        "guard_after": 0.7857142857142857,
+        "mechanism_adopted": true,
+        "changed": true,
+        "policy_changed": false,
+        "policy_choice_changed": false,
+        "trials": [
+          {
+            "generation": 1,
+            "branch": 0,
+            "module": "recovery",
+            "status": "executed",
+            "gain": 0.09523809523809523
+          },
+          {
+            "generation": 1,
+            "branch": 1,
+            "module": "prompt",
+            "status": "executed",
+            "gain": 0.19047619047619047
+          }
+        ]
+      },
+      {
+        "generation": 2,
+        "parent_hash": "5dd7a586ea18b3cfb37453d3c3984c211b4136fbb055a52f5c631ba776a33603",
+        "next_hash": "26d137e97b6680ec76180bc8d1abcedda904ca36dfb7577f0fcbb2404967475a",
+        "dev_before": 0.6190476190476191,
+        "dev_after": 0.7142857142857143,
+        "guard_before": 0.7857142857142857,
+        "guard_after": 0.7857142857142857,
+        "mechanism_adopted": true,
+        "changed": true,
+        "policy_changed": false,
+        "policy_choice_changed": false,
+        "trials": [
+          {
+            "generation": 2,
+            "branch": 0,
+            "module": "memory",
+            "status": "executed",
+            "gain": 0.0
+          },
+          {
+            "generation": 2,
+            "branch": 1,
+            "module": "prompt",
+            "status": "executed",
+            "gain": 0.09523809523809523
+          }
+        ]
+      },
+      {
+        "generation": 3,
+        "parent_hash": "26d137e97b6680ec76180bc8d1abcedda904ca36dfb7577f0fcbb2404967475a",
+        "next_hash": "62d89034bb275e6e2ebf9ffbc13b3a7eb03d9063ed2015cb1343404b6a2c96b7",
+        "dev_before": 0.7142857142857143,
+        "dev_after": 0.9523809523809523,
+        "guard_before": 0.7857142857142857,
+        "guard_after": 1.0,
+        "mechanism_adopted": true,
+        "changed": true,
+        "policy_changed": false,
+        "policy_choice_changed": false,
+        "trials": [
+          {
+            "generation": 3,
+            "branch": 0,
+            "module": "rag",
+            "status": "executed",
+            "gain": 0.23809523809523803
+          },
+          {
+            "generation": 3,
+            "branch": 1,
+            "module": "prompt",
+            "status": "executed",
+            "gain": 0.1428571428571428
+          }
+        ]
+      }
+    ],
+    "history": [
+      {
+        "generation": 0,
+        "branch": 0,
+        "module": "memory",
+        "status": "executed",
+        "gain": 0.19047619047619052
+      },
+      {
+        "generation": 0,
+        "branch": 1,
+        "module": "recovery",
+        "status": "executed",
+        "gain": 0.09523809523809523
+      },
+      {
+        "generation": 1,
+        "branch": 0,
+        "module": "recovery",
+        "status": "executed",
+        "gain": 0.09523809523809523
+      },
+      {
+        "generation": 1,
+        "branch": 1,
+        "module": "prompt",
+        "status": "executed",
+        "gain": 0.19047619047619047
+      },
+      {
+        "generation": 2,
+        "branch": 0,
+        "module": "memory",
+        "status": "executed",
+        "gain": 0.0
+      },
+      {
+        "generation": 2,
+        "branch": 1,
+        "module": "prompt",
+        "status": "executed",
+        "gain": 0.09523809523809523
+      },
+      {
+        "generation": 3,
+        "branch": 0,
+        "module": "rag",
+        "status": "executed",
+        "gain": 0.23809523809523803
+      },
+      {
+        "generation": 3,
+        "branch": 1,
+        "module": "prompt",
+        "status": "executed",
+        "gain": 0.1428571428571428
+      }
+    ],
+    "final_program_hash": "62d89034bb275e6e2ebf9ffbc13b3a7eb03d9063ed2015cb1343404b6a2c96b7",
+    "finished_evolution_at": 1792746217.847362,
+    "status": "versions_frozen_pending_independent_evaluation"
+  },
+  "acceptance": {
+    "reports": {
+      "final": {
+        "g0": {
+          "program_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+          "passed": 33,
+          "total": 70,
+          "rate": 0.4714285714285714,
+          "families": {
+            "memory_temporal": {
+              "passed": 0,
+              "total": 10
+            },
+            "memory_scope": {
+              "passed": 4,
+              "total": 10
+            },
+            "rag_authority": {
+              "passed": 9,
+              "total": 10
+            },
+            "tool_routing": {
+              "passed": 7,
+              "total": 10
+            },
+            "tool_recovery": {
+              "passed": 3,
+              "total": 10
+            },
+            "composition": {
+              "passed": 0,
+              "total": 10
+            },
+            "clean": {
+              "passed": 10,
+              "total": 10
+            }
+          }
+        },
+        "g1": {
+          "program_hash": "5d073f1f320581ac13522514829e1a4564f166300224eac34c374b9348a790c4",
+          "passed": 53,
+          "total": 70,
+          "rate": 0.7571428571428571,
+          "families": {
+            "memory_temporal": {
+              "passed": 9,
+              "total": 10
+            },
+            "memory_scope": {
+              "passed": 10,
+              "total": 10
+            },
+            "rag_authority": {
+              "passed": 9,
+              "total": 10
+            },
+            "tool_routing": {
+              "passed": 7,
+              "total": 10
+            },
+            "tool_recovery": {
+              "passed": 3,
+              "total": 10
+            },
+            "composition": {
+              "passed": 5,
+              "total": 10
+            },
+            "clean": {
+              "passed": 10,
+              "total": 10
+            }
+          }
+        },
+        "g2": {
+          "program_hash": "5dd7a586ea18b3cfb37453d3c3984c211b4136fbb055a52f5c631ba776a33603",
+          "passed": 66,
+          "total": 70,
+          "rate": 0.9428571428571428,
+          "families": {
+            "memory_temporal": {
+              "passed": 10,
+              "total": 10
+            },
+            "memory_scope": {
+              "passed": 10,
+              "total": 10
+            },
+            "rag_authority": {
+              "passed": 9,
+              "total": 10
+            },
+            "tool_routing": {
+              "passed": 7,
+              "total": 10
+            },
+            "tool_recovery": {
+              "passed": 10,
+              "total": 10
+            },
+            "composition": {
+              "passed": 10,
+              "total": 10
+            },
+            "clean": {
+              "passed": 10,
+              "total": 10
+            }
+          }
+        },
+        "g3": {
+          "program_hash": "26d137e97b6680ec76180bc8d1abcedda904ca36dfb7577f0fcbb2404967475a",
+          "passed": 56,
+          "total": 70,
+          "rate": 0.8,
+          "families": {
+            "memory_temporal": {
+              "passed": 10,
+              "total": 10
+            },
+            "memory_scope": {
+              "passed": 10,
+              "total": 10
+            },
+            "rag_authority": {
+              "passed": 0,
+              "total": 10
+            },
+            "tool_routing": {
+              "passed": 7,
+              "total": 10
+            },
+            "tool_recovery": {
+              "passed": 10,
+              "total": 10
+            },
+            "composition": {
+              "passed": 9,
+              "total": 10
+            },
+            "clean": {
+              "passed": 10,
+              "total": 10
+            }
+          }
+        },
+        "g4": {
+          "program_hash": "62d89034bb275e6e2ebf9ffbc13b3a7eb03d9063ed2015cb1343404b6a2c96b7",
+          "passed": 67,
+          "total": 70,
+          "rate": 0.9571428571428572,
+          "families": {
+            "memory_temporal": {
+              "passed": 10,
+              "total": 10
+            },
+            "memory_scope": {
+              "passed": 10,
+              "total": 10
+            },
+            "rag_authority": {
+              "passed": 10,
+              "total": 10
+            },
+            "tool_routing": {
+              "passed": 7,
+              "total": 10
+            },
+            "tool_recovery": {
+              "passed": 10,
+              "total": 10
+            },
+            "composition": {
+              "passed": 10,
+              "total": 10
+            },
+            "clean": {
+              "passed": 10,
+              "total": 10
+            }
+          }
+        }
+      },
+      "transfer": {
+        "g0": {
+          "program_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+          "passed": 33,
+          "total": 70,
+          "rate": 0.4714285714285714,
+          "families": {
+            "memory_temporal": {
+              "passed": 0,
+              "total": 10
+            },
+            "memory_scope": {
+              "passed": 6,
+              "total": 10
+            },
+            "rag_authority": {
+              "passed": 7,
+              "total": 10
+            },
+            "tool_routing": {
+              "passed": 7,
+              "total": 10
+            },
+            "tool_recovery": {
+              "passed": 3,
+              "total": 10
+            },
+            "composition": {
+              "passed": 0,
+              "total": 10
+            },
+            "clean": {
+              "passed": 10,
+              "total": 10
+            }
+          }
+        },
+        "g1": {
+          "program_hash": "5d073f1f320581ac13522514829e1a4564f166300224eac34c374b9348a790c4",
+          "passed": 45,
+          "total": 70,
+          "rate": 0.6428571428571429,
+          "families": {
+            "memory_temporal": {
+              "passed": 4,
+              "total": 10
+            },
+            "memory_scope": {
+              "passed": 10,
+              "total": 10
+            },
+            "rag_authority": {
+              "passed": 9,
+              "total": 10
+            },
+            "tool_routing": {
+              "passed": 7,
+              "total": 10
+            },
+            "tool_recovery": {
+              "passed": 3,
+              "total": 10
+            },
+            "composition": {
+              "passed": 2,
+              "total": 10
+            },
+            "clean": {
+              "passed": 10,
+              "total": 10
+            }
+          }
+        },
+        "g2": {
+          "program_hash": "5dd7a586ea18b3cfb37453d3c3984c211b4136fbb055a52f5c631ba776a33603",
+          "passed": 52,
+          "total": 70,
+          "rate": 0.7428571428571429,
+          "families": {
+            "memory_temporal": {
+              "passed": 3,
+              "total": 10
+            },
+            "memory_scope": {
+              "passed": 10,
+              "total": 10
+            },
+            "rag_authority": {
+              "passed": 9,
+              "total": 10
+            },
+            "tool_routing": {
+              "passed": 7,
+              "total": 10
+            },
+            "tool_recovery": {
+              "passed": 10,
+              "total": 10
+            },
+            "composition": {
+              "passed": 3,
+              "total": 10
+            },
+            "clean": {
+              "passed": 10,
+              "total": 10
+            }
+          }
+        },
+        "g3": {
+          "program_hash": "26d137e97b6680ec76180bc8d1abcedda904ca36dfb7577f0fcbb2404967475a",
+          "passed": 50,
+          "total": 70,
+          "rate": 0.7142857142857143,
+          "families": {
+            "memory_temporal": {
+              "passed": 10,
+              "total": 10
+            },
+            "memory_scope": {
+              "passed": 10,
+              "total": 10
+            },
+            "rag_authority": {
+              "passed": 0,
+              "total": 10
+            },
+            "tool_routing": {
+              "passed": 7,
+              "total": 10
+            },
+            "tool_recovery": {
+              "passed": 10,
+              "total": 10
+            },
+            "composition": {
+              "passed": 3,
+              "total": 10
+            },
+            "clean": {
+              "passed": 10,
+              "total": 10
+            }
+          }
+        },
+        "g4": {
+          "program_hash": "62d89034bb275e6e2ebf9ffbc13b3a7eb03d9063ed2015cb1343404b6a2c96b7",
+          "passed": 65,
+          "total": 70,
+          "rate": 0.9285714285714286,
+          "families": {
+            "memory_temporal": {
+              "passed": 10,
+              "total": 10
+            },
+            "memory_scope": {
+              "passed": 10,
+              "total": 10
+            },
+            "rag_authority": {
+              "passed": 8,
+              "total": 10
+            },
+            "tool_routing": {
+              "passed": 7,
+              "total": 10
+            },
+            "tool_recovery": {
+              "passed": 10,
+              "total": 10
+            },
+            "composition": {
+              "passed": 10,
+              "total": 10
+            },
+            "clean": {
+              "passed": 10,
+              "total": 10
+            }
+          }
+        }
+      }
+    },
+    "readout_at": 1792746458.974347,
+    "selection_allowed": false
+  },
+  "versions": [
+    {
+      "name": "g0",
+      "program": {
+        "schema": 1,
+        "memory_score": {
+          "var": "overlap"
+        },
+        "rag_score": {
+          "var": "overlap"
+        },
+        "tool_score": {
+          "var": "overlap"
+        },
+        "retry": 0,
+        "memory_top_k": 2,
+        "rag_top_k": 2,
+        "max_attempts": 3,
+        "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+        "policy": {
+          "score": {
+            "var": "failure_rate"
+          },
+          "branches": 2
+        }
+      },
+      "transition": {
+        "generation": 0,
+        "parent_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+        "next_hash": "5d073f1f320581ac13522514829e1a4564f166300224eac34c374b9348a790c4",
+        "dev_before": 0.3333333333333333,
+        "dev_after": 0.5238095238095238,
+        "guard_before": 0.5,
+        "guard_after": 0.5714285714285714,
+        "mechanism_adopted": true,
+        "changed": true,
+        "policy_changed": false,
+        "policy_choice_changed": false,
+        "trials": [
+          {
+            "generation": 0,
+            "branch": 0,
+            "module": "memory",
+            "status": "executed",
+            "gain": 0.19047619047619052
+          },
+          {
+            "generation": 0,
+            "branch": 1,
+            "module": "recovery",
+            "status": "executed",
+            "gain": 0.09523809523809523
+          }
+        ]
+      },
+      "decisions": {
+        "loaded_program_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+        "state": {
+          "memory": {
+            "failure_count": 5,
+            "failure_rate": 0.8333333333333334,
+            "attempted": 0,
+            "last_gain": 0,
+            "has_gain": 0.0,
+            "success_rate": 0.0,
+            "stagnation": 0,
+            "invalid_count": 0,
+            "blocked_count": 0
+          },
+          "rag": {
+            "failure_count": 0,
+            "failure_rate": 0.0,
+            "attempted": 0,
+            "last_gain": 0,
+            "has_gain": 0.0,
+            "success_rate": 0.0,
+            "stagnation": 0,
+            "invalid_count": 0,
+            "blocked_count": 0
+          },
+          "tools": {
+            "failure_count": 1,
+            "failure_rate": 0.3333333333333333,
+            "attempted": 0,
+            "last_gain": 0,
+            "has_gain": 0.0,
+            "success_rate": 0.0,
+            "stagnation": 0,
+            "invalid_count": 0,
+            "blocked_count": 0
+          },
+          "recovery": {
+            "failure_count": 2,
+            "failure_rate": 0.6666666666666666,
+            "attempted": 0,
+            "last_gain": 0,
+            "has_gain": 0.0,
+            "success_rate": 0.0,
+            "stagnation": 0,
+            "invalid_count": 0,
+            "blocked_count": 0
+          },
+          "prompt": {
+            "failure_count": 3,
+            "failure_rate": 0.5,
+            "attempted": 0,
+            "last_gain": 0,
+            "has_gain": 0.0,
+            "success_rate": 0.0,
+            "stagnation": 0,
+            "invalid_count": 0,
+            "blocked_count": 0
+          }
+        },
+        "selected": [
+          {
+            "module": "memory",
+            "score": 0.8333333333333334,
+            "features": {
+              "failure_count": 5,
+              "failure_rate": 0.8333333333333334,
+              "attempted": 0,
+              "last_gain": 0,
+              "has_gain": 0.0,
+              "success_rate": 0.0,
+              "stagnation": 0,
+              "invalid_count": 0,
+              "blocked_count": 0,
+              "is_memory": 1.0,
+              "is_rag": 0.0,
+              "is_tools": 0.0,
+              "is_recovery": 0.0,
+              "is_prompt": 0.0
+            }
+          },
+          {
+            "module": "recovery",
+            "score": 0.6666666666666666,
+            "features": {
+              "failure_count": 2,
+              "failure_rate": 0.6666666666666666,
+              "attempted": 0,
+              "last_gain": 0,
+              "has_gain": 0.0,
+              "success_rate": 0.0,
+              "stagnation": 0,
+              "invalid_count": 0,
+              "blocked_count": 0,
+              "is_memory": 0.0,
+              "is_rag": 0.0,
+              "is_tools": 0.0,
+              "is_recovery": 1.0,
+              "is_prompt": 0.0
+            }
+          }
+        ]
+      },
+      "policy": {
+        "status": "frozen"
+      },
+      "diff": "--- parent.json\n+++ candidate.json\n@@ -1,9 +1,97 @@\n {\n   \"max_attempts\": 3,\n   \"memory_score\": {\n-    \"var\": \"overlap\"\n+    \"args\": [\n+      {\n+        \"args\": [\n+          {\n+            \"var\": \"overlap\"\n+          },\n+          0.5\n+        ],\n+        \"op\": \"mul\"\n+      },\n+      {\n+        \"args\": [\n+          {\n+            \"args\": [\n+              {\n+                \"var\": \"entity_match\"\n+              },\n+              0.2\n+            ],\n+            \"op\": \"mul\"\n+          },\n+          {\n+            \"args\": [\n+              {\n+                \"args\": [\n+                  {\n+                    \"var\": \"scope_match\"\n+                  },\n+                  0.1\n+                ],\n+                \"op\": \"mul\"\n+              },\n+              {\n+                \"args\": [\n+                  {\n+                    \"args\": [\n+                      {\n+                        \"var\": \"trusted\"\n+                      },\n+                      0.05\n+                    ],\n+                    \"op\": \"mul\"\n+                  },\n+                  {\n+                    \"args\": [\n+                      {\n+                        \"args\": [\n+                          {\n+                            \"var\": \"available\"\n+                          },\n+                          0.05\n+                        ],\n+                        \"op\": \"mul\"\n+                      },\n+                      {\n+                        \"args\": [\n+                          {\n+                            \"args\": [\n+                              1,\n+                              {\n+                                \"args\": [\n+                                  1,\n+                                  {\n+                                    \"var\": \"age\"\n+                                  }\n+                                ],\n+                                \"op\": \"add\"\n+                              }\n+                            ],\n+                            \"op\": \"div\"\n+                          },\n+                          0.1\n+                        ],\n+                        \"op\": \"mul\"\n+                      }\n+                    ],\n+                    \"op\": \"add\"\n+                  }\n+                ],\n+                \"op\": \"add\"\n+              }\n+            ],\n+            \"op\": \"add\"\n+          }\n+        ],\n+        \"op\": \"add\"\n+      }\n+    ],\n+    \"op\": \"add\"\n   },\n-  \"memory_top_k\": 2,\n+  \"memory_top_k\": 3,\n   \"policy\": {\n     \"branches\": 2,\n     \"score\": {\n",
+      "train": {
+        "program_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+        "passed": 10,
+        "total": 21,
+        "measurement_errors": 0,
+        "rate": 0.47619047619047616,
+        "families": {
+          "memory_temporal": {
+            "passed": 0,
+            "total": 3
+          },
+          "memory_scope": {
+            "passed": 1,
+            "total": 3
+          },
+          "rag_authority": {
+            "passed": 3,
+            "total": 3
+          },
+          "tool_routing": {
+            "passed": 2,
+            "total": 3
+          },
+          "tool_recovery": {
+            "passed": 1,
+            "total": 3
+          },
+          "composition": {
+            "passed": 0,
+            "total": 3
+          },
+          "clean": {
+            "passed": 3,
+            "total": 3
+          }
+        }
+      }
+    },
+    {
+      "name": "g1",
+      "program": {
+        "schema": 1,
+        "memory_score": {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "overlap"
+                },
+                0.5
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    {
+                      "var": "entity_match"
+                    },
+                    0.2
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        {
+                          "var": "scope_match"
+                        },
+                        0.1
+                      ]
+                    },
+                    {
+                      "op": "add",
+                      "args": [
+                        {
+                          "op": "mul",
+                          "args": [
+                            {
+                              "var": "trusted"
+                            },
+                            0.05
+                          ]
+                        },
+                        {
+                          "op": "add",
+                          "args": [
+                            {
+                              "op": "mul",
+                              "args": [
+                                {
+                                  "var": "available"
+                                },
+                                0.05
+                              ]
+                            },
+                            {
+                              "op": "mul",
+                              "args": [
+                                {
+                                  "op": "div",
+                                  "args": [
+                                    1,
+                                    {
+                                      "op": "add",
+                                      "args": [
+                                        1,
+                                        {
+                                          "var": "age"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                0.1
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "rag_score": {
+          "var": "overlap"
+        },
+        "tool_score": {
+          "var": "overlap"
+        },
+        "retry": 0,
+        "memory_top_k": 3,
+        "rag_top_k": 2,
+        "max_attempts": 3,
+        "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+        "policy": {
+          "score": {
+            "var": "failure_rate"
+          },
+          "branches": 2
+        }
+      },
+      "transition": {
+        "generation": 1,
+        "parent_hash": "5d073f1f320581ac13522514829e1a4564f166300224eac34c374b9348a790c4",
+        "next_hash": "5dd7a586ea18b3cfb37453d3c3984c211b4136fbb055a52f5c631ba776a33603",
+        "dev_before": 0.5238095238095238,
+        "dev_after": 0.6190476190476191,
+        "guard_before": 0.6428571428571429,
+        "guard_after": 0.7857142857142857,
+        "mechanism_adopted": true,
+        "changed": true,
+        "policy_changed": false,
+        "policy_choice_changed": false,
+        "trials": [
+          {
+            "generation": 1,
+            "branch": 0,
+            "module": "recovery",
+            "status": "executed",
+            "gain": 0.09523809523809523
+          },
+          {
+            "generation": 1,
+            "branch": 1,
+            "module": "prompt",
+            "status": "executed",
+            "gain": 0.19047619047619047
+          }
+        ]
+      },
+      "decisions": {
+        "loaded_program_hash": "5d073f1f320581ac13522514829e1a4564f166300224eac34c374b9348a790c4",
+        "state": {
+          "memory": {
+            "failure_count": 2,
+            "failure_rate": 0.3333333333333333,
+            "attempted": 1,
+            "last_gain": 0.19047619047619052,
+            "has_gain": 1.0,
+            "success_rate": 1.0,
+            "stagnation": 0,
+            "invalid_count": 0,
+            "blocked_count": 0
+          },
+          "rag": {
+            "failure_count": 1,
+            "failure_rate": 0.3333333333333333,
+            "attempted": 0,
+            "last_gain": 0,
+            "has_gain": 0.0,
+            "success_rate": 0.0,
+            "stagnation": 0,
+            "invalid_count": 0,
+            "blocked_count": 0
+          },
+          "tools": {
+            "failure_count": 1,
+            "failure_rate": 0.3333333333333333,
+            "attempted": 0,
+            "last_gain": 0,
+            "has_gain": 0.0,
+            "success_rate": 0.0,
+            "stagnation": 0,
+            "invalid_count": 0,
+            "blocked_count": 0
+          },
+          "recovery": {
+            "failure_count": 2,
+            "failure_rate": 0.6666666666666666,
+            "attempted": 1,
+            "last_gain": 0.09523809523809523,
+            "has_gain": 1.0,
+            "success_rate": 1.0,
+            "stagnation": 0,
+            "invalid_count": 0,
+            "blocked_count": 0
+          },
+          "prompt": {
+            "failure_count": 3,
+            "failure_rate": 0.5,
+            "attempted": 0,
+            "last_gain": 0,
+            "has_gain": 0.0,
+            "success_rate": 0.0,
+            "stagnation": 0,
+            "invalid_count": 0,
+            "blocked_count": 0
+          }
+        },
+        "selected": [
+          {
+            "module": "recovery",
+            "score": 0.6666666666666666,
+            "features": {
+              "failure_count": 2,
+              "failure_rate": 0.6666666666666666,
+              "attempted": 1,
+              "last_gain": 0.09523809523809523,
+              "has_gain": 1.0,
+              "success_rate": 1.0,
+              "stagnation": 0,
+              "invalid_count": 0,
+              "blocked_count": 0,
+              "is_memory": 0.0,
+              "is_rag": 0.0,
+              "is_tools": 0.0,
+              "is_recovery": 1.0,
+              "is_prompt": 0.0
+            }
+          },
+          {
+            "module": "prompt",
+            "score": 0.5,
+            "features": {
+              "failure_count": 3,
+              "failure_rate": 0.5,
+              "attempted": 0,
+              "last_gain": 0,
+              "has_gain": 0.0,
+              "success_rate": 0.0,
+              "stagnation": 0,
+              "invalid_count": 0,
+              "blocked_count": 0,
+              "is_memory": 0.0,
+              "is_rag": 0.0,
+              "is_tools": 0.0,
+              "is_recovery": 0.0,
+              "is_prompt": 1.0
+            }
+          }
+        ]
+      },
+      "policy": {
+        "status": "frozen"
+      },
+      "diff": "--- parent.json\n+++ candidate.json\n@@ -103,7 +103,31 @@\n     \"var\": \"overlap\"\n   },\n   \"rag_top_k\": 2,\n-  \"retry\": 0,\n+  \"retry\": {\n+    \"args\": [\n+      {\n+        \"var\": \"error_retryable\"\n+      },\n+      {\n+        \"args\": [\n+          {\n+            \"var\": \"error_permanent\"\n+          }\n+        ],\n+        \"op\": \"not\"\n+      },\n+      {\n+        \"args\": [\n+          {\n+            \"var\": \"attempt\"\n+          },\n+          3\n+        ],\n+        \"op\": \"lt\"\n+      }\n+    ],\n+    \"op\": \"and\"\n+  },\n   \"schema\": 1,\n   \"tool_score\": {\n     \"var\": \"overlap\"\n",
+      "train": {
+        "program_hash": "5d073f1f320581ac13522514829e1a4564f166300224eac34c374b9348a790c4",
+        "passed": 12,
+        "total": 21,
+        "measurement_errors": 0,
+        "rate": 0.5714285714285714,
+        "families": {
+          "memory_temporal": {
+            "passed": 1,
+            "total": 3
+          },
+          "memory_scope": {
+            "passed": 3,
+            "total": 3
+          },
+          "rag_authority": {
+            "passed": 2,
+            "total": 3
+          },
+          "tool_routing": {
+            "passed": 2,
+            "total": 3
+          },
+          "tool_recovery": {
+            "passed": 1,
+            "total": 3
+          },
+          "composition": {
+            "passed": 0,
+            "total": 3
+          },
+          "clean": {
+            "passed": 3,
+            "total": 3
+          }
+        }
+      }
+    },
+    {
+      "name": "g2",
+      "program": {
+        "schema": 1,
+        "memory_score": {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "overlap"
+                },
+                0.5
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    {
+                      "var": "entity_match"
+                    },
+                    0.2
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        {
+                          "var": "scope_match"
+                        },
+                        0.1
+                      ]
+                    },
+                    {
+                      "op": "add",
+                      "args": [
+                        {
+                          "op": "mul",
+                          "args": [
+                            {
+                              "var": "trusted"
+                            },
+                            0.05
+                          ]
+                        },
+                        {
+                          "op": "add",
+                          "args": [
+                            {
+                              "op": "mul",
+                              "args": [
+                                {
+                                  "var": "available"
+                                },
+                                0.05
+                              ]
+                            },
+                            {
+                              "op": "mul",
+                              "args": [
+                                {
+                                  "op": "div",
+                                  "args": [
+                                    1,
+                                    {
+                                      "op": "add",
+                                      "args": [
+                                        1,
+                                        {
+                                          "var": "age"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                0.1
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "rag_score": {
+          "var": "overlap"
+        },
+        "tool_score": {
+          "var": "overlap"
+        },
+        "retry": {
+          "op": "and",
+          "args": [
+            {
+              "var": "error_retryable"
+            },
+            {
+              "op": "not",
+              "args": [
+                {
+                  "var": "error_permanent"
+                }
+              ]
+            },
+            {
+              "op": "lt",
+              "args": [
+                {
+                  "var": "attempt"
+                },
+                3
+              ]
+            }
+          ]
+        },
+        "memory_top_k": 3,
+        "rag_top_k": 2,
+        "max_attempts": 3,
+        "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+        "policy": {
+          "score": {
+            "var": "failure_rate"
+          },
+          "branches": 2
+        }
+      },
+      "transition": {
+        "generation": 2,
+        "parent_hash": "5dd7a586ea18b3cfb37453d3c3984c211b4136fbb055a52f5c631ba776a33603",
+        "next_hash": "26d137e97b6680ec76180bc8d1abcedda904ca36dfb7577f0fcbb2404967475a",
+        "dev_before": 0.6190476190476191,
+        "dev_after": 0.7142857142857143,
+        "guard_before": 0.7857142857142857,
+        "guard_after": 0.7857142857142857,
+        "mechanism_adopted": true,
+        "changed": true,
+        "policy_changed": false,
+        "policy_choice_changed": false,
+        "trials": [
+          {
+            "generation": 2,
+            "branch": 0,
+            "module": "memory",
+            "status": "executed",
+            "gain": 0.0
+          },
+          {
+            "generation": 2,
+            "branch": 1,
+            "module": "prompt",
+            "status": "executed",
+            "gain": 0.09523809523809523
+          }
+        ]
+      },
+      "decisions": {
+        "loaded_program_hash": "5dd7a586ea18b3cfb37453d3c3984c211b4136fbb055a52f5c631ba776a33603",
+        "state": {
+          "memory": {
+            "failure_count": 3,
+            "failure_rate": 0.5,
+            "attempted": 1,
+            "last_gain": 0.19047619047619052,
+            "has_gain": 1.0,
+            "success_rate": 1.0,
+            "stagnation": 0,
+            "invalid_count": 0,
+            "blocked_count": 0
+          },
+          "rag": {
+            "failure_count": 1,
+            "failure_rate": 0.3333333333333333,
+            "attempted": 0,
+            "last_gain": 0,
+            "has_gain": 0.0,
+            "success_rate": 0.0,
+            "stagnation": 0,
+            "invalid_count": 0,
+            "blocked_count": 0
+          },
+          "tools": {
+            "failure_count": 1,
+            "failure_rate": 0.3333333333333333,
+            "attempted": 0,
+            "last_gain": 0,
+            "has_gain": 0.0,
+            "success_rate": 0.0,
+            "stagnation": 0,
+            "invalid_count": 0,
+            "blocked_count": 0
+          },
+          "recovery": {
+            "failure_count": 0,
+            "failure_rate": 0.0,
+            "attempted": 2,
+            "last_gain": 0.09523809523809523,
+            "has_gain": 1.0,
+            "success_rate": 1.0,
+            "stagnation": 0,
+            "invalid_count": 0,
+            "blocked_count": 0
+          },
+          "prompt": {
+            "failure_count": 3,
+            "failure_rate": 0.5,
+            "attempted": 1,
+            "last_gain": 0.19047619047619047,
+            "has_gain": 1.0,
+            "success_rate": 1.0,
+            "stagnation": 0,
+            "invalid_count": 0,
+            "blocked_count": 0
+          }
+        },
+        "selected": [
+          {
+            "module": "memory",
+            "score": 0.5,
+            "features": {
+              "failure_count": 3,
+              "failure_rate": 0.5,
+              "attempted": 1,
+              "last_gain": 0.19047619047619052,
+              "has_gain": 1.0,
+              "success_rate": 1.0,
+              "stagnation": 0,
+              "invalid_count": 0,
+              "blocked_count": 0,
+              "is_memory": 1.0,
+              "is_rag": 0.0,
+              "is_tools": 0.0,
+              "is_recovery": 0.0,
+              "is_prompt": 0.0
+            }
+          },
+          {
+            "module": "prompt",
+            "score": 0.5,
+            "features": {
+              "failure_count": 3,
+              "failure_rate": 0.5,
+              "attempted": 1,
+              "last_gain": 0.19047619047619047,
+              "has_gain": 1.0,
+              "success_rate": 1.0,
+              "stagnation": 0,
+              "invalid_count": 0,
+              "blocked_count": 0,
+              "is_memory": 0.0,
+              "is_rag": 0.0,
+              "is_tools": 0.0,
+              "is_recovery": 0.0,
+              "is_prompt": 1.0
+            }
+          }
+        ]
+      },
+      "policy": {
+        "status": "frozen"
+      },
+      "diff": "--- parent.json\n+++ candidate.json\n@@ -98,7 +98,7 @@\n       \"var\": \"failure_rate\"\n     }\n   },\n-  \"prompt\": \"Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.\",\n+  \"prompt\": \"Answer the user using the supplied evidence and tool results. Return JSON with answer (string) and evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose.\\n\\nResolution rules (apply generally, never assume specific values):\\n1. Prefer evidence that matches the queried entity (entity_match), is in the user's scope (scope_match), is trusted, available, and not deprecated. Among otherwise-valid candidates, prefer the freshest (smallest age) record over higher-overlap but older ones; treat stale records as superseded.\\n2. Authority: only trusted, in-scope sources may establish authoritative facts such as policy tiers. Untrusted or global-only sources may inform but cannot grant authority; if the only source for a required fact is untrusted, treat that fact as not established.\\n3. Tools: prefer read-only tools that match the entity and are available. If the top-ranked tool is unavailable or not read-only, fall back to the best available read-only tool that matches the entity (e.g., a live/current read-only lookup) before concluding failure. Retry only on retryable, non-permanent errors within the attempt limit.\\n4. Composition: when multiple fields are requested, resolve each field independently using rules 1-3 and join them in the requested order/format.\\n5. Only answer exactly UNKNOWN if, after applying rules 1-4, a required fact still cannot be established from trusted, in-scope, available evidence or a successful read-only tool result. Cite the evidence IDs actually used.\",\n   \"rag_score\": {\n     \"var\": \"overlap\"\n   },\n",
+      "train": {
+        "program_hash": "5dd7a586ea18b3cfb37453d3c3984c211b4136fbb055a52f5c631ba776a33603",
+        "passed": 13,
+        "total": 21,
+        "measurement_errors": 0,
+        "rate": 0.6190476190476191,
+        "families": {
+          "memory_temporal": {
+            "passed": 1,
+            "total": 3
+          },
+          "memory_scope": {
+            "passed": 2,
+            "total": 3
+          },
+          "rag_authority": {
+            "passed": 2,
+            "total": 3
+          },
+          "tool_routing": {
+            "passed": 2,
+            "total": 3
+          },
+          "tool_recovery": {
+            "passed": 3,
+            "total": 3
+          },
+          "composition": {
+            "passed": 0,
+            "total": 3
+          },
+          "clean": {
+            "passed": 3,
+            "total": 3
+          }
+        }
+      }
+    },
+    {
+      "name": "g3",
+      "program": {
+        "schema": 1,
+        "memory_score": {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "overlap"
+                },
+                0.5
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    {
+                      "var": "entity_match"
+                    },
+                    0.2
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        {
+                          "var": "scope_match"
+                        },
+                        0.1
+                      ]
+                    },
+                    {
+                      "op": "add",
+                      "args": [
+                        {
+                          "op": "mul",
+                          "args": [
+                            {
+                              "var": "trusted"
+                            },
+                            0.05
+                          ]
+                        },
+                        {
+                          "op": "add",
+                          "args": [
+                            {
+                              "op": "mul",
+                              "args": [
+                                {
+                                  "var": "available"
+                                },
+                                0.05
+                              ]
+                            },
+                            {
+                              "op": "mul",
+                              "args": [
+                                {
+                                  "op": "div",
+                                  "args": [
+                                    1,
+                                    {
+                                      "op": "add",
+                                      "args": [
+                                        1,
+                                        {
+                                          "var": "age"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                0.1
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "rag_score": {
+          "var": "overlap"
+        },
+        "tool_score": {
+          "var": "overlap"
+        },
+        "retry": {
+          "op": "and",
+          "args": [
+            {
+              "var": "error_retryable"
+            },
+            {
+              "op": "not",
+              "args": [
+                {
+                  "var": "error_permanent"
+                }
+              ]
+            },
+            {
+              "op": "lt",
+              "args": [
+                {
+                  "var": "attempt"
+                },
+                3
+              ]
+            }
+          ]
+        },
+        "memory_top_k": 3,
+        "rag_top_k": 2,
+        "max_attempts": 3,
+        "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string) and evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose.\n\nResolution rules (apply generally, never assume specific values):\n1. Prefer evidence that matches the queried entity (entity_match), is in the user's scope (scope_match), is trusted, available, and not deprecated. Among otherwise-valid candidates, prefer the freshest (smallest age) record over higher-overlap but older ones; treat stale records as superseded.\n2. Authority: only trusted, in-scope sources may establish authoritative facts such as policy tiers. Untrusted or global-only sources may inform but cannot grant authority; if the only source for a required fact is untrusted, treat that fact as not established.\n3. Tools: prefer read-only tools that match the entity and are available. If the top-ranked tool is unavailable or not read-only, fall back to the best available read-only tool that matches the entity (e.g., a live/current read-only lookup) before concluding failure. Retry only on retryable, non-permanent errors within the attempt limit.\n4. Composition: when multiple fields are requested, resolve each field independently using rules 1-3 and join them in the requested order/format.\n5. Only answer exactly UNKNOWN if, after applying rules 1-4, a required fact still cannot be established from trusted, in-scope, available evidence or a successful read-only tool result. Cite the evidence IDs actually used.",
+        "policy": {
+          "score": {
+            "var": "failure_rate"
+          },
+          "branches": 2
+        }
+      },
+      "transition": {
+        "generation": 3,
+        "parent_hash": "26d137e97b6680ec76180bc8d1abcedda904ca36dfb7577f0fcbb2404967475a",
+        "next_hash": "62d89034bb275e6e2ebf9ffbc13b3a7eb03d9063ed2015cb1343404b6a2c96b7",
+        "dev_before": 0.7142857142857143,
+        "dev_after": 0.9523809523809523,
+        "guard_before": 0.7857142857142857,
+        "guard_after": 1.0,
+        "mechanism_adopted": true,
+        "changed": true,
+        "policy_changed": false,
+        "policy_choice_changed": false,
+        "trials": [
+          {
+            "generation": 3,
+            "branch": 0,
+            "module": "rag",
+            "status": "executed",
+            "gain": 0.23809523809523803
+          },
+          {
+            "generation": 3,
+            "branch": 1,
+            "module": "prompt",
+            "status": "executed",
+            "gain": 0.1428571428571428
+          }
+        ]
+      },
+      "decisions": {
+        "loaded_program_hash": "26d137e97b6680ec76180bc8d1abcedda904ca36dfb7577f0fcbb2404967475a",
+        "state": {
+          "memory": {
+            "failure_count": 0,
+            "failure_rate": 0.0,
+            "attempted": 2,
+            "last_gain": 0.0,
+            "has_gain": 1.0,
+            "success_rate": 0.5,
+            "stagnation": 1,
+            "invalid_count": 0,
+            "blocked_count": 0
+          },
+          "rag": {
+            "failure_count": 3,
+            "failure_rate": 1.0,
+            "attempted": 0,
+            "last_gain": 0,
+            "has_gain": 0.0,
+            "success_rate": 0.0,
+            "stagnation": 0,
+            "invalid_count": 0,
+            "blocked_count": 0
+          },
+          "tools": {
+            "failure_count": 1,
+            "failure_rate": 0.3333333333333333,
+            "attempted": 0,
+            "last_gain": 0,
+            "has_gain": 0.0,
+            "success_rate": 0.0,
+            "stagnation": 0,
+            "invalid_count": 0,
+            "blocked_count": 0
+          },
+          "recovery": {
+            "failure_count": 0,
+            "failure_rate": 0.0,
+            "attempted": 2,
+            "last_gain": 0.09523809523809523,
+            "has_gain": 1.0,
+            "success_rate": 1.0,
+            "stagnation": 0,
+            "invalid_count": 0,
+            "blocked_count": 0
+          },
+          "prompt": {
+            "failure_count": 3,
+            "failure_rate": 0.5,
+            "attempted": 2,
+            "last_gain": 0.09523809523809523,
+            "has_gain": 1.0,
+            "success_rate": 1.0,
+            "stagnation": 0,
+            "invalid_count": 0,
+            "blocked_count": 0
+          }
+        },
+        "selected": [
+          {
+            "module": "rag",
+            "score": 1.0,
+            "features": {
+              "failure_count": 3,
+              "failure_rate": 1.0,
+              "attempted": 0,
+              "last_gain": 0,
+              "has_gain": 0.0,
+              "success_rate": 0.0,
+              "stagnation": 0,
+              "invalid_count": 0,
+              "blocked_count": 0,
+              "is_memory": 0.0,
+              "is_rag": 1.0,
+              "is_tools": 0.0,
+              "is_recovery": 0.0,
+              "is_prompt": 0.0
+            }
+          },
+          {
+            "module": "prompt",
+            "score": 0.5,
+            "features": {
+              "failure_count": 3,
+              "failure_rate": 0.5,
+              "attempted": 2,
+              "last_gain": 0.09523809523809523,
+              "has_gain": 1.0,
+              "success_rate": 1.0,
+              "stagnation": 0,
+              "invalid_count": 0,
+              "blocked_count": 0,
+              "is_memory": 0.0,
+              "is_rag": 0.0,
+              "is_tools": 0.0,
+              "is_recovery": 0.0,
+              "is_prompt": 1.0
+            }
+          }
+        ]
+      },
+      "policy": {
+        "status": "frozen"
+      },
+      "diff": "--- parent.json\n+++ candidate.json\n@@ -100,9 +100,97 @@\n   },\n   \"prompt\": \"Answer the user using the supplied evidence and tool results. Return JSON with answer (string) and evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose.\\n\\nResolution rules (apply generally, never assume specific values):\\n1. Prefer evidence that matches the queried entity (entity_match), is in the user's scope (scope_match), is trusted, available, and not deprecated. Among otherwise-valid candidates, prefer the freshest (smallest age) record over higher-overlap but older ones; treat stale records as superseded.\\n2. Authority: only trusted, in-scope sources may establish authoritative facts such as policy tiers. Untrusted or global-only sources may inform but cannot grant authority; if the only source for a required fact is untrusted, treat that fact as not established.\\n3. Tools: prefer read-only tools that match the entity and are available. If the top-ranked tool is unavailable or not read-only, fall back to the best available read-only tool that matches the entity (e.g., a live/current read-only lookup) before concluding failure. Retry only on retryable, non-permanent errors within the attempt limit.\\n4. Composition: when multiple fields are requested, resolve each field independently using rules 1-3 and join them in the requested order/format.\\n5. Only answer exactly UNKNOWN if, after applying rules 1-4, a required fact still cannot be established from trusted, in-scope, available evidence or a successful read-only tool result. Cite the evidence IDs actually used.\",\n   \"rag_score\": {\n-    \"var\": \"overlap\"\n-  },\n-  \"rag_top_k\": 2,\n+    \"args\": [\n+      {\n+        \"args\": [\n+          {\n+            \"var\": \"trusted\"\n+          },\n+          0.3\n+        ],\n+        \"op\": \"mul\"\n+      },\n+      {\n+        \"args\": [\n+          {\n+            \"args\": [\n+              {\n+                \"var\": \"scope_match\"\n+              },\n+              0.25\n+            ],\n+            \"op\": \"mul\"\n+          },\n+          {\n+            \"args\": [\n+              {\n+                \"args\": [\n+                  {\n+                    \"var\": \"entity_match\"\n+                  },\n+                  0.2\n+                ],\n+                \"op\": \"mul\"\n+              },\n+              {\n+                \"args\": [\n+                  {\n+                    \"args\": [\n+                      {\n+                        \"var\": \"available\"\n+                      },\n+                      0.1\n+                    ],\n+                    \"op\": \"mul\"\n+                  },\n+                  {\n+                    \"args\": [\n+                      {\n+                        \"args\": [\n+                          {\n+                            \"var\": \"overlap\"\n+                          },\n+                          0.1\n+                        ],\n+                        \"op\": \"mul\"\n+                      },\n+                      {\n+                        \"args\": [\n+                          {\n+                            \"args\": [\n+                              1,\n+                              {\n+                                \"args\": [\n+                                  1,\n+                                  {\n+                                    \"var\": \"age\"\n+                                  }\n+                                ],\n+                                \"op\": \"add\"\n+                              }\n+                            ],\n+                            \"op\": \"div\"\n+                          },\n+                          0.05\n+                        ],\n+                        \"op\": \"mul\"\n+                      }\n+                    ],\n+                    \"op\": \"add\"\n+                  }\n+                ],\n+                \"op\": \"add\"\n+              }\n+            ],\n+            \"op\": \"add\"\n+          }\n+        ],\n+        \"op\": \"add\"\n+      }\n+    ],\n+    \"op\": \"add\"\n+  },\n+  \"rag_top_k\": 4,\n   \"retry\": {\n     \"args\": [\n       {\n",
+      "train": {
+        "program_hash": "26d137e97b6680ec76180bc8d1abcedda904ca36dfb7577f0fcbb2404967475a",
+        "passed": 14,
+        "total": 21,
+        "measurement_errors": 0,
+        "rate": 0.6666666666666666,
+        "families": {
+          "memory_temporal": {
+            "passed": 3,
+            "total": 3
+          },
+          "memory_scope": {
+            "passed": 3,
+            "total": 3
+          },
+          "rag_authority": {
+            "passed": 0,
+            "total": 3
+          },
+          "tool_routing": {
+            "passed": 2,
+            "total": 3
+          },
+          "tool_recovery": {
+            "passed": 3,
+            "total": 3
+          },
+          "composition": {
+            "passed": 0,
+            "total": 3
+          },
+          "clean": {
+            "passed": 3,
+            "total": 3
+          }
+        }
+      }
+    },
+    {
+      "name": "g4",
+      "program": {
+        "schema": 1,
+        "memory_score": {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "overlap"
+                },
+                0.5
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    {
+                      "var": "entity_match"
+                    },
+                    0.2
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        {
+                          "var": "scope_match"
+                        },
+                        0.1
+                      ]
+                    },
+                    {
+                      "op": "add",
+                      "args": [
+                        {
+                          "op": "mul",
+                          "args": [
+                            {
+                              "var": "trusted"
+                            },
+                            0.05
+                          ]
+                        },
+                        {
+                          "op": "add",
+                          "args": [
+                            {
+                              "op": "mul",
+                              "args": [
+                                {
+                                  "var": "available"
+                                },
+                                0.05
+                              ]
+                            },
+                            {
+                              "op": "mul",
+                              "args": [
+                                {
+                                  "op": "div",
+                                  "args": [
+                                    1,
+                                    {
+                                      "op": "add",
+                                      "args": [
+                                        1,
+                                        {
+                                          "var": "age"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                0.1
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "rag_score": {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "trusted"
+                },
+                0.3
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    {
+                      "var": "scope_match"
+                    },
+                    0.25
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        {
+                          "var": "entity_match"
+                        },
+                        0.2
+                      ]
+                    },
+                    {
+                      "op": "add",
+                      "args": [
+                        {
+                          "op": "mul",
+                          "args": [
+                            {
+                              "var": "available"
+                            },
+                            0.1
+                          ]
+                        },
+                        {
+                          "op": "add",
+                          "args": [
+                            {
+                              "op": "mul",
+                              "args": [
+                                {
+                                  "var": "overlap"
+                                },
+                                0.1
+                              ]
+                            },
+                            {
+                              "op": "mul",
+                              "args": [
+                                {
+                                  "op": "div",
+                                  "args": [
+                                    1,
+                                    {
+                                      "op": "add",
+                                      "args": [
+                                        1,
+                                        {
+                                          "var": "age"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                0.05
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "tool_score": {
+          "var": "overlap"
+        },
+        "retry": {
+          "op": "and",
+          "args": [
+            {
+              "var": "error_retryable"
+            },
+            {
+              "op": "not",
+              "args": [
+                {
+                  "var": "error_permanent"
+                }
+              ]
+            },
+            {
+              "op": "lt",
+              "args": [
+                {
+                  "var": "attempt"
+                },
+                3
+              ]
+            }
+          ]
+        },
+        "memory_top_k": 3,
+        "rag_top_k": 4,
+        "max_attempts": 3,
+        "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string) and evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose.\n\nResolution rules (apply generally, never assume specific values):\n1. Prefer evidence that matches the queried entity (entity_match), is in the user's scope (scope_match), is trusted, available, and not deprecated. Among otherwise-valid candidates, prefer the freshest (smallest age) record over higher-overlap but older ones; treat stale records as superseded.\n2. Authority: only trusted, in-scope sources may establish authoritative facts such as policy tiers. Untrusted or global-only sources may inform but cannot grant authority; if the only source for a required fact is untrusted, treat that fact as not established.\n3. Tools: prefer read-only tools that match the entity and are available. If the top-ranked tool is unavailable or not read-only, fall back to the best available read-only tool that matches the entity (e.g., a live/current read-only lookup) before concluding failure. Retry only on retryable, non-permanent errors within the attempt limit.\n4. Composition: when multiple fields are requested, resolve each field independently using rules 1-3 and join them in the requested order/format.\n5. Only answer exactly UNKNOWN if, after applying rules 1-4, a required fact still cannot be established from trusted, in-scope, available evidence or a successful read-only tool result. Cite the evidence IDs actually used.",
+        "policy": {
+          "score": {
+            "var": "failure_rate"
+          },
+          "branches": 2
+        }
+      },
+      "transition": null,
+      "decisions": null,
+      "policy": null,
+      "diff": "No subsequent transition.",
+      "train": {}
+    }
+  ]
+}

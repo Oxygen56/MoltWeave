@@ -1,0 +1,101 @@
+{
+  "question_id": "57094ca7efce8f15003a7dd6",
+  "program_hash": "53ee13bae5ba6e37606bda2bb4bed5355ba61214fb848b58c8c111b7b02415b0",
+  "prediction": "using a Sky+ PVR with their service",
+  "exact_match": 0.0,
+  "f1": 0.5,
+  "output": {
+    "answer": "using a Sky+ PVR with their service",
+    "evidence_ids": [
+      "squad-p-c7f7d38db27f01fe"
+    ]
+  },
+  "ranking": [
+    {
+      "index": 0,
+      "id": "squad-p-c7f7d38db27f01fe",
+      "features": {
+        "overlap": 0.6666666666666666,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.6666666666666666
+    },
+    {
+      "index": 3,
+      "id": "squad-p-15c4a7645fd05e33",
+      "features": {
+        "overlap": 0.4444444444444444,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.4444444444444444
+    },
+    {
+      "index": 2,
+      "id": "squad-p-9e9e0b9b82db5a0d",
+      "features": {
+        "overlap": 0.2222222222222222,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.2222222222222222
+    },
+    {
+      "index": 4,
+      "id": "squad-p-b2f6b60d73898ed4",
+      "features": {
+        "overlap": 0.2222222222222222,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.2222222222222222
+    },
+    {
+      "index": 1,
+      "id": "squad-p-c6fa8d70eef45377",
+      "features": {
+        "overlap": 0.0,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.0
+    }
+  ],
+  "selected_ids": [
+    "squad-p-15c4a7645fd05e33",
+    "squad-p-c7f7d38db27f01fe"
+  ],
+  "gold_paragraph_retrieved": true,
+  "citation_ids_visible": true
+}

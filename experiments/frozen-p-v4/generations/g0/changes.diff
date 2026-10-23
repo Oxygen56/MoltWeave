@@ -1,0 +1,102 @@
+--- parent.json
++++ candidate.json
+@@ -1,9 +1,97 @@
+ {
+   "max_attempts": 3,
+   "memory_score": {
+-    "var": "overlap"
++    "args": [
++      {
++        "args": [
++          {
++            "var": "overlap"
++          },
++          0.5
++        ],
++        "op": "mul"
++      },
++      {
++        "args": [
++          {
++            "args": [
++              {
++                "var": "entity_match"
++              },
++              0.2
++            ],
++            "op": "mul"
++          },
++          {
++            "args": [
++              {
++                "args": [
++                  {
++                    "var": "scope_match"
++                  },
++                  0.1
++                ],
++                "op": "mul"
++              },
++              {
++                "args": [
++                  {
++                    "args": [
++                      {
++                        "var": "trusted"
++                      },
++                      0.05
++                    ],
++                    "op": "mul"
++                  },
++                  {
++                    "args": [
++                      {
++                        "args": [
++                          {
++                            "var": "available"
++                          },
++                          0.05
++                        ],
++                        "op": "mul"
++                      },
++                      {
++                        "args": [
++                          {
++                            "args": [
++                              1,
++                              {
++                                "args": [
++                                  1,
++                                  {
++                                    "var": "age"
++                                  }
++                                ],
++                                "op": "add"
++                              }
++                            ],
++                            "op": "div"
++                          },
++                          0.1
++                        ],
++                        "op": "mul"
++                      }
++                    ],
++                    "op": "add"
++                  }
++                ],
++                "op": "add"
++              }
++            ],
++            "op": "add"
++          }
++        ],
++        "op": "add"
++      }
++    ],
++    "op": "add"
+   },
+-  "memory_top_k": 2,
++  "memory_top_k": 3,
+   "policy": {
+     "branches": 2,
+     "score": {

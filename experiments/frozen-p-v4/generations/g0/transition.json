@@ -1,0 +1,29 @@
+{
+  "generation": 0,
+  "parent_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+  "next_hash": "5d073f1f320581ac13522514829e1a4564f166300224eac34c374b9348a790c4",
+  "dev_before": 0.3333333333333333,
+  "dev_after": 0.5238095238095238,
+  "guard_before": 0.5,
+  "guard_after": 0.5714285714285714,
+  "mechanism_adopted": true,
+  "changed": true,
+  "policy_changed": false,
+  "policy_choice_changed": false,
+  "trials": [
+    {
+      "generation": 0,
+      "branch": 0,
+      "module": "memory",
+      "status": "executed",
+      "gain": 0.19047619047619052
+    },
+    {
+      "generation": 0,
+      "branch": 1,
+      "module": "recovery",
+      "status": "executed",
+      "gain": 0.09523809523809523
+    }
+  ]
+}

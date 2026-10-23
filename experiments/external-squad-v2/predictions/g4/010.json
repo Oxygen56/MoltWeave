@@ -1,0 +1,101 @@
+{
+  "question_id": "572831512ca10214002da04d",
+  "program_hash": "53ee13bae5ba6e37606bda2bb4bed5355ba61214fb848b58c8c111b7b02415b0",
+  "prediction": "Joanna Lumley",
+  "exact_match": 1.0,
+  "f1": 1.0,
+  "output": {
+    "answer": "Joanna Lumley",
+    "evidence_ids": [
+      "squad-p-6fb4394a237c2fc2"
+    ]
+  },
+  "ranking": [
+    {
+      "index": 4,
+      "id": "squad-p-6fb4394a237c2fc2",
+      "features": {
+        "overlap": 0.6,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.6
+    },
+    {
+      "index": 3,
+      "id": "squad-p-3b3523a8a864b367",
+      "features": {
+        "overlap": 0.5,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.5
+    },
+    {
+      "index": 1,
+      "id": "squad-p-0b105cf0d3fa3423",
+      "features": {
+        "overlap": 0.4,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.4
+    },
+    {
+      "index": 0,
+      "id": "squad-p-c9ee813e512adfc0",
+      "features": {
+        "overlap": 0.3,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.3
+    },
+    {
+      "index": 2,
+      "id": "squad-p-0766b34c5f944ce3",
+      "features": {
+        "overlap": 0.3,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.3
+    }
+  ],
+  "selected_ids": [
+    "squad-p-3b3523a8a864b367",
+    "squad-p-6fb4394a237c2fc2"
+  ],
+  "gold_paragraph_retrieved": true,
+  "citation_ids_visible": true
+}

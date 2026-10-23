@@ -1,0 +1,236 @@
+{
+  "generation": 0,
+  "branch": 0,
+  "module": "memory",
+  "base_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+  "proposal": {
+    "hypothesis": "Failures stem from memory ranking by raw overlap alone: the top-ranked memory item is a stale/high-overlap record (age 18-20) that crowds out the correct current record (age 0, entity_match=1) which sits just below the top_k=2 cutoff, and in scope cases a non-entity-matching item outranks the entity-matching one. A general scoring function that rewards entity_match, scope_match, trusted, available, read_only and recency (penalizing age) while still using overlap as a tiebreaker will surface the correct current record within top_k, letting the model answer instead of defaulting to UNKNOWN. Separately, tool_routing picks an unavailable preview tool over the available current registry, and tool_recovery never retries transient errors; but only memory_score and memory_top_k are changeable here, so the fix targets memory ranking.",
+    "changes": {
+      "memory_score": {
+        "op": "add",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "overlap"
+              },
+              0.5
+            ]
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "entity_match"
+                  },
+                  0.2
+                ]
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "var": "scope_match"
+                      },
+                      0.1
+                    ]
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "var": "trusted"
+                          },
+                          0.05
+                        ]
+                      },
+                      {
+                        "op": "add",
+                        "args": [
+                          {
+                            "op": "mul",
+                            "args": [
+                              {
+                                "var": "available"
+                              },
+                              0.05
+                            ]
+                          },
+                          {
+                            "op": "mul",
+                            "args": [
+                              {
+                                "op": "div",
+                                "args": [
+                                  1,
+                                  {
+                                    "op": "add",
+                                    "args": [
+                                      1,
+                                      {
+                                        "var": "age"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              0.1
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "memory_top_k": 3
+    },
+    "predicted_behavior": "The correct current record (age 0, entity_match=1, scope_match=1) gains a recency bonus and entity/scope bonuses that lift it above stale high-overlap records and non-entity-matching distractors, so it enters the top_k=3 memory set. The model then has the needed channel/tier facts and returns the requested value with correct evidence IDs instead of UNKNOWN, improving memory_temporal, memory_scope, and composition families while leaving tool routing/recovery behavior unchanged.",
+    "regression_risk": "Raising top_k to 3 adds one extra memory item per query, slightly increasing prompt noise and token cost; the recency term could over-favor a fresh but low-overlap irrelevant record in rare cases, and the fixed weights are heuristic rather than learned, so some queries where overlap was the only reliable signal may rank slightly differently. Tool_routing and tool_recovery failures are not addressed by this change and will persist."
+  },
+  "program": {
+    "schema": 1,
+    "memory_score": {
+      "op": "add",
+      "args": [
+        {
+          "op": "mul",
+          "args": [
+            {
+              "var": "overlap"
+            },
+            0.5
+          ]
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "entity_match"
+                },
+                0.2
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    {
+                      "var": "scope_match"
+                    },
+                    0.1
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        {
+                          "var": "trusted"
+                        },
+                        0.05
+                      ]
+                    },
+                    {
+                      "op": "add",
+                      "args": [
+                        {
+                          "op": "mul",
+                          "args": [
+                            {
+                              "var": "available"
+                            },
+                            0.05
+                          ]
+                        },
+                        {
+                          "op": "mul",
+                          "args": [
+                            {
+                              "op": "div",
+                              "args": [
+                                1,
+                                {
+                                  "op": "add",
+                                  "args": [
+                                    1,
+                                    {
+                                      "var": "age"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            0.1
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rag_score": {
+      "var": "overlap"
+    },
+    "tool_score": {
+      "var": "overlap"
+    },
+    "retry": 0,
+    "memory_top_k": 3,
+    "rag_top_k": 2,
+    "max_attempts": 3,
+    "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+    "policy": {
+      "score": {
+        "var": "failure_rate"
+      },
+      "branches": 2
+    }
+  },
+  "risk": {
+    "sensitive": false,
+    "blocked": false,
+    "classification": "ordinary",
+    "reasons": [],
+    "changed_paths": [
+      "memory_score.args",
+      "memory_score.op",
+      "memory_score.var",
+      "memory_top_k"
+    ],
+    "before_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+    "after_hash": "5d073f1f320581ac13522514829e1a4564f166300224eac34c374b9348a790c4"
+  },
+  "status": "executed",
+  "gain": 0.19047619047619052,
+  "dev_rate": 0.5238095238095238,
+  "guard_rate": 0.5714285714285714,
+  "program_hash": "5d073f1f320581ac13522514829e1a4564f166300224eac34c374b9348a790c4",
+  "actual_loaded_hash": "5d073f1f320581ac13522514829e1a4564f166300224eac34c374b9348a790c4"
+}

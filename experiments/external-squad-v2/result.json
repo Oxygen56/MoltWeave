@@ -1,0 +1,25 @@
+{
+  "status": "completed",
+  "metrics": {
+    "g0": {
+      "questions": 24,
+      "exact_match": 66.66666666666667,
+      "f1": 77.60531135531136,
+      "gold_paragraph_recall": 0.9166666666666666
+    },
+    "g4": {
+      "questions": 24,
+      "exact_match": 66.66666666666667,
+      "f1": 77.60531135531136,
+      "gold_paragraph_recall": 0.9166666666666666
+    }
+  },
+  "terminal_minus_g0": {
+    "exact_match": 0.0,
+    "f1": 0.0,
+    "gold_paragraph_recall": 0.0
+  },
+  "claim_scope": "Small adapted RAG/prompt readout on public SQuAD 1.1 dev; not native/full SQuAD or an independent causal P estimate",
+  "selection_allowed": false,
+  "optimization_feedback_allowed": false
+}

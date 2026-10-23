@@ -1,0 +1,316 @@
+{
+  "generation": 3,
+  "branch": 1,
+  "module": "tools",
+  "base_hash": "63d4534c6ca256ac30f3ff4e8951a463ca618b14d37a69ae353d19aeba968c18",
+  "proposal": {
+    "hypothesis": "The tool_score ranks read_current_registry first correctly, but the answer failures stem from the agent returning UNKNOWN despite a successful live registry read whose token is in the tool result text, and from retry_decision returning 0 on retryable transient errors. Since only tool_score is editable, I will strengthen tool_score so the authoritative read-only live registry tool dominates more decisively over update_registry and read_archived_registry, ensuring the correct tool is selected and its evidence is surfaced; this is a general ranking change (read_only + available + entity_match + overlap, penalize deprecated) with no task-specific entities.",
+    "changes": {
+      "tool_score": {
+        "op": "add",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "overlap"
+              },
+              1.0
+            ]
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "entity_match"
+                  },
+                  2.0
+                ]
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "var": "read_only"
+                      },
+                      2.0
+                    ]
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "var": "available"
+                          },
+                          1.0
+                        ]
+                      },
+                      {
+                        "op": "add",
+                        "args": [
+                          {
+                            "op": "mul",
+                            "args": [
+                              {
+                                "var": "trusted"
+                              },
+                              1.0
+                            ]
+                          },
+                          {
+                            "op": "mul",
+                            "args": [
+                              -2.0,
+                              {
+                                "var": "deprecated"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "predicted_behavior": "read_current_registry (read_only=1, entity_match=1, available=1, trusted=1, deprecated=0) scores substantially higher than update_registry (read_only=0) and read_archived_registry (deprecated=1), so the live read-only registry is consistently selected first across memory_temporal, rag_authority, tool_recovery, and composition families, improving the chance the correct token evidence is retrieved and cited.",
+    "regression_risk": "Raising entity_match and read_only weights could over-prioritize a read-only tool that matches the entity but is not the intended one in edge cases; deprecated penalty of -2.0 may suppress a legitimately needed archived tool when no live alternative exists. Retry behavior (retry_decision) is outside the editable field and remains unfixed, so tool_recovery attempt-count failures may persist."
+  },
+  "program": {
+    "schema": 1,
+    "memory_score": {
+      "op": "add",
+      "args": [
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "entity_match"
+                },
+                2.0
+              ]
+            },
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "scope_match"
+                },
+                1.0
+              ]
+            }
+          ]
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "overlap"
+                },
+                1.0
+              ]
+            },
+            {
+              "op": "div",
+              "args": [
+                1.0,
+                {
+                  "op": "add",
+                  "args": [
+                    1.0,
+                    {
+                      "var": "age"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rag_score": {
+      "var": "overlap"
+    },
+    "tool_score": {
+      "op": "add",
+      "args": [
+        {
+          "op": "mul",
+          "args": [
+            {
+              "var": "overlap"
+            },
+            1.0
+          ]
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "entity_match"
+                },
+                2.0
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    {
+                      "var": "read_only"
+                    },
+                    2.0
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        {
+                          "var": "available"
+                        },
+                        1.0
+                      ]
+                    },
+                    {
+                      "op": "add",
+                      "args": [
+                        {
+                          "op": "mul",
+                          "args": [
+                            {
+                              "var": "trusted"
+                            },
+                            1.0
+                          ]
+                        },
+                        {
+                          "op": "mul",
+                          "args": [
+                            -2.0,
+                            {
+                              "var": "deprecated"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "retry": 0,
+    "memory_top_k": 3,
+    "rag_top_k": 2,
+    "max_attempts": 3,
+    "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+    "policy": {
+      "score": {
+        "op": "add",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              0.6,
+              {
+                "var": "failure_rate"
+              }
+            ]
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  0.9,
+                  {
+                    "op": "sub",
+                    "args": [
+                      1,
+                      {
+                        "var": "attempted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      0.7,
+                      {
+                        "var": "last_gain"
+                      }
+                    ]
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      -1.2,
+                      {
+                        "var": "stagnation"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "branches": 2
+    }
+  },
+  "risk": {
+    "sensitive": false,
+    "blocked": false,
+    "classification": "ordinary",
+    "reasons": [],
+    "changed_paths": [
+      "tool_score.args"
+    ],
+    "before_hash": "63d4534c6ca256ac30f3ff4e8951a463ca618b14d37a69ae353d19aeba968c18",
+    "after_hash": "0c4a2b503e64be3625a662229ee8c26fb2b01ba3b2232f46a196a0c98b1bcbee"
+  },
+  "status": "executed",
+  "gain": 0.09523809523809523,
+  "dev_rate": 0.6666666666666666,
+  "guard_rate": 0.7142857142857143,
+  "program_hash": "0c4a2b503e64be3625a662229ee8c26fb2b01ba3b2232f46a196a0c98b1bcbee",
+  "actual_loaded_hash": "0c4a2b503e64be3625a662229ee8c26fb2b01ba3b2232f46a196a0c98b1bcbee"
+}

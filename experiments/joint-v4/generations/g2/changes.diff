@@ -1,0 +1,82 @@
+--- parent.json
++++ candidate.json
+@@ -128,9 +128,77 @@
+   },
+   "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+   "rag_score": {
+-    "var": "overlap"
++    "args": [
++      {
++        "var": "overlap"
++      },
++      {
++        "args": [
++          {
++            "args": [
++              2,
++              {
++                "var": "trusted"
++              }
++            ],
++            "op": "mul"
++          },
++          {
++            "args": [
++              {
++                "args": [
++                  1.5,
++                  {
++                    "var": "scope_match"
++                  }
++                ],
++                "op": "mul"
++              },
++              {
++                "args": [
++                  {
++                    "args": [
++                      1.5,
++                      {
++                        "var": "entity_match"
++                      }
++                    ],
++                    "op": "mul"
++                  },
++                  {
++                    "args": [
++                      0.5,
++                      {
++                        "args": [
++                          1,
++                          {
++                            "args": [
++                              1,
++                              {
++                                "var": "age"
++                              }
++                            ],
++                            "op": "add"
++                          }
++                        ],
++                        "op": "div"
++                      }
++                    ],
++                    "op": "mul"
++                  }
++                ],
++                "op": "add"
++              }
++            ],
++            "op": "add"
++          }
++        ],
++        "op": "add"
++      }
++    ],
++    "op": "add"
+   },
+-  "rag_top_k": 2,
++  "rag_top_k": 3,
+   "retry": 0,
+   "schema": 1,
+   "tool_score": {

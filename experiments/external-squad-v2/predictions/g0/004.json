@@ -1,0 +1,101 @@
+{
+  "question_id": "5711607f2419e314009555ce",
+  "program_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+  "prediction": "electric motors",
+  "exact_match": 1.0,
+  "f1": 1.0,
+  "output": {
+    "answer": "electric motors",
+    "evidence_ids": [
+      "squad-p-4fe9cde088e3075b"
+    ]
+  },
+  "ranking": [
+    {
+      "index": 1,
+      "id": "squad-p-4fe9cde088e3075b",
+      "features": {
+        "overlap": 0.5384615384615384,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.5384615384615384
+    },
+    {
+      "index": 2,
+      "id": "squad-p-6cfef665b19d642b",
+      "features": {
+        "overlap": 0.3076923076923077,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.3076923076923077
+    },
+    {
+      "index": 4,
+      "id": "squad-p-9787b9025fb91dde",
+      "features": {
+        "overlap": 0.3076923076923077,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.3076923076923077
+    },
+    {
+      "index": 0,
+      "id": "squad-p-843b477107f7c154",
+      "features": {
+        "overlap": 0.23076923076923078,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.23076923076923078
+    },
+    {
+      "index": 3,
+      "id": "squad-p-501f98fe72ec9e12",
+      "features": {
+        "overlap": 0.15384615384615385,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.15384615384615385
+    }
+  ],
+  "selected_ids": [
+    "squad-p-4fe9cde088e3075b",
+    "squad-p-6cfef665b19d642b"
+  ],
+  "gold_paragraph_retrieved": true,
+  "citation_ids_visible": true
+}

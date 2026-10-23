@@ -1,0 +1,9 @@
+{
+  "status": "measurement_incomplete",
+  "error_type": "ValueError",
+  "completed_questions_by_arm": {
+    "g0": 0,
+    "g4": 0
+  },
+  "optimization_feedback_allowed": false
+}

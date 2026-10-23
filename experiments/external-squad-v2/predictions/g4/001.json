@@ -1,0 +1,101 @@
+{
+  "question_id": "572fac17947a6a140053cb55",
+  "program_hash": "53ee13bae5ba6e37606bda2bb4bed5355ba61214fb848b58c8c111b7b02415b0",
+  "prediction": "Scotland Act 1998",
+  "exact_match": 1.0,
+  "f1": 1.0,
+  "output": {
+    "answer": "Scotland Act 1998",
+    "evidence_ids": [
+      "squad-p-547345cae1cef372"
+    ]
+  },
+  "ranking": [
+    {
+      "index": 1,
+      "id": "squad-p-547345cae1cef372",
+      "features": {
+        "overlap": 0.75,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.75
+    },
+    {
+      "index": 0,
+      "id": "squad-p-e4afa4e543b6940a",
+      "features": {
+        "overlap": 0.4166666666666667,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.4166666666666667
+    },
+    {
+      "index": 4,
+      "id": "squad-p-755dac3729029e2e",
+      "features": {
+        "overlap": 0.3333333333333333,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.3333333333333333
+    },
+    {
+      "index": 2,
+      "id": "squad-p-15095a01426c48aa",
+      "features": {
+        "overlap": 0.25,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.25
+    },
+    {
+      "index": 3,
+      "id": "squad-p-2e33f08772f728ba",
+      "features": {
+        "overlap": 0.25,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.25
+    }
+  ],
+  "selected_ids": [
+    "squad-p-547345cae1cef372",
+    "squad-p-e4afa4e543b6940a"
+  ],
+  "gold_paragraph_retrieved": true,
+  "citation_ids_visible": true
+}

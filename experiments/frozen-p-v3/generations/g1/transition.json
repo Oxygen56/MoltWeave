@@ -1,0 +1,29 @@
+{
+  "generation": 1,
+  "parent_hash": "daf7facc98e6468aea7202330420be40d94f984547b03a1bab2b1aca5758da58",
+  "next_hash": "be27b232affd7caede6d4d23818166b868bf3526b734b0f90825591f32bbd911",
+  "dev_before": 0.5714285714285714,
+  "dev_after": 0.8095238095238095,
+  "guard_before": 0.7857142857142857,
+  "guard_after": 0.8571428571428571,
+  "mechanism_adopted": true,
+  "changed": true,
+  "policy_changed": false,
+  "policy_choice_changed": false,
+  "trials": [
+    {
+      "generation": 1,
+      "branch": 0,
+      "module": "rag",
+      "status": "executed",
+      "gain": 0.23809523809523814
+    },
+    {
+      "generation": 1,
+      "branch": 1,
+      "module": "recovery",
+      "status": "rejected_or_failed",
+      "gain": 0
+    }
+  ]
+}

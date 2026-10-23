@@ -1,0 +1,85 @@
+{
+  "cost": {
+    "logical_calls": 1114,
+    "physical_attempts": 1115,
+    "prompt_tokens": 833659,
+    "completion_tokens": 49115,
+    "failed_physical_attempts": 1,
+    "by_purpose": {
+      "task": 1100,
+      "mechanism_repair": 3,
+      "mechanism_proposal": 8,
+      "policy_proposal": 4
+    },
+    "money": "Not estimated: preserve provider usage; pricing/caching should be applied from the actual invoice."
+  },
+  "paired": {
+    "final": {
+      "tasks": 70,
+      "improved": 26,
+      "regressed": 0,
+      "both_correct": 39,
+      "both_wrong": 5,
+      "delta_percentage_points": 37.142857142857146,
+      "exact_mcnemar_two_sided_p": 2.9802322387695312e-08,
+      "inference_limit": "One run per task; authored correlated templates, one provider. The p-value does not establish open-world generality or independent P benefit."
+    },
+    "transfer": {
+      "tasks": 70,
+      "improved": 22,
+      "regressed": 0,
+      "both_correct": 38,
+      "both_wrong": 10,
+      "delta_percentage_points": 31.428571428571427,
+      "exact_mcnemar_two_sided_p": 4.76837158203125e-07,
+      "inference_limit": "One run per task; authored correlated templates, one provider. The p-value does not establish open-world generality or independent P benefit."
+    }
+  },
+  "posthoc_execution_conditions": {
+    "final": {
+      "g0": {
+        "sufficient_visible_support_and_correct_tool_sequence": 40,
+        "total": 70
+      },
+      "g1": {
+        "sufficient_visible_support_and_correct_tool_sequence": 40,
+        "total": 70
+      },
+      "g2": {
+        "sufficient_visible_support_and_correct_tool_sequence": 55,
+        "total": 70
+      },
+      "g3": {
+        "sufficient_visible_support_and_correct_tool_sequence": 55,
+        "total": 70
+      },
+      "g4": {
+        "sufficient_visible_support_and_correct_tool_sequence": 67,
+        "total": 70
+      }
+    },
+    "transfer": {
+      "g0": {
+        "sufficient_visible_support_and_correct_tool_sequence": 40,
+        "total": 70
+      },
+      "g1": {
+        "sufficient_visible_support_and_correct_tool_sequence": 40,
+        "total": 70
+      },
+      "g2": {
+        "sufficient_visible_support_and_correct_tool_sequence": 52,
+        "total": 70
+      },
+      "g3": {
+        "sufficient_visible_support_and_correct_tool_sequence": 55,
+        "total": 70
+      },
+      "g4": {
+        "sufficient_visible_support_and_correct_tool_sequence": 67,
+        "total": 70
+      }
+    }
+  },
+  "posthoc_condition_scope": "Diagnostic after readout: supporting evidence present and actual tool path/attempts correct. Not a replacement for end-to-end answer score, no optimization feedback."
+}

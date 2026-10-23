@@ -1,0 +1,13 @@
+{
+  "reason": "Exact execution and scoring source for immutable v3 experiment; live package may receive later conventional engineering fixes.",
+  "manifest_file": "../manifest.json",
+  "source_files_verified": [
+    "benchmarks.py",
+    "runtime.py",
+    "program.py",
+    "evolution.py",
+    "llm.py",
+    "governance.py",
+    "common.py"
+  ]
+}

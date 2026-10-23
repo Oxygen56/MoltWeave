@@ -1,0 +1,69 @@
+{
+  "id": "3272a1369cdf4957a909749d0f18f2a1",
+  "purpose": "research_deep_review",
+  "metadata": {
+    "paper_id": "2609.14858v2",
+    "source_sha256": "59e4289e6a447802690ac25b795553a4e825fe67b7e2db71e57ea17ea6aba995",
+    "decision_context_opt_in": false,
+    "decision_context_ids": []
+  },
+  "model_requested": "deepseek-flash",
+  "model_returned": "deepseek-flash",
+  "endpoint_host": "api.deepseek.com",
+  "request_hash": "3502520e7bd40cc6a64a569f56ddaeb3933483a8bfaabc41917b5b87b7571833",
+  "started_at": 1792745417.694898,
+  "status": "completed",
+  "usage": {
+    "prompt_tokens": 40414,
+    "completion_tokens": 2696,
+    "total_tokens": 43110,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 40414
+  },
+  "response_id": "fec9d1d8-6735-486a-8661-3ecaf635ce2b",
+  "finish_reason": "stop",
+  "attempts": 1,
+  "elapsed_seconds": 20.428,
+  "request_parameters": {
+    "model": "deepseek-flash",
+    "temperature": 0,
+    "max_tokens": 4096,
+    "response_format": {
+      "type": "json_object"
+    },
+    "thinking": {
+      "type": "disabled"
+    }
+  },
+  "physical_attempts": [
+    {
+      "number": 1,
+      "started_at": 1792745417.694902,
+      "status": "completed",
+      "usage": {
+        "prompt_tokens": 40414,
+        "completion_tokens": 2696,
+        "total_tokens": 43110,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 40414
+      },
+      "response_id": "fec9d1d8-6735-486a-8661-3ecaf635ce2b",
+      "finish_reason": "stop"
+    }
+  ],
+  "content_sha256": "47866167f0a6fc47f79abaa0be51677c5b0712afaa51806495f03abed1a50053",
+  "private_original_receipt_sha256": "fb5ffd0f6f35804b5864bbca59e60e28b020f72df9758ad4f20aca54bf072ce2",
+  "redacted_fields": [
+    "messages",
+    "content",
+    "physical_attempts[].content"
+  ],
+  "private_data_or_feedback_submitted": false,
+  "scope_note": "Public arXiv HTML text and fixed review instructions only. No repository code or experiments were executed."
+}

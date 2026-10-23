@@ -1,0 +1,101 @@
+{
+  "question_id": "5730afed069b531400832260",
+  "program_hash": "53ee13bae5ba6e37606bda2bb4bed5355ba61214fb848b58c8c111b7b02415b0",
+  "prediction": "Sanctifying Grace",
+  "exact_match": 1.0,
+  "f1": 1.0,
+  "output": {
+    "answer": "Sanctifying Grace",
+    "evidence_ids": [
+      "squad-p-ccdf488e43469629"
+    ]
+  },
+  "ranking": [
+    {
+      "index": 3,
+      "id": "squad-p-ccdf488e43469629",
+      "features": {
+        "overlap": 0.8666666666666667,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.8666666666666667
+    },
+    {
+      "index": 1,
+      "id": "squad-p-845510924fab3303",
+      "features": {
+        "overlap": 0.3333333333333333,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.3333333333333333
+    },
+    {
+      "index": 2,
+      "id": "squad-p-262dd8fd6f6ab570",
+      "features": {
+        "overlap": 0.3333333333333333,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.3333333333333333
+    },
+    {
+      "index": 4,
+      "id": "squad-p-a15dec45495652ee",
+      "features": {
+        "overlap": 0.26666666666666666,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.26666666666666666
+    },
+    {
+      "index": 0,
+      "id": "squad-p-e97cd4305c5234ea",
+      "features": {
+        "overlap": 0.2,
+        "age": 0.0,
+        "trusted": 1.0,
+        "scope_match": 0.0,
+        "global_scope": 1.0,
+        "entity_match": 0.0,
+        "deprecated": 0.0,
+        "available": 1.0,
+        "read_only": 1.0
+      },
+      "score": 0.2
+    }
+  ],
+  "selected_ids": [
+    "squad-p-845510924fab3303",
+    "squad-p-ccdf488e43469629"
+  ],
+  "gold_paragraph_retrieved": true,
+  "citation_ids_visible": true
+}

@@ -1,0 +1,204 @@
+{
+  "status": "prospective_adoption",
+  "proposal": {
+    "hypothesis": "The current policy overweights attempted and failure_rate, causing repeated invalid attempts on recovery (2 invalid, 0 gain) while ignoring modules with high failure_rate but no attempts (prompt, tools, rag). A better meta-exploration policy should prioritize modules with high failure_rate and zero attempted (unexplored defects) and penalize modules with repeated invalid_count, while still rewarding recent gain. This preserves exploration of real defects and avoids stagnation on recovery.",
+    "policy": {
+      "score": {
+        "op": "add",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              2,
+              {
+                "op": "sub",
+                "args": [
+                  1,
+                  {
+                    "var": "attempted"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "var": "failure_rate"
+              },
+              {
+                "op": "mul",
+                "args": [
+                  0.5,
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "var": "stagnation"
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          2,
+                          {
+                            "var": "invalid_count"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "branches": 2
+    },
+    "predicted_decision_change": "Next generation will rank prompt (failure_rate=0.5, attempted=0, invalid_count=0) and tools/rag (failure_rate=0.333, attempted=0) above recovery (failure_rate=0.667, attempted=2, invalid_count=2), shifting exploration from repeatedly invalid recovery attempts to unexplored high-failure modules, while memory (attempted=2, has_gain=1) remains lower priority due to attempted penalty."
+  },
+  "evaluation_state": {
+    "memory": {
+      "failure_count": 2,
+      "failure_rate": 0.3333333333333333,
+      "attempted": 2,
+      "last_gain": 0.28571428571428575,
+      "has_gain": 1.0,
+      "success_rate": 1.0,
+      "stagnation": 0,
+      "invalid_count": 1,
+      "blocked_count": 0
+    },
+    "rag": {
+      "failure_count": 1,
+      "failure_rate": 0.3333333333333333,
+      "attempted": 1,
+      "last_gain": 0.1428571428571429,
+      "has_gain": 1.0,
+      "success_rate": 1.0,
+      "stagnation": 0,
+      "invalid_count": 0,
+      "blocked_count": 0
+    },
+    "tools": {
+      "failure_count": 1,
+      "failure_rate": 0.3333333333333333,
+      "attempted": 0,
+      "last_gain": 0,
+      "has_gain": 0.0,
+      "success_rate": 0.0,
+      "stagnation": 0,
+      "invalid_count": 0,
+      "blocked_count": 0
+    },
+    "recovery": {
+      "failure_count": 2,
+      "failure_rate": 0.6666666666666666,
+      "attempted": 2,
+      "last_gain": 0,
+      "has_gain": 0.0,
+      "success_rate": 0.0,
+      "stagnation": 0,
+      "invalid_count": 2,
+      "blocked_count": 0
+    },
+    "prompt": {
+      "failure_count": 3,
+      "failure_rate": 0.5,
+      "attempted": 1,
+      "last_gain": 0.1428571428571429,
+      "has_gain": 1.0,
+      "success_rate": 1.0,
+      "stagnation": 0,
+      "invalid_count": 0,
+      "blocked_count": 0
+    }
+  },
+  "old_choices": [
+    {
+      "module": "tools",
+      "score": 2.3333333333333335,
+      "features": {
+        "failure_count": 1,
+        "failure_rate": 0.3333333333333333,
+        "attempted": 0,
+        "last_gain": 0,
+        "has_gain": 0.0,
+        "success_rate": 0.0,
+        "stagnation": 0,
+        "invalid_count": 0,
+        "blocked_count": 0,
+        "is_memory": 0.0,
+        "is_rag": 0.0,
+        "is_tools": 1.0,
+        "is_recovery": 0.0,
+        "is_prompt": 0.0
+      }
+    },
+    {
+      "module": "recovery",
+      "score": 0.6666666666666665,
+      "features": {
+        "failure_count": 2,
+        "failure_rate": 0.6666666666666666,
+        "attempted": 2,
+        "last_gain": 0,
+        "has_gain": 0.0,
+        "success_rate": 0.0,
+        "stagnation": 0,
+        "invalid_count": 2,
+        "blocked_count": 0,
+        "is_memory": 0.0,
+        "is_rag": 0.0,
+        "is_tools": 0.0,
+        "is_recovery": 1.0,
+        "is_prompt": 0.0
+      }
+    }
+  ],
+  "new_choices": [
+    {
+      "module": "tools",
+      "score": 2.3333333333333335,
+      "features": {
+        "failure_count": 1,
+        "failure_rate": 0.3333333333333333,
+        "attempted": 0,
+        "last_gain": 0,
+        "has_gain": 0.0,
+        "success_rate": 0.0,
+        "stagnation": 0,
+        "invalid_count": 0,
+        "blocked_count": 0,
+        "is_memory": 0.0,
+        "is_rag": 0.0,
+        "is_tools": 1.0,
+        "is_recovery": 0.0,
+        "is_prompt": 0.0
+      }
+    },
+    {
+      "module": "recovery",
+      "score": 0.6666666666666665,
+      "features": {
+        "failure_count": 2,
+        "failure_rate": 0.6666666666666666,
+        "attempted": 2,
+        "last_gain": 0,
+        "has_gain": 0.0,
+        "success_rate": 0.0,
+        "stagnation": 0,
+        "invalid_count": 2,
+        "blocked_count": 0,
+        "is_memory": 0.0,
+        "is_rag": 0.0,
+        "is_tools": 0.0,
+        "is_recovery": 1.0,
+        "is_prompt": 0.0
+      }
+    }
+  ],
+  "choice_changed": false,
+  "benefit_claim": "not established by adoption; requires later actual search and control"
+}

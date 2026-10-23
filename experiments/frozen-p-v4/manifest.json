@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "seed": 29,
+  "started_at": 1792745930.886432,
+  "generations_requested": 4,
+  "model": "deepseek-flash",
+  "evolve_p": false,
+  "evolve_m": true,
+  "acceptance_per_family": 10,
+  "frozen_code": {
+    "benchmarks.py": "9701ce959ca54fd03a23dc060c8fb1a7b65179727694341640a7c97ff6ada619",
+    "runtime.py": "084ddef403355d0d77e5f211e6e2197b57715bab902eafaa29fd633d7d3b1789",
+    "program.py": "df2fda256db06def686b652ace7e92097f53cf0333acb05c2ddb6355b68b13ad",
+    "evolution.py": "2476731045890ebdb91b3bdc38593bde14e39a2c036d25b099d4e85a60f2c335",
+    "llm.py": "44b8064963a2032f059dfdea041e6285d8fb575f2a38af0f4f905a03fa5d2171",
+    "governance.py": "3e367a1ba7b65a0e5d46f6ae866875f7fd4e216745929e4a137fd9479941c0fa",
+    "common.py": "77671ea007a9fdd71935a3683e37d7a16c2424914a884ab5d12157c89d82f78c"
+  },
+  "provider_contract": {
+    "task_max_tokens": 2048,
+    "temperature_requested": 0,
+    "thinking": "disabled on DeepSeek",
+    "physical_attempts_retained": true
+  },
+  "split_hashes": {
+    "train": "616a3adeb1dbb8a6cd83bade08a4b67b3b0ef8560fc52c86206fbc6d5aeafdef",
+    "dev": "6c47bfeecc05f3dad77ef5d0edd852193d6ace2b368196857577766f0a46a61b",
+    "guard": "fa483ce78dfc2cd6e51c1754eb199f4fca6934f30a5e319264f7ec6eff0a13ae",
+    "final": "4a175b4716f045548c9c12a80a8afd86b91f65876760aee2439bb97e9382cd23",
+    "transfer": "464b929422bac4dd7158e5099cd0074bfaa5539a0b7de941e4b7f735724a9de5"
+  },
+  "protocol": {
+    "primary": "exact answer + visible supporting evidence + correct executed tool and attempts",
+    "promotion": "strict development gain and no guard aggregate regression; final never used for selection",
+    "policy_promotion": "legal changed program and prospective branch decision; benefit tested separately, not assumed",
+    "invalid_candidate": "one actual model repair; unresolved effect unknown; never counted as observed zero gain",
+    "scope": "authored public synthetic mechanism benchmark; not official benchmark reproduction"
+  }
+}

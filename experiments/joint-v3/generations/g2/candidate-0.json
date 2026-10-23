@@ -1,0 +1,284 @@
+{
+  "generation": 2,
+  "branch": 0,
+  "module": "tools",
+  "base_hash": "d5324c60fb5640b8400bb047d07caa4aadf15818189eea38fb64d05b52838866",
+  "proposal": {
+    "hypothesis": "The tool_score currently uses only overlap, so unavailable tools (available=0) and non-read-only mutating tools (read_only=0) can outrank the correct read-only live registry tool, and deprecated tools are not penalized. Adding general structural terms (entity_match, read_only, available, and a deprecated penalty) to tool_score will route to the correct read-only live tool, fixing tool_routing and enabling recovery/composition families to obtain the token.",
+    "changes": {
+      "tool_score": {
+        "op": "add",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              {
+                "var": "overlap"
+              },
+              1.0
+            ]
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  {
+                    "var": "entity_match"
+                  },
+                  1.0
+                ]
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "var": "read_only"
+                      },
+                      1.0
+                    ]
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "op": "mul",
+                        "args": [
+                          {
+                            "var": "available"
+                          },
+                          1.0
+                        ]
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          -1.0,
+                          {
+                            "var": "deprecated"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "predicted_behavior": "read_current_registry (entity_match=1, read_only=1, available=1, deprecated=0) scores ~3.26 vs read_registry_preview (available=0) ~1.28, update_registry (read_only=0) ~2.13, and read_archived_registry (deprecated=1) ~2.12, so the live read-only tool is selected first; tool_routing and tool_recovery families then retrieve the token and composition families can assemble channel|tier|token.",
+    "regression_risk": "Moderate: the added constant terms dominate overlap, so among equally-available read-only tools the highest-overlap one may not always win; if a task legitimately requires a non-read-only or archived tool, the penalty could misroute. Mitigated because all observed tasks require read-only live lookups."
+  },
+  "program": {
+    "schema": 1,
+    "memory_score": {
+      "op": "add",
+      "args": [
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "entity_match"
+                },
+                2.0
+              ]
+            },
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "scope_match"
+                },
+                1.0
+              ]
+            }
+          ]
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "overlap"
+                },
+                1.0
+              ]
+            },
+            {
+              "op": "div",
+              "args": [
+                1.0,
+                {
+                  "op": "add",
+                  "args": [
+                    1.0,
+                    {
+                      "var": "age"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rag_score": {
+      "var": "overlap"
+    },
+    "tool_score": {
+      "op": "add",
+      "args": [
+        {
+          "op": "mul",
+          "args": [
+            {
+              "var": "overlap"
+            },
+            1.0
+          ]
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "var": "entity_match"
+                },
+                1.0
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    {
+                      "var": "read_only"
+                    },
+                    1.0
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        {
+                          "var": "available"
+                        },
+                        1.0
+                      ]
+                    },
+                    {
+                      "op": "mul",
+                      "args": [
+                        -1.0,
+                        {
+                          "var": "deprecated"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "retry": 0,
+    "memory_top_k": 3,
+    "rag_top_k": 2,
+    "max_attempts": 3,
+    "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+    "policy": {
+      "score": {
+        "op": "add",
+        "args": [
+          {
+            "var": "failure_rate"
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  0.8,
+                  {
+                    "op": "sub",
+                    "args": [
+                      1,
+                      {
+                        "var": "attempted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      0.5,
+                      {
+                        "var": "last_gain"
+                      }
+                    ]
+                  },
+                  {
+                    "op": "mul",
+                    "args": [
+                      -0.6,
+                      {
+                        "var": "stagnation"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "branches": 2
+    }
+  },
+  "risk": {
+    "sensitive": false,
+    "blocked": false,
+    "classification": "ordinary",
+    "reasons": [],
+    "changed_paths": [
+      "tool_score.args",
+      "tool_score.op",
+      "tool_score.var"
+    ],
+    "before_hash": "d5324c60fb5640b8400bb047d07caa4aadf15818189eea38fb64d05b52838866",
+    "after_hash": "435842dc1d5efbf7c1c859e8196b5fd4666f32d52ec07b37bd9aa4936b8835fe"
+  },
+  "status": "executed",
+  "gain": 0.04761904761904756,
+  "dev_rate": 0.6666666666666666,
+  "guard_rate": 0.7142857142857143,
+  "program_hash": "435842dc1d5efbf7c1c859e8196b5fd4666f32d52ec07b37bd9aa4936b8835fe",
+  "actual_loaded_hash": "435842dc1d5efbf7c1c859e8196b5fd4666f32d52ec07b37bd9aa4936b8835fe"
+}

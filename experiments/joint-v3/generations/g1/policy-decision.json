@@ -1,0 +1,81 @@
+{
+  "loaded_program_hash": "b1c6f028a1a3dc532e04937a963cb62e81a068707ab809aaa514c9d4f96fa4eb",
+  "state": {
+    "memory": {
+      "failure_count": 2,
+      "failure_rate": 0.3333333333333333,
+      "attempted": 1,
+      "last_gain": 0.23809523809523814,
+      "success_rate": 1.0,
+      "stagnation": 0
+    },
+    "rag": {
+      "failure_count": 2,
+      "failure_rate": 0.6666666666666666,
+      "attempted": 0,
+      "last_gain": 0,
+      "success_rate": 0.0,
+      "stagnation": 0
+    },
+    "tools": {
+      "failure_count": 1,
+      "failure_rate": 0.3333333333333333,
+      "attempted": 0,
+      "last_gain": 0,
+      "success_rate": 0.0,
+      "stagnation": 0
+    },
+    "recovery": {
+      "failure_count": 2,
+      "failure_rate": 0.6666666666666666,
+      "attempted": 1,
+      "last_gain": 0,
+      "success_rate": 0.0,
+      "stagnation": 1
+    },
+    "prompt": {
+      "failure_count": 2,
+      "failure_rate": 0.3333333333333333,
+      "attempted": 0,
+      "last_gain": 0,
+      "success_rate": 0.0,
+      "stagnation": 0
+    }
+  },
+  "selected": [
+    {
+      "module": "recovery",
+      "score": 1.1666666666666665,
+      "features": {
+        "failure_count": 2,
+        "failure_rate": 0.6666666666666666,
+        "attempted": 1,
+        "last_gain": 0,
+        "success_rate": 0.0,
+        "stagnation": 1,
+        "is_memory": 0.0,
+        "is_rag": 0.0,
+        "is_tools": 0.0,
+        "is_recovery": 1.0,
+        "is_prompt": 0.0
+      }
+    },
+    {
+      "module": "rag",
+      "score": 0.9666666666666666,
+      "features": {
+        "failure_count": 2,
+        "failure_rate": 0.6666666666666666,
+        "attempted": 0,
+        "last_gain": 0,
+        "success_rate": 0.0,
+        "stagnation": 0,
+        "is_memory": 0.0,
+        "is_rag": 1.0,
+        "is_tools": 0.0,
+        "is_recovery": 0.0,
+        "is_prompt": 0.0
+      }
+    }
+  ]
+}

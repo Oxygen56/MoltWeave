@@ -1,0 +1,24 @@
+{
+  "id": "model_consent_69ceff1ecd4ec8b8ab3fc7974d943cdb",
+  "tenant_id": "synthetic-live-tenant",
+  "user_id": "synthetic-live-user",
+  "trace_ids": [
+    "trace_ec5d460b247c8f826c4a3026e1b423f8"
+  ],
+  "trace_hashes": {
+    "trace_ec5d460b247c8f826c4a3026e1b423f8": "de13e693628dfc10f4b7c120d7cfe2a7d1ad276fcc603ed391cce5b80af0e637"
+  },
+  "purpose": "personal",
+  "endpoint": "https://api.deepseek.com",
+  "model": "deepseek-flash",
+  "thirdparty": true,
+  "full_trace": true,
+  "created_at": 1792745763.564491,
+  "expires_at": 1792747563.564328,
+  "revoked": false,
+  "allowed_stages": [
+    "feedback_attribution",
+    "feedback_proposal"
+  ],
+  "used_stages": []
+}

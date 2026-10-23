@@ -1,0 +1,312 @@
+{
+  "generation": 2,
+  "branch": 1,
+  "module": "rag",
+  "base_hash": "6b15989f4e54d252f5b789e355576847f18b5f199b11318138a9c99144e735f2",
+  "proposal": {
+    "hypothesis": "Failures stem from two general defects: (1) the RAG scorer ranks by raw overlap only, so an untrusted high-overlap document (trusted=0, overlap=1.0) outranks the trusted authoritative source, causing wrong/UNKNOWN answers and wrong evidence citations; (2) the retry expression is a constant 0, so transient (retryable) tool errors are never retried, and permanent errors are not distinguished. Fixing RAG scoring to weight trust/scope/entity/recency and making retry a function of error_retryable and attempt count should recover authority selection and transient-error recovery without touching policy.",
+    "changes": {
+      "rag_score": {
+        "op": "add",
+        "args": [
+          {
+            "var": "overlap"
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  2,
+                  {
+                    "var": "trusted"
+                  }
+                ]
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      1.5,
+                      {
+                        "var": "scope_match"
+                      }
+                    ]
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "op": "mul",
+                        "args": [
+                          1.5,
+                          {
+                            "var": "entity_match"
+                          }
+                        ]
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          0.5,
+                          {
+                            "op": "div",
+                            "args": [
+                              1,
+                              {
+                                "op": "add",
+                                "args": [
+                                  1,
+                                  {
+                                    "var": "age"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "rag_top_k": 3
+    },
+    "predicted_behavior": "Trusted, in-scope, entity-matching RAG evidence now outranks untrusted high-overlap documents, so authority-tier and composition answers cite the correct trusted source; rag_top_k=3 ensures the authoritative doc is retained alongside supporting docs. Transient tool errors are retried up to max_attempts while permanent errors stop immediately, recovering live-registry tokens on first retry.",
+    "regression_risk": "Raising rag_top_k to 3 adds one extra context item, slightly increasing prompt size and possible distractor noise; trust weighting could demote a legitimately untrusted-but-relevant doc if trust is mislabeled. Retry change may add one extra tool call on transient errors, marginally increasing latency but bounded by max_attempts=3."
+  },
+  "program": {
+    "schema": 1,
+    "memory_score": {
+      "op": "add",
+      "args": [
+        {
+          "var": "overlap"
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                2,
+                {
+                  "var": "entity_match"
+                }
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    1.5,
+                    {
+                      "var": "scope_match"
+                    }
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        1.5,
+                        {
+                          "var": "trusted"
+                        }
+                      ]
+                    },
+                    {
+                      "op": "mul",
+                      "args": [
+                        0.5,
+                        {
+                          "op": "div",
+                          "args": [
+                            1,
+                            {
+                              "op": "add",
+                              "args": [
+                                1,
+                                {
+                                  "var": "age"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rag_score": {
+      "op": "add",
+      "args": [
+        {
+          "var": "overlap"
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                2,
+                {
+                  "var": "trusted"
+                }
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    1.5,
+                    {
+                      "var": "scope_match"
+                    }
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        1.5,
+                        {
+                          "var": "entity_match"
+                        }
+                      ]
+                    },
+                    {
+                      "op": "mul",
+                      "args": [
+                        0.5,
+                        {
+                          "op": "div",
+                          "args": [
+                            1,
+                            {
+                              "op": "add",
+                              "args": [
+                                1,
+                                {
+                                  "var": "age"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "tool_score": {
+      "var": "overlap"
+    },
+    "retry": 0,
+    "memory_top_k": 3,
+    "rag_top_k": 3,
+    "max_attempts": 3,
+    "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+    "policy": {
+      "score": {
+        "op": "add",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              2,
+              {
+                "op": "sub",
+                "args": [
+                  1,
+                  {
+                    "var": "attempted"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "var": "failure_rate"
+              },
+              {
+                "op": "mul",
+                "args": [
+                  0.5,
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "var": "stagnation"
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          2,
+                          {
+                            "var": "invalid_count"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "branches": 2
+    }
+  },
+  "risk": {
+    "sensitive": false,
+    "blocked": false,
+    "classification": "ordinary",
+    "reasons": [],
+    "changed_paths": [
+      "rag_score.args",
+      "rag_score.op",
+      "rag_score.var",
+      "rag_top_k"
+    ],
+    "before_hash": "6b15989f4e54d252f5b789e355576847f18b5f199b11318138a9c99144e735f2",
+    "after_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739"
+  },
+  "status": "executed",
+  "gain": 0.1428571428571429,
+  "dev_rate": 0.7142857142857143,
+  "guard_rate": 0.7857142857142857,
+  "program_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+  "actual_loaded_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739"
+}

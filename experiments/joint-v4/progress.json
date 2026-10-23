@@ -1,0 +1,178 @@
+{
+  "completed_transitions": [
+    {
+      "generation": 0,
+      "parent_hash": "d5bc7e1133a8b5d8ff98b5f631592ea883b5a1b2b53bc0d8cce378c634532358",
+      "next_hash": "c34ff2277debab2aed24b2b4b3912b9104e53152170ca5371ad5f4b28730b3d9",
+      "dev_before": 0.3333333333333333,
+      "dev_after": 0.3333333333333333,
+      "guard_before": 0.5,
+      "guard_after": 0.5,
+      "mechanism_adopted": false,
+      "changed": true,
+      "policy_changed": true,
+      "policy_choice_changed": false,
+      "trials": [
+        {
+          "generation": 0,
+          "branch": 0,
+          "module": "memory",
+          "status": "invalid_candidate",
+          "gain": null
+        },
+        {
+          "generation": 0,
+          "branch": 1,
+          "module": "recovery",
+          "status": "invalid_candidate",
+          "gain": null
+        }
+      ]
+    },
+    {
+      "generation": 1,
+      "parent_hash": "c34ff2277debab2aed24b2b4b3912b9104e53152170ca5371ad5f4b28730b3d9",
+      "next_hash": "6b15989f4e54d252f5b789e355576847f18b5f199b11318138a9c99144e735f2",
+      "dev_before": 0.3333333333333333,
+      "dev_after": 0.6190476190476191,
+      "guard_before": 0.42857142857142855,
+      "guard_after": 0.7142857142857143,
+      "mechanism_adopted": true,
+      "changed": true,
+      "policy_changed": true,
+      "policy_choice_changed": true,
+      "trials": [
+        {
+          "generation": 1,
+          "branch": 0,
+          "module": "memory",
+          "status": "executed",
+          "gain": 0.28571428571428575
+        },
+        {
+          "generation": 1,
+          "branch": 1,
+          "module": "recovery",
+          "status": "invalid_candidate",
+          "gain": null
+        }
+      ]
+    },
+    {
+      "generation": 2,
+      "parent_hash": "6b15989f4e54d252f5b789e355576847f18b5f199b11318138a9c99144e735f2",
+      "next_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+      "dev_before": 0.5714285714285714,
+      "dev_after": 0.7142857142857143,
+      "guard_before": 0.7142857142857143,
+      "guard_after": 0.7857142857142857,
+      "mechanism_adopted": true,
+      "changed": true,
+      "policy_changed": false,
+      "policy_choice_changed": false,
+      "trials": [
+        {
+          "generation": 2,
+          "branch": 0,
+          "module": "prompt",
+          "status": "executed",
+          "gain": 0.1428571428571429
+        },
+        {
+          "generation": 2,
+          "branch": 1,
+          "module": "rag",
+          "status": "executed",
+          "gain": 0.1428571428571429
+        }
+      ]
+    },
+    {
+      "generation": 3,
+      "parent_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+      "next_hash": "4deb09d4141b779e15ac08ad295d9b63a0b16e1197928464f27280b71c427e67",
+      "dev_before": 0.7142857142857143,
+      "dev_after": 0.8571428571428571,
+      "guard_before": 0.7857142857142857,
+      "guard_after": 1.0,
+      "mechanism_adopted": true,
+      "changed": true,
+      "policy_changed": true,
+      "policy_choice_changed": true,
+      "trials": [
+        {
+          "generation": 3,
+          "branch": 0,
+          "module": "tools",
+          "status": "executed",
+          "gain": 0.04761904761904756
+        },
+        {
+          "generation": 3,
+          "branch": 1,
+          "module": "recovery",
+          "status": "executed",
+          "gain": 0.1428571428571428
+        }
+      ]
+    }
+  ],
+  "history": [
+    {
+      "generation": 0,
+      "branch": 0,
+      "module": "memory",
+      "status": "invalid_candidate",
+      "gain": null
+    },
+    {
+      "generation": 0,
+      "branch": 1,
+      "module": "recovery",
+      "status": "invalid_candidate",
+      "gain": null
+    },
+    {
+      "generation": 1,
+      "branch": 0,
+      "module": "memory",
+      "status": "executed",
+      "gain": 0.28571428571428575
+    },
+    {
+      "generation": 1,
+      "branch": 1,
+      "module": "recovery",
+      "status": "invalid_candidate",
+      "gain": null
+    },
+    {
+      "generation": 2,
+      "branch": 0,
+      "module": "prompt",
+      "status": "executed",
+      "gain": 0.1428571428571429
+    },
+    {
+      "generation": 2,
+      "branch": 1,
+      "module": "rag",
+      "status": "executed",
+      "gain": 0.1428571428571429
+    },
+    {
+      "generation": 3,
+      "branch": 0,
+      "module": "tools",
+      "status": "executed",
+      "gain": 0.04761904761904756
+    },
+    {
+      "generation": 3,
+      "branch": 1,
+      "module": "recovery",
+      "status": "executed",
+      "gain": 0.1428571428571428
+    }
+  ]
+}

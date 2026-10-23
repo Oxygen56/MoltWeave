@@ -1,0 +1,50 @@
+--- parent.json
++++ candidate.json
+@@ -69,16 +69,7 @@
+           "args": [
+             {
+               "args": [
+-                0.5,
+-                {
+-                  "var": "stagnation"
+-                }
+-              ],
+-              "op": "mul"
+-            },
+-            {
+-              "args": [
+-                0.3,
++                0.8,
+                 {
+                   "args": [
+                     1,
+@@ -90,6 +81,29 @@
+                 }
+               ],
+               "op": "mul"
++            },
++            {
++              "args": [
++                {
++                  "args": [
++                    0.5,
++                    {
++                      "var": "last_gain"
++                    }
++                  ],
++                  "op": "mul"
++                },
++                {
++                  "args": [
++                    -0.6,
++                    {
++                      "var": "stagnation"
++                    }
++                  ],
++                  "op": "mul"
++                }
++              ],
++              "op": "add"
+             }
+           ],
+           "op": "add"

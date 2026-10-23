@@ -1,0 +1,382 @@
+{
+  "generation": 3,
+  "branch": 0,
+  "module": "tools",
+  "base_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+  "proposal": {
+    "hypothesis": "Tool selection currently ranks purely by lexical overlap, so an unavailable tool (read_registry_preview, available=0) and a non-read-only mutating tool (update_registry) can outrank the correct read-only live registry tool, and transient errors are never retried because retry is hardcoded to 0. Scoring tools by overlap plus bonuses for availability, read-only safety, entity match, and trusted scope, while making retry a function of retryable (non-permanent) errors, will route to the correct live read-only tool and recover from transient timeouts without granting authority to untrusted or mutating tools.",
+    "changes": {
+      "tool_score": {
+        "op": "add",
+        "args": [
+          {
+            "var": "overlap"
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "op": "mul",
+                "args": [
+                  2,
+                  {
+                    "var": "available"
+                  }
+                ]
+              },
+              {
+                "op": "add",
+                "args": [
+                  {
+                    "op": "mul",
+                    "args": [
+                      1.5,
+                      {
+                        "var": "read_only"
+                      }
+                    ]
+                  },
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "op": "mul",
+                        "args": [
+                          1.5,
+                          {
+                            "var": "entity_match"
+                          }
+                        ]
+                      },
+                      {
+                        "op": "add",
+                        "args": [
+                          {
+                            "op": "mul",
+                            "args": [
+                              1,
+                              {
+                                "var": "trusted"
+                              }
+                            ]
+                          },
+                          {
+                            "op": "mul",
+                            "args": [
+                              -2,
+                              {
+                                "var": "deprecated"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "predicted_behavior": "Unavailable and deprecated tools are demoted below the available read-only live registry tool; mutating tools (read_only=0) rank below read-only equivalents with equal overlap. On transient (retryable) tool errors the retry expression evaluates true so the same read-only tool is re-attempted within max_attempts, yielding the live token; permanent errors do not retry. Answers become grounded in the live registry evidence rather than UNKNOWN.",
+    "regression_risk": "If a task legitimately requires a mutating tool or an archived/deprecated source, the read-only and non-deprecated bonuses could suppress it; also retrying on any retryable error may consume attempts on tools that repeatedly time out, though max_attempts caps this. Overlap remains the base term so lexical relevance is preserved."
+  },
+  "program": {
+    "schema": 1,
+    "memory_score": {
+      "op": "add",
+      "args": [
+        {
+          "var": "overlap"
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                2,
+                {
+                  "var": "entity_match"
+                }
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    1.5,
+                    {
+                      "var": "scope_match"
+                    }
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        1.5,
+                        {
+                          "var": "trusted"
+                        }
+                      ]
+                    },
+                    {
+                      "op": "mul",
+                      "args": [
+                        0.5,
+                        {
+                          "op": "div",
+                          "args": [
+                            1,
+                            {
+                              "op": "add",
+                              "args": [
+                                1,
+                                {
+                                  "var": "age"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rag_score": {
+      "op": "add",
+      "args": [
+        {
+          "var": "overlap"
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                2,
+                {
+                  "var": "trusted"
+                }
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    1.5,
+                    {
+                      "var": "scope_match"
+                    }
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        1.5,
+                        {
+                          "var": "entity_match"
+                        }
+                      ]
+                    },
+                    {
+                      "op": "mul",
+                      "args": [
+                        0.5,
+                        {
+                          "op": "div",
+                          "args": [
+                            1,
+                            {
+                              "op": "add",
+                              "args": [
+                                1,
+                                {
+                                  "var": "age"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "tool_score": {
+      "op": "add",
+      "args": [
+        {
+          "var": "overlap"
+        },
+        {
+          "op": "add",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                2,
+                {
+                  "var": "available"
+                }
+              ]
+            },
+            {
+              "op": "add",
+              "args": [
+                {
+                  "op": "mul",
+                  "args": [
+                    1.5,
+                    {
+                      "var": "read_only"
+                    }
+                  ]
+                },
+                {
+                  "op": "add",
+                  "args": [
+                    {
+                      "op": "mul",
+                      "args": [
+                        1.5,
+                        {
+                          "var": "entity_match"
+                        }
+                      ]
+                    },
+                    {
+                      "op": "add",
+                      "args": [
+                        {
+                          "op": "mul",
+                          "args": [
+                            1,
+                            {
+                              "var": "trusted"
+                            }
+                          ]
+                        },
+                        {
+                          "op": "mul",
+                          "args": [
+                            -2,
+                            {
+                              "var": "deprecated"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "retry": 0,
+    "memory_top_k": 3,
+    "rag_top_k": 3,
+    "max_attempts": 3,
+    "prompt": "Answer the user using the supplied evidence and tool results. Return JSON with answer (string), evidence_ids (list of IDs). The answer field must contain only the requested value in the requested format, without explanation or extra prose. If the requested facts cannot be established, answer exactly UNKNOWN. Do not invent facts.",
+    "policy": {
+      "score": {
+        "op": "add",
+        "args": [
+          {
+            "op": "mul",
+            "args": [
+              2,
+              {
+                "op": "sub",
+                "args": [
+                  1,
+                  {
+                    "var": "attempted"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "op": "add",
+            "args": [
+              {
+                "var": "failure_rate"
+              },
+              {
+                "op": "mul",
+                "args": [
+                  0.5,
+                  {
+                    "op": "add",
+                    "args": [
+                      {
+                        "var": "stagnation"
+                      },
+                      {
+                        "op": "mul",
+                        "args": [
+                          2,
+                          {
+                            "var": "invalid_count"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "branches": 2
+    }
+  },
+  "risk": {
+    "sensitive": false,
+    "blocked": false,
+    "classification": "ordinary",
+    "reasons": [],
+    "changed_paths": [
+      "tool_score.args",
+      "tool_score.op",
+      "tool_score.var"
+    ],
+    "before_hash": "6a7744f37c09ace71faf835f66d336d7ec30dc96516af4320595d196e650f739",
+    "after_hash": "8f400dd1c2f84aa12a4812bda6150987b4417184670b465fa406a6a41a13d83c"
+  },
+  "status": "executed",
+  "gain": 0.04761904761904756,
+  "dev_rate": 0.7619047619047619,
+  "guard_rate": 0.7857142857142857,
+  "program_hash": "8f400dd1c2f84aa12a4812bda6150987b4417184670b465fa406a6a41a13d83c",
+  "actual_loaded_hash": "8f400dd1c2f84aa12a4812bda6150987b4417184670b465fa406a6a41a13d83c"
+}
