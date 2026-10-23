@@ -29,7 +29,10 @@
     "status": "aborted_measurement_incomplete",
     "planned_round_transitions": 600,
     "committed_transitions_before_provider_interruption": 421,
-    "independent_effects": "unavailable"
+    "independent_effects": "unavailable",
+    "committed_transitions_after_verified_recovery": 501,
+    "remaining_round_transitions": 99,
+    "resume_ledger": "experiments/continual-v02-main/resume-history/20261023T190033-c245b93ba369/plan.json"
   },
   "stable_v02_release_published": false,
   "limits": "This receipt verifies the core source commit and hosted checks only. Local maintenance and later documentation are not implied to be part of this core commit. Independent model-effect acceptance is incomplete because the provider returned insufficient balance."

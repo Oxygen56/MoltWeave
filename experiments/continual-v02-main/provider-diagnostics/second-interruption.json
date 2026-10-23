@@ -1,0 +1,12 @@
+{
+  "checked_at": 1792753737.783124,
+  "operation": "post_second_interruption_provider_diagnostic",
+  "http_status": 402,
+  "provider_error_type": "insufficient_balance_error",
+  "provider_error_code": "invalid_request_error",
+  "provider_message": "Insufficient Balance (request_id: ba8959f6-a469-4969-b9c7-9a1c8fc3ebd8)",
+  "scope": "separate post-resume diagnostic; original HTTPError receipts remain unchanged",
+  "completed_round_transitions": 501,
+  "planned_round_transitions": 600,
+  "independent_effect": "unavailable"
+}

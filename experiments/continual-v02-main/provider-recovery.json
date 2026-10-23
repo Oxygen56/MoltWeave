@@ -1,0 +1,10 @@
+{
+  "status": "provider_request_available",
+  "scope": "engineering recovery smoke, not an optimization or independent task",
+  "model_requested": "deepseek-flash",
+  "endpoint_host": "api.deepseek.com",
+  "source_receipt": "provider-diagnostics/recovery-1b8d2214f05649a086e16e3bdc9fd516.json",
+  "receipt_bytes_sha256": "46e6b4af7c5fdc31af3655b878dc3f060a1645945f92c277f718c717d65fc964",
+  "original_interruption_preserved": true,
+  "formal_independent_effect": "not yet measured"
+}

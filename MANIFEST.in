@@ -1,0 +1,27 @@
+# Public source distribution only. Raw experiments have a separate evidence pack.
+include pyproject.toml MANIFEST.in
+include README.md README.zh-CN.md
+include LICENSE SECURITY.md CONTRIBUTING.md THIRD_PARTY_NOTICES.md
+include CHANGELOG.md EXPERIMENTS.md ITERATION_PLAN.md
+recursive-include src/moltweave *.py
+recursive-include scripts *.py *.sh
+recursive-include tests *.py
+recursive-include docs *.md *.json *.txt *.svg
+recursive-include examples/research *.md *.json
+recursive-include .github *.md *.yml *.yaml
+
+# Never copy runtime state, credentials or experiment evidence into an sdist.
+prune experiments
+prune artifacts
+prune private
+prune state
+prune .venv
+prune venv
+prune .moltweave
+prune .git
+prune dist
+prune build
+global-exclude __pycache__ *.py[cod] *.sqlite *.sqlite3 *.db .DS_Store
+global-exclude .env .env.* *approval-key* *.pem *.key
+# This file contains placeholders and documents public configuration names.
+include .env.example

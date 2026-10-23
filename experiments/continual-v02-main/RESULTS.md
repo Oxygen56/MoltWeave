@@ -4,6 +4,18 @@ Analysis status: **partial_readout**. Run status: **aborted_measurement_incomple
 
 All numbers below come from retained observations. Structural tests are not model-effect measurements. Missing data is unavailable, not zero.
 
+## Readout completeness
+
+| Planned component | Observed / expected | Complete |
+|---|---:|---|
+| mechanism_readouts | 0/630 | False |
+| independent_policy_audits | 0/50 | False |
+| terminal_no_memory | 0/30 | False |
+| terminal_wide_context_baseline | 0/30 | False |
+| shared_audit_inputs | 0/10 | False |
+
+Completion requires independent status completed and every planned mechanism readout, P audit, terminal control and shared audit input. An invalid P trial is an observed attempt whose effect is unknown; it is not a missing observation or a zero effect.
+
 ## Terminal mechanism comparison
 
 | Partition | Paired streams | Joint − fixed-P (pp) | 95% stream bootstrap CI (pp) | Exact sign-flip p |
@@ -146,6 +158,7 @@ The unit is the stream, not each question. Bootstrap seed 20261023, 10,000 resam
 
 ## Independent terminal P audit
 
+Primary: all valid terminal P-versus-P0 search pairs, including identical-P calibration. Distinct-P statistics explain a subset and never replace the primary; g0 is not subtracted after observation. All-attempt raw outcomes remain a separate operational comparison.
 Unavailable. Meta-development promotion results are not substituted.
 
 All independent checkpoints, stream pairs, confidence intervals and exact p-values are retained in analysis.json. No checkpoint or winning generation is selected.
@@ -196,43 +209,53 @@ Denominators contain known checks only; unknown fields and missing raw streams a
 | Lane | Observed rounds | M changes | P changes |
 |---|---:|---:|---:|
 | 101/fixed_mechanism | 20 | 0 | 0 |
-| 101/fixed_p | 11 | 2 | 0 |
-| 101/joint | 11 | 3 | 1 |
+| 101/fixed_p | 15 | 2 | 0 |
+| 101/joint | 15 | 3 | 1 |
 | 102/fixed_mechanism | 20 | 0 | 0 |
-| 102/fixed_p | 11 | 2 | 0 |
-| 102/joint | 15 | 1 | 3 |
+| 102/fixed_p | 15 | 3 | 0 |
+| 102/joint | 20 | 3 | 3 |
 | 103/fixed_mechanism | 20 | 0 | 0 |
-| 103/fixed_p | 11 | 1 | 0 |
-| 103/joint | 10 | 1 | 1 |
+| 103/fixed_p | 15 | 1 | 0 |
+| 103/joint | 14 | 1 | 1 |
 | 104/fixed_mechanism | 20 | 0 | 0 |
-| 104/fixed_p | 11 | 1 | 0 |
-| 104/joint | 11 | 2 | 0 |
+| 104/fixed_p | 15 | 2 | 0 |
+| 104/joint | 15 | 4 | 0 |
 | 105/fixed_mechanism | 20 | 0 | 0 |
-| 105/fixed_p | 11 | 0 | 0 |
-| 105/joint | 12 | 3 | 1 |
+| 105/fixed_p | 15 | 1 | 0 |
+| 105/joint | 16 | 3 | 1 |
 | 106/fixed_mechanism | 20 | 0 | 0 |
-| 106/fixed_p | 11 | 3 | 0 |
-| 106/joint | 11 | 3 | 0 |
+| 106/fixed_p | 15 | 3 | 0 |
+| 106/joint | 15 | 3 | 0 |
 | 107/fixed_mechanism | 20 | 0 | 0 |
-| 107/fixed_p | 10 | 2 | 0 |
-| 107/joint | 11 | 2 | 1 |
+| 107/fixed_p | 13 | 3 | 0 |
+| 107/joint | 15 | 2 | 1 |
 | 108/fixed_mechanism | 20 | 0 | 0 |
-| 108/fixed_p | 10 | 3 | 0 |
-| 108/joint | 11 | 2 | 0 |
+| 108/fixed_p | 14 | 3 | 0 |
+| 108/joint | 15 | 3 | 0 |
 | 109/fixed_mechanism | 20 | 0 | 0 |
-| 109/fixed_p | 11 | 2 | 0 |
-| 109/joint | 11 | 2 | 0 |
+| 109/fixed_p | 15 | 2 | 0 |
+| 109/joint | 15 | 3 | 0 |
 | 110/fixed_mechanism | 20 | 0 | 0 |
-| 110/fixed_p | 11 | 3 | 0 |
-| 110/joint | 10 | 2 | 0 |
+| 110/fixed_p | 15 | 4 | 0 |
+| 110/joint | 14 | 2 | 0 |
 
-| Arm | Episodes | Structural chains | All four tasks passed | Effective closed loops |
+Online curves and the primary memory-chain summary include committed rounds only: a completed transition, matching parent/next M/P hashes, and g(r+1) present. Uncommitted experiences remain below and in memory-chain.json; their calls/costs are retained. Online experience is optimization data.
+
+| Arm | Committed episodes | Structural chains | All four tasks passed | Effective closed loops |
 |---|---:|---:|---:|---:|
 | fixed_mechanism | 200 | 103 | 54 | 54 |
-| fixed_p | 118 | 71 | 36 | 36 |
-| joint | 123 | 68 | 35 | 35 |
+| fixed_p | 147 | 87 | 48 | 48 |
+| joint | 154 | 81 | 45 | 45 |
 
-Diagnostic statuses (main search and meta forks, scopes retained separately in JSON): {'invalid_diagnosis': 37, 'executed': 660, 'invalid_candidate': 166, 'no_action': 28, 'invalid_policy': 10}.
+Uncommitted observations (excluded from primary online/chain statistics; never discarded):
+
+| Arm | Uncommitted episodes | Structural chains | All four tasks passed | Effective closed loops |
+|---|---:|---:|---:|---:|
+| fixed_mechanism | 0 | 0 | 0 | 0 |
+| fixed_p | 10 | 7 | 6 | 6 |
+| joint | 9 | 5 | 2 | 2 |
+
+Diagnostic statuses (main search and meta forks, scopes retained separately in JSON): {'invalid_diagnosis': 55, 'executed': 841, 'invalid_candidate': 274, 'no_action': 41, 'invalid_policy': 15}.
 Observed adjacent-version regressions: 0; every regression is retained in analysis.json.
 
 ## Physical requests and costs
@@ -240,164 +263,164 @@ Observed adjacent-version regressions: 0; every regression is retained in analys
 ```json
 {
   "totals": {
-    "logical_requests": 19464,
-    "completed_requests": 19391,
-    "failed_requests": 73,
-    "physical_attempts": 19711,
-    "attempts_with_usage": 19445,
-    "attempts_without_usage": 266,
-    "failed_physical_attempts": 320,
-    "prompt_tokens": 50518840,
-    "completion_tokens": 2662177,
-    "total_tokens": 53181017
+    "logical_requests": 26003,
+    "completed_requests": 25840,
+    "failed_requests": 163,
+    "physical_attempts": 26563,
+    "attempts_with_usage": 25929,
+    "attempts_without_usage": 634,
+    "failed_physical_attempts": 723,
+    "prompt_tokens": 76237142,
+    "completion_tokens": 3751963,
+    "total_tokens": 79989105
   },
   "by_arm_and_purpose": {
     "fixed_p": {
       "continual_memory_extraction": {
-        "logical_requests": 2597,
-        "completed_requests": 2591,
-        "failed_requests": 6,
-        "physical_attempts": 2612,
-        "attempts_with_usage": 2591,
-        "attempts_without_usage": 21,
-        "failed_physical_attempts": 21,
-        "prompt_tokens": 1489490,
-        "completion_tokens": 259426,
-        "total_tokens": 1748916
+        "logical_requests": 3534,
+        "completed_requests": 3513,
+        "failed_requests": 21,
+        "physical_attempts": 3591,
+        "attempts_with_usage": 3513,
+        "attempts_without_usage": 78,
+        "failed_physical_attempts": 78,
+        "prompt_tokens": 2075045,
+        "completion_tokens": 363030,
+        "total_tokens": 2438075
       },
       "continual_diagnosis": {
-        "logical_requests": 339,
-        "completed_requests": 339,
+        "logical_requests": 471,
+        "completed_requests": 471,
         "failed_requests": 0,
-        "physical_attempts": 339,
-        "attempts_with_usage": 339,
+        "physical_attempts": 472,
+        "attempts_with_usage": 472,
         "attempts_without_usage": 0,
-        "failed_physical_attempts": 0,
-        "prompt_tokens": 5712830,
-        "completion_tokens": 391629,
-        "total_tokens": 6104459
+        "failed_physical_attempts": 1,
+        "prompt_tokens": 8751292,
+        "completion_tokens": 540164,
+        "total_tokens": 9291456
       },
       "continual_task": {
-        "logical_requests": 5394,
-        "completed_requests": 5376,
-        "failed_requests": 18,
-        "physical_attempts": 5441,
-        "attempts_with_usage": 5376,
-        "attempts_without_usage": 65,
-        "failed_physical_attempts": 65,
-        "prompt_tokens": 4384911,
-        "completion_tokens": 132766,
-        "total_tokens": 4517677
+        "logical_requests": 7359,
+        "completed_requests": 7320,
+        "failed_requests": 39,
+        "physical_attempts": 7490,
+        "attempts_with_usage": 7320,
+        "attempts_without_usage": 170,
+        "failed_physical_attempts": 170,
+        "prompt_tokens": 6314321,
+        "completion_tokens": 189500,
+        "total_tokens": 6503821
       },
       "continual_mechanism_syntax_repair": {
-        "logical_requests": 138,
-        "completed_requests": 136,
+        "logical_requests": 229,
+        "completed_requests": 227,
         "failed_requests": 2,
-        "physical_attempts": 152,
-        "attempts_with_usage": 141,
-        "attempts_without_usage": 11,
-        "failed_physical_attempts": 16,
-        "prompt_tokens": 3306118,
-        "completion_tokens": 104123,
-        "total_tokens": 3410241
+        "physical_attempts": 247,
+        "attempts_with_usage": 234,
+        "attempts_without_usage": 13,
+        "failed_physical_attempts": 20,
+        "prompt_tokens": 5975356,
+        "completion_tokens": 170798,
+        "total_tokens": 6146154
       },
       "continual_mechanism_proposal": {
-        "logical_requests": 428,
-        "completed_requests": 427,
-        "failed_requests": 1,
-        "physical_attempts": 462,
-        "attempts_with_usage": 459,
-        "attempts_without_usage": 3,
-        "failed_physical_attempts": 35,
-        "prompt_tokens": 9488936,
-        "completion_tokens": 337947,
-        "total_tokens": 9826883
+        "logical_requests": 605,
+        "completed_requests": 595,
+        "failed_requests": 10,
+        "physical_attempts": 669,
+        "attempts_with_usage": 644,
+        "attempts_without_usage": 25,
+        "failed_physical_attempts": 74,
+        "prompt_tokens": 14478445,
+        "completion_tokens": 482233,
+        "total_tokens": 14960678
       },
       "continual_policy_proposal": {
-        "logical_requests": 116,
-        "completed_requests": 112,
-        "failed_requests": 4,
-        "physical_attempts": 124,
-        "attempts_with_usage": 112,
-        "attempts_without_usage": 12,
-        "failed_physical_attempts": 12,
-        "prompt_tokens": 243587,
-        "completion_tokens": 65922,
-        "total_tokens": 309509
+        "logical_requests": 160,
+        "completed_requests": 155,
+        "failed_requests": 5,
+        "physical_attempts": 170,
+        "attempts_with_usage": 155,
+        "attempts_without_usage": 15,
+        "failed_physical_attempts": 15,
+        "prompt_tokens": 422691,
+        "completion_tokens": 92550,
+        "total_tokens": 515241
       }
     },
     "joint": {
       "continual_memory_extraction": {
-        "logical_requests": 2550,
-        "completed_requests": 2544,
-        "failed_requests": 6,
-        "physical_attempts": 2570,
-        "attempts_with_usage": 2544,
-        "attempts_without_usage": 26,
-        "failed_physical_attempts": 26,
-        "prompt_tokens": 1494758,
-        "completion_tokens": 259227,
-        "total_tokens": 1753985
+        "logical_requests": 3436,
+        "completed_requests": 3423,
+        "failed_requests": 13,
+        "physical_attempts": 3481,
+        "attempts_with_usage": 3423,
+        "attempts_without_usage": 58,
+        "failed_physical_attempts": 58,
+        "prompt_tokens": 2053286,
+        "completion_tokens": 358286,
+        "total_tokens": 2411572
       },
       "continual_policy_proposal": {
-        "logical_requests": 116,
-        "completed_requests": 116,
+        "logical_requests": 163,
+        "completed_requests": 163,
         "failed_requests": 0,
-        "physical_attempts": 116,
-        "attempts_with_usage": 116,
-        "attempts_without_usage": 0,
-        "failed_physical_attempts": 0,
-        "prompt_tokens": 260167,
-        "completion_tokens": 75587,
-        "total_tokens": 335754
+        "physical_attempts": 165,
+        "attempts_with_usage": 163,
+        "attempts_without_usage": 2,
+        "failed_physical_attempts": 2,
+        "prompt_tokens": 460131,
+        "completion_tokens": 109878,
+        "total_tokens": 570009
       },
       "continual_task": {
-        "logical_requests": 5319,
-        "completed_requests": 5291,
-        "failed_requests": 28,
-        "physical_attempts": 5391,
-        "attempts_with_usage": 5291,
-        "attempts_without_usage": 100,
-        "failed_physical_attempts": 100,
-        "prompt_tokens": 4391939,
-        "completion_tokens": 135667,
-        "total_tokens": 4527606
+        "logical_requests": 7194,
+        "completed_requests": 7146,
+        "failed_requests": 48,
+        "physical_attempts": 7336,
+        "attempts_with_usage": 7146,
+        "attempts_without_usage": 190,
+        "failed_physical_attempts": 190,
+        "prompt_tokens": 6176488,
+        "completion_tokens": 189454,
+        "total_tokens": 6365942
       },
       "continual_diagnosis": {
-        "logical_requests": 334,
-        "completed_requests": 334,
-        "failed_requests": 0,
-        "physical_attempts": 334,
-        "attempts_with_usage": 334,
-        "attempts_without_usage": 0,
-        "failed_physical_attempts": 0,
-        "prompt_tokens": 5724893,
-        "completion_tokens": 392268,
-        "total_tokens": 6117161
+        "logical_requests": 463,
+        "completed_requests": 462,
+        "failed_requests": 1,
+        "physical_attempts": 470,
+        "attempts_with_usage": 463,
+        "attempts_without_usage": 7,
+        "failed_physical_attempts": 8,
+        "prompt_tokens": 8615785,
+        "completion_tokens": 546002,
+        "total_tokens": 9161787
       },
       "continual_mechanism_proposal": {
-        "logical_requests": 432,
-        "completed_requests": 427,
-        "failed_requests": 5,
-        "physical_attempts": 461,
-        "attempts_with_usage": 443,
-        "attempts_without_usage": 18,
-        "failed_physical_attempts": 34,
-        "prompt_tokens": 9309352,
-        "completion_tokens": 336165,
-        "total_tokens": 9645517
+        "logical_requests": 601,
+        "completed_requests": 584,
+        "failed_requests": 17,
+        "physical_attempts": 665,
+        "attempts_with_usage": 612,
+        "attempts_without_usage": 53,
+        "failed_physical_attempts": 81,
+        "prompt_tokens": 13768820,
+        "completion_tokens": 471488,
+        "total_tokens": 14240308
       },
       "continual_mechanism_syntax_repair": {
-        "logical_requests": 141,
-        "completed_requests": 138,
-        "failed_requests": 3,
-        "physical_attempts": 149,
-        "attempts_with_usage": 139,
-        "attempts_without_usage": 10,
-        "failed_physical_attempts": 11,
-        "prompt_tokens": 3349701,
-        "completion_tokens": 107456,
-        "total_tokens": 3457157
+        "logical_requests": 228,
+        "completed_requests": 221,
+        "failed_requests": 7,
+        "physical_attempts": 247,
+        "attempts_with_usage": 224,
+        "attempts_without_usage": 23,
+        "failed_physical_attempts": 26,
+        "prompt_tokens": 5783324,
+        "completion_tokens": 174586,
+        "total_tokens": 5957910
       }
     },
     "fixed_mechanism": {
@@ -429,52 +452,52 @@ Observed adjacent-version regressions: 0; every regression is retained in analys
   },
   "by_phase": {
     "online": {
-      "logical_requests": 3409,
-      "completed_requests": 3408,
-      "failed_requests": 1,
-      "physical_attempts": 3412,
-      "attempts_with_usage": 3408,
-      "attempts_without_usage": 4,
-      "failed_physical_attempts": 4,
-      "prompt_tokens": 3195306,
-      "completion_tokens": 148996,
-      "total_tokens": 3344302
+      "logical_requests": 4202,
+      "completed_requests": 4200,
+      "failed_requests": 2,
+      "physical_attempts": 4210,
+      "attempts_with_usage": 4200,
+      "attempts_without_usage": 10,
+      "failed_physical_attempts": 10,
+      "prompt_tokens": 4169802,
+      "completion_tokens": 189466,
+      "total_tokens": 4359268
     },
     "mechanism-search": {
-      "logical_requests": 6247,
-      "completed_requests": 6208,
-      "failed_requests": 39,
-      "physical_attempts": 6384,
-      "attempts_with_usage": 6234,
-      "attempts_without_usage": 150,
-      "failed_physical_attempts": 176,
-      "prompt_tokens": 21066773,
-      "completion_tokens": 986202,
-      "total_tokens": 22052975
+      "logical_requests": 8575,
+      "completed_requests": 8498,
+      "failed_requests": 77,
+      "physical_attempts": 8849,
+      "attempts_with_usage": 8545,
+      "attempts_without_usage": 304,
+      "failed_physical_attempts": 351,
+      "prompt_tokens": 32985180,
+      "completion_tokens": 1436903,
+      "total_tokens": 34422083
     },
     "policy-meta-probe": {
-      "logical_requests": 9576,
-      "completed_requests": 9547,
-      "failed_requests": 29,
-      "physical_attempts": 9675,
-      "attempts_with_usage": 9575,
-      "attempts_without_usage": 100,
-      "failed_physical_attempts": 128,
-      "prompt_tokens": 25753007,
-      "completion_tokens": 1385470,
-      "total_tokens": 27138477
+      "logical_requests": 12903,
+      "completed_requests": 12824,
+      "failed_requests": 79,
+      "physical_attempts": 13169,
+      "attempts_with_usage": 12866,
+      "attempts_without_usage": 303,
+      "failed_physical_attempts": 345,
+      "prompt_tokens": 38199338,
+      "completion_tokens": 1923166,
+      "total_tokens": 40122504
     },
     "policy-proposal": {
-      "logical_requests": 232,
-      "completed_requests": 228,
-      "failed_requests": 4,
-      "physical_attempts": 240,
-      "attempts_with_usage": 228,
-      "attempts_without_usage": 12,
-      "failed_physical_attempts": 12,
-      "prompt_tokens": 503754,
-      "completion_tokens": 141509,
-      "total_tokens": 645263
+      "logical_requests": 323,
+      "completed_requests": 318,
+      "failed_requests": 5,
+      "physical_attempts": 335,
+      "attempts_with_usage": 318,
+      "attempts_without_usage": 17,
+      "failed_physical_attempts": 17,
+      "prompt_tokens": 882822,
+      "completion_tokens": 202428,
+      "total_tokens": 1085250
     }
   },
   "usage_note": "Provider-reported usage summed once per physical attempt; missing usage is unknown, not free. Shared independent P-audit costs are not assigned to the joint arm. Nested resume receipt directories and discarded partial-round requests are included."
@@ -488,113 +511,61 @@ Observed adjacent-version regressions: 0; every regression is retained in analys
 - Stream-paired descriptive confidence intervals and p-values do not establish causal superiority
 - Meta-development policy promotions are optimization observations, never independent P evidence
 - Terminal memory ablation changes reads and writes together; it does not isolate the write-policy contribution
-- Missing version: 101/fixed_p/g12
-- Missing version: 101/fixed_p/g13
-- Missing version: 101/fixed_p/g14
-- Missing version: 101/fixed_p/g15
 - Missing version: 101/fixed_p/g16
 - Missing version: 101/fixed_p/g17
 - Missing version: 101/fixed_p/g18
 - Missing version: 101/fixed_p/g19
 - Missing version: 101/fixed_p/g20
-- Missing version: 101/joint/g12
-- Missing version: 101/joint/g13
-- Missing version: 101/joint/g14
-- Missing version: 101/joint/g15
 - Missing version: 101/joint/g16
 - Missing version: 101/joint/g17
 - Missing version: 101/joint/g18
 - Missing version: 101/joint/g19
 - Missing version: 101/joint/g20
-- Missing version: 102/fixed_p/g12
-- Missing version: 102/fixed_p/g13
-- Missing version: 102/fixed_p/g14
-- Missing version: 102/fixed_p/g15
 - Missing version: 102/fixed_p/g16
 - Missing version: 102/fixed_p/g17
 - Missing version: 102/fixed_p/g18
 - Missing version: 102/fixed_p/g19
 - Missing version: 102/fixed_p/g20
-- Missing version: 102/joint/g16
-- Missing version: 102/joint/g17
-- Missing version: 102/joint/g18
-- Missing version: 102/joint/g19
-- Missing version: 102/joint/g20
-- Missing version: 103/fixed_p/g12
-- Missing version: 103/fixed_p/g13
-- Missing version: 103/fixed_p/g14
-- Missing version: 103/fixed_p/g15
 - Missing version: 103/fixed_p/g16
 - Missing version: 103/fixed_p/g17
 - Missing version: 103/fixed_p/g18
 - Missing version: 103/fixed_p/g19
 - Missing version: 103/fixed_p/g20
-- Missing version: 103/joint/g11
-- Missing version: 103/joint/g12
-- Missing version: 103/joint/g13
-- Missing version: 103/joint/g14
 - Missing version: 103/joint/g15
 - Missing version: 103/joint/g16
 - Missing version: 103/joint/g17
 - Missing version: 103/joint/g18
 - Missing version: 103/joint/g19
 - Missing version: 103/joint/g20
-- Missing version: 104/fixed_p/g12
-- Missing version: 104/fixed_p/g13
-- Missing version: 104/fixed_p/g14
-- Missing version: 104/fixed_p/g15
 - Missing version: 104/fixed_p/g16
 - Missing version: 104/fixed_p/g17
 - Missing version: 104/fixed_p/g18
 - Missing version: 104/fixed_p/g19
 - Missing version: 104/fixed_p/g20
-- Missing version: 104/joint/g12
-- Missing version: 104/joint/g13
-- Missing version: 104/joint/g14
-- Missing version: 104/joint/g15
 - Missing version: 104/joint/g16
 - Missing version: 104/joint/g17
 - Missing version: 104/joint/g18
 - Missing version: 104/joint/g19
 - Missing version: 104/joint/g20
-- Missing version: 105/fixed_p/g12
-- Missing version: 105/fixed_p/g13
-- Missing version: 105/fixed_p/g14
-- Missing version: 105/fixed_p/g15
 - Missing version: 105/fixed_p/g16
 - Missing version: 105/fixed_p/g17
 - Missing version: 105/fixed_p/g18
 - Missing version: 105/fixed_p/g19
 - Missing version: 105/fixed_p/g20
-- Missing version: 105/joint/g13
-- Missing version: 105/joint/g14
-- Missing version: 105/joint/g15
-- Missing version: 105/joint/g16
 - Missing version: 105/joint/g17
 - Missing version: 105/joint/g18
 - Missing version: 105/joint/g19
 - Missing version: 105/joint/g20
-- Missing version: 106/fixed_p/g12
-- Missing version: 106/fixed_p/g13
-- Missing version: 106/fixed_p/g14
-- Missing version: 106/fixed_p/g15
 - Missing version: 106/fixed_p/g16
 - Missing version: 106/fixed_p/g17
 - Missing version: 106/fixed_p/g18
 - Missing version: 106/fixed_p/g19
 - Missing version: 106/fixed_p/g20
-- Missing version: 106/joint/g12
-- Missing version: 106/joint/g13
-- Missing version: 106/joint/g14
-- Missing version: 106/joint/g15
 - Missing version: 106/joint/g16
 - Missing version: 106/joint/g17
 - Missing version: 106/joint/g18
 - Missing version: 106/joint/g19
 - Missing version: 106/joint/g20
-- Missing version: 107/fixed_p/g11
-- Missing version: 107/fixed_p/g12
-- Missing version: 107/fixed_p/g13
 - Missing version: 107/fixed_p/g14
 - Missing version: 107/fixed_p/g15
 - Missing version: 107/fixed_p/g16
@@ -602,65 +573,37 @@ Observed adjacent-version regressions: 0; every regression is retained in analys
 - Missing version: 107/fixed_p/g18
 - Missing version: 107/fixed_p/g19
 - Missing version: 107/fixed_p/g20
-- Missing version: 107/joint/g12
-- Missing version: 107/joint/g13
-- Missing version: 107/joint/g14
-- Missing version: 107/joint/g15
 - Missing version: 107/joint/g16
 - Missing version: 107/joint/g17
 - Missing version: 107/joint/g18
 - Missing version: 107/joint/g19
 - Missing version: 107/joint/g20
-- Missing version: 108/fixed_p/g11
-- Missing version: 108/fixed_p/g12
-- Missing version: 108/fixed_p/g13
-- Missing version: 108/fixed_p/g14
 - Missing version: 108/fixed_p/g15
 - Missing version: 108/fixed_p/g16
 - Missing version: 108/fixed_p/g17
 - Missing version: 108/fixed_p/g18
 - Missing version: 108/fixed_p/g19
 - Missing version: 108/fixed_p/g20
-- Missing version: 108/joint/g12
-- Missing version: 108/joint/g13
-- Missing version: 108/joint/g14
-- Missing version: 108/joint/g15
 - Missing version: 108/joint/g16
 - Missing version: 108/joint/g17
 - Missing version: 108/joint/g18
 - Missing version: 108/joint/g19
 - Missing version: 108/joint/g20
-- Missing version: 109/fixed_p/g12
-- Missing version: 109/fixed_p/g13
-- Missing version: 109/fixed_p/g14
-- Missing version: 109/fixed_p/g15
 - Missing version: 109/fixed_p/g16
 - Missing version: 109/fixed_p/g17
 - Missing version: 109/fixed_p/g18
 - Missing version: 109/fixed_p/g19
 - Missing version: 109/fixed_p/g20
-- Missing version: 109/joint/g12
-- Missing version: 109/joint/g13
-- Missing version: 109/joint/g14
-- Missing version: 109/joint/g15
 - Missing version: 109/joint/g16
 - Missing version: 109/joint/g17
 - Missing version: 109/joint/g18
 - Missing version: 109/joint/g19
 - Missing version: 109/joint/g20
-- Missing version: 110/fixed_p/g12
-- Missing version: 110/fixed_p/g13
-- Missing version: 110/fixed_p/g14
-- Missing version: 110/fixed_p/g15
 - Missing version: 110/fixed_p/g16
 - Missing version: 110/fixed_p/g17
 - Missing version: 110/fixed_p/g18
 - Missing version: 110/fixed_p/g19
 - Missing version: 110/fixed_p/g20
-- Missing version: 110/joint/g11
-- Missing version: 110/joint/g12
-- Missing version: 110/joint/g13
-- Missing version: 110/joint/g14
 - Missing version: 110/joint/g15
 - Missing version: 110/joint/g16
 - Missing version: 110/joint/g17

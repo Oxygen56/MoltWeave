@@ -29,7 +29,7 @@ The new engine repeatedly revisits entities, corrects remembered facts and recal
 
 The formal contract is **20 rounds × 10 streams × three arms**: ordinary accumulating memory with fixed M/P, evolving M with fixed P, and joint M/P. Every one of the 21 versions is scheduled for an empty-memory independent readout. Terminal memory-disabled and wide-context controls separate durable recall and context width from mechanism improvement.
 
-Implementation and the four-round engineering preflight are complete. The formal run was interrupted by provider HTTP 402 (insufficient balance) before all versions were sealed. Its independent results are **unavailable**, not zero. Original receipts and partial rounds are retained. See the [protocol](docs/v0.2-protocol.md), [architecture](docs/v0.2-architecture.md), [an actual execution walkthrough](docs/v0.2-walkthrough.md), and [current formal evidence](experiments/continual-v02-main/RESULTS.md).
+Implementation and the four-round engineering preflight are complete. The formal run reached 421 committed rounds before provider HTTP 402 (insufficient balance). Verified recovery retained those bytes and reached **501/600** committed rounds before a second balance rejection. Its independent results are **unavailable**, not zero. Original receipts and partial rounds are retained. See the [protocol](docs/v0.2-protocol.md), [architecture](docs/v0.2-architecture.md), [an actual execution walkthrough](docs/v0.2-walkthrough.md), and [current formal evidence](experiments/continual-v02-main/RESULTS.md).
 
 ## Historical v0.1 results
 
@@ -51,7 +51,7 @@ The external 24-question SQuAD check shows **zero gain**. Component intervention
 
 Research/community infrastructure tests do not establish downstream RSI benefits. The continual writer/read mechanism is implemented in v0.2; its formal independent benefit remains pending. Long-horizon poisoning evaluation, cross-model reproduction, official external benchmark runs and hosted production service remain roadmap items. See the [iteration plan](ITERATION_PLAN.md) for explicit status.
 
-[Publication and fresh-clone verification](docs/verification/publication.json) records hosted Python 3.11/3.12/3.13 CI and a separate 96-test installation check from the public repository.
+[Historical v0.1 publication verification](docs/verification/publication.json) records that release's hosted checks and 96-test installation check. [v0.2 verification](docs/verification/v02-publication.json) keeps current code checks separate from unfinished model acceptance.
 
 ## Quick start
 

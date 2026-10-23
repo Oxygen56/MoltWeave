@@ -49,7 +49,8 @@ def diagnostic_fixture():
 def write_experiment_fixture(root):
     seeds, rounds = [101, 102], 2
     write_json(root / "manifest.json", {"schema": 2, "seeds": seeds, "rounds": rounds,
-        "arms": list(ARMS), "source_scope": "structural fixture, not measured model performance"})
+        "arms": list(ARMS), "protocol": {"policy_audit_checkpoints": [rounds]},
+        "source_scope": "structural fixture, not measured model performance"})
     versions, audits = [], []
     for seed in seeds:
         for arm in ARMS:
@@ -74,6 +75,7 @@ def write_experiment_fixture(root):
                 write_json(dest / "experience.json", experience_fixture())
                 before, after = states[r], states[r+1]
                 write_json(dest / "transition.json", {"stream": seed, "arm": arm, "round": r,
+                    "status": "completed",
                     "parent_m": digest(before["mechanism"]), "loaded_m_next": digest(after["mechanism"]),
                     "parent_p": digest(before["policy"]), "loaded_p_next": digest(after["policy"]),
                     "mechanism_changed": before["mechanism"] != after["mechanism"],
@@ -91,6 +93,10 @@ def write_experiment_fixture(root):
                        "raw_future_delta": -.25, "valid_search_pair": True,
                        "policy_distinct": True, "old_policy_hash": "fixture-policy-0", "new_policy_hash": "fixture-policy-2",
                        "distinct_selected_mechanisms": False, "old_passed": 3, "new_passed": 2, "total": 4})
+        shared_input = {"mechanism": {"fixture": True}, "memory": {"records": []}, "observations": [],
+                        "history": [], "experience": experience_fixture()}
+        shared_input["input_hash"] = digest(shared_input)
+        write_json(root / "policy-audit-inputs" / f"{seed}.json", shared_input)
     write_json(root / "independent.json", {"status": "completed", "versions": versions, "policy_audits": audits})
     write_json(root / "model-calls/request.json", {"status": "completed", "purpose": "continual_task",
         "metadata": {"arm": "joint", "phase": "online"}, "request_body": "SYNTHETIC_PRIVATE_CONTENT",
@@ -147,6 +153,12 @@ class ContinualAnalysisTests(unittest.TestCase):
             write_experiment_fixture(root)
             result = analyze(root)
             self.assertEqual(result["status"], "completed_readout")
+            completeness = result["completeness"]["categories"]
+            self.assertEqual(completeness["mechanism_readouts"]["observed"], 18)
+            self.assertEqual(completeness["independent_policy_audits"]["observed"], 2)
+            self.assertEqual(completeness["terminal_no_memory"]["observed"], 6)
+            self.assertEqual(completeness["terminal_wide_context_baseline"]["observed"], 6)
+            self.assertEqual(completeness["shared_audit_inputs"]["observed"], 2)
             self.assertEqual(len(result["versions"]), 18)
             self.assertEqual(result["terminal_joint_minus_fixed_p"]["acceptance"]["mean_difference"], .25)
             self.assertEqual(result["independent_policy_audit"]["primary"]["mean_difference"], -.25)
@@ -225,6 +237,66 @@ class ContinualAnalysisTests(unittest.TestCase):
             self.assertFalse(primary["evolved_policy_effect_evidence_available"])
             self.assertEqual(primary["evolved_policy_inference_status"], "no_distinct_policy_evidence")
             self.assertIn("no_distinct_policy_evidence", (root / "RESULTS.md").read_text())
+            self.assertIn("including identical-P calibration", primary["primary_definition"])
+            self.assertIn("No g0 subtraction", primary["primary_definition"])
+
+    def test_missing_planned_audit_controls_or_shared_input_prevents_completion(self):
+        for component in ("independent_policy_audits", "terminal_no_memory", "terminal_wide_context_baseline", "shared_audit_inputs"):
+            with self.subTest(component=component), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                write_experiment_fixture(root)
+                source = read_json(root / "independent.json")
+                if component == "independent_policy_audits":
+                    source["policy_audits"].pop()
+                elif component == "shared_audit_inputs":
+                    (root / "policy-audit-inputs/101.json").unlink()
+                else:
+                    split = "no_memory" if component == "terminal_no_memory" else "wide_context_baseline"
+                    terminal = next(row for row in source["versions"] if row["generation"] == 2)
+                    terminal["reports"].pop(split)
+                write_json(root / "independent.json", source)
+                result = analyze(root)
+                self.assertEqual(result["status"], "partial_readout")
+                self.assertEqual(result["completeness"]["categories"]["mechanism_readouts"]["observed"], 18)
+                self.assertFalse(result["completeness"]["categories"][component]["complete"])
+
+    def test_invalid_p_trials_are_complete_observations_with_unknown_effect(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_experiment_fixture(root)
+            source = read_json(root / "independent.json")
+            for row in source["policy_audits"]:
+                row.update(valid_search_pair=False, future_delta=None)
+            write_json(root / "independent.json", source)
+            result = analyze(root)
+            self.assertEqual(result["status"], "completed_readout")
+            component = result["completeness"]["categories"]["independent_policy_audits"]
+            self.assertEqual((component["observed"], component["observed_effect_unknown"]), (2, 2))
+            primary = result["independent_policy_audit"]["primary"]
+            self.assertEqual(primary["n_valid"], 0)
+            self.assertIsNone(primary["mean_difference"])
+            self.assertEqual(primary["all_attempt_operational_raw_outcomes"]["n"], 2)
+
+    def test_uncommitted_experience_is_retained_but_not_primary_online_or_memory(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_experiment_fixture(root)
+            before = analyze(root)
+            (root / "streams/101/joint/versions/g2.json").unlink()
+            result = analyze(root)
+            self.assertEqual(before["memory_chain_summary"]["joint"]["episodes_observed"], 4)
+            self.assertEqual(result["memory_chain_summary"]["joint"]["episodes_observed"], 3)
+            self.assertEqual(result["memory_chain_uncommitted_summary"]["joint"]["episodes_observed"], 1)
+            self.assertEqual(result["curves"]["online"]["joint"][1]["streams"], 1)
+            self.assertEqual(result["curves"]["online_uncommitted"]["joint"][1]["streams"], 1)
+            retained = read_json(root / "memory-chain.json")["episodes"]
+            self.assertEqual(len(retained), 12)
+            uncommitted = [row for row in retained if not row["committed"]]
+            self.assertEqual(len(uncommitted), 1)
+            self.assertEqual((uncommitted[0]["stream"], uncommitted[0]["arm"], uncommitted[0]["round"]), (101, "joint", 1))
+            self.assertTrue(uncommitted[0]["structural_chain_complete"])
+            self.assertEqual(before["calls"], result["calls"])
+            self.assertIn("Uncommitted observations", (root / "RESULTS.md").read_text())
 
     def test_secondary_diagnostic_uses_visible_required_token_and_policy_sources(self):
         report = _secondary_report(diagnostic_fixture(), path="fixture.json")

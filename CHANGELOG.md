@@ -6,9 +6,9 @@
 - Expanded P into model diagnosis/proposal prompts, bounded selection programs, multiple operators and actual host-bound parent choice. Candidate generation no longer uses a task-family-to-module lookup.
 - Added three-arm 20-round, ten-stream protocol; actual paired future-search promotion, fixed-P shadow probes, all-version empty-memory acceptance, memory-disabled and wide-context controls, independent P-search audits and same-P calibration.
 - Added stream-paired descriptive statistics, all-generation diffs, trace/source memory chains, secondary answer/citation/support diagnostics, token accounting and offline evidence explorer.
-- Added isolated frozen-source reproduction and preserved engineering preflights, invalid proposals, flat/regressing generations and physical model request failures.
+- Added isolated frozen-source reproduction, verified checkpoint/readout recovery, deterministic evidence packaging with raw-byte SHA256 inventories and secret scanning; preserved engineering preflights, invalid proposals, flat/regressing generations and physical model request failures.
 
-The first formal run committed 421/600 planned round transitions before provider balance exhaustion. Formal independent effects are unavailable; development P promotions are not substituted. Source and protocol are frozen, and original failures remain retained. No positive P-effect, business-value or production-security claim is made.
+The first formal run committed 421/600 planned round transitions before provider balance exhaustion. Verified recovery retained those committed bytes, archived every unsealed partial round independent of score, and reached 501/600 before another provider balance rejection. Formal independent effects are unavailable; development P promotions are not substituted. Source and protocol are frozen, and original failures remain retained. No positive P-effect, business-value or production-security claim is made.
 
 ## 0.1.0 — 2026-10-23
 

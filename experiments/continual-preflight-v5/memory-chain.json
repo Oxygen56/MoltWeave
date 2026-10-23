@@ -94,6 +94,38 @@
       "observed_tasks_total": 20
     }
   },
+  "uncommitted_summary": {
+    "fixed_mechanism": {
+      "episodes_observed": 0,
+      "four_step_episodes": 0,
+      "structural_chains_complete": 0,
+      "four_tasks_all_passed": 0,
+      "effective_closed_loops": 0,
+      "task_kinds": {},
+      "observed_tasks_passed": 0,
+      "observed_tasks_total": 0
+    },
+    "fixed_p": {
+      "episodes_observed": 0,
+      "four_step_episodes": 0,
+      "structural_chains_complete": 0,
+      "four_tasks_all_passed": 0,
+      "effective_closed_loops": 0,
+      "task_kinds": {},
+      "observed_tasks_passed": 0,
+      "observed_tasks_total": 0
+    },
+    "joint": {
+      "episodes_observed": 0,
+      "four_step_episodes": 0,
+      "structural_chains_complete": 0,
+      "four_tasks_all_passed": 0,
+      "effective_closed_loops": 0,
+      "task_kinds": {},
+      "observed_tasks_passed": 0,
+      "observed_tasks_total": 0
+    }
+  },
   "episodes": [
     {
       "stream": 951,
@@ -189,7 +221,9 @@
           "passed": true,
           "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
         }
-      ]
+      ],
+      "committed": true,
+      "commit_rule": "Completed transition and matching parent/next M/P hashes with g(r+1) present"
     },
     {
       "stream": 951,
@@ -290,7 +324,9 @@
           "passed": true,
           "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
         }
-      ]
+      ],
+      "committed": true,
+      "commit_rule": "Completed transition and matching parent/next M/P hashes with g(r+1) present"
     },
     {
       "stream": 951,
@@ -391,7 +427,9 @@
           "passed": false,
           "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
         }
-      ]
+      ],
+      "committed": true,
+      "commit_rule": "Completed transition and matching parent/next M/P hashes with g(r+1) present"
     },
     {
       "stream": 951,
@@ -497,7 +535,9 @@
           "passed": false,
           "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
         }
-      ]
+      ],
+      "committed": true,
+      "commit_rule": "Completed transition and matching parent/next M/P hashes with g(r+1) present"
     },
     {
       "stream": 951,
@@ -593,7 +633,9 @@
           "passed": true,
           "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
         }
-      ]
+      ],
+      "committed": true,
+      "commit_rule": "Completed transition and matching parent/next M/P hashes with g(r+1) present"
     },
     {
       "stream": 951,
@@ -694,7 +736,9 @@
           "passed": true,
           "mechanism_hash": "41ee2a23c2538570a64e6a73ae5c46d883e770448d6bd66e89f8bec193388181"
         }
-      ]
+      ],
+      "committed": true,
+      "commit_rule": "Completed transition and matching parent/next M/P hashes with g(r+1) present"
     },
     {
       "stream": 951,
@@ -795,7 +839,9 @@
           "passed": false,
           "mechanism_hash": "41ee2a23c2538570a64e6a73ae5c46d883e770448d6bd66e89f8bec193388181"
         }
-      ]
+      ],
+      "committed": true,
+      "commit_rule": "Completed transition and matching parent/next M/P hashes with g(r+1) present"
     },
     {
       "stream": 951,
@@ -901,7 +947,9 @@
           "passed": false,
           "mechanism_hash": "41ee2a23c2538570a64e6a73ae5c46d883e770448d6bd66e89f8bec193388181"
         }
-      ]
+      ],
+      "committed": true,
+      "commit_rule": "Completed transition and matching parent/next M/P hashes with g(r+1) present"
     },
     {
       "stream": 951,
@@ -997,7 +1045,9 @@
           "passed": true,
           "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
         }
-      ]
+      ],
+      "committed": true,
+      "commit_rule": "Completed transition and matching parent/next M/P hashes with g(r+1) present"
     },
     {
       "stream": 951,
@@ -1098,7 +1148,9 @@
           "passed": true,
           "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
         }
-      ]
+      ],
+      "committed": true,
+      "commit_rule": "Completed transition and matching parent/next M/P hashes with g(r+1) present"
     },
     {
       "stream": 951,
@@ -1199,7 +1251,9 @@
           "passed": false,
           "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
         }
-      ]
+      ],
+      "committed": true,
+      "commit_rule": "Completed transition and matching parent/next M/P hashes with g(r+1) present"
     },
     {
       "stream": 951,
@@ -1305,8 +1359,10 @@
           "passed": false,
           "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
         }
-      ]
+      ],
+      "committed": true,
+      "commit_rule": "Completed transition and matching parent/next M/P hashes with g(r+1) present"
     }
   ],
-  "meaning": "Observed source/record-ID links and hash continuity; structural completion is separate from actual task success"
+  "meaning": "Primary summary uses committed rounds only. Every uncommitted experience is retained separately. Observed source/record-ID links and hash continuity are separate from actual task success"
 }

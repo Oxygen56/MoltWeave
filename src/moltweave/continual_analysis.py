@@ -274,6 +274,83 @@ def _aggregate_secondary(rows: list[dict]) -> dict:
     return result
 
 
+def _memory_summary(chains: list[dict], arms: list[str]) -> dict:
+    result = {}
+    for arm in arms:
+        rows = [row for row in chains if row["arm"] == arm]
+        kinds = defaultdict(Counter)
+        for row in rows:
+            for kind, values in row["task_kinds"].items():
+                kinds[kind].update(values)
+        result[arm] = {"episodes_observed": len(rows), "four_step_episodes": sum(row["four_steps_present"] for row in rows),
+                       "structural_chains_complete": sum(row["structural_chain_complete"] for row in rows),
+                       "four_tasks_all_passed": sum(row["all_four_tasks_passed"] for row in rows),
+                       "effective_closed_loops": sum(row["effective_closed_loop"] for row in rows),
+                       "task_kinds": {kind: dict(values) for kind, values in kinds.items()},
+                       "observed_tasks_passed": sum(row.get("episode_passed") or 0 for row in rows),
+                       "observed_tasks_total": sum(row.get("episode_total") or 0 for row in rows)}
+    return result
+
+
+def _completeness(output: Path, manifest: dict, independent: dict, reports: dict, audits: list[dict]) -> dict:
+    """Inventory planned observations, independent of whether their effects are valid."""
+    seeds, arms, rounds = manifest["seeds"], list(manifest.get("arms", ARMS)), manifest["rounds"]
+    checkpoints = manifest.get("protocol", {}).get("policy_audit_checkpoints",
+        sorted({0, rounds // 4, rounds // 2, 3 * rounds // 4, rounds}))
+    expected_versions = {(str(seed), arm, g) for seed in seeds for arm in arms for g in range(rounds + 1)}
+    expected_terminal = {(str(seed), arm, rounds) for seed in seeds for arm in arms}
+    expected_audits = {(str(seed), g) for seed in seeds for g in checkpoints}
+
+    def inventory(expected, present, valid):
+        label = lambda key: "/".join(map(str, key if isinstance(key, tuple) else (key,)))
+        missing, incomplete, unexpected = expected - present, (expected & present) - valid, present - expected
+        return {"expected": len(expected), "observed": len(expected & valid), "present": len(present),
+                "missing": sorted(map(label, missing)), "incomplete": sorted(map(label, incomplete)),
+                "unexpected": sorted(map(label, unexpected)),
+                "complete": not (missing or incomplete or unexpected)}
+
+    mechanism = inventory(expected_versions, set(reports),
+        {key for key, value in reports.items() if {"acceptance", "transfer"} <= set(value)})
+    controls = {}
+    for split in ("no_memory", "wide_context_baseline"):
+        present = {key for key, value in reports.items() if split in value}
+        controls[split] = inventory(expected_terminal, present, present)
+    # Invalid executed-search pairs still have observed raw outcomes. Their
+    # future_delta remains None; completeness must not turn it into zero.
+    audit_fields = {"stream", "generation", "old_passed", "new_passed", "total", "future_delta",
+                    "raw_future_delta", "valid_search_pair", "distinct_selected_mechanisms"}
+    audit_keys = {(str(row["stream"]), row["generation"]) for row in audits}
+    valid_audits = {(str(row["stream"]), row["generation"]) for row in audits if audit_fields <= set(row)}
+    audit_inventory = inventory(expected_audits, audit_keys, valid_audits)
+    audit_inventory["observed_invalid_search_pairs"] = sum(row.get("valid_search_pair") is False for row in audits)
+    audit_inventory["observed_effect_unknown"] = sum(row.get("future_delta") is None for row in audits)
+    input_present, input_valid, inputs = set(), set(), []
+    input_fields = {"mechanism", "memory", "observations", "history", "experience", "input_hash"}
+    for path in sorted((output / "policy-audit-inputs").glob("*.json")):
+        seed = path.stem
+        input_present.add(seed)
+        value = read_json(path)
+        hash_ok = (isinstance(value, dict) and input_fields <= set(value)
+                   and value["input_hash"] == digest({key: item for key, item in value.items() if key != "input_hash"}))
+        schema_ok = (hash_ok and all(isinstance(value[key], dict) for key in ("mechanism", "memory", "experience"))
+                     and all(isinstance(value[key], list) for key in ("observations", "history")))
+        if schema_ok:
+            input_valid.add(seed)
+        inputs.append({"stream": seed, "path": str(path.relative_to(output)),
+                       "input_hash_valid": bool(hash_ok), "schema_complete": bool(schema_ok)})
+    shared_inputs = inventory({str(seed) for seed in seeds}, input_present, input_valid)
+    shared_inputs["verification"] = "Raw shared input fields and canonical input_hash; full replay validation belongs to the readout runner"
+    shared_inputs["inputs"] = inputs
+    categories = {"mechanism_readouts": mechanism, "independent_policy_audits": audit_inventory,
+                  "terminal_no_memory": controls["no_memory"],
+                  "terminal_wide_context_baseline": controls["wide_context_baseline"],
+                  "shared_audit_inputs": shared_inputs}
+    return {"independent_status": independent.get("status", "unavailable"),
+            "complete": independent.get("status") == "completed" and all(row["complete"] for row in categories.values()),
+            "categories": categories,
+            "interpretation": "All planned observations must exist before completed_readout. Invalid P trials are observed attempts with unknown effect, not missing or zero-effect trials."}
+
+
 def analyze(output: Path) -> dict:
     output = Path(output)
     manifest = read_json(output / "manifest.json")
@@ -291,7 +368,7 @@ def analyze(output: Path) -> dict:
             _rate(report)
     version_rows, adoption, diagnostics, chains, probe_rows = [], {}, [], [], []
     secondary_rows = {}
-    online = defaultdict(list)
+    online, uncommitted_online = defaultdict(list), defaultdict(list)
     for seed in seeds:
         for arm in arms:
             lane = output / "streams" / str(seed) / arm
@@ -332,6 +409,7 @@ def analyze(output: Path) -> dict:
                 folder = lane / "rounds" / f"r{g:02d}"
                 row["round_paths"] = {name: _relative(output, folder / (name + ".json"))
                                       for name in ("experience", "transition", "mechanism-search", "policy-proposal", "policy-probe")}
+                transition = None
                 if (folder / "transition.json").exists() and g < rounds:
                     transition = read_json(folder / "transition.json")
                     counts["rounds_observed"] += 1
@@ -347,11 +425,20 @@ def analyze(output: Path) -> dict:
                         if transition.get("mechanism_changed") != m_changed or transition.get("policy_changed") != p_changed:
                             warnings.append(f"Transition adoption flag mismatch: {seed}/{arm}/r{g}")
                     row["transition"] = transition
+                committed = (g < rounds and transition is not None and transition.get("status") == "completed"
+                             and g in states and g+1 in states
+                             and all(transition.get(key) == digest(states[index][field])
+                                     for key, index, field in (("parent_m", g, "mechanism"), ("parent_p", g, "policy"),
+                                                               ("loaded_m_next", g+1, "mechanism"), ("loaded_p_next", g+1, "policy"))))
+                row["round_committed"] = bool(committed)
                 if (folder / "experience.json").exists() and g < rounds:
                     experience = read_json(folder / "experience.json")
-                    online[(arm, g)].append({"passed": experience["passed"], "total": experience["total"]})
-                    chains.append(memory_chain(experience, stream=seed, arm=arm, round_index=g,
-                                               path=str((folder / "experience.json").relative_to(output))))
+                    (online if committed else uncommitted_online)[(arm, g)].append({"passed": experience["passed"], "total": experience["total"]})
+                    chain = memory_chain(experience, stream=seed, arm=arm, round_index=g,
+                                         path=str((folder / "experience.json").relative_to(output)))
+                    chain["committed"] = bool(committed)
+                    chain["commit_rule"] = "Completed transition and matching parent/next M/P hashes with g(r+1) present"
+                    chains.append(chain)
                 if (folder / "mechanism-search.json").exists() and g < rounds:
                     search = read_json(folder / "mechanism-search.json")
                     row["loaded_search"] = {key: search.get(key) for key in ("policy_hash", "initial_mechanism_hash", "initial_memory_hash", "selected_mechanism_hash", "selected_trial", "mechanism_adopted")}
@@ -393,6 +480,7 @@ def analyze(output: Path) -> dict:
         curves[split] = {arm: [{"generation": g, **_aggregate([reports.get((str(seed), arm, g), {}).get(split) for seed in seeds])}
                                for g in range(rounds + 1)] for arm in arms}
     curves["online"] = {arm: [{"generation": g, **_aggregate(online[(arm, g)])} for g in range(rounds)] for arm in arms}
+    curves["online_uncommitted"] = {arm: [{"generation": g, **_aggregate(uncommitted_online[(arm, g)])} for g in range(rounds)] for arm in arms}
     comparisons = {}
     for split in ("acceptance", "transfer"):
         pairs = []
@@ -467,27 +555,16 @@ def analyze(output: Path) -> dict:
             "nonzero_delta_with_same_selected_mechanism": sum(not row["distinct_selected_mechanisms"] and abs(pair["left"]-pair["right"]) > 1e-9 for row, pair in zip(rows, all_pairs)),
             "observations": rows,
             "validity_note": "Effect statistics use only explicitly valid executed search pairs; invalid/unknown attempts remain above and in all-attempt operational outcomes. Conditional valid-pair statistics may be selected; do not claim unconditional P superiority.",
+            "primary_definition": "All valid terminal P versus P0 pairs, including identical-P calibration. No g0 subtraction. Distinct-P statistics are an explanatory subset, not a replacement primary endpoint.",
             "paths": [_relative(output, output / "policy-audits" / str(row["stream"]) / f"g{checkpoint}.json") for row in rows]}
-    memory_summary = {}
-    for arm in arms:
-        rows = [row for row in chains if row["arm"] == arm]
-        kinds = defaultdict(Counter)
-        for row in rows:
-            for kind, values in row["task_kinds"].items():
-                kinds[kind].update(values)
-        memory_summary[arm] = {"episodes_observed": len(rows), "four_step_episodes": sum(row["four_steps_present"] for row in rows),
-                               "structural_chains_complete": sum(row["structural_chain_complete"] for row in rows),
-                               "four_tasks_all_passed": sum(row["all_four_tasks_passed"] for row in rows),
-                               "effective_closed_loops": sum(row["effective_closed_loop"] for row in rows),
-                               "task_kinds": {kind: dict(values) for kind, values in kinds.items()},
-                               "observed_tasks_passed": sum(row.get("episode_passed") or 0 for row in rows),
-                               "observed_tasks_total": sum(row.get("episode_total") or 0 for row in rows)}
+    memory_summary = _memory_summary([row for row in chains if row["committed"]], arms)
+    uncommitted_summary = _memory_summary([row for row in chains if not row["committed"]], arms)
     expected_versions = len(seeds) * len(arms) * (rounds + 1)
     expected_keys = {(str(seed), arm, g) for seed in seeds for arm in arms for g in range(rounds + 1)}
     if set(reports) - expected_keys:
         warnings.append("Unexpected independent version observations outside the declared streams/arms/generations")
-    complete = (independent.get("status") == "completed" and set(reports) == expected_keys
-                and all({"acceptance", "transfer"} <= set(report) for report in reports.values()))
+    completeness = _completeness(output, manifest, independent, reports, audits)
+    complete = completeness["complete"]
     if not complete:
         warnings.append("Independent readout incomplete or unavailable; missing observations are not zero outcomes")
     regressions = []
@@ -519,6 +596,7 @@ def analyze(output: Path) -> dict:
               "manifest_hash": digest(manifest), "independent_hash": digest(independent) if independent else None,
               "planned_streams": seeds, "arms": arms, "rounds": rounds,
               "observed_independent_versions": len(reports), "expected_independent_versions": expected_versions,
+              "completeness": completeness,
               "curves": curves, "terminal_joint_minus_fixed_p": comparisons,
               "independent_policy_audit": {"primary_checkpoint": rounds, "checkpoints": audit_by_checkpoint,
                                            "primary": audit_by_checkpoint.get(str(rounds)),
@@ -529,7 +607,9 @@ def analyze(output: Path) -> dict:
               "diagnostic_summary": {"statuses": dict(Counter(row["status"] for row in diagnostics)),
                                      "executed_main_candidates_not_selected": sum(row["scope"] == "mechanism_search" and row["status"] == "executed" and not row.get("selected") for row in diagnostics)},
               "regressions": regressions, "versions": version_rows,
-              "memory_chain_summary": memory_summary, "calls": _call_statistics(output),
+              "memory_chain_summary": memory_summary, "memory_chain_uncommitted_summary": uncommitted_summary,
+              "uncommitted_experiences": [{key: row[key] for key in ("stream", "arm", "round", "path")} for row in chains if not row["committed"]],
+              "calls": _call_statistics(output),
               "secondary_pre_readout_diagnostics": {
                   "definition_version": "pre-readout-source-coverage-v1", "role": "secondary pre-readout diagnostic",
                   "primary_substitution_allowed": False, "version_selection_allowed": False,
@@ -543,8 +623,8 @@ def analyze(output: Path) -> dict:
                          "Stream-paired descriptive confidence intervals and p-values do not establish causal superiority",
                          "Meta-development policy promotions are optimization observations, never independent P evidence",
                          "Terminal memory ablation changes reads and writes together; it does not isolate the write-policy contribution"]}
-    write_json(output / "memory-chain.json", {"summary": memory_summary, "episodes": chains,
-                                             "meaning": "Observed source/record-ID links and hash continuity; structural completion is separate from actual task success"})
+    write_json(output / "memory-chain.json", {"summary": memory_summary, "uncommitted_summary": uncommitted_summary, "episodes": chains,
+                                             "meaning": "Primary summary uses committed rounds only. Every uncommitted experience is retained separately. Observed source/record-ID links and hash continuity are separate from actual task success"})
     write_json(output / "analysis.json", result)
     (output / "RESULTS.md").write_text(_markdown(result), encoding="utf-8")
     (output / "index.html").write_text(_html(result), encoding="utf-8")
@@ -566,7 +646,11 @@ def _diagnostic_cell(metric):
 def _markdown(result: dict) -> str:
     lines = ["# Continual experiment readout", "", f"Analysis status: **{result['status']}**. Run status: **{result['run_status']}**. Source: {result['source_scope']}", "",
              "All numbers below come from retained observations. Structural tests are not model-effect measurements. Missing data is unavailable, not zero.", "",
-             "## Terminal mechanism comparison", "", "| Partition | Paired streams | Joint − fixed-P (pp) | 95% stream bootstrap CI (pp) | Exact sign-flip p |", "|---|---:|---:|---|---:|"]
+             "## Readout completeness", "", "| Planned component | Observed / expected | Complete |", "|---|---:|---|"]
+    for name, component in result["completeness"]["categories"].items():
+        lines.append(f"| {name} | {component['observed']}/{component['expected']} | {component['complete']} |")
+    lines += ["", "Completion requires independent status completed and every planned mechanism readout, P audit, terminal control and shared audit input. An invalid P trial is an observed attempt whose effect is unknown; it is not a missing observation or a zero effect.", "",
+              "## Terminal mechanism comparison", "", "| Partition | Paired streams | Joint − fixed-P (pp) | 95% stream bootstrap CI (pp) | Exact sign-flip p |", "|---|---:|---:|---|---:|"]
     for split, stats in result["terminal_joint_minus_fixed_p"].items():
         ci = stats["bootstrap_percentile_95_ci"]
         lines.append(f"| {split} | {stats['n']} | {_number(stats['mean_difference_percentage_points'])} | {', '.join(_number(100*x) for x in ci) if ci else 'unavailable'} | {_number(stats['exact_sign_flip_two_sided_p'], 4)} |")
@@ -580,6 +664,7 @@ def _markdown(result: dict) -> str:
                 lines.append(f"| {split} | {arm} | {point['generation']} | {point['streams']} | {counts} | {percent} |")
     audit = result["independent_policy_audit"]["primary"]
     lines += ["", "## Independent terminal P audit", ""]
+    lines.append("Primary: all valid terminal P-versus-P0 search pairs, including identical-P calibration. Distinct-P statistics explain a subset and never replace the primary; g0 is not subtracted after observation. All-attempt raw outcomes remain a separate operational comparison.")
     if audit:
         distinct, calibration = audit["valid_and_distinct_policy_statistics"], audit["same_policy_calibration"]
         lines += [f"Fresh future-search audit: valid executed pairs={audit['n_valid']}/{audit['total_observed']} observed ({audit['total_planned']} planned); invalid={audit['invalid_pairs']}, unknown validity/effect={audit['unknown_validity_or_effect']}. All-valid-pair execution contrast = {_number(audit['mean_difference_percentage_points'])} pp.",
@@ -606,8 +691,13 @@ def _markdown(result: dict) -> str:
               "", "## Actual adoption and memory chains", "", "| Lane | Observed rounds | M changes | P changes |", "|---|---:|---:|---:|"]
     for lane, stats in result["adoptions"].items():
         lines.append(f"| {lane} | {stats['rounds_observed']} | {stats['mechanism_adoptions']} | {stats['policy_adoptions']} |")
-    lines += ["", "| Arm | Episodes | Structural chains | All four tasks passed | Effective closed loops |", "|---|---:|---:|---:|---:|"]
+    lines += ["", "Online curves and the primary memory-chain summary include committed rounds only: a completed transition, matching parent/next M/P hashes, and g(r+1) present. Uncommitted experiences remain below and in memory-chain.json; their calls/costs are retained. Online experience is optimization data.", "",
+              "| Arm | Committed episodes | Structural chains | All four tasks passed | Effective closed loops |", "|---|---:|---:|---:|---:|"]
     for arm, stats in result["memory_chain_summary"].items():
+        lines.append(f"| {arm} | {stats['episodes_observed']} | {stats['structural_chains_complete']} | {stats['four_tasks_all_passed']} | {stats['effective_closed_loops']} |")
+    lines += ["", "Uncommitted observations (excluded from primary online/chain statistics; never discarded):", "",
+              "| Arm | Uncommitted episodes | Structural chains | All four tasks passed | Effective closed loops |", "|---|---:|---:|---:|---:|"]
+    for arm, stats in result["memory_chain_uncommitted_summary"].items():
         lines.append(f"| {arm} | {stats['episodes_observed']} | {stats['structural_chains_complete']} | {stats['four_tasks_all_passed']} | {stats['effective_closed_loops']} |")
     counts = Counter(row["status"] for row in result["diagnostics"])
     lines += ["", f"Diagnostic statuses (main search and meta forks, scopes retained separately in JSON): {dict(counts)}.",
@@ -625,11 +715,11 @@ def _html(result: dict) -> str:
 body{font:15px/1.6 system-ui,sans-serif;background:#0c111b;color:#e5edf8;margin:0}main{max-width:1180px;margin:auto;padding:32px}h1{font-size:32px;line-height:1.2}h2{margin-top:34px}p,.muted{color:#aebbd0}a{color:#86c3ff}section{background:#141d2b;border:1px solid #29374d;border-radius:16px;padding:22px;margin:18px 0}select,button{background:#223249;color:white;border:1px solid #4a617d;padding:8px;border-radius:7px;margin:4px}table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:8px;text-align:left;border-bottom:1px solid #29374d}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#0c111b;padding:14px;border-radius:8px;font-size:12px;max-height:440px;overflow:auto}.scroll{overflow:auto;max-height:420px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}.stat{padding:16px;background:#1b2940;border-radius:10px}svg{width:100%;height:auto}code{overflow-wrap:anywhere}.warning{color:#ffcf90}</style>
 <main><h1>MoltWeave · Continuous improvement, inspectable</h1><p>Retained observations, every frozen generation, and separate independent policy evidence.</p><p>""" + title + """</p>
 <p><a href="manifest.json">Manifest</a> · <a href="analysis.json">Full analysis</a> · <a href="RESULTS.md">Report</a> · <a href="memory-chain.json">Memory chains</a> · <a href="independent.json">Independent readout</a></p>
-<div class="grid" id="summary"></div><section><h2>All versions · three arms</h2><select id="partition"><option>acceptance</option><option>transfer</option><option>online</option></select><p>Mean success across observed streams. Missing observations remain gaps. Online experience is optimization data.</p><div id="chart"></div><div class="scroll" id="curveTable"></div></section>
+<div class="grid" id="summary"></div><section><h2>Planned readout completeness</h2><pre id="completeness"></pre><p>Invalid P trials are observed attempts with unknown effect, not missing or zero-effect observations.</p></section><section><h2>All versions · three arms</h2><select id="partition"><option>acceptance</option><option>transfer</option><option>online</option><option>online_uncommitted</option></select><p>Mean success across observed streams. Missing observations remain gaps. Primary online curves include committed rounds only; uncommitted observations remain separately inspectable. Online experience is optimization data.</p><div id="chart"></div><div class="scroll" id="curveTable"></div></section>
 <section><h2>Inspect actual loaded versions and search choices</h2><select id="stream"></select><select id="arm"></select><select id="generation"></select><div id="version"></div></section>
-<section><h2>Independent P audit</h2><p>Fresh future searches; meta-development promotion results are excluded. The terminal checkpoint is predeclared, rather than chosen after results.</p><pre id="audit"></pre></section>
+<section><h2>Independent P audit</h2><p>Primary is all valid terminal P-versus-P0 pairs, including identical-P calibration. Distinct-P results are an explanatory subset, never a replacement primary. No g0 subtraction. All-attempt raw outcomes are separately operational. Fresh future searches exclude meta-development promotion results.</p><pre id="audit"></pre></section>
 <section><h2>Secondary pre-readout diagnostics · terminal</h2><p>These checks never replace strict primary success or select a version. Visible support means required source-ID presence in actual visible_facts; correct use, factual truth and causal benefit are separate. Missing raw traces remain unavailable. NR = no required source, excluded from support denominator.</p><div class="scroll" id="secondary"></div><a href="analysis.json">Every generation and individual retained trace check</a></section>
-<section><h2>Memory lifecycle and ablation</h2><p>A structural chain requires an observed write, recall of that exact record, a same-lineage replacement, and recall of the new active record, with continuous memory hashes. Four-task answer success is counted separately. No missing step is invented.</p><pre id="memory"></pre><a href="memory-chain.json">Inspect every complete and incomplete chain</a></section>
+<section><h2>Memory lifecycle and ablation</h2><p>Primary chains require committed rounds: completed transition, matching parent/next M/P hashes and g(r+1) present. Uncommitted experiences remain separately retained. A structural chain requires observed write, recall, same-lineage replacement and new active-record recall with continuous memory hashes. Four-task answer success is separate.</p><pre id="memory"></pre><a href="memory-chain.json">Inspect every complete, incomplete and uncommitted chain</a></section>
 <section><h2>Rejected candidates, invalid diagnostics and regressions</h2><pre id="diagnostics"></pre><p>Full statuses, scopes, stream IDs and source paths remain in analysis.json.</p></section>
 <section><h2>Actual physical calls and token usage</h2><pre id="cost"></pre></section><section><h2>Limits and missing evidence</h2><ul id="limits"></ul></section></main>
 <script id="evidence" type="application/json">""" + payload + """</script><script>
@@ -663,7 +753,7 @@ function version(){const row=D.versions.find(v=>String(v.stream)===$('stream').v
 const secondaryTable=text($('secondary'),'table',''),secondaryHead=text(secondaryTable,'tr','');for(const h of ['Arm','Split','Raw streams','Answer OK','Evidence OK','Visible support'])text(secondaryHead,'th',h);
 function diagnosticCell(m){return (m.observed?m.passed+'/'+m.observed:'unavailable')+(m.unknown?'; unknown='+m.unknown:'')+(m.not_required?'; NR='+m.not_required:'')}
 for(const row of D.secondary_pre_readout_diagnostics.terminal){const tr=text(secondaryTable,'tr','');for(const v of [row.arm,row.split,row.streams_with_raw_traces+'/'+row.planned_streams,...['answer_ok','evidence_ok','visible_support_sufficient'].map(k=>diagnosticCell(row.metrics[k]))])text(tr,'td',v)}
-$('partition').onchange=chart;for(const id of ['stream','arm','generation'])$(id).onchange=version;chart();version();$('audit').textContent=json(D.independent_policy_audit);$('memory').textContent=json({chains:D.memory_chain_summary,terminal_read_write_ablation:D.memory_ablation_current_minus_disabled,current_minus_wide_context_baseline:D.current_minus_wide_context_baseline});const counts={};for(const r of D.diagnostics)counts[r.scope+':'+r.status]=(counts[r.scope+':'+r.status]??0)+1;$('diagnostics').textContent=json({statuses:counts,adjacent_version_regressions:D.regressions.length,meta_development_probes:D.meta_development_probes.length});$('cost').textContent=json(D.calls);for(const warning of [...D.limits,...D.warnings])text($('limits'),'li',warning);
+$('partition').onchange=chart;for(const id of ['stream','arm','generation'])$(id).onchange=version;chart();version();$('completeness').textContent=json(D.completeness);$('audit').textContent=json(D.independent_policy_audit);$('memory').textContent=json({committed_chains:D.memory_chain_summary,uncommitted_chains:D.memory_chain_uncommitted_summary,uncommitted_experiences:D.uncommitted_experiences,terminal_read_write_ablation:D.memory_ablation_current_minus_disabled,current_minus_wide_context_baseline:D.current_minus_wide_context_baseline});const counts={};for(const r of D.diagnostics)counts[r.scope+':'+r.status]=(counts[r.scope+':'+r.status]??0)+1;$('diagnostics').textContent=json({statuses:counts,adjacent_version_regressions:D.regressions.length,meta_development_probes:D.meta_development_probes.length});$('cost').textContent=json(D.calls);for(const warning of [...D.limits,...D.warnings])text($('limits'),'li',warning);
 </script></html>"""
 
 

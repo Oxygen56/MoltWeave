@@ -1,0 +1,89 @@
+{
+  "id": "1b8d2214f05649a086e16e3bdc9fd516",
+  "purpose": "provider_recovery_smoke",
+  "metadata": {},
+  "model_requested": "deepseek-flash",
+  "endpoint_host": "api.deepseek.com",
+  "request_hash": "a0823ca96dbeb0ac65d73d02616ed3ee939e4eebbc1d54718dc9a5cd95b9a68a",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Return exactly a JSON object with ok set to true."
+    }
+  ],
+  "started_at": 1792752912.982042,
+  "request_parameters": {
+    "model": "deepseek-flash",
+    "temperature": 0,
+    "max_tokens": 30,
+    "response_format": {
+      "type": "json_object"
+    },
+    "thinking": {
+      "type": "disabled"
+    }
+  },
+  "physical_attempts": [
+    {
+      "number": 1,
+      "started_at": 1792752912.98205,
+      "request_hash": "a0823ca96dbeb0ac65d73d02616ed3ee939e4eebbc1d54718dc9a5cd95b9a68a",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Return exactly a JSON object with ok set to true."
+        }
+      ],
+      "request_parameters": {
+        "model": "deepseek-flash",
+        "temperature": 0,
+        "max_tokens": 30,
+        "response_format": {
+          "type": "json_object"
+        },
+        "thinking": {
+          "type": "disabled"
+        }
+      },
+      "status": "completed",
+      "content": "{\"ok\": true}",
+      "usage": {
+        "prompt_tokens": 39,
+        "completion_tokens": 5,
+        "total_tokens": 44,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 39
+      },
+      "response_id": "db6288e2-9fb5-4ae2-8cf4-eed507315c2e",
+      "model_returned": "deepseek-flash",
+      "finish_reason": "stop"
+    }
+  ],
+  "transport": {
+    "redirects_allowed": false,
+    "allow_env_proxy": false,
+    "allow_http_loopback": false
+  },
+  "credential_source": "anthropic",
+  "repair_json": false,
+  "status": "completed",
+  "model_returned": "deepseek-flash",
+  "usage": {
+    "prompt_tokens": 39,
+    "completion_tokens": 5,
+    "total_tokens": 44,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 39
+  },
+  "response_id": "db6288e2-9fb5-4ae2-8cf4-eed507315c2e",
+  "content": "{\"ok\": true}",
+  "finish_reason": "stop",
+  "attempts": 1,
+  "elapsed_seconds": 0.6
+}

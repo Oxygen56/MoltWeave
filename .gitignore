@@ -27,3 +27,7 @@ experiments/continual-*/streams/
 experiments/continual-*/independent/
 experiments/continual-*/policy-audits/
 experiments/continual-*/policy-audit-inputs/
+experiments/continual-*/resume-history/
+experiments/continual-*/readout-resume/
+experiments/continual-*/.continual-resume.lock
+experiments/continual-*/.readout-resume.lock

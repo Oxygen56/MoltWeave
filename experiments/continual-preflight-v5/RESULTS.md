@@ -4,6 +4,18 @@ Analysis status: **completed_readout**. Run status: **all_versions_frozen_pendin
 
 All numbers below come from retained observations. Structural tests are not model-effect measurements. Missing data is unavailable, not zero.
 
+## Readout completeness
+
+| Planned component | Observed / expected | Complete |
+|---|---:|---|
+| mechanism_readouts | 15/15 | True |
+| independent_policy_audits | 5/5 | True |
+| terminal_no_memory | 3/3 | True |
+| terminal_wide_context_baseline | 3/3 | True |
+| shared_audit_inputs | 1/1 | True |
+
+Completion requires independent status completed and every planned mechanism readout, P audit, terminal control and shared audit input. An invalid P trial is an observed attempt whose effect is unknown; it is not a missing observation or a zero effect.
+
 ## Terminal mechanism comparison
 
 | Partition | Paired streams | Joint − fixed-P (pp) | 95% stream bootstrap CI (pp) | Exact sign-flip p |
@@ -50,6 +62,7 @@ The unit is the stream, not each question. Bootstrap seed 20261023, 10,000 resam
 
 ## Independent terminal P audit
 
+Primary: all valid terminal P-versus-P0 search pairs, including identical-P calibration. Distinct-P statistics explain a subset and never replace the primary; g0 is not subtracted after observation. All-attempt raw outcomes remain a separate operational comparison.
 Fresh future-search audit: valid executed pairs=0/1 observed (1 planned); invalid=1, unknown validity/effect=0. All-valid-pair execution contrast = unavailable pp.
 Valid and actually distinct P: n=0, contrast=unavailable pp. Identical-P calibration: n=0, contrast=unavailable pp. Unknown policy identity among valid pairs=0.
 Evolved-P evidence status: **no_distinct_policy_evidence**. Same-policy positive scores cannot establish evolved-P benefit.
@@ -107,11 +120,21 @@ Denominators contain known checks only; unknown fields and missing raw streams a
 | 951/fixed_p | 4 | 1 | 0 |
 | 951/joint | 4 | 0 | 0 |
 
-| Arm | Episodes | Structural chains | All four tasks passed | Effective closed loops |
+Online curves and the primary memory-chain summary include committed rounds only: a completed transition, matching parent/next M/P hashes, and g(r+1) present. Uncommitted experiences remain below and in memory-chain.json; their calls/costs are retained. Online experience is optimization data.
+
+| Arm | Committed episodes | Structural chains | All four tasks passed | Effective closed loops |
 |---|---:|---:|---:|---:|
 | fixed_mechanism | 4 | 3 | 2 | 2 |
 | fixed_p | 4 | 4 | 2 | 2 |
 | joint | 4 | 4 | 2 | 2 |
+
+Uncommitted observations (excluded from primary online/chain statistics; never discarded):
+
+| Arm | Uncommitted episodes | Structural chains | All four tasks passed | Effective closed loops |
+|---|---:|---:|---:|---:|
+| fixed_mechanism | 0 | 0 | 0 | 0 |
+| fixed_p | 0 | 0 | 0 | 0 |
+| joint | 0 | 0 | 0 | 0 |
 
 Diagnostic statuses (main search and meta forks, scopes retained separately in JSON): {'executed': 23, 'invalid_diagnosis': 3, 'invalid_candidate': 2, 'no_action': 1}.
 Observed adjacent-version regressions: 3; every regression is retained in analysis.json.
@@ -480,7 +503,7 @@ Observed adjacent-version regressions: 3; every regression is retained in analys
       "total_tokens": 13048
     }
   },
-  "usage_note": "Provider-reported usage summed once per physical attempt; missing usage is unknown, not free. Shared independent P-audit costs are not assigned to the joint arm."
+  "usage_note": "Provider-reported usage summed once per physical attempt; missing usage is unknown, not free. Shared independent P-audit costs are not assigned to the joint arm. Nested resume receipt directories and discarded partial-round requests are included."
 }
 ```
 

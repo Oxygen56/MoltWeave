@@ -16,6 +16,69 @@
   "rounds": 4,
   "observed_independent_versions": 15,
   "expected_independent_versions": 15,
+  "completeness": {
+    "independent_status": "completed",
+    "complete": true,
+    "categories": {
+      "mechanism_readouts": {
+        "expected": 15,
+        "observed": 15,
+        "present": 15,
+        "missing": [],
+        "incomplete": [],
+        "unexpected": [],
+        "complete": true
+      },
+      "independent_policy_audits": {
+        "expected": 5,
+        "observed": 5,
+        "present": 5,
+        "missing": [],
+        "incomplete": [],
+        "unexpected": [],
+        "complete": true,
+        "observed_invalid_search_pairs": 3,
+        "observed_effect_unknown": 3
+      },
+      "terminal_no_memory": {
+        "expected": 3,
+        "observed": 3,
+        "present": 3,
+        "missing": [],
+        "incomplete": [],
+        "unexpected": [],
+        "complete": true
+      },
+      "terminal_wide_context_baseline": {
+        "expected": 3,
+        "observed": 3,
+        "present": 3,
+        "missing": [],
+        "incomplete": [],
+        "unexpected": [],
+        "complete": true
+      },
+      "shared_audit_inputs": {
+        "expected": 1,
+        "observed": 1,
+        "present": 1,
+        "missing": [],
+        "incomplete": [],
+        "unexpected": [],
+        "complete": true,
+        "verification": "Raw shared input fields and canonical input_hash; full replay validation belongs to the readout runner",
+        "inputs": [
+          {
+            "stream": "951",
+            "path": "policy-audit-inputs/951.json",
+            "input_hash_valid": true,
+            "schema_complete": true
+          }
+        ]
+      }
+    },
+    "interpretation": "All planned observations must exist before completed_readout. Invalid P trials are observed attempts with unknown effect, not missing or zero-effect trials."
+  },
   "curves": {
     "acceptance": {
       "fixed_mechanism": [
@@ -334,6 +397,98 @@
           "mean_stream_rate": 0.16666666666666666
         }
       ]
+    },
+    "online_uncommitted": {
+      "fixed_mechanism": [
+        {
+          "generation": 0,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 1,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 2,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 3,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        }
+      ],
+      "fixed_p": [
+        {
+          "generation": 0,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 1,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 2,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 3,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        }
+      ],
+      "joint": [
+        {
+          "generation": 0,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 1,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 2,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 3,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        }
+      ]
     }
   },
   "terminal_joint_minus_fixed_p": {
@@ -480,6 +635,7 @@
           }
         ],
         "validity_note": "Effect statistics use only explicitly valid executed search pairs; invalid/unknown attempts remain above and in all-attempt operational outcomes. Conditional valid-pair statistics may be selected; do not claim unconditional P superiority.",
+        "primary_definition": "All valid terminal P versus P0 pairs, including identical-P calibration. No g0 subtraction. Distinct-P statistics are an explanatory subset, not a replacement primary endpoint.",
         "paths": [
           "policy-audits/951/g0.json"
         ]
@@ -595,6 +751,7 @@
           }
         ],
         "validity_note": "Effect statistics use only explicitly valid executed search pairs; invalid/unknown attempts remain above and in all-attempt operational outcomes. Conditional valid-pair statistics may be selected; do not claim unconditional P superiority.",
+        "primary_definition": "All valid terminal P versus P0 pairs, including identical-P calibration. No g0 subtraction. Distinct-P statistics are an explanatory subset, not a replacement primary endpoint.",
         "paths": [
           "policy-audits/951/g1.json"
         ]
@@ -710,6 +867,7 @@
           }
         ],
         "validity_note": "Effect statistics use only explicitly valid executed search pairs; invalid/unknown attempts remain above and in all-attempt operational outcomes. Conditional valid-pair statistics may be selected; do not claim unconditional P superiority.",
+        "primary_definition": "All valid terminal P versus P0 pairs, including identical-P calibration. No g0 subtraction. Distinct-P statistics are an explanatory subset, not a replacement primary endpoint.",
         "paths": [
           "policy-audits/951/g2.json"
         ]
@@ -807,6 +965,7 @@
           }
         ],
         "validity_note": "Effect statistics use only explicitly valid executed search pairs; invalid/unknown attempts remain above and in all-attempt operational outcomes. Conditional valid-pair statistics may be selected; do not claim unconditional P superiority.",
+        "primary_definition": "All valid terminal P versus P0 pairs, including identical-P calibration. No g0 subtraction. Distinct-P statistics are an explanatory subset, not a replacement primary endpoint.",
         "paths": [
           "policy-audits/951/g3.json"
         ]
@@ -904,6 +1063,7 @@
           }
         ],
         "validity_note": "Effect statistics use only explicitly valid executed search pairs; invalid/unknown attempts remain above and in all-attempt operational outcomes. Conditional valid-pair statistics may be selected; do not claim unconditional P superiority.",
+        "primary_definition": "All valid terminal P versus P0 pairs, including identical-P calibration. No g0 subtraction. Distinct-P statistics are an explanatory subset, not a replacement primary endpoint.",
         "paths": [
           "policy-audits/951/g4.json"
         ]
@@ -1002,6 +1162,7 @@
         }
       ],
       "validity_note": "Effect statistics use only explicitly valid executed search pairs; invalid/unknown attempts remain above and in all-attempt operational outcomes. Conditional valid-pair statistics may be selected; do not claim unconditional P superiority.",
+      "primary_definition": "All valid terminal P versus P0 pairs, including identical-P calibration. No g0 subtraction. Distinct-P statistics are an explanatory subset, not a replacement primary endpoint.",
       "paths": [
         "policy-audits/951/g4.json"
       ]
@@ -2200,7 +2361,8 @@
         "online_total": 4,
         "elapsed_seconds": 4.948,
         "status": "completed"
-      }
+      },
+      "round_committed": true
     },
     {
       "stream": 951,
@@ -2723,7 +2885,8 @@
         "online_total": 5,
         "elapsed_seconds": 5.935,
         "status": "completed"
-      }
+      },
+      "round_committed": true
     },
     {
       "stream": 951,
@@ -3247,7 +3410,8 @@
         "online_total": 5,
         "elapsed_seconds": 5.88,
         "status": "completed"
-      }
+      },
+      "round_committed": true
     },
     {
       "stream": 951,
@@ -3770,7 +3934,8 @@
         "online_total": 6,
         "elapsed_seconds": 6.843,
         "status": "completed"
-      }
+      },
+      "round_committed": true
     },
     {
       "stream": 951,
@@ -5043,7 +5208,8 @@
         "mechanism-search": null,
         "policy-proposal": null,
         "policy-probe": null
-      }
+      },
+      "round_committed": false
     },
     {
       "stream": 951,
@@ -5569,6 +5735,7 @@
         "elapsed_seconds": 73.502,
         "status": "completed"
       },
+      "round_committed": true,
       "loaded_search": {
         "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
         "initial_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
@@ -6333,6 +6500,7 @@
         "elapsed_seconds": 67.883,
         "status": "completed"
       },
+      "round_committed": true,
       "loaded_search": {
         "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
         "initial_mechanism_hash": "41ee2a23c2538570a64e6a73ae5c46d883e770448d6bd66e89f8bec193388181",
@@ -6879,6 +7047,7 @@
         "elapsed_seconds": 59.279,
         "status": "completed"
       },
+      "round_committed": true,
       "loaded_search": {
         "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
         "initial_mechanism_hash": "41ee2a23c2538570a64e6a73ae5c46d883e770448d6bd66e89f8bec193388181",
@@ -7426,6 +7595,7 @@
         "elapsed_seconds": 68.831,
         "status": "completed"
       },
+      "round_committed": true,
       "loaded_search": {
         "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
         "initial_mechanism_hash": "41ee2a23c2538570a64e6a73ae5c46d883e770448d6bd66e89f8bec193388181",
@@ -8729,7 +8899,8 @@
         "mechanism-search": null,
         "policy-proposal": null,
         "policy-probe": null
-      }
+      },
+      "round_committed": false
     },
     {
       "stream": 951,
@@ -9253,6 +9424,7 @@
         "elapsed_seconds": 52.217,
         "status": "completed"
       },
+      "round_committed": true,
       "loaded_search": {
         "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
         "initial_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
@@ -9800,6 +9972,7 @@
         "elapsed_seconds": 67.104,
         "status": "completed"
       },
+      "round_committed": true,
       "loaded_search": {
         "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
         "initial_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
@@ -10346,6 +10519,7 @@
         "elapsed_seconds": 73.283,
         "status": "completed"
       },
+      "round_committed": true,
       "loaded_search": {
         "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
         "initial_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
@@ -10893,6 +11067,7 @@
         "elapsed_seconds": 62.935,
         "status": "completed"
       },
+      "round_committed": true,
       "loaded_search": {
         "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
         "initial_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
@@ -12196,7 +12371,8 @@
         "mechanism-search": null,
         "policy-proposal": null,
         "policy-probe": null
-      }
+      },
+      "round_committed": false
     }
   ],
   "memory_chain_summary": {
@@ -12294,6 +12470,39 @@
       "observed_tasks_total": 20
     }
   },
+  "memory_chain_uncommitted_summary": {
+    "fixed_mechanism": {
+      "episodes_observed": 0,
+      "four_step_episodes": 0,
+      "structural_chains_complete": 0,
+      "four_tasks_all_passed": 0,
+      "effective_closed_loops": 0,
+      "task_kinds": {},
+      "observed_tasks_passed": 0,
+      "observed_tasks_total": 0
+    },
+    "fixed_p": {
+      "episodes_observed": 0,
+      "four_step_episodes": 0,
+      "structural_chains_complete": 0,
+      "four_tasks_all_passed": 0,
+      "effective_closed_loops": 0,
+      "task_kinds": {},
+      "observed_tasks_passed": 0,
+      "observed_tasks_total": 0
+    },
+    "joint": {
+      "episodes_observed": 0,
+      "four_step_episodes": 0,
+      "structural_chains_complete": 0,
+      "four_tasks_all_passed": 0,
+      "effective_closed_loops": 0,
+      "task_kinds": {},
+      "observed_tasks_passed": 0,
+      "observed_tasks_total": 0
+    }
+  },
+  "uncommitted_experiences": [],
   "calls": {
     "totals": {
       "logical_requests": 1668,
@@ -12655,7 +12864,7 @@
         "total_tokens": 13048
       }
     },
-    "usage_note": "Provider-reported usage summed once per physical attempt; missing usage is unknown, not free. Shared independent P-audit costs are not assigned to the joint arm."
+    "usage_note": "Provider-reported usage summed once per physical attempt; missing usage is unknown, not free. Shared independent P-audit costs are not assigned to the joint arm. Nested resume receipt directories and discarded partial-round requests are included."
   },
   "secondary_pre_readout_diagnostics": {
     "definition_version": "pre-readout-source-coverage-v1",
