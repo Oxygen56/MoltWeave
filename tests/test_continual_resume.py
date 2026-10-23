@@ -153,6 +153,65 @@ class ContinualResumeTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "g0 must equal"):
             resume.build_plan(self.archive())
 
+    def current_failure(self, *, actual="JSONDecodeError", claimed="JSONDecodeError", round_index=1):
+        receipt_id = "a" * 32
+        self.dump(self.root / "model-calls/resume-structural" / (receipt_id + ".json"), {
+            "id": receipt_id, "status": "failed", "error_type": actual,
+            "metadata": {"stream": 101, "arm": "fixed_p", "round": round_index},
+            "physical_attempts": [{"status": "failed", "error_type": actual} for _ in range(3)]})
+        summary = {"status": "aborted_measurement_incomplete", "completed": [],
+            "resume_ledger": "resume-history/structural/plan.json", "errors": [{"seed": 101, "arm": "fixed_p",
+                "error_type": "RuntimeError", "error": f"Model call failed ({claimed}); see local receipt {receipt_id}"}]}
+        self.dump(self.root / "summary.json", summary)
+        return receipt_id
+
+    def test_current_parse_receipt_overrides_historical_402_without_changing_replay_rule(self):
+        before = resume.build_plan(self.archive())
+        receipt_id = self.current_failure()
+        inventory = resume.inventory(self.root)
+        plan = resume.build_plan(self.archive())
+        reason = plan["interruption_reason"]
+        self.assertEqual(reason["category"], "model_json_parse_measurement_exhausted")
+        self.assertIsNone(reason["http_status"])
+        self.assertEqual(reason["failures"][0]["receipt_id"], receipt_id)
+        self.assertEqual(reason["failures"][0]["physical_attempts"], 3)
+        self.assertEqual(plan["historical_interruption_reasons"][0]["http_status"], 402)
+        self.assertEqual(plan["commit_rule"], before["commit_rule"])
+        self.assertEqual(plan["round_body_ast_hash"], before["round_body_ast_hash"])
+        self.assertEqual(plan["lanes"], before["lanes"])
+        self.assertEqual(resume.inventory(self.root), inventory)
+
+    def test_current_cause_uses_receipt_not_exception_text_and_never_inherits_old_http_status(self):
+        self.current_failure(actual="HTTPError", claimed="JSONDecodeError")
+        reason = resume.build_plan(self.archive())["interruption_reason"]
+        self.assertEqual(reason["category"], "provider_http_error")
+        self.assertIsNone(reason["http_status"])
+        self.current_failure(round_index=0)
+        reason = resume.build_plan(self.archive())["interruption_reason"]
+        self.assertEqual(reason["category"], "unknown_interruption")
+        self.assertFalse(reason["failures"][0]["verified"])
+        self.assertIsNone(reason["http_status"])
+
+    def test_unavailable_or_duplicate_current_receipt_does_not_become_historical_402(self):
+        receipt_id = self.current_failure()
+        path = self.root / "model-calls/resume-structural" / (receipt_id + ".json")
+        original = json.loads(path.read_text())
+        path.unlink()
+        reason = resume.build_plan(self.archive())["interruption_reason"]
+        self.assertEqual(reason["category"], "unknown_interruption")
+        self.assertIsNone(reason["http_status"])
+        self.dump(path, original)
+        self.dump(self.root / "model-calls/duplicate" / (receipt_id + ".json"), original)
+        with self.assertRaisesRegex(ValueError, "duplicated"):
+            resume.build_plan(self.archive())
+
+    def test_resumed_error_without_receipt_does_not_reuse_old_provider_diagnosis(self):
+        self.dump(self.root / "summary.json", {"status": "aborted_measurement_incomplete", "completed": [],
+            "resume_ledger": "resume-history/structural/plan.json", "errors": [{"seed": 101, "arm": "fixed_p", "error_type": "RuntimeError"}]})
+        reason = resume.build_plan(self.archive())["interruption_reason"]
+        self.assertEqual(reason["category"], "unknown_interruption")
+        self.assertIsNone(reason["http_status"])
+
     def test_symlinked_stream_version_round_and_ledger_parents_are_rejected(self):
         for name in ("streams", "streams/101/fixed_p/versions", "streams/101/fixed_p/rounds", "resume-history"):
             with self.subTest(path=name):

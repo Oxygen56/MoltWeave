@@ -1,0 +1,532 @@
+{
+  "schema": 1,
+  "artifact_kind": "read_only_parse_interruption_inspection",
+  "created_at_utc": "2026-10-23T12:58:17.068108+00:00",
+  "experiment": "experiments/continual-v02-main",
+  "interrupted_resume_attempt": "20261023T204129-43a453613f4c",
+  "historical_interruption": {
+    "committed_round_transitions": 594,
+    "planned_round_transitions": 600,
+    "affected_lanes": 2,
+    "failure_category": "model_output_json_parse_measurement_unavailable",
+    "provider_http402_is_not_the_cause_of_these_cited_failures": true,
+    "mechanism_performance_zero_assigned": false,
+    "note": "This describes the retained 594-round interruption, not the live state of a later recovery."
+  },
+  "inspection_model_calls": 0,
+  "inspection_network_requests": 0,
+  "original_receipts_modified": false,
+  "hash_algorithms": {
+    "receipt_raw_sha256": "SHA256 of exact original file bytes",
+    "content_sha256": "SHA256 of the UTF-8 response content string",
+    "request_hash": "SHA256 of canonical JSON request parameters plus messages"
+  },
+  "summary": {
+    "measurement_request_blocks_per_lane": 2,
+    "physical_attempts_per_block": 3,
+    "total_physical_attempts": 12,
+    "actual_syntax_repair_requests": 8,
+    "all_finish_reasons": "stop",
+    "completion_token_range": [
+      972,
+      1577
+    ],
+    "requested_max_tokens": 5000,
+    "all_content_identical_within_each_block": true,
+    "initial_requests_identical_between_blocks_for_each_lane": true,
+    "repair_was_requested_and_preserved_but_did_not_produce_valid_json": true,
+    "boundary": "The receipts show syntax failure with stop, not length or HTTP errors. They do not identify why the provider repeated identical malformed content. Invalid proposals were not locally repaired or counted as successful candidates."
+  },
+  "receipts": [
+    {
+      "receipt_path": "experiments/continual-v02-main/model-calls/resume-20261023T204129-43a453613f4c/79c477969eb345a5b7b619d003e12643.json",
+      "receipt_raw_sha256": "58a4fe38d78653a69774ba38208bb67ed7cfa038abc1fdba196ec0f9cff5648f",
+      "receipt_id": "79c477969eb345a5b7b619d003e12643",
+      "lane": {
+        "stream": 101,
+        "arm": "fixed_p"
+      },
+      "round": 18,
+      "round_indexing": "zero_based",
+      "phase": "policy-meta-probe",
+      "fork": "new",
+      "measurement_request_block": 0,
+      "purpose": "continual_mechanism_proposal",
+      "operator": "contrastive",
+      "repair_json": true,
+      "status": "failed",
+      "error_type": "JSONDecodeError",
+      "initial_request_hash": "92e63a898fb8abc172e8eb4751881e9aa2d6a6e019401b5b012fbe4c673db8c6",
+      "model_requested": "deepseek-flash",
+      "model_returned": "deepseek-flash",
+      "original_top_level_request_preserved": true,
+      "last_invalid_content_preserved_at_top_level": true,
+      "all_three_content_hashes_equal_within_block": true,
+      "format_error_structure": "At the memory_score property colon (line 1 column 2826), the earlier rag_score.args array is still open; object/array closure is malformed.",
+      "physical_attempts": [
+        {
+          "number": 1,
+          "status": "failed",
+          "error_type": "JSONDecodeError",
+          "json_error": {
+            "error_type": "JSONDecodeError",
+            "message": "Expecting ',' delimiter",
+            "line": 1,
+            "column": 2826,
+            "position": 2825
+          },
+          "finish_reason": "stop",
+          "content_sha256": "fe8321e505a510d38a3ceef286d510d253b87c2ebf7caecb97c54ee22b991e2a",
+          "content_characters": 5302,
+          "tokens": {
+            "prompt_tokens": 31991,
+            "completion_tokens": 1577,
+            "total_tokens": 33568
+          },
+          "max_tokens": 5000,
+          "message_count": 2,
+          "request_hash": "92e63a898fb8abc172e8eb4751881e9aa2d6a6e019401b5b012fbe4c673db8c6",
+          "request_hash_verified_against_preserved_parameters_and_messages": true,
+          "response_id": "f0ee58bf-c85c-4436-a9a5-b700ed362aac",
+          "next_retry": "model_json_syntax_repair",
+          "repair_request": false,
+          "repair_chain": null
+        },
+        {
+          "number": 2,
+          "status": "failed",
+          "error_type": "JSONDecodeError",
+          "json_error": {
+            "error_type": "JSONDecodeError",
+            "message": "Expecting ',' delimiter",
+            "line": 1,
+            "column": 2826,
+            "position": 2825
+          },
+          "finish_reason": "stop",
+          "content_sha256": "fe8321e505a510d38a3ceef286d510d253b87c2ebf7caecb97c54ee22b991e2a",
+          "content_characters": 5302,
+          "tokens": {
+            "prompt_tokens": 33679,
+            "completion_tokens": 1577,
+            "total_tokens": 35256
+          },
+          "max_tokens": 5000,
+          "message_count": 4,
+          "request_hash": "ad111126ca7d839cc1c06fc2096053c95028aaf4fe20b7a7720df14502a4e122",
+          "request_hash_verified_against_preserved_parameters_and_messages": true,
+          "response_id": "3df1e5a5-78c3-41a9-b897-49f70c2a53f0",
+          "next_retry": "model_json_syntax_repair",
+          "repair_request": true,
+          "repair_chain": {
+            "previous_messages_preserved": true,
+            "exact_previous_invalid_content_appended_as_assistant": true,
+            "syntax_only_feedback_and_original_task_permissions_evaluation_preservation_contract_verified": true,
+            "request_hash_differs_from_previous": true
+          }
+        },
+        {
+          "number": 3,
+          "status": "failed",
+          "error_type": "JSONDecodeError",
+          "json_error": {
+            "error_type": "JSONDecodeError",
+            "message": "Expecting ',' delimiter",
+            "line": 1,
+            "column": 2826,
+            "position": 2825
+          },
+          "finish_reason": "stop",
+          "content_sha256": "fe8321e505a510d38a3ceef286d510d253b87c2ebf7caecb97c54ee22b991e2a",
+          "content_characters": 5302,
+          "tokens": {
+            "prompt_tokens": 35367,
+            "completion_tokens": 1577,
+            "total_tokens": 36944
+          },
+          "max_tokens": 5000,
+          "message_count": 6,
+          "request_hash": "263a75128dc79b81f4e35be53b201441e898f8c407c53ed32e83febb18ee32b9",
+          "request_hash_verified_against_preserved_parameters_and_messages": true,
+          "response_id": "9fa74236-6925-4782-932b-15eb931b9a0e",
+          "next_retry": null,
+          "repair_request": true,
+          "repair_chain": {
+            "previous_messages_preserved": true,
+            "exact_previous_invalid_content_appended_as_assistant": true,
+            "syntax_only_feedback_and_original_task_permissions_evaluation_preservation_contract_verified": true,
+            "request_hash_differs_from_previous": true
+          }
+        }
+      ]
+    },
+    {
+      "receipt_path": "experiments/continual-v02-main/model-calls/resume-20261023T204129-43a453613f4c/93680710aa4f4a4dbadaf6c26e9b6158.json",
+      "receipt_raw_sha256": "f7d6722051da85ea0c19d628aebaaac78db7b289437053f527a9d5756f39ab68",
+      "receipt_id": "93680710aa4f4a4dbadaf6c26e9b6158",
+      "lane": {
+        "stream": 101,
+        "arm": "fixed_p"
+      },
+      "round": 18,
+      "round_indexing": "zero_based",
+      "phase": "policy-meta-probe",
+      "fork": "new",
+      "measurement_request_block": 1,
+      "purpose": "continual_mechanism_proposal",
+      "operator": "contrastive",
+      "repair_json": true,
+      "status": "failed",
+      "error_type": "JSONDecodeError",
+      "initial_request_hash": "92e63a898fb8abc172e8eb4751881e9aa2d6a6e019401b5b012fbe4c673db8c6",
+      "model_requested": "deepseek-flash",
+      "model_returned": "deepseek-flash",
+      "original_top_level_request_preserved": true,
+      "last_invalid_content_preserved_at_top_level": true,
+      "all_three_content_hashes_equal_within_block": true,
+      "format_error_structure": "At line 1 column 1948, a closing object brace occurs while the innermost open container is an array requiring a closing bracket.",
+      "physical_attempts": [
+        {
+          "number": 1,
+          "status": "failed",
+          "error_type": "JSONDecodeError",
+          "json_error": {
+            "error_type": "JSONDecodeError",
+            "message": "Expecting ',' delimiter",
+            "line": 1,
+            "column": 1948,
+            "position": 1947
+          },
+          "finish_reason": "stop",
+          "content_sha256": "2752c632357c39a00de1a563a76f209ee04adb5514b1a0bbdc8fbbc9657029e1",
+          "content_characters": 4040,
+          "tokens": {
+            "prompt_tokens": 31991,
+            "completion_tokens": 1101,
+            "total_tokens": 33092
+          },
+          "max_tokens": 5000,
+          "message_count": 2,
+          "request_hash": "92e63a898fb8abc172e8eb4751881e9aa2d6a6e019401b5b012fbe4c673db8c6",
+          "request_hash_verified_against_preserved_parameters_and_messages": true,
+          "response_id": "8599101e-e04a-4028-906d-0a53d600e175",
+          "next_retry": "model_json_syntax_repair",
+          "repair_request": false,
+          "repair_chain": null
+        },
+        {
+          "number": 2,
+          "status": "failed",
+          "error_type": "JSONDecodeError",
+          "json_error": {
+            "error_type": "JSONDecodeError",
+            "message": "Expecting ',' delimiter",
+            "line": 1,
+            "column": 1948,
+            "position": 1947
+          },
+          "finish_reason": "stop",
+          "content_sha256": "2752c632357c39a00de1a563a76f209ee04adb5514b1a0bbdc8fbbc9657029e1",
+          "content_characters": 4040,
+          "tokens": {
+            "prompt_tokens": 33203,
+            "completion_tokens": 1101,
+            "total_tokens": 34304
+          },
+          "max_tokens": 5000,
+          "message_count": 4,
+          "request_hash": "17fc8dda03aba567fdf80809fcd3ca754b9ae246ed0a693d2529ffba0d1e056d",
+          "request_hash_verified_against_preserved_parameters_and_messages": true,
+          "response_id": "d578a41c-99e9-4437-ba52-dae0bfc415e3",
+          "next_retry": "model_json_syntax_repair",
+          "repair_request": true,
+          "repair_chain": {
+            "previous_messages_preserved": true,
+            "exact_previous_invalid_content_appended_as_assistant": true,
+            "syntax_only_feedback_and_original_task_permissions_evaluation_preservation_contract_verified": true,
+            "request_hash_differs_from_previous": true
+          }
+        },
+        {
+          "number": 3,
+          "status": "failed",
+          "error_type": "JSONDecodeError",
+          "json_error": {
+            "error_type": "JSONDecodeError",
+            "message": "Expecting ',' delimiter",
+            "line": 1,
+            "column": 1948,
+            "position": 1947
+          },
+          "finish_reason": "stop",
+          "content_sha256": "2752c632357c39a00de1a563a76f209ee04adb5514b1a0bbdc8fbbc9657029e1",
+          "content_characters": 4040,
+          "tokens": {
+            "prompt_tokens": 34415,
+            "completion_tokens": 1101,
+            "total_tokens": 35516
+          },
+          "max_tokens": 5000,
+          "message_count": 6,
+          "request_hash": "722e50be4d6481622c9baf9d108fe621b172871021d202f43cfb87350e310a59",
+          "request_hash_verified_against_preserved_parameters_and_messages": true,
+          "response_id": "d6567c5c-e22b-440b-bcea-fe01a383873f",
+          "next_retry": null,
+          "repair_request": true,
+          "repair_chain": {
+            "previous_messages_preserved": true,
+            "exact_previous_invalid_content_appended_as_assistant": true,
+            "syntax_only_feedback_and_original_task_permissions_evaluation_preservation_contract_verified": true,
+            "request_hash_differs_from_previous": true
+          }
+        }
+      ]
+    },
+    {
+      "receipt_path": "experiments/continual-v02-main/model-calls/resume-20261023T204129-43a453613f4c/4714dc6dc40c43918188b4b693239eb3.json",
+      "receipt_raw_sha256": "bc7329bd4bcdd51e21b56a83d6cdb7341860da78105b73c8d236484b81756163",
+      "receipt_id": "4714dc6dc40c43918188b4b693239eb3",
+      "lane": {
+        "stream": 101,
+        "arm": "joint"
+      },
+      "round": 16,
+      "round_indexing": "zero_based",
+      "phase": "policy-meta-probe",
+      "fork": "old",
+      "measurement_request_block": 0,
+      "purpose": "continual_mechanism_proposal",
+      "operator": "contrastive",
+      "repair_json": true,
+      "status": "failed",
+      "error_type": "JSONDecodeError",
+      "initial_request_hash": "51241154340e1e41e4360a98bec13402f846eb0de6b2a999f0aa9035edb1fbe7",
+      "model_requested": "deepseek-flash",
+      "model_returned": "deepseek-flash",
+      "original_top_level_request_preserved": true,
+      "last_invalid_content_preserved_at_top_level": true,
+      "all_three_content_hashes_equal_within_block": true,
+      "format_error_structure": "At line 1 column 2767, a closing array bracket occurs while the innermost open container is an object requiring a closing brace.",
+      "physical_attempts": [
+        {
+          "number": 1,
+          "status": "failed",
+          "error_type": "JSONDecodeError",
+          "json_error": {
+            "error_type": "JSONDecodeError",
+            "message": "Expecting ',' delimiter",
+            "line": 1,
+            "column": 2767,
+            "position": 2766
+          },
+          "finish_reason": "stop",
+          "content_sha256": "7238fcf3123616b2c245375c4fd3fcbeb0d64355c982bdbfb9a6b78eeb6827fa",
+          "content_characters": 3229,
+          "tokens": {
+            "prompt_tokens": 23421,
+            "completion_tokens": 972,
+            "total_tokens": 24393
+          },
+          "max_tokens": 5000,
+          "message_count": 2,
+          "request_hash": "51241154340e1e41e4360a98bec13402f846eb0de6b2a999f0aa9035edb1fbe7",
+          "request_hash_verified_against_preserved_parameters_and_messages": true,
+          "response_id": "37544cb7-2f10-415b-99d9-b70842acefd2",
+          "next_retry": "model_json_syntax_repair",
+          "repair_request": false,
+          "repair_chain": null
+        },
+        {
+          "number": 2,
+          "status": "failed",
+          "error_type": "JSONDecodeError",
+          "json_error": {
+            "error_type": "JSONDecodeError",
+            "message": "Expecting ',' delimiter",
+            "line": 1,
+            "column": 2767,
+            "position": 2766
+          },
+          "finish_reason": "stop",
+          "content_sha256": "7238fcf3123616b2c245375c4fd3fcbeb0d64355c982bdbfb9a6b78eeb6827fa",
+          "content_characters": 3229,
+          "tokens": {
+            "prompt_tokens": 24504,
+            "completion_tokens": 972,
+            "total_tokens": 25476
+          },
+          "max_tokens": 5000,
+          "message_count": 4,
+          "request_hash": "a20eb86cb527b1452c779c2a4c2a7e6bf1bfdd3f1c11f140fe7b1418359bdf38",
+          "request_hash_verified_against_preserved_parameters_and_messages": true,
+          "response_id": "bd8ff86a-aea0-4b36-b24e-4459c258e78c",
+          "next_retry": "model_json_syntax_repair",
+          "repair_request": true,
+          "repair_chain": {
+            "previous_messages_preserved": true,
+            "exact_previous_invalid_content_appended_as_assistant": true,
+            "syntax_only_feedback_and_original_task_permissions_evaluation_preservation_contract_verified": true,
+            "request_hash_differs_from_previous": true
+          }
+        },
+        {
+          "number": 3,
+          "status": "failed",
+          "error_type": "JSONDecodeError",
+          "json_error": {
+            "error_type": "JSONDecodeError",
+            "message": "Expecting ',' delimiter",
+            "line": 1,
+            "column": 2767,
+            "position": 2766
+          },
+          "finish_reason": "stop",
+          "content_sha256": "7238fcf3123616b2c245375c4fd3fcbeb0d64355c982bdbfb9a6b78eeb6827fa",
+          "content_characters": 3229,
+          "tokens": {
+            "prompt_tokens": 25587,
+            "completion_tokens": 972,
+            "total_tokens": 26559
+          },
+          "max_tokens": 5000,
+          "message_count": 6,
+          "request_hash": "242626d9ad0c12652a53638b5b9d20169d80f9a76cc5dbd64ee16a16bff1aacc",
+          "request_hash_verified_against_preserved_parameters_and_messages": true,
+          "response_id": "7d761862-b0ff-4baa-8b3b-bf0a92e2a5dc",
+          "next_retry": null,
+          "repair_request": true,
+          "repair_chain": {
+            "previous_messages_preserved": true,
+            "exact_previous_invalid_content_appended_as_assistant": true,
+            "syntax_only_feedback_and_original_task_permissions_evaluation_preservation_contract_verified": true,
+            "request_hash_differs_from_previous": true
+          }
+        }
+      ]
+    },
+    {
+      "receipt_path": "experiments/continual-v02-main/model-calls/resume-20261023T204129-43a453613f4c/990f4298708c4552b14c0384b1f6188f.json",
+      "receipt_raw_sha256": "0a06894a40c6cbdee88690c548173b99b799addaae36d3289689d34d82cc57a2",
+      "receipt_id": "990f4298708c4552b14c0384b1f6188f",
+      "lane": {
+        "stream": 101,
+        "arm": "joint"
+      },
+      "round": 16,
+      "round_indexing": "zero_based",
+      "phase": "policy-meta-probe",
+      "fork": "old",
+      "measurement_request_block": 1,
+      "purpose": "continual_mechanism_proposal",
+      "operator": "contrastive",
+      "repair_json": true,
+      "status": "failed",
+      "error_type": "JSONDecodeError",
+      "initial_request_hash": "51241154340e1e41e4360a98bec13402f846eb0de6b2a999f0aa9035edb1fbe7",
+      "model_requested": "deepseek-flash",
+      "model_returned": "deepseek-flash",
+      "original_top_level_request_preserved": true,
+      "last_invalid_content_preserved_at_top_level": true,
+      "all_three_content_hashes_equal_within_block": true,
+      "format_error_structure": "At line 1 column 3170, a closing array bracket occurs while the innermost open container is an object requiring a closing brace.",
+      "physical_attempts": [
+        {
+          "number": 1,
+          "status": "failed",
+          "error_type": "JSONDecodeError",
+          "json_error": {
+            "error_type": "JSONDecodeError",
+            "message": "Expecting ',' delimiter",
+            "line": 1,
+            "column": 3170,
+            "position": 3169
+          },
+          "finish_reason": "stop",
+          "content_sha256": "423a3f89037b440bb6c24e61f963dd35c79f47d7a987712837d05e66109b2a4a",
+          "content_characters": 3686,
+          "tokens": {
+            "prompt_tokens": 23421,
+            "completion_tokens": 1106,
+            "total_tokens": 24527
+          },
+          "max_tokens": 5000,
+          "message_count": 2,
+          "request_hash": "51241154340e1e41e4360a98bec13402f846eb0de6b2a999f0aa9035edb1fbe7",
+          "request_hash_verified_against_preserved_parameters_and_messages": true,
+          "response_id": "d43299cf-9647-4b3a-a12f-192ac7f38cd5",
+          "next_retry": "model_json_syntax_repair",
+          "repair_request": false,
+          "repair_chain": null
+        },
+        {
+          "number": 2,
+          "status": "failed",
+          "error_type": "JSONDecodeError",
+          "json_error": {
+            "error_type": "JSONDecodeError",
+            "message": "Expecting ',' delimiter",
+            "line": 1,
+            "column": 3170,
+            "position": 3169
+          },
+          "finish_reason": "stop",
+          "content_sha256": "423a3f89037b440bb6c24e61f963dd35c79f47d7a987712837d05e66109b2a4a",
+          "content_characters": 3686,
+          "tokens": {
+            "prompt_tokens": 24638,
+            "completion_tokens": 1106,
+            "total_tokens": 25744
+          },
+          "max_tokens": 5000,
+          "message_count": 4,
+          "request_hash": "8f8e8bcb05418127693e6142d3d63efb04c976e4f9e312755890345d8a6d2e33",
+          "request_hash_verified_against_preserved_parameters_and_messages": true,
+          "response_id": "973eec1e-91f2-42ea-b833-014a66a28703",
+          "next_retry": "model_json_syntax_repair",
+          "repair_request": true,
+          "repair_chain": {
+            "previous_messages_preserved": true,
+            "exact_previous_invalid_content_appended_as_assistant": true,
+            "syntax_only_feedback_and_original_task_permissions_evaluation_preservation_contract_verified": true,
+            "request_hash_differs_from_previous": true
+          }
+        },
+        {
+          "number": 3,
+          "status": "failed",
+          "error_type": "JSONDecodeError",
+          "json_error": {
+            "error_type": "JSONDecodeError",
+            "message": "Expecting ',' delimiter",
+            "line": 1,
+            "column": 3170,
+            "position": 3169
+          },
+          "finish_reason": "stop",
+          "content_sha256": "423a3f89037b440bb6c24e61f963dd35c79f47d7a987712837d05e66109b2a4a",
+          "content_characters": 3686,
+          "tokens": {
+            "prompt_tokens": 25855,
+            "completion_tokens": 1106,
+            "total_tokens": 26961
+          },
+          "max_tokens": 5000,
+          "message_count": 6,
+          "request_hash": "affd70d577b072b3d622d22efef75fe5d43a7ba56d1b396bf071ab537406b1a0",
+          "request_hash_verified_against_preserved_parameters_and_messages": true,
+          "response_id": "9c8cba0f-2391-4297-82d9-c11650be126a",
+          "next_retry": null,
+          "repair_request": true,
+          "repair_chain": {
+            "previous_messages_preserved": true,
+            "exact_previous_invalid_content_appended_as_assistant": true,
+            "syntax_only_feedback_and_original_task_permissions_evaluation_preservation_contract_verified": true,
+            "request_hash_differs_from_previous": true
+          }
+        }
+      ]
+    }
+  ],
+  "all_cited_raw_bytes_unchanged_during_inspection": true,
+  "publication_scope": "Only selected metadata, hashes, parser diagnostics and token counts are exported; full model content, request messages and credential values are not copied."
+}

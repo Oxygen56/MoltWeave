@@ -16,6 +16,7 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import re
 import shutil
 import subprocess
 import sys
@@ -200,6 +201,66 @@ def inspect_lane(root, seed, arm, rounds):
             "partial_inventory": inventory(partial) if partial.exists() else []}
 
 
+def interruption_reasons(root, summary, lanes):
+    """Classify current failures from bound receipts; retain old diagnosis separately."""
+    diagnosis = within_root(root, root / "interruption-diagnosis.json")
+    diagnostic = guard.read_json(diagnosis) if diagnosis.is_file() else {}
+    http_status = diagnostic.get("http_status")
+    if type(http_status) is not int:
+        http_status = None
+    historical = []
+    if diagnosis.is_file():
+        historical.append({"path": "interruption-diagnosis.json", "sha256": raw_sha(diagnosis),
+            "http_status": http_status,
+            "category": "provider_http402" if http_status == 402 else ("provider_http_error" if http_status else "unknown_interruption")})
+    failures = []
+    by_lane = {(lane["seed"], lane["arm"]): lane for lane in lanes}
+    for error in summary.get("errors", []):
+        reference = re.search(r"see local receipt ([a-f0-9]{32})\b", str(error.get("error", "")))
+        if reference is None:
+            if summary.get("resume_ledger"):
+                failures.append({"verified": False, "stream": error.get("seed"), "arm": error.get("arm"),
+                                 "reason": "current_error_has_no_receipt_reference"})
+            continue
+        receipt_id = reference.group(1)
+        paths = list((root / "model-calls").rglob(receipt_id + ".json"))
+        if len(paths) > 1:
+            raise ValueError("Current interruption receipt identity is duplicated")
+        if not paths:
+            failures.append({"receipt_id": receipt_id, "verified": False, "reason": "referenced_receipt_unavailable"})
+            continue
+        path = within_root(root, paths[0])
+        receipt = guard.read_json(path)
+        metadata = receipt.get("metadata", {})
+        lane = by_lane.get((error.get("seed"), error.get("arm")))
+        verified = (receipt.get("id") == receipt_id and receipt.get("status") == "failed"
+                    and lane is not None and not lane["completed"]
+                    and metadata.get("stream") == error.get("seed") and metadata.get("arm") == error.get("arm")
+                    and metadata.get("round") == lane["start_round"])
+        failures.append({"receipt_id": receipt_id, "path": str(path.relative_to(root)), "sha256": raw_sha(path),
+            "verified": verified, "stream": metadata.get("stream"), "arm": metadata.get("arm"),
+            "round": metadata.get("round"), "error_type": receipt.get("error_type") if verified else None,
+            "physical_attempts": len(receipt.get("physical_attempts", [])),
+            "physical_error_types": [attempt.get("error_type") for attempt in receipt.get("physical_attempts", [])]})
+    types = {row.get("error_type") for row in failures if row["verified"]}
+    if failures:
+        all_verified = all(row["verified"] for row in failures)
+        category = ("model_json_parse_measurement_exhausted" if all_verified and types == {"JSONDecodeError"}
+                    else "provider_http_error" if all_verified and types == {"HTTPError"}
+                    else "mixed_measurement_failures" if all_verified and len(types) > 1
+                    else "measurement_failure" if all_verified else "unknown_interruption")
+        return {"category": category, "http_status": None, "source": "current_summary_failed_receipts",
+                "failures": failures,
+                "evidence": "Current summary receipt IDs, failed receipt error_type, and matching pending lane/round; historical HTTP status is not inherited"}, historical
+    if summary.get("resume_ledger"):
+        return {"category": "unknown_interruption", "http_status": None, "source": "current_summary",
+                "failures": [], "evidence": "No verified current failed receipt; old provider diagnosis is historical only"}, historical
+    return {"http_status": http_status,
+            "category": "provider_http402" if http_status == 402 else ("provider_http_error" if http_status else "unknown_interruption"),
+            "source": "initial_interruption_diagnosis", "failures": [],
+            "evidence": "Initial-run retained diagnosis numeric http_status only; no inferred cause or rewritten exception"}, historical
+
+
 def build_plan(archive):
     root, manifest = archive["experiment"], archive["manifest"]
     for name in ("streams", "resume-history", "model-calls", "interruption-diagnosis.json"):
@@ -213,19 +274,14 @@ def build_plan(archive):
     lanes = [inspect_lane(root, seed, arm, manifest["rounds"]) for seed in manifest["seeds"] for arm in guard.ARMS]
     validate_checkpoint_programs(archive, lanes)
     diagnosis = root / "interruption-diagnosis.json"
-    diagnostic = guard.read_json(diagnosis) if diagnosis.is_file() else {}
-    http_status = diagnostic.get("http_status")
-    if type(http_status) is not int:
-        http_status = None
+    reason, historical_reasons = interruption_reasons(root, summary, lanes)
     return {"schema": 1, "source_manifest_sha256": archive["manifest_sha256"],
             "sources": manifest["sources"], "summary_sha256": raw_sha(root / "summary.json"),
             "round_body_ast_hash": body_hash, "rounds": manifest["rounds"], "lanes": lanes,
             "completed_lane_count": sum(lane["completed"] for lane in lanes),
             "pending_lane_count": sum(not lane["completed"] for lane in lanes),
             "diagnosis_sha256": raw_sha(diagnosis) if diagnosis.is_file() and not diagnosis.is_symlink() else None,
-            "interruption_reason": {"http_status": http_status,
-                "category": "provider_http402" if http_status == 402 else ("provider_http_error" if http_status else "unknown_interruption"),
-                "evidence": "Retained interruption-diagnosis.json numeric http_status only; no inferred cause or rewritten exception"},
+            "interruption_reason": reason, "historical_interruption_reasons": historical_reasons,
             "commit_rule": "Only g(r+1) commits round r. Entire partial r is discarded from selection and replayed.",
             "exactly_once": False}
 
