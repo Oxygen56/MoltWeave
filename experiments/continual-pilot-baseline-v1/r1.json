@@ -1,0 +1,1066 @@
+{
+  "initial_memory_hash": "2c53b4be78931a58fa725fa361d9cc9802319a23781c68cf8ba6c61e955d9d56",
+  "final_memory_hash": "213a3cbebca890a4ca33f9367ecd98568df63d8a25313ea548c914750b4b96ba",
+  "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+  "passed": 2,
+  "total": 5,
+  "traces": [
+    {
+      "trace_id": "case-50383fc1eff3c2e0df",
+      "trace": {
+        "query": "Establish the approved PRIMARY registry token for Entity-5fb4204ec3; replica registries can lag or disagree. Return only the token, or UNKNOWN if supporting evidence is unavailable. Cite the source_id.",
+        "entity": "Entity-5fb4204ec3",
+        "key": "registration_token",
+        "memory_before_hash": "2c53b4be78931a58fa725fa361d9cc9802319a23781c68cf8ba6c61e955d9d56",
+        "memory_after_hash": "eb6e778cd71a7a809271a98729c9357d1a80c1cedb6db87c1bed690e6200a0fd",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "selected_memories": [],
+        "ranked_documents": [
+          {
+            "fact": {
+              "id": "fact-e3e1a046f490bc2ab9",
+              "tenant": "public-tenant-901",
+              "owner": "public-owner-pilot-experience",
+              "entity": "Entity-5fb4204ec3",
+              "key": "registration_token",
+              "value": "VE3E1A046F490",
+              "source_id": "src-e3e1a046f490bc2ab9",
+              "source_family": "replica-Entity-5fb4204ec3",
+              "revision": 21,
+              "authority": 0.65,
+              "observed_round": 1,
+              "status": "active",
+              "trusted": true,
+              "text": "replica registry revision 21 records Entity-5fb4204ec3's registration token.",
+              "source_kind": "replica"
+            },
+            "features": {
+              "overlap": 0.2,
+              "age": 0,
+              "authority": 0.65,
+              "revision": 21.0,
+              "entity_match": 1.0,
+              "key_match": 1.0,
+              "scope_match": 1.0,
+              "verified": 1.0,
+              "trusted": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0,
+              "source_match": 0.0
+            },
+            "score": 19.2
+          },
+          {
+            "fact": {
+              "id": "fact-e65eaee7a76d082ea3",
+              "tenant": "public-tenant-901",
+              "owner": "public-owner-pilot-experience",
+              "entity": "Neighbor-Entity-5fb4204ec3",
+              "key": "registration_token",
+              "value": "VE65EAEE7A76D",
+              "source_id": "src-e65eaee7a76d082ea3",
+              "source_family": "primary-Neighbor-Entity-5fb4204ec3",
+              "revision": 30,
+              "authority": 1.0,
+              "observed_round": 1,
+              "status": "active",
+              "trusted": true,
+              "text": "primary registry revision 30 records Neighbor-Entity-5fb4204ec3's registration token.",
+              "source_kind": "primary"
+            },
+            "features": {
+              "overlap": 0.2,
+              "age": 0,
+              "authority": 1.0,
+              "revision": 30.0,
+              "entity_match": 0.0,
+              "key_match": 1.0,
+              "scope_match": 1.0,
+              "verified": 1.0,
+              "trusted": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0,
+              "source_match": 1.0
+            },
+            "score": 17.6
+          }
+        ],
+        "ranked_tools": [
+          {
+            "tool": {
+              "id": "read_primary_registry",
+              "description": "Read approved primary registry current registration token",
+              "available": true,
+              "read_only": true,
+              "deprecated": false,
+              "facts": [
+                {
+                  "id": "fact-a0892858a1fe33f4f4",
+                  "tenant": "public-tenant-901",
+                  "owner": "public-owner-pilot-experience",
+                  "entity": "Entity-5fb4204ec3",
+                  "key": "registration_token",
+                  "value": "VA0892858A1FE",
+                  "source_id": "src-a0892858a1fe33f4f4",
+                  "source_family": "primary-Entity-5fb4204ec3",
+                  "revision": 1,
+                  "authority": 1.0,
+                  "observed_round": 1,
+                  "status": "active",
+                  "trusted": true,
+                  "text": "primary registry revision 1 records Entity-5fb4204ec3's registration token.",
+                  "source_kind": "primary"
+                }
+              ],
+              "outcomes": [
+                "transient_error",
+                "ok"
+              ]
+            },
+            "features": {
+              "overlap": 0.16,
+              "age": 0,
+              "authority": 0.0,
+              "revision": 0.0,
+              "entity_match": 0.0,
+              "key_match": 0.0,
+              "scope_match": 1.0,
+              "verified": 0.0,
+              "trusted": 0.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0,
+              "source_match": 0.0
+            },
+            "score": 13.28
+          },
+          {
+            "tool": {
+              "id": "read_replica_registry",
+              "description": "Read registry registration token quickly",
+              "available": true,
+              "read_only": true,
+              "deprecated": true,
+              "facts": [
+                {
+                  "id": "fact-e3e1a046f490bc2ab9",
+                  "tenant": "public-tenant-901",
+                  "owner": "public-owner-pilot-experience",
+                  "entity": "Entity-5fb4204ec3",
+                  "key": "registration_token",
+                  "value": "VE3E1A046F490",
+                  "source_id": "src-e3e1a046f490bc2ab9",
+                  "source_family": "replica-Entity-5fb4204ec3",
+                  "revision": 21,
+                  "authority": 0.65,
+                  "observed_round": 1,
+                  "status": "active",
+                  "trusted": true,
+                  "text": "replica registry revision 21 records Entity-5fb4204ec3's registration token.",
+                  "source_kind": "replica"
+                }
+              ],
+              "outcomes": [
+                "ok"
+              ]
+            },
+            "features": {
+              "overlap": 0.08,
+              "age": 0,
+              "authority": 0.0,
+              "revision": 0.0,
+              "entity_match": 0.0,
+              "key_match": 0.0,
+              "scope_match": 1.0,
+              "verified": 0.0,
+              "trusted": 0.0,
+              "deprecated": 1.0,
+              "available": 1.0,
+              "read_only": 1.0,
+              "source_match": 0.0
+            },
+            "score": 2.64
+          }
+        ],
+        "tool_events": [
+          {
+            "tool_id": "read_primary_registry",
+            "attempt": 1,
+            "result": "transient_error",
+            "retry_value": 1.0,
+            "features": {
+              "attempt": 1,
+              "error_retryable": 1.0,
+              "error_permanent": 0.0
+            }
+          },
+          {
+            "tool_id": "read_primary_registry",
+            "attempt": 2,
+            "result": "ok",
+            "facts": [
+              {
+                "id": "fact-a0892858a1fe33f4f4",
+                "tenant": "public-tenant-901",
+                "owner": "public-owner-pilot-experience",
+                "entity": "Entity-5fb4204ec3",
+                "key": "registration_token",
+                "value": "VA0892858A1FE",
+                "source_id": "src-a0892858a1fe33f4f4",
+                "source_family": "primary-Entity-5fb4204ec3",
+                "revision": 1,
+                "authority": 1.0,
+                "observed_round": 1,
+                "status": "active",
+                "trusted": true,
+                "text": "primary registry revision 1 records Entity-5fb4204ec3's registration token.",
+                "source_kind": "primary"
+              }
+            ]
+          }
+        ],
+        "visible_facts": [
+          {
+            "id": "fact-e3e1a046f490bc2ab9",
+            "tenant": "public-tenant-901",
+            "owner": "public-owner-pilot-experience",
+            "entity": "Entity-5fb4204ec3",
+            "key": "registration_token",
+            "value": "VE3E1A046F490",
+            "source_id": "src-e3e1a046f490bc2ab9",
+            "source_family": "replica-Entity-5fb4204ec3",
+            "revision": 21,
+            "authority": 0.65,
+            "observed_round": 1,
+            "status": "active",
+            "trusted": true,
+            "text": "replica registry revision 21 records Entity-5fb4204ec3's registration token.",
+            "source_kind": "replica"
+          },
+          {
+            "id": "fact-e65eaee7a76d082ea3",
+            "tenant": "public-tenant-901",
+            "owner": "public-owner-pilot-experience",
+            "entity": "Neighbor-Entity-5fb4204ec3",
+            "key": "registration_token",
+            "value": "VE65EAEE7A76D",
+            "source_id": "src-e65eaee7a76d082ea3",
+            "source_family": "primary-Neighbor-Entity-5fb4204ec3",
+            "revision": 30,
+            "authority": 1.0,
+            "observed_round": 1,
+            "status": "active",
+            "trusted": true,
+            "text": "primary registry revision 30 records Neighbor-Entity-5fb4204ec3's registration token.",
+            "source_kind": "primary"
+          },
+          {
+            "id": "fact-a0892858a1fe33f4f4",
+            "tenant": "public-tenant-901",
+            "owner": "public-owner-pilot-experience",
+            "entity": "Entity-5fb4204ec3",
+            "key": "registration_token",
+            "value": "VA0892858A1FE",
+            "source_id": "src-a0892858a1fe33f4f4",
+            "source_family": "primary-Entity-5fb4204ec3",
+            "revision": 1,
+            "authority": 1.0,
+            "observed_round": 1,
+            "status": "active",
+            "trusted": true,
+            "text": "primary registry revision 1 records Entity-5fb4204ec3's registration token.",
+            "source_kind": "primary"
+          }
+        ],
+        "output": {
+          "answer": "VA0892858A1FE",
+          "evidence_ids": [
+            "src-a0892858a1fe33f4f4"
+          ]
+        },
+        "write_events": [],
+        "sealed_hash": "26e31f345784ac61a912da092f573f889909d7f4db037f4c35cc674f9600de65"
+      },
+      "feedback": {
+        "passed": true,
+        "answer_ok": true,
+        "evidence_ok": true,
+        "expected_after_sealing": {
+          "answer": "VA0892858A1FE",
+          "source_id": "src-a0892858a1fe33f4f4"
+        }
+      },
+      "kind": "observe"
+    },
+    {
+      "trace_id": "case-eb740a6dd31dc98562",
+      "trace": {
+        "query": "Recall the most recently verified PRIMARY registry token for Entity-5fb4204ec3 from our prior observations. Return only the token, or UNKNOWN if supporting evidence is unavailable. Cite the source_id.",
+        "entity": "Entity-5fb4204ec3",
+        "key": "registration_token",
+        "memory_before_hash": "eb6e778cd71a7a809271a98729c9357d1a80c1cedb6db87c1bed690e6200a0fd",
+        "memory_after_hash": "b6de0e7ebb53bc74b03b9f09912c1131be7abfc1374ab2ac065c4f64828c7d3d",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "selected_memories": [],
+        "ranked_documents": [],
+        "ranked_tools": [],
+        "tool_events": [],
+        "visible_facts": [],
+        "output": {
+          "answer": "UNKNOWN",
+          "evidence_ids": [],
+          "memory_proposals": []
+        },
+        "write_events": [],
+        "sealed_hash": "7f20d7d1c3be5b5feefe9c4d9be02dcaf0bc786959442732b4908316038d10a9"
+      },
+      "feedback": {
+        "passed": false,
+        "answer_ok": false,
+        "evidence_ok": false,
+        "expected_after_sealing": {
+          "answer": "VA0892858A1FE",
+          "source_id": "src-a0892858a1fe33f4f4"
+        }
+      },
+      "kind": "recall"
+    },
+    {
+      "trace_id": "case-cda8cd771935657fef",
+      "trace": {
+        "query": "Establish the approved PRIMARY registry token for Entity-5fb4204ec3; replica registries can lag or disagree. Return only the token, or UNKNOWN if supporting evidence is unavailable. Cite the source_id.",
+        "entity": "Entity-5fb4204ec3",
+        "key": "registration_token",
+        "memory_before_hash": "b6de0e7ebb53bc74b03b9f09912c1131be7abfc1374ab2ac065c4f64828c7d3d",
+        "memory_after_hash": "5e69ff72edfffe59026c490b67e9a9a4d5ba9bd8d1298dd4ae99b6cbcb562227",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "selected_memories": [],
+        "ranked_documents": [
+          {
+            "fact": {
+              "id": "fact-35dfac72e7b567324f",
+              "tenant": "public-tenant-901",
+              "owner": "public-owner-pilot-experience",
+              "entity": "Entity-5fb4204ec3",
+              "key": "registration_token",
+              "value": "V35DFAC72E7B5",
+              "source_id": "src-35dfac72e7b567324f",
+              "source_family": "primary-Entity-5fb4204ec3",
+              "revision": 2,
+              "authority": 1.0,
+              "observed_round": 1,
+              "status": "active",
+              "trusted": true,
+              "text": "primary registry revision 2 records Entity-5fb4204ec3's registration token.",
+              "source_kind": "primary"
+            },
+            "features": {
+              "overlap": 0.2,
+              "age": 0,
+              "authority": 1.0,
+              "revision": 2.0,
+              "entity_match": 1.0,
+              "key_match": 1.0,
+              "scope_match": 1.0,
+              "verified": 1.0,
+              "trusted": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0,
+              "source_match": 1.0
+            },
+            "score": 23.6
+          },
+          {
+            "fact": {
+              "id": "fact-a0892858a1fe33f4f4",
+              "tenant": "public-tenant-901",
+              "owner": "public-owner-pilot-experience",
+              "entity": "Entity-5fb4204ec3",
+              "key": "registration_token",
+              "value": "VA0892858A1FE",
+              "source_id": "src-a0892858a1fe33f4f4",
+              "source_family": "primary-Entity-5fb4204ec3",
+              "revision": 1,
+              "authority": 1.0,
+              "observed_round": 0,
+              "status": "active",
+              "trusted": true,
+              "text": "primary registry revision 1 records Entity-5fb4204ec3's registration token.",
+              "source_kind": "primary"
+            },
+            "features": {
+              "overlap": 0.2,
+              "age": 1,
+              "authority": 1.0,
+              "revision": 1.0,
+              "entity_match": 1.0,
+              "key_match": 1.0,
+              "scope_match": 1.0,
+              "verified": 1.0,
+              "trusted": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0,
+              "source_match": 1.0
+            },
+            "score": 22.906852819440054
+          },
+          {
+            "fact": {
+              "id": "fact-e3e1a046f490bc2ab9",
+              "tenant": "public-tenant-901",
+              "owner": "public-owner-pilot-experience",
+              "entity": "Entity-5fb4204ec3",
+              "key": "registration_token",
+              "value": "VE3E1A046F490",
+              "source_id": "src-e3e1a046f490bc2ab9",
+              "source_family": "replica-Entity-5fb4204ec3",
+              "revision": 21,
+              "authority": 0.65,
+              "observed_round": 1,
+              "status": "active",
+              "trusted": true,
+              "text": "replica registry revision 21 records Entity-5fb4204ec3's registration token.",
+              "source_kind": "replica"
+            },
+            "features": {
+              "overlap": 0.2,
+              "age": 0,
+              "authority": 0.65,
+              "revision": 21.0,
+              "entity_match": 1.0,
+              "key_match": 1.0,
+              "scope_match": 1.0,
+              "verified": 1.0,
+              "trusted": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0,
+              "source_match": 0.0
+            },
+            "score": 19.2
+          },
+          {
+            "fact": {
+              "id": "fact-e65eaee7a76d082ea3",
+              "tenant": "public-tenant-901",
+              "owner": "public-owner-pilot-experience",
+              "entity": "Neighbor-Entity-5fb4204ec3",
+              "key": "registration_token",
+              "value": "VE65EAEE7A76D",
+              "source_id": "src-e65eaee7a76d082ea3",
+              "source_family": "primary-Neighbor-Entity-5fb4204ec3",
+              "revision": 30,
+              "authority": 1.0,
+              "observed_round": 1,
+              "status": "active",
+              "trusted": true,
+              "text": "primary registry revision 30 records Neighbor-Entity-5fb4204ec3's registration token.",
+              "source_kind": "primary"
+            },
+            "features": {
+              "overlap": 0.2,
+              "age": 0,
+              "authority": 1.0,
+              "revision": 30.0,
+              "entity_match": 0.0,
+              "key_match": 1.0,
+              "scope_match": 1.0,
+              "verified": 1.0,
+              "trusted": 1.0,
+              "deprecated": 0.0,
+              "available": 1.0,
+              "read_only": 1.0,
+              "source_match": 1.0
+            },
+            "score": 17.6
+          }
+        ],
+        "ranked_tools": [],
+        "tool_events": [],
+        "visible_facts": [
+          {
+            "id": "fact-35dfac72e7b567324f",
+            "tenant": "public-tenant-901",
+            "owner": "public-owner-pilot-experience",
+            "entity": "Entity-5fb4204ec3",
+            "key": "registration_token",
+            "value": "V35DFAC72E7B5",
+            "source_id": "src-35dfac72e7b567324f",
+            "source_family": "primary-Entity-5fb4204ec3",
+            "revision": 2,
+            "authority": 1.0,
+            "observed_round": 1,
+            "status": "active",
+            "trusted": true,
+            "text": "primary registry revision 2 records Entity-5fb4204ec3's registration token.",
+            "source_kind": "primary"
+          },
+          {
+            "id": "fact-a0892858a1fe33f4f4",
+            "tenant": "public-tenant-901",
+            "owner": "public-owner-pilot-experience",
+            "entity": "Entity-5fb4204ec3",
+            "key": "registration_token",
+            "value": "VA0892858A1FE",
+            "source_id": "src-a0892858a1fe33f4f4",
+            "source_family": "primary-Entity-5fb4204ec3",
+            "revision": 1,
+            "authority": 1.0,
+            "observed_round": 0,
+            "status": "active",
+            "trusted": true,
+            "text": "primary registry revision 1 records Entity-5fb4204ec3's registration token.",
+            "source_kind": "primary"
+          },
+          {
+            "id": "fact-e3e1a046f490bc2ab9",
+            "tenant": "public-tenant-901",
+            "owner": "public-owner-pilot-experience",
+            "entity": "Entity-5fb4204ec3",
+            "key": "registration_token",
+            "value": "VE3E1A046F490",
+            "source_id": "src-e3e1a046f490bc2ab9",
+            "source_family": "replica-Entity-5fb4204ec3",
+            "revision": 21,
+            "authority": 0.65,
+            "observed_round": 1,
+            "status": "active",
+            "trusted": true,
+            "text": "replica registry revision 21 records Entity-5fb4204ec3's registration token.",
+            "source_kind": "replica"
+          }
+        ],
+        "output": {
+          "answer": "V35DFAC72E7B5",
+          "evidence_ids": [
+            "src-35dfac72e7b567324f"
+          ]
+        },
+        "write_events": [],
+        "sealed_hash": "b6a4cf55bfa08317ec77437eadf872760a67df937e6c0cbaf197a51ad4335f78"
+      },
+      "feedback": {
+        "passed": true,
+        "answer_ok": true,
+        "evidence_ok": true,
+        "expected_after_sealing": {
+          "answer": "V35DFAC72E7B5",
+          "source_id": "src-35dfac72e7b567324f"
+        }
+      },
+      "kind": "observe"
+    },
+    {
+      "trace_id": "case-d8699d7b462753ab54",
+      "trace": {
+        "query": "Recall the most recently verified PRIMARY registry token for Entity-5fb4204ec3 from our prior observations. Return only the token, or UNKNOWN if supporting evidence is unavailable. Cite the source_id.",
+        "entity": "Entity-5fb4204ec3",
+        "key": "registration_token",
+        "memory_before_hash": "5e69ff72edfffe59026c490b67e9a9a4d5ba9bd8d1298dd4ae99b6cbcb562227",
+        "memory_after_hash": "d4ec7eee32af4f63ae9b5bd46db6ca2025d178afa3ea25217952197fd3688ea8",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "selected_memories": [],
+        "ranked_documents": [],
+        "ranked_tools": [],
+        "tool_events": [],
+        "visible_facts": [],
+        "output": {
+          "answer": "UNKNOWN",
+          "evidence_ids": [],
+          "memory_proposals": []
+        },
+        "write_events": [],
+        "sealed_hash": "0e23f8100bc3f91791343086cda27416f5b5d5930121ade34656b0b44728b336"
+      },
+      "feedback": {
+        "passed": false,
+        "answer_ok": false,
+        "evidence_ok": false,
+        "expected_after_sealing": {
+          "answer": "V35DFAC72E7B5",
+          "source_id": "src-35dfac72e7b567324f"
+        }
+      },
+      "kind": "recall"
+    },
+    {
+      "trace_id": "case-266827165aaf7a305b",
+      "trace": {
+        "query": "Recall the most recently verified PRIMARY registry token for Entity-0d46f72309 from our prior observations. Return only the token, or UNKNOWN if supporting evidence is unavailable. Cite the source_id.",
+        "entity": "Entity-0d46f72309",
+        "key": "registration_token",
+        "memory_before_hash": "d4ec7eee32af4f63ae9b5bd46db6ca2025d178afa3ea25217952197fd3688ea8",
+        "memory_after_hash": "213a3cbebca890a4ca33f9367ecd98568df63d8a25313ea548c914750b4b96ba",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "selected_memories": [],
+        "ranked_documents": [],
+        "ranked_tools": [],
+        "tool_events": [],
+        "visible_facts": [],
+        "output": {
+          "answer": "UNKNOWN",
+          "evidence_ids": [],
+          "memory_proposals": []
+        },
+        "write_events": [],
+        "sealed_hash": "f67235b318224b0cb5d7c755a1d137042844e211bf97b0a1eac0dba0d151c14e"
+      },
+      "feedback": {
+        "passed": false,
+        "answer_ok": false,
+        "evidence_ok": false,
+        "expected_after_sealing": {
+          "answer": "V2CBF8E98B219",
+          "source_id": "src-2cbf8e98b219d1c183"
+        }
+      },
+      "kind": "retention"
+    }
+  ],
+  "final_memory": {
+    "events": [
+      {
+        "call_id": "call-00000001",
+        "entity": "Entity-0d46f72309",
+        "id": "event-00000001",
+        "key": "registration_token",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "operation": "read",
+        "owner": "public-owner-pilot-experience",
+        "query_hash": "264b8259ed0c85bd8f3d78ba31c5731aeab912b129ba79ba39d5014da9c798bc",
+        "round_index": 0,
+        "tenant": "public-tenant-901",
+        "type": "call_started"
+      },
+      {
+        "call_id": "call-00000001",
+        "candidates": [],
+        "id": "event-00000002",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "owner": "public-owner-pilot-experience",
+        "parent_event_id": "event-00000001",
+        "round_index": 0,
+        "selected_record_ids": [],
+        "tenant": "public-tenant-901",
+        "type": "read_completed"
+      },
+      {
+        "call_id": "call-00000002",
+        "id": "event-00000003",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "operation": "ingest",
+        "owner": "public-owner-pilot-experience",
+        "proposals_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "round_index": 0,
+        "tenant": "public-tenant-901",
+        "type": "call_started",
+        "visible_facts_hash": "c37f5ca0fb67883872c2f0423684e13f494659fe0965816cc546119eae90dddc"
+      },
+      {
+        "call_id": "call-00000002",
+        "id": "event-00000004",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "outcome_ids": [],
+        "owner": "public-owner-pilot-experience",
+        "parent_event_id": "event-00000003",
+        "round_index": 0,
+        "tenant": "public-tenant-901",
+        "type": "ingest_completed"
+      },
+      {
+        "call_id": "call-00000003",
+        "entity": "Entity-0d46f72309",
+        "id": "event-00000005",
+        "key": "registration_token",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "operation": "read",
+        "owner": "public-owner-pilot-experience",
+        "query_hash": "88f0bbeeaf49ed7a3d59f4201449ea5778732e19b195cc9021f7d676713dfeea",
+        "round_index": 0,
+        "tenant": "public-tenant-901",
+        "type": "call_started"
+      },
+      {
+        "call_id": "call-00000003",
+        "candidates": [],
+        "id": "event-00000006",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "owner": "public-owner-pilot-experience",
+        "parent_event_id": "event-00000005",
+        "round_index": 0,
+        "selected_record_ids": [],
+        "tenant": "public-tenant-901",
+        "type": "read_completed"
+      },
+      {
+        "call_id": "call-00000004",
+        "id": "event-00000007",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "operation": "ingest",
+        "owner": "public-owner-pilot-experience",
+        "proposals_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "round_index": 0,
+        "tenant": "public-tenant-901",
+        "type": "call_started",
+        "visible_facts_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "call_id": "call-00000004",
+        "id": "event-00000008",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "outcome_ids": [],
+        "owner": "public-owner-pilot-experience",
+        "parent_event_id": "event-00000007",
+        "round_index": 0,
+        "tenant": "public-tenant-901",
+        "type": "ingest_completed"
+      },
+      {
+        "call_id": "call-00000005",
+        "entity": "Entity-0d46f72309",
+        "id": "event-00000009",
+        "key": "registration_token",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "operation": "read",
+        "owner": "public-owner-pilot-experience",
+        "query_hash": "264b8259ed0c85bd8f3d78ba31c5731aeab912b129ba79ba39d5014da9c798bc",
+        "round_index": 0,
+        "tenant": "public-tenant-901",
+        "type": "call_started"
+      },
+      {
+        "call_id": "call-00000005",
+        "candidates": [],
+        "id": "event-00000010",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "owner": "public-owner-pilot-experience",
+        "parent_event_id": "event-00000009",
+        "round_index": 0,
+        "selected_record_ids": [],
+        "tenant": "public-tenant-901",
+        "type": "read_completed"
+      },
+      {
+        "call_id": "call-00000006",
+        "id": "event-00000011",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "operation": "ingest",
+        "owner": "public-owner-pilot-experience",
+        "proposals_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "round_index": 0,
+        "tenant": "public-tenant-901",
+        "type": "call_started",
+        "visible_facts_hash": "1aee2ef00c67797a789978bd4ff7843cdaffa022e9f925dc479aa811e75b76c8"
+      },
+      {
+        "call_id": "call-00000006",
+        "id": "event-00000012",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "outcome_ids": [],
+        "owner": "public-owner-pilot-experience",
+        "parent_event_id": "event-00000011",
+        "round_index": 0,
+        "tenant": "public-tenant-901",
+        "type": "ingest_completed"
+      },
+      {
+        "call_id": "call-00000007",
+        "entity": "Entity-0d46f72309",
+        "id": "event-00000013",
+        "key": "registration_token",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "operation": "read",
+        "owner": "public-owner-pilot-experience",
+        "query_hash": "88f0bbeeaf49ed7a3d59f4201449ea5778732e19b195cc9021f7d676713dfeea",
+        "round_index": 0,
+        "tenant": "public-tenant-901",
+        "type": "call_started"
+      },
+      {
+        "call_id": "call-00000007",
+        "candidates": [],
+        "id": "event-00000014",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "owner": "public-owner-pilot-experience",
+        "parent_event_id": "event-00000013",
+        "round_index": 0,
+        "selected_record_ids": [],
+        "tenant": "public-tenant-901",
+        "type": "read_completed"
+      },
+      {
+        "call_id": "call-00000008",
+        "id": "event-00000015",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "operation": "ingest",
+        "owner": "public-owner-pilot-experience",
+        "proposals_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "round_index": 0,
+        "tenant": "public-tenant-901",
+        "type": "call_started",
+        "visible_facts_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "call_id": "call-00000008",
+        "id": "event-00000016",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "outcome_ids": [],
+        "owner": "public-owner-pilot-experience",
+        "parent_event_id": "event-00000015",
+        "round_index": 0,
+        "tenant": "public-tenant-901",
+        "type": "ingest_completed"
+      },
+      {
+        "call_id": "call-00000009",
+        "entity": "Entity-5fb4204ec3",
+        "id": "event-00000017",
+        "key": "registration_token",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "operation": "read",
+        "owner": "public-owner-pilot-experience",
+        "query_hash": "0d7a8f34ab8f782a86c50387553dc9fb43c50bc4315e575d34c57a8138f982d5",
+        "round_index": 1,
+        "tenant": "public-tenant-901",
+        "type": "call_started"
+      },
+      {
+        "call_id": "call-00000009",
+        "candidates": [],
+        "id": "event-00000018",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "owner": "public-owner-pilot-experience",
+        "parent_event_id": "event-00000017",
+        "round_index": 1,
+        "selected_record_ids": [],
+        "tenant": "public-tenant-901",
+        "type": "read_completed"
+      },
+      {
+        "call_id": "call-00000010",
+        "id": "event-00000019",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "operation": "ingest",
+        "owner": "public-owner-pilot-experience",
+        "proposals_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "round_index": 1,
+        "tenant": "public-tenant-901",
+        "type": "call_started",
+        "visible_facts_hash": "cead2b7961e1a76bd5fee162e5a188a2a5bcffbd08c5eb81d3acad12f4013386"
+      },
+      {
+        "call_id": "call-00000010",
+        "id": "event-00000020",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "outcome_ids": [],
+        "owner": "public-owner-pilot-experience",
+        "parent_event_id": "event-00000019",
+        "round_index": 1,
+        "tenant": "public-tenant-901",
+        "type": "ingest_completed"
+      },
+      {
+        "call_id": "call-00000011",
+        "entity": "Entity-5fb4204ec3",
+        "id": "event-00000021",
+        "key": "registration_token",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "operation": "read",
+        "owner": "public-owner-pilot-experience",
+        "query_hash": "e498a16a9a6bf282d2616b0561af54a2438672c34382e019a10b40623b703176",
+        "round_index": 1,
+        "tenant": "public-tenant-901",
+        "type": "call_started"
+      },
+      {
+        "call_id": "call-00000011",
+        "candidates": [],
+        "id": "event-00000022",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "owner": "public-owner-pilot-experience",
+        "parent_event_id": "event-00000021",
+        "round_index": 1,
+        "selected_record_ids": [],
+        "tenant": "public-tenant-901",
+        "type": "read_completed"
+      },
+      {
+        "call_id": "call-00000012",
+        "id": "event-00000023",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "operation": "ingest",
+        "owner": "public-owner-pilot-experience",
+        "proposals_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "round_index": 1,
+        "tenant": "public-tenant-901",
+        "type": "call_started",
+        "visible_facts_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "call_id": "call-00000012",
+        "id": "event-00000024",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "outcome_ids": [],
+        "owner": "public-owner-pilot-experience",
+        "parent_event_id": "event-00000023",
+        "round_index": 1,
+        "tenant": "public-tenant-901",
+        "type": "ingest_completed"
+      },
+      {
+        "call_id": "call-00000013",
+        "entity": "Entity-5fb4204ec3",
+        "id": "event-00000025",
+        "key": "registration_token",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "operation": "read",
+        "owner": "public-owner-pilot-experience",
+        "query_hash": "0d7a8f34ab8f782a86c50387553dc9fb43c50bc4315e575d34c57a8138f982d5",
+        "round_index": 1,
+        "tenant": "public-tenant-901",
+        "type": "call_started"
+      },
+      {
+        "call_id": "call-00000013",
+        "candidates": [],
+        "id": "event-00000026",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "owner": "public-owner-pilot-experience",
+        "parent_event_id": "event-00000025",
+        "round_index": 1,
+        "selected_record_ids": [],
+        "tenant": "public-tenant-901",
+        "type": "read_completed"
+      },
+      {
+        "call_id": "call-00000014",
+        "id": "event-00000027",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "operation": "ingest",
+        "owner": "public-owner-pilot-experience",
+        "proposals_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "round_index": 1,
+        "tenant": "public-tenant-901",
+        "type": "call_started",
+        "visible_facts_hash": "42a8419b2143e41c100e344b9cd5542702a7ab42b3ef51a8023eff851ac32d5a"
+      },
+      {
+        "call_id": "call-00000014",
+        "id": "event-00000028",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "outcome_ids": [],
+        "owner": "public-owner-pilot-experience",
+        "parent_event_id": "event-00000027",
+        "round_index": 1,
+        "tenant": "public-tenant-901",
+        "type": "ingest_completed"
+      },
+      {
+        "call_id": "call-00000015",
+        "entity": "Entity-5fb4204ec3",
+        "id": "event-00000029",
+        "key": "registration_token",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "operation": "read",
+        "owner": "public-owner-pilot-experience",
+        "query_hash": "e498a16a9a6bf282d2616b0561af54a2438672c34382e019a10b40623b703176",
+        "round_index": 1,
+        "tenant": "public-tenant-901",
+        "type": "call_started"
+      },
+      {
+        "call_id": "call-00000015",
+        "candidates": [],
+        "id": "event-00000030",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "owner": "public-owner-pilot-experience",
+        "parent_event_id": "event-00000029",
+        "round_index": 1,
+        "selected_record_ids": [],
+        "tenant": "public-tenant-901",
+        "type": "read_completed"
+      },
+      {
+        "call_id": "call-00000016",
+        "id": "event-00000031",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "operation": "ingest",
+        "owner": "public-owner-pilot-experience",
+        "proposals_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "round_index": 1,
+        "tenant": "public-tenant-901",
+        "type": "call_started",
+        "visible_facts_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "call_id": "call-00000016",
+        "id": "event-00000032",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "outcome_ids": [],
+        "owner": "public-owner-pilot-experience",
+        "parent_event_id": "event-00000031",
+        "round_index": 1,
+        "tenant": "public-tenant-901",
+        "type": "ingest_completed"
+      },
+      {
+        "call_id": "call-00000017",
+        "entity": "Entity-0d46f72309",
+        "id": "event-00000033",
+        "key": "registration_token",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "operation": "read",
+        "owner": "public-owner-pilot-experience",
+        "query_hash": "88f0bbeeaf49ed7a3d59f4201449ea5778732e19b195cc9021f7d676713dfeea",
+        "round_index": 1,
+        "tenant": "public-tenant-901",
+        "type": "call_started"
+      },
+      {
+        "call_id": "call-00000017",
+        "candidates": [],
+        "id": "event-00000034",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "owner": "public-owner-pilot-experience",
+        "parent_event_id": "event-00000033",
+        "round_index": 1,
+        "selected_record_ids": [],
+        "tenant": "public-tenant-901",
+        "type": "read_completed"
+      },
+      {
+        "call_id": "call-00000018",
+        "id": "event-00000035",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "operation": "ingest",
+        "owner": "public-owner-pilot-experience",
+        "proposals_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "round_index": 1,
+        "tenant": "public-tenant-901",
+        "type": "call_started",
+        "visible_facts_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "call_id": "call-00000018",
+        "id": "event-00000036",
+        "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "outcome_ids": [],
+        "owner": "public-owner-pilot-experience",
+        "parent_event_id": "event-00000035",
+        "round_index": 1,
+        "tenant": "public-tenant-901",
+        "type": "ingest_completed"
+      }
+    ],
+    "next_call": 18,
+    "next_event": 36,
+    "records": [],
+    "revoked_sources": [],
+    "schema": 1,
+    "snapshot_hash": "8a1bcdeb5c09b14bb15dac9f3d944a3bcd90c0055fd3ad0c993bb6798e50ef38"
+  }
+}

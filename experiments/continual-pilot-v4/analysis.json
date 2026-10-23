@@ -1,0 +1,1311 @@
+{
+  "schema": 1,
+  "status": "partial_readout",
+  "run_status": "aborted_measurement_incomplete",
+  "source_scope": "authored public synthetic event streams; shared generation grammar",
+  "manifest_hash": "5f6129f93b9e1cb68825c46ae7761e91e346a6217bef1132fa99be600a5c3df3",
+  "independent_hash": null,
+  "planned_streams": [
+    931
+  ],
+  "arms": [
+    "fixed_mechanism",
+    "fixed_p",
+    "joint"
+  ],
+  "rounds": 2,
+  "observed_independent_versions": 0,
+  "expected_independent_versions": 9,
+  "curves": {
+    "acceptance": {
+      "fixed_mechanism": [
+        {
+          "generation": 0,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 1,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 2,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        }
+      ],
+      "fixed_p": [
+        {
+          "generation": 0,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 1,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 2,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        }
+      ],
+      "joint": [
+        {
+          "generation": 0,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 1,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 2,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        }
+      ]
+    },
+    "transfer": {
+      "fixed_mechanism": [
+        {
+          "generation": 0,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 1,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 2,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        }
+      ],
+      "fixed_p": [
+        {
+          "generation": 0,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 1,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 2,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        }
+      ],
+      "joint": [
+        {
+          "generation": 0,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 1,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        },
+        {
+          "generation": 2,
+          "streams": 0,
+          "passed": 0,
+          "total": 0,
+          "mean_stream_rate": null
+        }
+      ]
+    },
+    "online": {
+      "fixed_mechanism": [
+        {
+          "generation": 0,
+          "streams": 1,
+          "passed": 4,
+          "total": 4,
+          "mean_stream_rate": 1.0
+        },
+        {
+          "generation": 1,
+          "streams": 1,
+          "passed": 5,
+          "total": 5,
+          "mean_stream_rate": 1.0
+        }
+      ],
+      "fixed_p": [
+        {
+          "generation": 0,
+          "streams": 1,
+          "passed": 4,
+          "total": 4,
+          "mean_stream_rate": 1.0
+        },
+        {
+          "generation": 1,
+          "streams": 1,
+          "passed": 4,
+          "total": 5,
+          "mean_stream_rate": 0.8
+        }
+      ],
+      "joint": [
+        {
+          "generation": 0,
+          "streams": 1,
+          "passed": 4,
+          "total": 4,
+          "mean_stream_rate": 1.0
+        },
+        {
+          "generation": 1,
+          "streams": 1,
+          "passed": 5,
+          "total": 5,
+          "mean_stream_rate": 1.0
+        }
+      ]
+    }
+  },
+  "terminal_joint_minus_fixed_p": {
+    "acceptance": {
+      "unit": "stream",
+      "n": 0,
+      "pairs": [],
+      "mean_difference": null,
+      "mean_difference_percentage_points": null,
+      "bootstrap_seed": 20261023,
+      "bootstrap_replicates": 10000,
+      "bootstrap_percentile_95_ci": null,
+      "exact_sign_flip_two_sided_p": null,
+      "sign_flip_assignments": 0,
+      "interpretation": "Descriptive paired stream comparison; sign-flip inference assumes exchangeability. No causal or population superiority claim.",
+      "missing_streams": [
+        931
+      ]
+    },
+    "transfer": {
+      "unit": "stream",
+      "n": 0,
+      "pairs": [],
+      "mean_difference": null,
+      "mean_difference_percentage_points": null,
+      "bootstrap_seed": 20261023,
+      "bootstrap_replicates": 10000,
+      "bootstrap_percentile_95_ci": null,
+      "exact_sign_flip_two_sided_p": null,
+      "sign_flip_assignments": 0,
+      "interpretation": "Descriptive paired stream comparison; sign-flip inference assumes exchangeability. No causal or population superiority claim.",
+      "missing_streams": [
+        931
+      ]
+    }
+  },
+  "independent_policy_audit": {
+    "primary_checkpoint": 2,
+    "checkpoints": {},
+    "primary": null,
+    "meta_development_used_as_independent": false
+  },
+  "memory_ablation_current_minus_disabled": {
+    "fixed_mechanism": {
+      "unit": "stream",
+      "n": 0,
+      "pairs": [],
+      "mean_difference": null,
+      "mean_difference_percentage_points": null,
+      "bootstrap_seed": 20261023,
+      "bootstrap_replicates": 10000,
+      "bootstrap_percentile_95_ci": null,
+      "exact_sign_flip_two_sided_p": null,
+      "sign_flip_assignments": 0,
+      "interpretation": "Descriptive paired stream comparison; sign-flip inference assumes exchangeability. No causal or population superiority claim."
+    },
+    "fixed_p": {
+      "unit": "stream",
+      "n": 0,
+      "pairs": [],
+      "mean_difference": null,
+      "mean_difference_percentage_points": null,
+      "bootstrap_seed": 20261023,
+      "bootstrap_replicates": 10000,
+      "bootstrap_percentile_95_ci": null,
+      "exact_sign_flip_two_sided_p": null,
+      "sign_flip_assignments": 0,
+      "interpretation": "Descriptive paired stream comparison; sign-flip inference assumes exchangeability. No causal or population superiority claim."
+    },
+    "joint": {
+      "unit": "stream",
+      "n": 0,
+      "pairs": [],
+      "mean_difference": null,
+      "mean_difference_percentage_points": null,
+      "bootstrap_seed": 20261023,
+      "bootstrap_replicates": 10000,
+      "bootstrap_percentile_95_ci": null,
+      "exact_sign_flip_two_sided_p": null,
+      "sign_flip_assignments": 0,
+      "interpretation": "Descriptive paired stream comparison; sign-flip inference assumes exchangeability. No causal or population superiority claim."
+    }
+  },
+  "current_minus_wide_context_baseline": {
+    "fixed_mechanism": {
+      "unit": "stream",
+      "n": 0,
+      "pairs": [],
+      "mean_difference": null,
+      "mean_difference_percentage_points": null,
+      "bootstrap_seed": 20261023,
+      "bootstrap_replicates": 10000,
+      "bootstrap_percentile_95_ci": null,
+      "exact_sign_flip_two_sided_p": null,
+      "sign_flip_assignments": 0,
+      "interpretation": "Descriptive paired stream comparison; sign-flip inference assumes exchangeability. No causal or population superiority claim."
+    },
+    "fixed_p": {
+      "unit": "stream",
+      "n": 0,
+      "pairs": [],
+      "mean_difference": null,
+      "mean_difference_percentage_points": null,
+      "bootstrap_seed": 20261023,
+      "bootstrap_replicates": 10000,
+      "bootstrap_percentile_95_ci": null,
+      "exact_sign_flip_two_sided_p": null,
+      "sign_flip_assignments": 0,
+      "interpretation": "Descriptive paired stream comparison; sign-flip inference assumes exchangeability. No causal or population superiority claim."
+    },
+    "joint": {
+      "unit": "stream",
+      "n": 0,
+      "pairs": [],
+      "mean_difference": null,
+      "mean_difference_percentage_points": null,
+      "bootstrap_seed": 20261023,
+      "bootstrap_replicates": 10000,
+      "bootstrap_percentile_95_ci": null,
+      "exact_sign_flip_two_sided_p": null,
+      "sign_flip_assignments": 0,
+      "interpretation": "Descriptive paired stream comparison; sign-flip inference assumes exchangeability. No causal or population superiority claim."
+    }
+  },
+  "adoptions": {
+    "931/fixed_mechanism": {
+      "rounds_observed": 2,
+      "mechanism_adoptions": 0,
+      "policy_adoptions": 0
+    },
+    "931/fixed_p": {
+      "rounds_observed": 2,
+      "mechanism_adoptions": 0,
+      "policy_adoptions": 0
+    },
+    "931/joint": {
+      "rounds_observed": 1,
+      "mechanism_adoptions": 0,
+      "policy_adoptions": 0
+    }
+  },
+  "diagnostics": [
+    {
+      "stream": 931,
+      "arm": "fixed_p",
+      "round": 0,
+      "scope": "mechanism_search",
+      "trial": 0,
+      "status": "executed",
+      "gain": -0.25,
+      "selected": false,
+      "action": {
+        "modules": [
+          "memory"
+        ],
+        "operator": "rewrite",
+        "parent": "current"
+      },
+      "path": "streams/931/fixed_p/rounds/r00/mechanism-search.json"
+    },
+    {
+      "stream": 931,
+      "arm": "fixed_p",
+      "round": 0,
+      "scope": "mechanism_search",
+      "trial": 1,
+      "status": "executed",
+      "gain": -0.25,
+      "selected": false,
+      "action": {
+        "modules": [
+          "memory"
+        ],
+        "operator": "contrastive",
+        "parent": "current"
+      },
+      "path": "streams/931/fixed_p/rounds/r00/mechanism-search.json"
+    },
+    {
+      "stream": 931,
+      "arm": "fixed_p",
+      "round": 0,
+      "scope": "meta_development_probe",
+      "fork": "new",
+      "status": "executed",
+      "path": "streams/931/fixed_p/rounds/r00/policy-probe.json"
+    },
+    {
+      "stream": 931,
+      "arm": "fixed_p",
+      "round": 0,
+      "scope": "meta_development_probe",
+      "fork": "old",
+      "status": "executed",
+      "path": "streams/931/fixed_p/rounds/r00/policy-probe.json"
+    },
+    {
+      "stream": 931,
+      "arm": "fixed_p",
+      "round": 1,
+      "scope": "mechanism_search",
+      "trial": 0,
+      "status": "executed",
+      "gain": 0.0,
+      "selected": false,
+      "action": {
+        "modules": [
+          "memory",
+          "prompt"
+        ],
+        "operator": "contrastive",
+        "parent": "best_rejected"
+      },
+      "path": "streams/931/fixed_p/rounds/r01/mechanism-search.json"
+    },
+    {
+      "stream": 931,
+      "arm": "fixed_p",
+      "round": 1,
+      "scope": "mechanism_search",
+      "trial": 1,
+      "status": "executed",
+      "gain": -0.5,
+      "selected": false,
+      "action": {
+        "modules": [
+          "memory",
+          "prompt"
+        ],
+        "operator": "joint",
+        "parent": "current"
+      },
+      "path": "streams/931/fixed_p/rounds/r01/mechanism-search.json"
+    },
+    {
+      "stream": 931,
+      "arm": "fixed_p",
+      "round": 1,
+      "scope": "meta_development_probe",
+      "fork": "old",
+      "status": "executed",
+      "path": "streams/931/fixed_p/rounds/r01/policy-probe.json"
+    },
+    {
+      "stream": 931,
+      "arm": "fixed_p",
+      "round": 1,
+      "scope": "meta_development_probe",
+      "fork": "new",
+      "status": "executed",
+      "path": "streams/931/fixed_p/rounds/r01/policy-probe.json"
+    },
+    {
+      "stream": 931,
+      "arm": "joint",
+      "round": 0,
+      "scope": "mechanism_search",
+      "trial": 0,
+      "status": "executed",
+      "gain": 0.0,
+      "selected": false,
+      "action": {
+        "modules": [
+          "memory"
+        ],
+        "operator": "rewrite",
+        "parent": "current"
+      },
+      "path": "streams/931/joint/rounds/r00/mechanism-search.json"
+    },
+    {
+      "stream": 931,
+      "arm": "joint",
+      "round": 0,
+      "scope": "mechanism_search",
+      "trial": 1,
+      "status": "executed",
+      "gain": 0.0,
+      "selected": false,
+      "action": {
+        "modules": [
+          "memory"
+        ],
+        "operator": "contrastive",
+        "parent": "current"
+      },
+      "path": "streams/931/joint/rounds/r00/mechanism-search.json"
+    },
+    {
+      "stream": 931,
+      "arm": "joint",
+      "round": 0,
+      "scope": "meta_development_probe",
+      "fork": "new",
+      "status": "executed",
+      "path": "streams/931/joint/rounds/r00/policy-probe.json"
+    },
+    {
+      "stream": 931,
+      "arm": "joint",
+      "round": 0,
+      "scope": "meta_development_probe",
+      "fork": "old",
+      "status": "invalid_diagnosis",
+      "path": "streams/931/joint/rounds/r00/policy-probe.json"
+    },
+    {
+      "stream": 931,
+      "arm": "joint",
+      "round": 0,
+      "scope": "meta_development_probe",
+      "fork": "old",
+      "status": "no_action",
+      "path": "streams/931/joint/rounds/r00/policy-probe.json"
+    },
+    {
+      "stream": 931,
+      "arm": "joint",
+      "round": 1,
+      "scope": "mechanism_search",
+      "trial": 0,
+      "status": "invalid_candidate",
+      "gain": null,
+      "selected": false,
+      "action": {
+        "modules": [
+          "memory",
+          "rag"
+        ],
+        "operator": "contrastive",
+        "parent": "best_rejected"
+      },
+      "path": "streams/931/joint/rounds/r01/mechanism-search.json"
+    },
+    {
+      "stream": 931,
+      "arm": "joint",
+      "round": 1,
+      "scope": "mechanism_search",
+      "trial": 1,
+      "status": "executed",
+      "gain": 0.25,
+      "selected": true,
+      "action": {
+        "modules": [
+          "memory",
+          "rag"
+        ],
+        "operator": "joint",
+        "parent": "current"
+      },
+      "path": "streams/931/joint/rounds/r01/mechanism-search.json"
+    }
+  ],
+  "meta_development_probes": [
+    {
+      "stream": 931,
+      "arm": "fixed_p",
+      "round": 0,
+      "scope": "meta-development",
+      "future_delta": 0.0,
+      "raw_future_delta": 0.0,
+      "valid_search_pair": true,
+      "adopted": false,
+      "policy_distinct": null,
+      "promotion_eligible": false,
+      "arm_rule": "shadow only: P frozen",
+      "distinct_selected_mechanisms": false,
+      "path": "streams/931/fixed_p/rounds/r00/policy-probe.json"
+    },
+    {
+      "stream": 931,
+      "arm": "fixed_p",
+      "round": 1,
+      "scope": "meta-development",
+      "future_delta": -0.25,
+      "raw_future_delta": -0.25,
+      "valid_search_pair": true,
+      "adopted": false,
+      "policy_distinct": null,
+      "promotion_eligible": false,
+      "arm_rule": "shadow only: P frozen",
+      "distinct_selected_mechanisms": true,
+      "path": "streams/931/fixed_p/rounds/r01/policy-probe.json"
+    },
+    {
+      "stream": 931,
+      "arm": "joint",
+      "round": 0,
+      "scope": "meta-development",
+      "future_delta": null,
+      "raw_future_delta": 0.0,
+      "valid_search_pair": false,
+      "adopted": false,
+      "policy_distinct": null,
+      "promotion_eligible": false,
+      "arm_rule": "strict future gain; protection nonregression; distinct selected M",
+      "distinct_selected_mechanisms": false,
+      "path": "streams/931/joint/rounds/r00/policy-probe.json"
+    }
+  ],
+  "diagnostic_summary": {
+    "statuses": {
+      "executed": 12,
+      "invalid_diagnosis": 1,
+      "no_action": 1,
+      "invalid_candidate": 1
+    },
+    "executed_main_candidates_not_selected": 6
+  },
+  "regressions": [],
+  "versions": [
+    {
+      "stream": 931,
+      "arm": "fixed_mechanism",
+      "generation": 0,
+      "version_present": true,
+      "version_path": "streams/931/fixed_mechanism/versions/g0.json",
+      "independent_path": null,
+      "reports": {},
+      "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+      "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+      "memory_hash": "75e24d5194722e62e0cefc8935bed959c9582930641c0e010143407828a68881",
+      "mechanism_diff": [],
+      "policy_diff": [],
+      "round_paths": {
+        "experience": "streams/931/fixed_mechanism/rounds/r00/experience.json",
+        "transition": "streams/931/fixed_mechanism/rounds/r00/transition.json",
+        "mechanism-search": null,
+        "policy-proposal": null,
+        "policy-probe": null
+      },
+      "transition": {
+        "stream": 931,
+        "arm": "fixed_mechanism",
+        "round": 0,
+        "parent_m": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "loaded_m_next": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "parent_p": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+        "loaded_p_next": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+        "mechanism_changed": false,
+        "policy_changed": false,
+        "changed_m_fields": [],
+        "changed_p_fields": [],
+        "online_passed": 4,
+        "online_total": 4,
+        "elapsed_seconds": 5.238,
+        "status": "completed"
+      }
+    },
+    {
+      "stream": 931,
+      "arm": "fixed_mechanism",
+      "generation": 1,
+      "version_present": true,
+      "version_path": "streams/931/fixed_mechanism/versions/g1.json",
+      "independent_path": null,
+      "reports": {},
+      "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+      "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+      "memory_hash": "165a7a3978e76cadf57c84583835e9bf82679da115d02490db180c159c781880",
+      "mechanism_diff": [],
+      "policy_diff": [],
+      "round_paths": {
+        "experience": "streams/931/fixed_mechanism/rounds/r01/experience.json",
+        "transition": "streams/931/fixed_mechanism/rounds/r01/transition.json",
+        "mechanism-search": null,
+        "policy-proposal": null,
+        "policy-probe": null
+      },
+      "transition": {
+        "stream": 931,
+        "arm": "fixed_mechanism",
+        "round": 1,
+        "parent_m": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "loaded_m_next": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "parent_p": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+        "loaded_p_next": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+        "mechanism_changed": false,
+        "policy_changed": false,
+        "changed_m_fields": [],
+        "changed_p_fields": [],
+        "online_passed": 5,
+        "online_total": 5,
+        "elapsed_seconds": 6.227,
+        "status": "completed"
+      }
+    },
+    {
+      "stream": 931,
+      "arm": "fixed_mechanism",
+      "generation": 2,
+      "version_present": true,
+      "version_path": "streams/931/fixed_mechanism/versions/g2.json",
+      "independent_path": null,
+      "reports": {},
+      "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+      "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+      "memory_hash": "e2b2e6014dc7600cb8db0c90e8de34c92100fe946bdedb6b595fa1530bc1f446",
+      "mechanism_diff": [],
+      "policy_diff": [],
+      "round_paths": {
+        "experience": null,
+        "transition": null,
+        "mechanism-search": null,
+        "policy-proposal": null,
+        "policy-probe": null
+      }
+    },
+    {
+      "stream": 931,
+      "arm": "fixed_p",
+      "generation": 0,
+      "version_present": true,
+      "version_path": "streams/931/fixed_p/versions/g0.json",
+      "independent_path": null,
+      "reports": {},
+      "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+      "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+      "memory_hash": "75e24d5194722e62e0cefc8935bed959c9582930641c0e010143407828a68881",
+      "mechanism_diff": [],
+      "policy_diff": [],
+      "round_paths": {
+        "experience": "streams/931/fixed_p/rounds/r00/experience.json",
+        "transition": "streams/931/fixed_p/rounds/r00/transition.json",
+        "mechanism-search": "streams/931/fixed_p/rounds/r00/mechanism-search.json",
+        "policy-proposal": "streams/931/fixed_p/rounds/r00/policy-proposal.json",
+        "policy-probe": "streams/931/fixed_p/rounds/r00/policy-probe.json"
+      },
+      "transition": {
+        "stream": 931,
+        "arm": "fixed_p",
+        "round": 0,
+        "parent_m": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "loaded_m_next": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "parent_p": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+        "loaded_p_next": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+        "mechanism_changed": false,
+        "policy_changed": false,
+        "changed_m_fields": [],
+        "changed_p_fields": [],
+        "online_passed": 4,
+        "online_total": 4,
+        "elapsed_seconds": 72.151,
+        "status": "completed"
+      },
+      "loaded_search": {
+        "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+        "initial_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "initial_memory_hash": "165a7a3978e76cadf57c84583835e9bf82679da115d02490db180c159c781880",
+        "selected_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "selected_trial": null,
+        "mechanism_adopted": false
+      },
+      "probe_forks": {
+        "new": {
+          "policy_hash": "346578002e3c4a0b205532999fe936bad10a0cabf7f98f6345a7ad724a174b67",
+          "initial_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+          "initial_memory_hash": "165a7a3978e76cadf57c84583835e9bf82679da115d02490db180c159c781880",
+          "history_hash": "9d39d795bd3422a7a7b2a37f7bade8ffef37dc7990d22162f8d6798783effa2a",
+          "selected_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        },
+        "old": {
+          "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+          "initial_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+          "initial_memory_hash": "165a7a3978e76cadf57c84583835e9bf82679da115d02490db180c159c781880",
+          "history_hash": "9d39d795bd3422a7a7b2a37f7bade8ffef37dc7990d22162f8d6798783effa2a",
+          "selected_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        }
+      }
+    },
+    {
+      "stream": 931,
+      "arm": "fixed_p",
+      "generation": 1,
+      "version_present": true,
+      "version_path": "streams/931/fixed_p/versions/g1.json",
+      "independent_path": null,
+      "reports": {},
+      "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+      "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+      "memory_hash": "165a7a3978e76cadf57c84583835e9bf82679da115d02490db180c159c781880",
+      "mechanism_diff": [],
+      "policy_diff": [],
+      "round_paths": {
+        "experience": "streams/931/fixed_p/rounds/r01/experience.json",
+        "transition": "streams/931/fixed_p/rounds/r01/transition.json",
+        "mechanism-search": "streams/931/fixed_p/rounds/r01/mechanism-search.json",
+        "policy-proposal": "streams/931/fixed_p/rounds/r01/policy-proposal.json",
+        "policy-probe": "streams/931/fixed_p/rounds/r01/policy-probe.json"
+      },
+      "transition": {
+        "stream": 931,
+        "arm": "fixed_p",
+        "round": 1,
+        "parent_m": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "loaded_m_next": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "parent_p": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+        "loaded_p_next": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+        "mechanism_changed": false,
+        "policy_changed": false,
+        "changed_m_fields": [],
+        "changed_p_fields": [],
+        "online_passed": 4,
+        "online_total": 5,
+        "elapsed_seconds": 78.249,
+        "status": "completed"
+      },
+      "loaded_search": {
+        "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+        "initial_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "initial_memory_hash": "e2b2e6014dc7600cb8db0c90e8de34c92100fe946bdedb6b595fa1530bc1f446",
+        "selected_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "selected_trial": null,
+        "mechanism_adopted": false
+      },
+      "probe_forks": {
+        "old": {
+          "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+          "initial_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+          "initial_memory_hash": "e2b2e6014dc7600cb8db0c90e8de34c92100fe946bdedb6b595fa1530bc1f446",
+          "history_hash": "71b2a5112a197b5ffc605f8bd91ea8e23fc82d4733d2b2df80e265d1bf98170d",
+          "selected_mechanism_hash": "3380275711736292db8866d850fab4e6629c6a6343eed5a3ae8ea8ea4be1ae63"
+        },
+        "new": {
+          "policy_hash": "ab0d7401d609b512ab12de78ad3c13cdeaf1850f5c3e700594232f41f6eec11d",
+          "initial_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+          "initial_memory_hash": "e2b2e6014dc7600cb8db0c90e8de34c92100fe946bdedb6b595fa1530bc1f446",
+          "history_hash": "71b2a5112a197b5ffc605f8bd91ea8e23fc82d4733d2b2df80e265d1bf98170d",
+          "selected_mechanism_hash": "29b05342d764f9f1d8ac000692df8e3ddbd303ea1d4379505c50128267aca7d6"
+        }
+      }
+    },
+    {
+      "stream": 931,
+      "arm": "fixed_p",
+      "generation": 2,
+      "version_present": true,
+      "version_path": "streams/931/fixed_p/versions/g2.json",
+      "independent_path": null,
+      "reports": {},
+      "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+      "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+      "memory_hash": "e2b2e6014dc7600cb8db0c90e8de34c92100fe946bdedb6b595fa1530bc1f446",
+      "mechanism_diff": [],
+      "policy_diff": [],
+      "round_paths": {
+        "experience": null,
+        "transition": null,
+        "mechanism-search": null,
+        "policy-proposal": null,
+        "policy-probe": null
+      }
+    },
+    {
+      "stream": 931,
+      "arm": "joint",
+      "generation": 0,
+      "version_present": true,
+      "version_path": "streams/931/joint/versions/g0.json",
+      "independent_path": null,
+      "reports": {},
+      "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+      "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+      "memory_hash": "75e24d5194722e62e0cefc8935bed959c9582930641c0e010143407828a68881",
+      "mechanism_diff": [],
+      "policy_diff": [],
+      "round_paths": {
+        "experience": "streams/931/joint/rounds/r00/experience.json",
+        "transition": "streams/931/joint/rounds/r00/transition.json",
+        "mechanism-search": "streams/931/joint/rounds/r00/mechanism-search.json",
+        "policy-proposal": "streams/931/joint/rounds/r00/policy-proposal.json",
+        "policy-probe": "streams/931/joint/rounds/r00/policy-probe.json"
+      },
+      "transition": {
+        "stream": 931,
+        "arm": "joint",
+        "round": 0,
+        "parent_m": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "loaded_m_next": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "parent_p": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+        "loaded_p_next": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+        "mechanism_changed": false,
+        "policy_changed": false,
+        "changed_m_fields": [],
+        "changed_p_fields": [],
+        "online_passed": 4,
+        "online_total": 4,
+        "elapsed_seconds": 78.375,
+        "status": "completed"
+      },
+      "loaded_search": {
+        "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+        "initial_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "initial_memory_hash": "165a7a3978e76cadf57c84583835e9bf82679da115d02490db180c159c781880",
+        "selected_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "selected_trial": null,
+        "mechanism_adopted": false
+      },
+      "probe_forks": {
+        "new": {
+          "policy_hash": "f0f45e4faa59b56991f544a8cb680eed84f8cad9ae197f73339f87f346488dfc",
+          "initial_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+          "initial_memory_hash": "165a7a3978e76cadf57c84583835e9bf82679da115d02490db180c159c781880",
+          "history_hash": "f79b1ba58f4647dc151c42d0ca6853d1aaecb9e59f9aa20b1983c33e18aa6989",
+          "selected_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        },
+        "old": {
+          "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+          "initial_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+          "initial_memory_hash": "165a7a3978e76cadf57c84583835e9bf82679da115d02490db180c159c781880",
+          "history_hash": "f79b1ba58f4647dc151c42d0ca6853d1aaecb9e59f9aa20b1983c33e18aa6989",
+          "selected_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        }
+      }
+    },
+    {
+      "stream": 931,
+      "arm": "joint",
+      "generation": 1,
+      "version_present": true,
+      "version_path": "streams/931/joint/versions/g1.json",
+      "independent_path": null,
+      "reports": {},
+      "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+      "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+      "memory_hash": "165a7a3978e76cadf57c84583835e9bf82679da115d02490db180c159c781880",
+      "mechanism_diff": [],
+      "policy_diff": [],
+      "round_paths": {
+        "experience": "streams/931/joint/rounds/r01/experience.json",
+        "transition": null,
+        "mechanism-search": "streams/931/joint/rounds/r01/mechanism-search.json",
+        "policy-proposal": null,
+        "policy-probe": null
+      },
+      "loaded_search": {
+        "policy_hash": "d8c6a453457bcc79c7580cf20dceae414f6008ddbf7cf8fda9d76c2e6fabc964",
+        "initial_mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7",
+        "initial_memory_hash": "e2b2e6014dc7600cb8db0c90e8de34c92100fe946bdedb6b595fa1530bc1f446",
+        "selected_mechanism_hash": "65a8ec61f41fda9c0fe0ffa159c409640644e89b20e0cebaa5f88cf97d3267a7",
+        "selected_trial": 1,
+        "mechanism_adopted": true
+      }
+    },
+    {
+      "stream": 931,
+      "arm": "joint",
+      "generation": 2,
+      "version_present": false,
+      "version_path": null,
+      "independent_path": null,
+      "reports": {},
+      "mechanism_hash": null,
+      "policy_hash": null,
+      "memory_hash": null,
+      "mechanism_diff": [],
+      "policy_diff": [],
+      "round_paths": {
+        "experience": null,
+        "transition": null,
+        "mechanism-search": null,
+        "policy-proposal": null,
+        "policy-probe": null
+      }
+    }
+  ],
+  "memory_chain_summary": {
+    "fixed_mechanism": {
+      "episodes_observed": 2,
+      "four_step_episodes": 2,
+      "structural_chains_complete": 2,
+      "four_tasks_all_passed": 2,
+      "effective_closed_loops": 2,
+      "task_kinds": {
+        "observe": {
+          "passed": 4,
+          "total": 4,
+          "unknown_outcome": 0
+        },
+        "recall": {
+          "passed": 4,
+          "total": 4,
+          "unknown_outcome": 0
+        },
+        "retention": {
+          "passed": 1,
+          "total": 1,
+          "unknown_outcome": 0
+        }
+      },
+      "observed_tasks_passed": 9,
+      "observed_tasks_total": 9
+    },
+    "fixed_p": {
+      "episodes_observed": 2,
+      "four_step_episodes": 2,
+      "structural_chains_complete": 2,
+      "four_tasks_all_passed": 1,
+      "effective_closed_loops": 1,
+      "task_kinds": {
+        "observe": {
+          "passed": 3,
+          "total": 4,
+          "unknown_outcome": 0
+        },
+        "recall": {
+          "passed": 4,
+          "total": 4,
+          "unknown_outcome": 0
+        },
+        "retention": {
+          "passed": 1,
+          "total": 1,
+          "unknown_outcome": 0
+        }
+      },
+      "observed_tasks_passed": 8,
+      "observed_tasks_total": 9
+    },
+    "joint": {
+      "episodes_observed": 2,
+      "four_step_episodes": 2,
+      "structural_chains_complete": 2,
+      "four_tasks_all_passed": 2,
+      "effective_closed_loops": 2,
+      "task_kinds": {
+        "observe": {
+          "passed": 4,
+          "total": 4,
+          "unknown_outcome": 0
+        },
+        "recall": {
+          "passed": 4,
+          "total": 4,
+          "unknown_outcome": 0
+        },
+        "retention": {
+          "passed": 1,
+          "total": 1,
+          "unknown_outcome": 0
+        }
+      },
+      "observed_tasks_passed": 9,
+      "observed_tasks_total": 9
+    }
+  },
+  "calls": {
+    "totals": {
+      "logical_requests": 328,
+      "completed_requests": 327,
+      "failed_requests": 1,
+      "physical_attempts": 331,
+      "attempts_with_usage": 331,
+      "attempts_without_usage": 0,
+      "failed_physical_attempts": 4,
+      "prompt_tokens": 751943,
+      "completion_tokens": 46912,
+      "total_tokens": 798855
+    },
+    "by_arm_and_purpose": {
+      "fixed_mechanism": {
+        "continual_task": {
+          "logical_requests": 9,
+          "completed_requests": 9,
+          "failed_requests": 0,
+          "physical_attempts": 9,
+          "attempts_with_usage": 9,
+          "attempts_without_usage": 0,
+          "failed_physical_attempts": 0,
+          "prompt_tokens": 8853,
+          "completion_tokens": 294,
+          "total_tokens": 9147
+        },
+        "continual_memory_extraction": {
+          "logical_requests": 4,
+          "completed_requests": 4,
+          "failed_requests": 0,
+          "physical_attempts": 4,
+          "attempts_with_usage": 4,
+          "attempts_without_usage": 0,
+          "failed_physical_attempts": 0,
+          "prompt_tokens": 2164,
+          "completion_tokens": 391,
+          "total_tokens": 2555
+        }
+      },
+      "fixed_p": {
+        "continual_task": {
+          "logical_requests": 105,
+          "completed_requests": 105,
+          "failed_requests": 0,
+          "physical_attempts": 105,
+          "attempts_with_usage": 105,
+          "attempts_without_usage": 0,
+          "failed_physical_attempts": 0,
+          "prompt_tokens": 78281,
+          "completion_tokens": 2838,
+          "total_tokens": 81119
+        },
+        "continual_mechanism_proposal": {
+          "logical_requests": 8,
+          "completed_requests": 8,
+          "failed_requests": 0,
+          "physical_attempts": 9,
+          "attempts_with_usage": 9,
+          "attempts_without_usage": 0,
+          "failed_physical_attempts": 1,
+          "prompt_tokens": 143786,
+          "completion_tokens": 5915,
+          "total_tokens": 149701
+        },
+        "continual_memory_extraction": {
+          "logical_requests": 52,
+          "completed_requests": 52,
+          "failed_requests": 0,
+          "physical_attempts": 52,
+          "attempts_with_usage": 52,
+          "attempts_without_usage": 0,
+          "failed_physical_attempts": 0,
+          "prompt_tokens": 27092,
+          "completion_tokens": 4525,
+          "total_tokens": 31617
+        },
+        "continual_mechanism_syntax_repair": {
+          "logical_requests": 3,
+          "completed_requests": 3,
+          "failed_requests": 0,
+          "physical_attempts": 3,
+          "attempts_with_usage": 3,
+          "attempts_without_usage": 0,
+          "failed_physical_attempts": 0,
+          "prompt_tokens": 59044,
+          "completion_tokens": 2474,
+          "total_tokens": 61518
+        },
+        "continual_diagnosis": {
+          "logical_requests": 6,
+          "completed_requests": 6,
+          "failed_requests": 0,
+          "physical_attempts": 6,
+          "attempts_with_usage": 6,
+          "attempts_without_usage": 0,
+          "failed_physical_attempts": 0,
+          "prompt_tokens": 73384,
+          "completion_tokens": 5908,
+          "total_tokens": 79292
+        },
+        "continual_policy_proposal": {
+          "logical_requests": 2,
+          "completed_requests": 2,
+          "failed_requests": 0,
+          "physical_attempts": 2,
+          "attempts_with_usage": 2,
+          "attempts_without_usage": 0,
+          "failed_physical_attempts": 0,
+          "prompt_tokens": 1896,
+          "completion_tokens": 1181,
+          "total_tokens": 3077
+        }
+      },
+      "joint": {
+        "continual_task": {
+          "logical_requests": 81,
+          "completed_requests": 81,
+          "failed_requests": 0,
+          "physical_attempts": 81,
+          "attempts_with_usage": 81,
+          "attempts_without_usage": 0,
+          "failed_physical_attempts": 0,
+          "prompt_tokens": 57978,
+          "completion_tokens": 2291,
+          "total_tokens": 60269
+        },
+        "continual_memory_extraction": {
+          "logical_requests": 40,
+          "completed_requests": 40,
+          "failed_requests": 0,
+          "physical_attempts": 40,
+          "attempts_with_usage": 40,
+          "attempts_without_usage": 0,
+          "failed_physical_attempts": 0,
+          "prompt_tokens": 21222,
+          "completion_tokens": 3614,
+          "total_tokens": 24836
+        },
+        "continual_mechanism_syntax_repair": {
+          "logical_requests": 3,
+          "completed_requests": 3,
+          "failed_requests": 0,
+          "physical_attempts": 3,
+          "attempts_with_usage": 3,
+          "attempts_without_usage": 0,
+          "failed_physical_attempts": 0,
+          "prompt_tokens": 55532,
+          "completion_tokens": 2760,
+          "total_tokens": 58292
+        },
+        "continual_mechanism_proposal": {
+          "logical_requests": 7,
+          "completed_requests": 6,
+          "failed_requests": 1,
+          "physical_attempts": 9,
+          "attempts_with_usage": 9,
+          "attempts_without_usage": 0,
+          "failed_physical_attempts": 3,
+          "prompt_tokens": 147562,
+          "completion_tokens": 7287,
+          "total_tokens": 154849
+        },
+        "continual_diagnosis": {
+          "logical_requests": 6,
+          "completed_requests": 6,
+          "failed_requests": 0,
+          "physical_attempts": 6,
+          "attempts_with_usage": 6,
+          "attempts_without_usage": 0,
+          "failed_physical_attempts": 0,
+          "prompt_tokens": 73295,
+          "completion_tokens": 6306,
+          "total_tokens": 79601
+        },
+        "continual_policy_proposal": {
+          "logical_requests": 2,
+          "completed_requests": 2,
+          "failed_requests": 0,
+          "physical_attempts": 2,
+          "attempts_with_usage": 2,
+          "attempts_without_usage": 0,
+          "failed_physical_attempts": 0,
+          "prompt_tokens": 1854,
+          "completion_tokens": 1128,
+          "total_tokens": 2982
+        }
+      }
+    },
+    "by_phase": {
+      "online": {
+        "logical_requests": 39,
+        "completed_requests": 39,
+        "failed_requests": 0,
+        "physical_attempts": 39,
+        "attempts_with_usage": 39,
+        "attempts_without_usage": 0,
+        "failed_physical_attempts": 0,
+        "prompt_tokens": 33051,
+        "completion_tokens": 2055,
+        "total_tokens": 35106
+      },
+      "policy-meta-probe": {
+        "logical_requests": 171,
+        "completed_requests": 170,
+        "failed_requests": 1,
+        "physical_attempts": 173,
+        "attempts_with_usage": 173,
+        "attempts_without_usage": 0,
+        "failed_physical_attempts": 3,
+        "prompt_tokens": 405246,
+        "completion_tokens": 25779,
+        "total_tokens": 431025
+      },
+      "mechanism-search": {
+        "logical_requests": 114,
+        "completed_requests": 114,
+        "failed_requests": 0,
+        "physical_attempts": 115,
+        "attempts_with_usage": 115,
+        "attempts_without_usage": 0,
+        "failed_physical_attempts": 1,
+        "prompt_tokens": 309896,
+        "completion_tokens": 16769,
+        "total_tokens": 326665
+      },
+      "policy-proposal": {
+        "logical_requests": 4,
+        "completed_requests": 4,
+        "failed_requests": 0,
+        "physical_attempts": 4,
+        "attempts_with_usage": 4,
+        "attempts_without_usage": 0,
+        "failed_physical_attempts": 0,
+        "prompt_tokens": 3750,
+        "completion_tokens": 2309,
+        "total_tokens": 6059
+      }
+    },
+    "usage_note": "Provider-reported usage summed once per physical attempt; missing usage is unknown, not free. Shared independent P-audit costs are not assigned to the joint arm."
+  },
+  "warnings": [
+    "Missing version: 931/joint/g2",
+    "Independent readout incomplete or unavailable; missing observations are not zero outcomes"
+  ],
+  "selection_allowed": false,
+  "limits": [
+    "Shared authored synthetic generation grammar, not independent real-business validation",
+    "One model sample per retained execution; temperature zero does not remove sampling variation",
+    "Stream-paired descriptive confidence intervals and p-values do not establish causal superiority",
+    "Meta-development policy promotions are optimization observations, never independent P evidence",
+    "Terminal memory ablation changes reads and writes together; it does not isolate the write-policy contribution"
+  ]
+}

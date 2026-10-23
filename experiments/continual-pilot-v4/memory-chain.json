@@ -1,0 +1,676 @@
+{
+  "summary": {
+    "fixed_mechanism": {
+      "episodes_observed": 2,
+      "four_step_episodes": 2,
+      "structural_chains_complete": 2,
+      "four_tasks_all_passed": 2,
+      "effective_closed_loops": 2,
+      "task_kinds": {
+        "observe": {
+          "passed": 4,
+          "total": 4,
+          "unknown_outcome": 0
+        },
+        "recall": {
+          "passed": 4,
+          "total": 4,
+          "unknown_outcome": 0
+        },
+        "retention": {
+          "passed": 1,
+          "total": 1,
+          "unknown_outcome": 0
+        }
+      },
+      "observed_tasks_passed": 9,
+      "observed_tasks_total": 9
+    },
+    "fixed_p": {
+      "episodes_observed": 2,
+      "four_step_episodes": 2,
+      "structural_chains_complete": 2,
+      "four_tasks_all_passed": 1,
+      "effective_closed_loops": 1,
+      "task_kinds": {
+        "observe": {
+          "passed": 3,
+          "total": 4,
+          "unknown_outcome": 0
+        },
+        "recall": {
+          "passed": 4,
+          "total": 4,
+          "unknown_outcome": 0
+        },
+        "retention": {
+          "passed": 1,
+          "total": 1,
+          "unknown_outcome": 0
+        }
+      },
+      "observed_tasks_passed": 8,
+      "observed_tasks_total": 9
+    },
+    "joint": {
+      "episodes_observed": 2,
+      "four_step_episodes": 2,
+      "structural_chains_complete": 2,
+      "four_tasks_all_passed": 2,
+      "effective_closed_loops": 2,
+      "task_kinds": {
+        "observe": {
+          "passed": 4,
+          "total": 4,
+          "unknown_outcome": 0
+        },
+        "recall": {
+          "passed": 4,
+          "total": 4,
+          "unknown_outcome": 0
+        },
+        "retention": {
+          "passed": 1,
+          "total": 1,
+          "unknown_outcome": 0
+        }
+      },
+      "observed_tasks_passed": 9,
+      "observed_tasks_total": 9
+    }
+  },
+  "episodes": [
+    {
+      "stream": 931,
+      "arm": "fixed_mechanism",
+      "round": 0,
+      "path": "streams/931/fixed_mechanism/rounds/r00/experience.json",
+      "observed_tasks": 4,
+      "episode_passed": 4,
+      "episode_total": 4,
+      "four_steps_present": true,
+      "structural_chain_complete": true,
+      "all_four_tasks_passed": true,
+      "effective_closed_loop": true,
+      "task_kinds": {
+        "observe": {
+          "passed": 2,
+          "total": 2,
+          "unknown_outcome": 0
+        },
+        "recall": {
+          "passed": 2,
+          "total": 2,
+          "unknown_outcome": 0
+        }
+      },
+      "chains": [
+        {
+          "old_source_id": "src-2c5426d7e74e00ed79",
+          "old_record_id": "memory-2c8970cad08d881789fef358",
+          "initial_write_event_id": "event-00000004",
+          "source_family": "primary-Entity-eec799dfc0",
+          "old_record_recalled": true,
+          "replacement_observed": true,
+          "replacement_event_id": "event-00000013",
+          "new_source_id": "src-7e0d2007a810db4c5d",
+          "new_record_id": "memory-6d5c4ee62577e88561ba3a1d",
+          "new_active_record_recalled": true,
+          "same_scoped_entity_key_lineage": true,
+          "complete": true
+        },
+        {
+          "old_source_id": "src-42e12686e288ca8763",
+          "old_record_id": "memory-cfb07303e8072bacd62cfd7f",
+          "initial_write_event_id": "event-00000005",
+          "source_family": "replica-Entity-eec799dfc0",
+          "old_record_recalled": true,
+          "replacement_observed": false,
+          "replacement_event_id": null,
+          "new_source_id": null,
+          "new_record_id": null,
+          "new_active_record_recalled": false,
+          "same_scoped_entity_key_lineage": false,
+          "complete": false
+        },
+        {
+          "old_source_id": "src-90928ccaaf125ec81b",
+          "old_record_id": "memory-4fae0af1da7513ef8f6c84d4",
+          "initial_write_event_id": "event-00000006",
+          "source_family": "primary-Neighbor-Entity-eec799dfc0",
+          "old_record_recalled": true,
+          "replacement_observed": false,
+          "replacement_event_id": null,
+          "new_source_id": null,
+          "new_record_id": null,
+          "new_active_record_recalled": false,
+          "same_scoped_entity_key_lineage": false,
+          "complete": false
+        }
+      ],
+      "missing": [],
+      "steps": [
+        {
+          "trace_id": "case-8427d327539c87c35a",
+          "kind": "observe",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        },
+        {
+          "trace_id": "case-333a07be96fd7ad807",
+          "kind": "recall",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        },
+        {
+          "trace_id": "case-9f9452052b429de215",
+          "kind": "observe",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        },
+        {
+          "trace_id": "case-1feba30c1068dce329",
+          "kind": "recall",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        }
+      ]
+    },
+    {
+      "stream": 931,
+      "arm": "fixed_mechanism",
+      "round": 1,
+      "path": "streams/931/fixed_mechanism/rounds/r01/experience.json",
+      "observed_tasks": 5,
+      "episode_passed": 5,
+      "episode_total": 5,
+      "four_steps_present": true,
+      "structural_chain_complete": true,
+      "all_four_tasks_passed": true,
+      "effective_closed_loop": true,
+      "task_kinds": {
+        "observe": {
+          "passed": 2,
+          "total": 2,
+          "unknown_outcome": 0
+        },
+        "recall": {
+          "passed": 2,
+          "total": 2,
+          "unknown_outcome": 0
+        },
+        "retention": {
+          "passed": 1,
+          "total": 1,
+          "unknown_outcome": 0
+        }
+      },
+      "chains": [
+        {
+          "old_source_id": "src-2f091e720464978236",
+          "old_record_id": "memory-869580075dc7e9700cc1470f",
+          "initial_write_event_id": "event-00000020",
+          "source_family": "replica-Entity-9f904a0b27",
+          "old_record_recalled": false,
+          "replacement_observed": false,
+          "replacement_event_id": null,
+          "new_source_id": null,
+          "new_record_id": null,
+          "new_active_record_recalled": false,
+          "same_scoped_entity_key_lineage": false,
+          "complete": false
+        },
+        {
+          "old_source_id": "src-a97e7d6cfa9ffca13b",
+          "old_record_id": "memory-ca5ef1cfe252b0f398903221",
+          "initial_write_event_id": "event-00000021",
+          "source_family": "primary-Neighbor-Entity-9f904a0b27",
+          "old_record_recalled": true,
+          "replacement_observed": false,
+          "replacement_event_id": null,
+          "new_source_id": null,
+          "new_record_id": null,
+          "new_active_record_recalled": false,
+          "same_scoped_entity_key_lineage": false,
+          "complete": false
+        },
+        {
+          "old_source_id": "src-30b1c9040d56d50ea1",
+          "old_record_id": "memory-fa6b6b8bee41a00e2e285a53",
+          "initial_write_event_id": "event-00000022",
+          "source_family": "primary-Entity-9f904a0b27",
+          "old_record_recalled": true,
+          "replacement_observed": true,
+          "replacement_event_id": "event-00000029",
+          "new_source_id": "src-58dd19c295f274ab48",
+          "new_record_id": "memory-ad9609c7712108cdb5f516bf",
+          "new_active_record_recalled": true,
+          "same_scoped_entity_key_lineage": true,
+          "complete": true
+        }
+      ],
+      "missing": [],
+      "steps": [
+        {
+          "trace_id": "case-f35b990fbce95fa336",
+          "kind": "observe",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        },
+        {
+          "trace_id": "case-4cb1aef41403af952b",
+          "kind": "recall",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        },
+        {
+          "trace_id": "case-a2059e83a11d00b896",
+          "kind": "observe",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        },
+        {
+          "trace_id": "case-9ebc5bb63b78c44d20",
+          "kind": "recall",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        }
+      ]
+    },
+    {
+      "stream": 931,
+      "arm": "fixed_p",
+      "round": 0,
+      "path": "streams/931/fixed_p/rounds/r00/experience.json",
+      "observed_tasks": 4,
+      "episode_passed": 4,
+      "episode_total": 4,
+      "four_steps_present": true,
+      "structural_chain_complete": true,
+      "all_four_tasks_passed": true,
+      "effective_closed_loop": true,
+      "task_kinds": {
+        "observe": {
+          "passed": 2,
+          "total": 2,
+          "unknown_outcome": 0
+        },
+        "recall": {
+          "passed": 2,
+          "total": 2,
+          "unknown_outcome": 0
+        }
+      },
+      "chains": [
+        {
+          "old_source_id": "src-2c5426d7e74e00ed79",
+          "old_record_id": "memory-2c8970cad08d881789fef358",
+          "initial_write_event_id": "event-00000004",
+          "source_family": "primary-Entity-eec799dfc0",
+          "old_record_recalled": true,
+          "replacement_observed": true,
+          "replacement_event_id": "event-00000013",
+          "new_source_id": "src-7e0d2007a810db4c5d",
+          "new_record_id": "memory-6d5c4ee62577e88561ba3a1d",
+          "new_active_record_recalled": true,
+          "same_scoped_entity_key_lineage": true,
+          "complete": true
+        },
+        {
+          "old_source_id": "src-42e12686e288ca8763",
+          "old_record_id": "memory-cfb07303e8072bacd62cfd7f",
+          "initial_write_event_id": "event-00000005",
+          "source_family": "replica-Entity-eec799dfc0",
+          "old_record_recalled": true,
+          "replacement_observed": false,
+          "replacement_event_id": null,
+          "new_source_id": null,
+          "new_record_id": null,
+          "new_active_record_recalled": false,
+          "same_scoped_entity_key_lineage": false,
+          "complete": false
+        },
+        {
+          "old_source_id": "src-90928ccaaf125ec81b",
+          "old_record_id": "memory-4fae0af1da7513ef8f6c84d4",
+          "initial_write_event_id": "event-00000006",
+          "source_family": "primary-Neighbor-Entity-eec799dfc0",
+          "old_record_recalled": true,
+          "replacement_observed": false,
+          "replacement_event_id": null,
+          "new_source_id": null,
+          "new_record_id": null,
+          "new_active_record_recalled": false,
+          "same_scoped_entity_key_lineage": false,
+          "complete": false
+        }
+      ],
+      "missing": [],
+      "steps": [
+        {
+          "trace_id": "case-8427d327539c87c35a",
+          "kind": "observe",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        },
+        {
+          "trace_id": "case-333a07be96fd7ad807",
+          "kind": "recall",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        },
+        {
+          "trace_id": "case-9f9452052b429de215",
+          "kind": "observe",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        },
+        {
+          "trace_id": "case-1feba30c1068dce329",
+          "kind": "recall",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        }
+      ]
+    },
+    {
+      "stream": 931,
+      "arm": "fixed_p",
+      "round": 1,
+      "path": "streams/931/fixed_p/rounds/r01/experience.json",
+      "observed_tasks": 5,
+      "episode_passed": 4,
+      "episode_total": 5,
+      "four_steps_present": true,
+      "structural_chain_complete": true,
+      "all_four_tasks_passed": false,
+      "effective_closed_loop": false,
+      "task_kinds": {
+        "observe": {
+          "passed": 1,
+          "total": 2,
+          "unknown_outcome": 0
+        },
+        "recall": {
+          "passed": 2,
+          "total": 2,
+          "unknown_outcome": 0
+        },
+        "retention": {
+          "passed": 1,
+          "total": 1,
+          "unknown_outcome": 0
+        }
+      },
+      "chains": [
+        {
+          "old_source_id": "src-2f091e720464978236",
+          "old_record_id": "memory-869580075dc7e9700cc1470f",
+          "initial_write_event_id": "event-00000020",
+          "source_family": "replica-Entity-9f904a0b27",
+          "old_record_recalled": false,
+          "replacement_observed": false,
+          "replacement_event_id": null,
+          "new_source_id": null,
+          "new_record_id": null,
+          "new_active_record_recalled": false,
+          "same_scoped_entity_key_lineage": false,
+          "complete": false
+        },
+        {
+          "old_source_id": "src-a97e7d6cfa9ffca13b",
+          "old_record_id": "memory-ca5ef1cfe252b0f398903221",
+          "initial_write_event_id": "event-00000021",
+          "source_family": "primary-Neighbor-Entity-9f904a0b27",
+          "old_record_recalled": true,
+          "replacement_observed": false,
+          "replacement_event_id": null,
+          "new_source_id": null,
+          "new_record_id": null,
+          "new_active_record_recalled": false,
+          "same_scoped_entity_key_lineage": false,
+          "complete": false
+        },
+        {
+          "old_source_id": "src-30b1c9040d56d50ea1",
+          "old_record_id": "memory-fa6b6b8bee41a00e2e285a53",
+          "initial_write_event_id": "event-00000022",
+          "source_family": "primary-Entity-9f904a0b27",
+          "old_record_recalled": true,
+          "replacement_observed": true,
+          "replacement_event_id": "event-00000029",
+          "new_source_id": "src-58dd19c295f274ab48",
+          "new_record_id": "memory-ad9609c7712108cdb5f516bf",
+          "new_active_record_recalled": true,
+          "same_scoped_entity_key_lineage": true,
+          "complete": true
+        }
+      ],
+      "missing": [],
+      "steps": [
+        {
+          "trace_id": "case-f35b990fbce95fa336",
+          "kind": "observe",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        },
+        {
+          "trace_id": "case-4cb1aef41403af952b",
+          "kind": "recall",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        },
+        {
+          "trace_id": "case-a2059e83a11d00b896",
+          "kind": "observe",
+          "passed": false,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        },
+        {
+          "trace_id": "case-9ebc5bb63b78c44d20",
+          "kind": "recall",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        }
+      ]
+    },
+    {
+      "stream": 931,
+      "arm": "joint",
+      "round": 0,
+      "path": "streams/931/joint/rounds/r00/experience.json",
+      "observed_tasks": 4,
+      "episode_passed": 4,
+      "episode_total": 4,
+      "four_steps_present": true,
+      "structural_chain_complete": true,
+      "all_four_tasks_passed": true,
+      "effective_closed_loop": true,
+      "task_kinds": {
+        "observe": {
+          "passed": 2,
+          "total": 2,
+          "unknown_outcome": 0
+        },
+        "recall": {
+          "passed": 2,
+          "total": 2,
+          "unknown_outcome": 0
+        }
+      },
+      "chains": [
+        {
+          "old_source_id": "src-2c5426d7e74e00ed79",
+          "old_record_id": "memory-2c8970cad08d881789fef358",
+          "initial_write_event_id": "event-00000004",
+          "source_family": "primary-Entity-eec799dfc0",
+          "old_record_recalled": true,
+          "replacement_observed": true,
+          "replacement_event_id": "event-00000013",
+          "new_source_id": "src-7e0d2007a810db4c5d",
+          "new_record_id": "memory-6d5c4ee62577e88561ba3a1d",
+          "new_active_record_recalled": true,
+          "same_scoped_entity_key_lineage": true,
+          "complete": true
+        },
+        {
+          "old_source_id": "src-42e12686e288ca8763",
+          "old_record_id": "memory-cfb07303e8072bacd62cfd7f",
+          "initial_write_event_id": "event-00000005",
+          "source_family": "replica-Entity-eec799dfc0",
+          "old_record_recalled": true,
+          "replacement_observed": false,
+          "replacement_event_id": null,
+          "new_source_id": null,
+          "new_record_id": null,
+          "new_active_record_recalled": false,
+          "same_scoped_entity_key_lineage": false,
+          "complete": false
+        },
+        {
+          "old_source_id": "src-90928ccaaf125ec81b",
+          "old_record_id": "memory-4fae0af1da7513ef8f6c84d4",
+          "initial_write_event_id": "event-00000006",
+          "source_family": "primary-Neighbor-Entity-eec799dfc0",
+          "old_record_recalled": true,
+          "replacement_observed": false,
+          "replacement_event_id": null,
+          "new_source_id": null,
+          "new_record_id": null,
+          "new_active_record_recalled": false,
+          "same_scoped_entity_key_lineage": false,
+          "complete": false
+        }
+      ],
+      "missing": [],
+      "steps": [
+        {
+          "trace_id": "case-8427d327539c87c35a",
+          "kind": "observe",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        },
+        {
+          "trace_id": "case-333a07be96fd7ad807",
+          "kind": "recall",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        },
+        {
+          "trace_id": "case-9f9452052b429de215",
+          "kind": "observe",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        },
+        {
+          "trace_id": "case-1feba30c1068dce329",
+          "kind": "recall",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        }
+      ]
+    },
+    {
+      "stream": 931,
+      "arm": "joint",
+      "round": 1,
+      "path": "streams/931/joint/rounds/r01/experience.json",
+      "observed_tasks": 5,
+      "episode_passed": 5,
+      "episode_total": 5,
+      "four_steps_present": true,
+      "structural_chain_complete": true,
+      "all_four_tasks_passed": true,
+      "effective_closed_loop": true,
+      "task_kinds": {
+        "observe": {
+          "passed": 2,
+          "total": 2,
+          "unknown_outcome": 0
+        },
+        "recall": {
+          "passed": 2,
+          "total": 2,
+          "unknown_outcome": 0
+        },
+        "retention": {
+          "passed": 1,
+          "total": 1,
+          "unknown_outcome": 0
+        }
+      },
+      "chains": [
+        {
+          "old_source_id": "src-2f091e720464978236",
+          "old_record_id": "memory-869580075dc7e9700cc1470f",
+          "initial_write_event_id": "event-00000020",
+          "source_family": "replica-Entity-9f904a0b27",
+          "old_record_recalled": false,
+          "replacement_observed": false,
+          "replacement_event_id": null,
+          "new_source_id": null,
+          "new_record_id": null,
+          "new_active_record_recalled": false,
+          "same_scoped_entity_key_lineage": false,
+          "complete": false
+        },
+        {
+          "old_source_id": "src-a97e7d6cfa9ffca13b",
+          "old_record_id": "memory-ca5ef1cfe252b0f398903221",
+          "initial_write_event_id": "event-00000021",
+          "source_family": "primary-Neighbor-Entity-9f904a0b27",
+          "old_record_recalled": true,
+          "replacement_observed": false,
+          "replacement_event_id": null,
+          "new_source_id": null,
+          "new_record_id": null,
+          "new_active_record_recalled": false,
+          "same_scoped_entity_key_lineage": false,
+          "complete": false
+        },
+        {
+          "old_source_id": "src-30b1c9040d56d50ea1",
+          "old_record_id": "memory-fa6b6b8bee41a00e2e285a53",
+          "initial_write_event_id": "event-00000022",
+          "source_family": "primary-Entity-9f904a0b27",
+          "old_record_recalled": true,
+          "replacement_observed": true,
+          "replacement_event_id": "event-00000029",
+          "new_source_id": "src-58dd19c295f274ab48",
+          "new_record_id": "memory-ad9609c7712108cdb5f516bf",
+          "new_active_record_recalled": true,
+          "same_scoped_entity_key_lineage": true,
+          "complete": true
+        }
+      ],
+      "missing": [],
+      "steps": [
+        {
+          "trace_id": "case-f35b990fbce95fa336",
+          "kind": "observe",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        },
+        {
+          "trace_id": "case-4cb1aef41403af952b",
+          "kind": "recall",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        },
+        {
+          "trace_id": "case-a2059e83a11d00b896",
+          "kind": "observe",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        },
+        {
+          "trace_id": "case-9ebc5bb63b78c44d20",
+          "kind": "recall",
+          "passed": true,
+          "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+        }
+      ]
+    }
+  ],
+  "meaning": "Observed source/record-ID links and hash continuity; structural completion is separate from actual task success"
+}

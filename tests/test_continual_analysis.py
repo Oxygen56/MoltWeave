@@ -6,7 +6,9 @@ import tempfile
 import unittest
 
 from moltweave.common import digest, read_json, write_json
-from moltweave.continual_analysis import ARMS, analyze, memory_chain, paired_statistics
+from moltweave.continual_analysis import (
+    ARMS, _aggregate_secondary, _secondary_report, _call_statistics, analyze, memory_chain, paired_statistics,
+)
 
 
 def experience_fixture():
@@ -28,6 +30,20 @@ def experience_fixture():
                 "ranked_documents": [], "tool_events": [],
                 "write_events": [initial] if index == 0 else [replacement] if index == 2 else []}})
     return {"passed": 4, "total": 4, "traces": traces}
+
+
+def diagnostic_fixture():
+    return {"passed": 1, "total": 4, "mechanism_hash": "fixture-mechanism", "traces": [
+        {"trace_id": "wrong-answer-supported", "feedback": {"answer_ok": False, "evidence_ok": True,
+            "expected_after_sealing": {"source_id": "token-source", "policy_source_id": "policy-source"}},
+         "trace": {"visible_facts": [{"source_id": "token-source"}, {"source_id": "policy-source"}]}},
+        {"trace_id": "correct-answer-missing-policy", "feedback": {"answer_ok": True, "evidence_ok": False,
+            "expected_after_sealing": {"source_id": "token-source", "policy_source_id": "policy-source"}},
+         "trace": {"visible_facts": [{"source_id": "token-source"}], "output": {"evidence_ids": ["policy-source"]}}},
+        {"trace_id": "abstention", "feedback": {"answer_ok": False, "evidence_ok": False,
+            "expected_after_sealing": {"source_id": None}}, "trace": {"visible_facts": []}},
+        {"trace_id": "legacy-missing-fields", "feedback": {}, "trace": {}},
+    ]}
 
 
 def write_experiment_fixture(root):
@@ -209,6 +225,82 @@ class ContinualAnalysisTests(unittest.TestCase):
             self.assertFalse(primary["evolved_policy_effect_evidence_available"])
             self.assertEqual(primary["evolved_policy_inference_status"], "no_distinct_policy_evidence")
             self.assertIn("no_distinct_policy_evidence", (root / "RESULTS.md").read_text())
+
+    def test_secondary_diagnostic_uses_visible_required_token_and_policy_sources(self):
+        report = _secondary_report(diagnostic_fixture(), path="fixture.json")
+        self.assertEqual(report["status"], "partially_available")
+        self.assertEqual(report["metrics"]["answer_ok"]["passed"], 1)
+        self.assertEqual(report["metrics"]["answer_ok"]["observed"], 3)
+        self.assertEqual(report["metrics"]["evidence_ok"]["passed"], 1)
+        support = report["metrics"]["visible_support_sufficient"]
+        self.assertEqual((support["passed"], support["observed"], support["unknown"], support["not_required"]), (1, 2, 1, 1))
+        self.assertTrue(report["case_checks"][0]["visible_support_sufficient"])
+        self.assertFalse(report["case_checks"][0]["answer_ok"])
+        self.assertEqual(report["case_checks"][1]["missing_source_ids"], ["policy-source"])
+        self.assertFalse(report["case_checks"][1]["visible_support_sufficient"])
+        self.assertEqual(report["case_checks"][2]["support_status"], "not_required")
+
+    def test_secondary_missing_raw_is_unavailable_not_zero(self):
+        missing = _secondary_report(None, path=None)
+        self.assertEqual(missing["status"], "unavailable")
+        self.assertIsNone(missing["metrics"]["answer_ok"]["passed"])
+        self.assertIsNone(missing["metrics"]["visible_support_sufficient"]["rate"])
+        pooled = _aggregate_secondary([missing, _secondary_report(diagnostic_fixture(), path="fixture.json")])
+        self.assertEqual(pooled["streams_with_raw_traces"], 1)
+        self.assertEqual(pooled["streams_without_raw_traces"], 1)
+        self.assertEqual(pooled["metrics"]["visible_support_sufficient"]["rate"], .5)
+        empty = _aggregate_secondary([missing, missing])
+        self.assertIsNone(empty["metrics"]["answer_ok"]["passed"])
+        self.assertIsNone(empty["observed_traces"])
+
+    def test_secondary_addition_does_not_change_primary_policy_or_adoption_counts(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_experiment_fixture(root)
+            before = analyze(root)
+            self.assertTrue(all(row["status"] == "unavailable"
+                                for row in before["secondary_pre_readout_diagnostics"]["terminal"]))
+            path = root / "independent/101/joint/g2.json"
+            raw = read_json(path)
+            diagnostic = diagnostic_fixture()
+            diagnostic["mechanism_hash"] = raw["acceptance"]["mechanism_hash"]
+            raw["acceptance"] = diagnostic
+            write_json(path, raw)
+            after = analyze(root)
+            self.assertEqual(before["terminal_joint_minus_fixed_p"], after["terminal_joint_minus_fixed_p"])
+            self.assertEqual(before["independent_policy_audit"], after["independent_policy_audit"])
+            self.assertEqual(before["adoptions"], after["adoptions"])
+            secondary = after["secondary_pre_readout_diagnostics"]
+            self.assertFalse(secondary["primary_substitution_allowed"])
+            self.assertFalse(secondary["version_selection_allowed"])
+            terminal = next(row for row in secondary["terminal"] if row["arm"] == "joint" and row["split"] == "acceptance")
+            self.assertEqual(terminal["streams_with_raw_traces"], 1)
+            self.assertEqual(terminal["metrics"]["visible_support_sufficient"]["passed"], 1)
+            self.assertIn("Secondary pre-readout diagnostics", (root / "RESULTS.md").read_text())
+
+
+class ResumeReceiptCostTests(unittest.TestCase):
+    def test_nested_receipts_included_and_duplicate_identity_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            receipt = {"id": "original", "status": "completed", "physical_attempts": [
+                {"status": "completed", "usage": {"total_tokens": 10}}]}
+            write_json(root / "model-calls/original.json", receipt)
+            receipt["id"] = "resumed"
+            write_json(root / "model-calls/resume-id/new.json", receipt)
+            self.assertEqual(_call_statistics(root)["totals"]["total_tokens"], 20)
+            write_json(root / "model-calls/another-resume/duplicate.json", receipt)
+            with self.assertRaisesRegex(ValueError, "Duplicate"):
+                _call_statistics(root)
+
+    def test_receipt_symlink_is_not_followed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_json(root / "outside.json", {"id": "outside"})
+            (root / "model-calls").mkdir()
+            (root / "model-calls/leak.json").symlink_to(root / "outside.json")
+            with self.assertRaisesRegex(ValueError, "evidence tree"):
+                _call_statistics(root)
 
 
 if __name__ == "__main__":

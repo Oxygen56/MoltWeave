@@ -1,0 +1,26 @@
+{
+  "status": "aborted_measurement_incomplete",
+  "completed": [
+    {
+      "seed": 931,
+      "arm": "fixed_mechanism",
+      "rounds": 2,
+      "status": "versions_frozen"
+    },
+    {
+      "seed": 931,
+      "arm": "fixed_p",
+      "rounds": 2,
+      "status": "versions_frozen"
+    }
+  ],
+  "errors": [
+    {
+      "seed": 931,
+      "arm": "joint",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (JSONDecodeError); see local receipt feaca98189bb43c29a69016e09b9d4b5"
+    }
+  ],
+  "finished_at": 1792750140.338649
+}

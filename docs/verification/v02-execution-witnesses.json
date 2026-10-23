@@ -1,0 +1,488 @@
+{
+  "scope": "actual execution witnesses, not independent improvement results",
+  "formal_manifest": "experiments/continual-v02-main/manifest.json",
+  "policy_chain": [
+    {
+      "round": 2,
+      "transition": "experiments/continual-v02-main/streams/102/joint/rounds/r02/transition.json",
+      "paired_meta_development_probe": "experiments/continual-v02-main/streams/102/joint/rounds/r02/policy-probe.json",
+      "loaded_p_hash": "df580236200c1d716316f96079405d7f9abef185796119f28bac6bd47eeeec7f",
+      "changed_fields": [
+        "diagnosis_prompt",
+        "proposal_prompt",
+        "selection_score"
+      ],
+      "next_actual_search": "experiments/continual-v02-main/streams/102/joint/rounds/r03/mechanism-search.json",
+      "next_search_loaded_same_policy": true,
+      "next_search_actions": [
+        {
+          "modules": [
+            "memory",
+            "rag"
+          ],
+          "operator": "joint",
+          "parent": "best_rejected",
+          "score": 6.3,
+          "action_id": "act_488baa9657e42709"
+        },
+        {
+          "modules": [
+            "memory",
+            "prompt",
+            "rag"
+          ],
+          "operator": "joint",
+          "parent": "best_rejected",
+          "score": 5.675,
+          "action_id": "act_052b9f1da1b4d6a7"
+        }
+      ],
+      "meta_development_old_future": {
+        "passed": 0,
+        "total": 4,
+        "guard_passed": 2
+      },
+      "meta_development_new_future": {
+        "passed": 2,
+        "total": 4,
+        "guard_passed": 2
+      },
+      "valid_search_pair": true,
+      "distinct_selected_mechanisms": true
+    },
+    {
+      "round": 5,
+      "transition": "experiments/continual-v02-main/streams/102/joint/rounds/r05/transition.json",
+      "paired_meta_development_probe": "experiments/continual-v02-main/streams/102/joint/rounds/r05/policy-probe.json",
+      "loaded_p_hash": "ea50157a16704ba32aa25b70f109a6fa44e30c8cf9daaab3ef561de955d954c4",
+      "changed_fields": [
+        "diagnosis_prompt",
+        "proposal_prompt",
+        "selection_score"
+      ],
+      "next_actual_search": "experiments/continual-v02-main/streams/102/joint/rounds/r06/mechanism-search.json",
+      "next_search_loaded_same_policy": true,
+      "next_search_actions": [
+        {
+          "modules": [
+            "memory"
+          ],
+          "operator": "rewrite",
+          "parent": "current",
+          "score": 5.210660171779821,
+          "action_id": "act_787d212c4f3c78a1"
+        },
+        {
+          "modules": [
+            "memory"
+          ],
+          "operator": "rewrite",
+          "parent": "best_rejected",
+          "score": 5.210660171779821,
+          "action_id": "act_737f3d4072d8d8c1"
+        }
+      ],
+      "meta_development_old_future": {
+        "passed": 3,
+        "total": 4,
+        "guard_passed": 2
+      },
+      "meta_development_new_future": {
+        "passed": 4,
+        "total": 4,
+        "guard_passed": 2
+      },
+      "valid_search_pair": true,
+      "distinct_selected_mechanisms": true
+    },
+    {
+      "round": 7,
+      "transition": "experiments/continual-v02-main/streams/102/joint/rounds/r07/transition.json",
+      "paired_meta_development_probe": "experiments/continual-v02-main/streams/102/joint/rounds/r07/policy-probe.json",
+      "loaded_p_hash": "f00290a5e98dca0faac8f2405d9fa624d0bc9ddbe1b6f9050312325cbab7b14f",
+      "changed_fields": [
+        "diagnosis_prompt",
+        "proposal_prompt",
+        "selection_score"
+      ],
+      "next_actual_search": "experiments/continual-v02-main/streams/102/joint/rounds/r08/mechanism-search.json",
+      "next_search_loaded_same_policy": true,
+      "next_search_actions": [
+        {
+          "modules": [
+            "recovery"
+          ],
+          "operator": "rewrite",
+          "parent": "current",
+          "score": 3.625,
+          "action_id": "act_6f6239e37307e02f"
+        },
+        {
+          "modules": [
+            "recovery"
+          ],
+          "operator": "rewrite",
+          "parent": "best_rejected",
+          "score": 3.625,
+          "action_id": "act_2233ff1e1c13b607"
+        }
+      ],
+      "meta_development_old_future": {
+        "passed": 0,
+        "total": 4,
+        "guard_passed": 2
+      },
+      "meta_development_new_future": {
+        "passed": 1,
+        "total": 4,
+        "guard_passed": 2
+      },
+      "valid_search_pair": true,
+      "distinct_selected_mechanisms": true
+    }
+  ],
+  "memory_closed_loops": [
+    {
+      "arm": "fixed_mechanism",
+      "experience": "experiments/continual-v02-main/streams/101/fixed_mechanism/rounds/r05/experience.json",
+      "chain": {
+        "stream": 101,
+        "arm": "fixed_mechanism",
+        "round": 5,
+        "path": "streams/101/fixed_mechanism/rounds/r05/experience.json",
+        "observed_tasks": 6,
+        "episode_passed": 4,
+        "episode_total": 6,
+        "four_steps_present": true,
+        "structural_chain_complete": true,
+        "all_four_tasks_passed": true,
+        "effective_closed_loop": true,
+        "task_kinds": {
+          "observe": {
+            "passed": 2,
+            "total": 2,
+            "unknown_outcome": 0
+          },
+          "recall": {
+            "passed": 2,
+            "total": 2,
+            "unknown_outcome": 0
+          },
+          "retention": {
+            "passed": 0,
+            "total": 1,
+            "unknown_outcome": 0
+          },
+          "delayed_retention": {
+            "passed": 0,
+            "total": 1,
+            "unknown_outcome": 0
+          }
+        },
+        "chains": [
+          {
+            "old_source_id": "src-1200cae0f3151a18e2",
+            "old_record_id": "memory-69158bef0aeda38e89396bf8",
+            "initial_write_event_id": "event-00000103",
+            "source_family": "primary-Entity-ea08d6d238",
+            "old_record_recalled": true,
+            "replacement_observed": true,
+            "replacement_event_id": "event-00000112",
+            "new_source_id": "src-80ab6c00f1c413ff2e",
+            "new_record_id": "memory-96bf232e0e0f9b033d0ff9d6",
+            "new_active_record_recalled": true,
+            "same_scoped_entity_key_lineage": true,
+            "complete": true
+          },
+          {
+            "old_source_id": "src-b80cb142026fed13a3",
+            "old_record_id": "memory-f776a6d7b2c9fabf465816d0",
+            "initial_write_event_id": "event-00000104",
+            "source_family": "replica-Entity-ea08d6d238",
+            "old_record_recalled": false,
+            "replacement_observed": false,
+            "replacement_event_id": null,
+            "new_source_id": null,
+            "new_record_id": null,
+            "new_active_record_recalled": false,
+            "same_scoped_entity_key_lineage": false,
+            "complete": false
+          },
+          {
+            "old_source_id": "src-709a4182a14bb49ffc",
+            "old_record_id": "memory-ec90e602e77629665e0f699d",
+            "initial_write_event_id": "event-00000105",
+            "source_family": "primary-Neighbor-Entity-ea08d6d238",
+            "old_record_recalled": true,
+            "replacement_observed": false,
+            "replacement_event_id": null,
+            "new_source_id": null,
+            "new_record_id": null,
+            "new_active_record_recalled": false,
+            "same_scoped_entity_key_lineage": false,
+            "complete": false
+          }
+        ],
+        "missing": [],
+        "steps": [
+          {
+            "trace_id": "case-c8ad7d58bd96279b03",
+            "kind": "observe",
+            "passed": true,
+            "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+          },
+          {
+            "trace_id": "case-7fa7e764c050a821dc",
+            "kind": "recall",
+            "passed": true,
+            "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+          },
+          {
+            "trace_id": "case-099b12b3678ed3f7a8",
+            "kind": "observe",
+            "passed": true,
+            "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+          },
+          {
+            "trace_id": "case-b234bcf9400bb649bb",
+            "kind": "recall",
+            "passed": true,
+            "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+          }
+        ]
+      }
+    },
+    {
+      "arm": "fixed_p",
+      "experience": "experiments/continual-v02-main/streams/101/fixed_p/rounds/r05/experience.json",
+      "chain": {
+        "stream": 101,
+        "arm": "fixed_p",
+        "round": 5,
+        "path": "streams/101/fixed_p/rounds/r05/experience.json",
+        "observed_tasks": 6,
+        "episode_passed": 4,
+        "episode_total": 6,
+        "four_steps_present": true,
+        "structural_chain_complete": true,
+        "all_four_tasks_passed": true,
+        "effective_closed_loop": true,
+        "task_kinds": {
+          "observe": {
+            "passed": 2,
+            "total": 2,
+            "unknown_outcome": 0
+          },
+          "recall": {
+            "passed": 2,
+            "total": 2,
+            "unknown_outcome": 0
+          },
+          "retention": {
+            "passed": 0,
+            "total": 1,
+            "unknown_outcome": 0
+          },
+          "delayed_retention": {
+            "passed": 0,
+            "total": 1,
+            "unknown_outcome": 0
+          }
+        },
+        "chains": [
+          {
+            "old_source_id": "src-1200cae0f3151a18e2",
+            "old_record_id": "memory-69158bef0aeda38e89396bf8",
+            "initial_write_event_id": "event-00000101",
+            "source_family": "primary-Entity-ea08d6d238",
+            "old_record_recalled": true,
+            "replacement_observed": true,
+            "replacement_event_id": "event-00000110",
+            "new_source_id": "src-80ab6c00f1c413ff2e",
+            "new_record_id": "memory-96bf232e0e0f9b033d0ff9d6",
+            "new_active_record_recalled": true,
+            "same_scoped_entity_key_lineage": true,
+            "complete": true
+          },
+          {
+            "old_source_id": "src-b80cb142026fed13a3",
+            "old_record_id": "memory-f776a6d7b2c9fabf465816d0",
+            "initial_write_event_id": "event-00000102",
+            "source_family": "replica-Entity-ea08d6d238",
+            "old_record_recalled": false,
+            "replacement_observed": false,
+            "replacement_event_id": null,
+            "new_source_id": null,
+            "new_record_id": null,
+            "new_active_record_recalled": false,
+            "same_scoped_entity_key_lineage": false,
+            "complete": false
+          },
+          {
+            "old_source_id": "src-709a4182a14bb49ffc",
+            "old_record_id": "memory-ec90e602e77629665e0f699d",
+            "initial_write_event_id": "event-00000103",
+            "source_family": "primary-Neighbor-Entity-ea08d6d238",
+            "old_record_recalled": true,
+            "replacement_observed": false,
+            "replacement_event_id": null,
+            "new_source_id": null,
+            "new_record_id": null,
+            "new_active_record_recalled": false,
+            "same_scoped_entity_key_lineage": false,
+            "complete": false
+          }
+        ],
+        "missing": [],
+        "steps": [
+          {
+            "trace_id": "case-c8ad7d58bd96279b03",
+            "kind": "observe",
+            "passed": true,
+            "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+          },
+          {
+            "trace_id": "case-7fa7e764c050a821dc",
+            "kind": "recall",
+            "passed": true,
+            "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+          },
+          {
+            "trace_id": "case-099b12b3678ed3f7a8",
+            "kind": "observe",
+            "passed": true,
+            "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+          },
+          {
+            "trace_id": "case-b234bcf9400bb649bb",
+            "kind": "recall",
+            "passed": true,
+            "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+          }
+        ]
+      }
+    },
+    {
+      "arm": "joint",
+      "experience": "experiments/continual-v02-main/streams/101/joint/rounds/r01/experience.json",
+      "chain": {
+        "stream": 101,
+        "arm": "joint",
+        "round": 1,
+        "path": "streams/101/joint/rounds/r01/experience.json",
+        "observed_tasks": 5,
+        "episode_passed": 5,
+        "episode_total": 5,
+        "four_steps_present": true,
+        "structural_chain_complete": true,
+        "all_four_tasks_passed": true,
+        "effective_closed_loop": true,
+        "task_kinds": {
+          "observe": {
+            "passed": 2,
+            "total": 2,
+            "unknown_outcome": 0
+          },
+          "recall": {
+            "passed": 2,
+            "total": 2,
+            "unknown_outcome": 0
+          },
+          "retention": {
+            "passed": 1,
+            "total": 1,
+            "unknown_outcome": 0
+          }
+        },
+        "chains": [
+          {
+            "old_source_id": "src-102d07bc32f3422469",
+            "old_record_id": "memory-ad8c755d84904239a9ab5f27",
+            "initial_write_event_id": "event-00000020",
+            "source_family": "replica-Entity-ea08d6d238",
+            "old_record_recalled": false,
+            "replacement_observed": false,
+            "replacement_event_id": null,
+            "new_source_id": null,
+            "new_record_id": null,
+            "new_active_record_recalled": false,
+            "same_scoped_entity_key_lineage": false,
+            "complete": false
+          },
+          {
+            "old_source_id": "src-709a4182a14bb49ffc",
+            "old_record_id": "memory-ec90e602e77629665e0f699d",
+            "initial_write_event_id": "event-00000021",
+            "source_family": "primary-Neighbor-Entity-ea08d6d238",
+            "old_record_recalled": true,
+            "replacement_observed": false,
+            "replacement_event_id": null,
+            "new_source_id": null,
+            "new_record_id": null,
+            "new_active_record_recalled": false,
+            "same_scoped_entity_key_lineage": false,
+            "complete": false
+          },
+          {
+            "old_source_id": "src-e4201eb9c183860937",
+            "old_record_id": "memory-285e6db421a5d34ec72d7023",
+            "initial_write_event_id": "event-00000022",
+            "source_family": "primary-Entity-ea08d6d238",
+            "old_record_recalled": true,
+            "replacement_observed": true,
+            "replacement_event_id": "event-00000029",
+            "new_source_id": "src-e8a26961d62a4d9ddc",
+            "new_record_id": "memory-dcc3c35209f8c7b130e716b1",
+            "new_active_record_recalled": true,
+            "same_scoped_entity_key_lineage": true,
+            "complete": true
+          }
+        ],
+        "missing": [],
+        "steps": [
+          {
+            "trace_id": "case-906c55f5e802806093",
+            "kind": "observe",
+            "passed": true,
+            "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+          },
+          {
+            "trace_id": "case-a1a192574e5a7da1ec",
+            "kind": "recall",
+            "passed": true,
+            "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+          },
+          {
+            "trace_id": "case-4de7a05fce12102f0c",
+            "kind": "observe",
+            "passed": true,
+            "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+          },
+          {
+            "trace_id": "case-8406139e7d45f69025",
+            "kind": "recall",
+            "passed": true,
+            "mechanism_hash": "eda42f0f035e093ef676e1a3e71dd48bc5d5bf7f3b5a62887fe7d54017fe63e7"
+          }
+        ]
+      }
+    }
+  ],
+  "source_bytes_sha256": {
+    "experiments/continual-v02-main/streams/102/joint/rounds/r02/transition.json": "139cb1fdd45f34ffdb188a7b37af99ad02a74c959269759287779ae7c4b57caa",
+    "experiments/continual-v02-main/streams/102/joint/rounds/r02/policy-probe.json": "fcc780dd00bbd81011a42e037ea2046f7f031373a173e42ce1a28fc929e3aee4",
+    "experiments/continual-v02-main/streams/102/joint/rounds/r03/mechanism-search.json": "92c070c8bef6cd12eb78f3faeaff3113e7f9b7b15fce6725d012cfddd29b57ad",
+    "experiments/continual-v02-main/streams/102/joint/rounds/r05/transition.json": "9c60a7d746b6deb61c78418ae20ed8aa44b5ef9ab52c8d23ee2bfd05d7483fbb",
+    "experiments/continual-v02-main/streams/102/joint/rounds/r05/policy-probe.json": "8751ae6aa8f9e62003ded925168821e953f79a986dc8a91e81e68a15d96a7b35",
+    "experiments/continual-v02-main/streams/102/joint/rounds/r06/mechanism-search.json": "3b68c147a205de29f22e5e5e477cc2b97073ee140f84fcd038dcc777511d27da",
+    "experiments/continual-v02-main/streams/102/joint/rounds/r07/transition.json": "6ef9b491329aee74457dd42eec5e6f5230e540c8a71f1370fe8968033ee379d7",
+    "experiments/continual-v02-main/streams/102/joint/rounds/r07/policy-probe.json": "f7c5c81d4ae5754744adc3af7a2bfc83c910e6b19970fcb8379eb07fa1c2508a",
+    "experiments/continual-v02-main/streams/102/joint/rounds/r08/mechanism-search.json": "64dfe482e819c71f4eedf073b4835acd52a96e2604c4ae4735171cdfbc1e7141",
+    "experiments/continual-v02-main/streams/101/fixed_mechanism/rounds/r05/experience.json": "fc115f81845e2f2bdd0b7f1b0365f9a0c5fc8eeb1974b7d61372f590b6159be0",
+    "experiments/continual-v02-main/streams/101/fixed_p/rounds/r05/experience.json": "25dc6ae8bec0cf97c75f65e2a51a55c7096eb9fb7bbd0913b3c15c096105ce47",
+    "experiments/continual-v02-main/streams/101/joint/rounds/r01/experience.json": "31925af56fa768f7d422874ba0bc92ff37a877fe4917631294c18ae84d163eeb",
+    "experiments/continual-v02-main/manifest.json": "6e1f3a0b54c36a9fcb10f097a2ee057ff01ea03813629b6fb71b47c55c17489c"
+  },
+  "independent_effect": "unavailable until all formal states are frozen and read out",
+  "caveat": "These are selected illustrative witnesses, not an aggregate success rate. Full failed and regressed traces remain in the evidence archive."
+}

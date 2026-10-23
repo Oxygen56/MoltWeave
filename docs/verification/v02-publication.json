@@ -1,0 +1,36 @@
+{
+  "status": "core_implementation_published_formal_acceptance_incomplete",
+  "repository": "https://github.com/Oxygen56/MoltWeave",
+  "verified_core_commit": "ace51d82b12152dc38895044822a91b8953ef008",
+  "hosted_ci": {
+    "url": "https://github.com/Oxygen56/MoltWeave/actions/runs/39941450484",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "unit (3.11)",
+        "conclusion": "success",
+        "job_id": 120373603823
+      },
+      {
+        "name": "unit (3.12)",
+        "conclusion": "success",
+        "job_id": 120373604108
+      },
+      {
+        "name": "unit (3.13)",
+        "conclusion": "success",
+        "job_id": 120373604058
+      }
+    ]
+  },
+  "formal_experiment": {
+    "directory": "experiments/continual-v02-main",
+    "manifest_bytes_sha256": "6e1f3a0b54c36a9fcb10f097a2ee057ff01ea03813629b6fb71b47c55c17489c",
+    "status": "aborted_measurement_incomplete",
+    "planned_round_transitions": 600,
+    "committed_transitions_before_provider_interruption": 421,
+    "independent_effects": "unavailable"
+  },
+  "stable_v02_release_published": false,
+  "limits": "This receipt verifies the core source commit and hosted checks only. Local maintenance and later documentation are not implied to be part of this core commit. Independent model-effect acceptance is incomplete because the provider returned insufficient balance."
+}

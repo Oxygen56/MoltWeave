@@ -1,0 +1,56 @@
+{
+  "schema": 2,
+  "started_at": 1792749714.183275,
+  "rounds": 2,
+  "seeds": [
+    911
+  ],
+  "arms": [
+    "fixed_mechanism",
+    "fixed_p",
+    "joint"
+  ],
+  "model": "deepseek-flash",
+  "sources": {
+    "continual.py": "f953d0c74748444be80acf06a6def29831fc93db3af708da5a3df19a0894c45a",
+    "continual_environment.py": "4f3cea87f2219fc1c3f68ec02a813c5eeeece1366d94808a5317992a8e78dc43",
+    "continual_runtime.py": "58310cc5b50ac5ebe571ea4ec41244e0a7b1c8c73352d1d1abe01d4315833d3e",
+    "continual_memory.py": "fe4a8e87df68190ea4dea2524599827782fe136d72e16916196c355513969a35",
+    "continual_program.py": "931ae6922b750ab1bd5b349ccc4407aed9a5d7453b14404e15beb9fb60efd5b6",
+    "continual_policy.py": "5dcaf9285919e516a3628119b43a1de170a6010bf0279b49ad808ef856f2bace",
+    "program.py": "df2fda256db06def686b652ace7e92097f53cf0333acb05c2ddb6355b68b13ad",
+    "common.py": "77671ea007a9fdd71935a3683e37d7a16c2424914a884ab5d12157c89d82f78c",
+    "llm.py": "842025a49ed16afdb9ad6af1d397b0c773381de7817a73cb93e8b23dd20d9edd"
+  },
+  "source_scope": "authored public synthetic event streams; shared generation grammar",
+  "protocol": {
+    "main_search_opportunities": 2,
+    "paired_policy_search_opportunities": 1,
+    "fixed_p_shadow": "same policy-proposal and paired-probe engine, never adopts P",
+    "primary_endpoint": "g2 joint minus fixed_p on independent primary episodes, paired by stream",
+    "policy_primary_endpoint": "g2 P versus P0 in fresh independent future-search audits",
+    "policy_audit_checkpoints": [
+      0,
+      1,
+      2
+    ],
+    "policy_promotion": "strict future meta-dev gain plus protection nonregression and distinct M; no merge of fork M/memory",
+    "acceptance": "all versions frozen before readout; same empty memory and new event sequence for every M version; primary rounds 2/3, transfer round 7",
+    "memory_ablation": "terminal M on same independent sequence with memory reads/writes disabled",
+    "unavailable_measurements": "abort lane/run, retain receipts; never converted to task failure",
+    "sampling": "temperature 0 is not deterministic; stream is the unit of comparison; all failures retained",
+    "independence_limit": "factual/event namespace holdout, not held-out task grammar or external business system"
+  },
+  "partition_hashes": {
+    "911": {
+      "experience": "2c1494fd1661261d94b5f0b556ab7523e53e3c03f372221e2c3499fb7859a6eb",
+      "development": "bd6fbecf4f8f090c05abeb18784032223cd4c4a37f67b636ef869c26be16f91a",
+      "meta-development-search": "bb3a5fc797c31ea5618508d96306026930f619b86a3234fa42601ab9ad9ffbd0",
+      "meta-development-future": "14e7a745f9788fd91215e031bba92854a3cf009225c19f658ac7ebef6f589887",
+      "acceptance": "791a91094b98327e2c9afa8a94b350457745e466bfb2b966a6d89769ee2116dc",
+      "transfer": "00192fe0bfc381c60083ebf6c6ed8e87997603503773738374d7a5614f814409",
+      "audit-search": "3856915e0052c163ebe9aab4c6189118a7b9a841259549a53bf0e74e363046be",
+      "audit-future": "11a376ad9a13f34ee5e2ebe4a862ce6682816eb2b1a405d5f566b4408df0b207"
+    }
+  }
+}

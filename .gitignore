@@ -19,3 +19,11 @@ state/
 *.key
 .coverage
 private-tests.log
+
+# Complete v0.2 raw evidence is retained locally and published as a release asset.
+# Compact results/manifests/source snapshots remain in Git; extraction restores paths.
+experiments/continual-*/model-calls/
+experiments/continual-*/streams/
+experiments/continual-*/independent/
+experiments/continual-*/policy-audits/
+experiments/continual-*/policy-audit-inputs/

@@ -1,0 +1,99 @@
+{
+  "schema": 2,
+  "started_at": 1792750797.693428,
+  "rounds": 4,
+  "seeds": [
+    951
+  ],
+  "arms": [
+    "fixed_mechanism",
+    "fixed_p",
+    "joint"
+  ],
+  "model": "deepseek-flash",
+  "provider_base": "https://api.deepseek.com",
+  "request_contract": {
+    "temperature": 0,
+    "deepseek_thinking": "disabled",
+    "json_output": "object",
+    "physical_attempt_limit": 3,
+    "model_json_syntax_repair": true,
+    "measurement_request_blocks": 2,
+    "maximum_physical_attempts_per_usable_response": 6,
+    "task_max_tokens": 900,
+    "writer_max_tokens": 1400,
+    "diagnosis_max_tokens": 4096,
+    "mechanism_policy_max_tokens": 5000
+  },
+  "sources": {
+    "continual.py": "f6dd2d8e429be86b0836aca69dd52a94e1496ba4d4171ad00081b77a58bdf72b",
+    "continual_environment.py": "e8ab8d4b5ad3143f5a721b2ca34eb52b090845283b296dc5aabf017d2f8ff992",
+    "continual_runtime.py": "fd5332c8bd895ad8766953d20015c8f4907b68e0b619de10d4035f1e1357b3a0",
+    "continual_memory.py": "fe4a8e87df68190ea4dea2524599827782fe136d72e16916196c355513969a35",
+    "continual_program.py": "931ae6922b750ab1bd5b349ccc4407aed9a5d7453b14404e15beb9fb60efd5b6",
+    "continual_policy.py": "5dcaf9285919e516a3628119b43a1de170a6010bf0279b49ad808ef856f2bace",
+    "program.py": "df2fda256db06def686b652ace7e92097f53cf0333acb05c2ddb6355b68b13ad",
+    "common.py": "77671ea007a9fdd71935a3683e37d7a16c2424914a884ab5d12157c89d82f78c",
+    "llm.py": "f8e230469962bc13520aaa05c25d601e6224b3a85700078dc9ce89dd0fa0a8b8"
+  },
+  "source_scope": "authored public synthetic event streams; shared generation grammar",
+  "protocol": {
+    "main_search_opportunities": 2,
+    "paired_policy_search_opportunities": 1,
+    "fixed_p_shadow": "same policy-proposal and paired-probe engine, never adopts P",
+    "primary_endpoint": "g4 joint minus fixed_p on independent primary episodes, paired by stream",
+    "policy_primary_endpoint": "g4 P versus P0 in fresh independent future-search audits",
+    "policy_audit_checkpoints": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "policy_promotion": "strict future meta-dev gain plus protection nonregression and distinct M; no merge of fork M/memory",
+    "acceptance": "all versions frozen before readout; same empty memory and new event sequence for every M version; primary rounds 0..4 revisits entities/revisions and tests 3-round delayed recall; transfer round 7",
+    "memory_ablation": "terminal M on same independent sequence with memory reads/writes disabled",
+    "unavailable_measurements": "abort lane/run, retain receipts; never converted to task failure",
+    "sampling": "temperature 0 is not deterministic; stream is the unit of comparison; all failures retained",
+    "independence_limit": "factual/event namespace holdout, not held-out task grammar or external business system"
+  },
+  "partition_hashes": {
+    "951": {
+      "experience/r0": "c63acd7fb2fff23f18cf96c1d9ff3d86e9ae488b989fc48feb2a6e888e75ad13",
+      "experience/r1": "b67c79051f6b49f3ccf0cb8f3f258feece158c4d4968e38098e7cd3d37338878",
+      "experience/r2": "d9ce998ae38ca7ecc8378ade5778f858cc93b5fe320e3ff14ebc642bb99553da",
+      "experience/r3": "150927ff96a1bde31e91d4563c4d34d46bc3b7399d2019fd41037732372403c6",
+      "development/r0": "bb6b8f934b599cec69e2b983f6ec4d37c6f0ea1b2250fe2ac643d45691de5494",
+      "development/r0/guard": "c0ef1c75d843e17fbe96fbffdc589f2db8be462abe8920c04348730508172308",
+      "development/r1": "224614c1c2bec6d0d2d7da013278cc49e9b13e4fb052e21588a20478b567ab3b",
+      "development/r1/guard": "9caed92b246532115545a77e1a6258461e449bca41497594782df720ade20769",
+      "development/r2": "5cd425a66d95c0a1dd30c6fc71a96b1415aa010924f10eebe11a761b0f4a768c",
+      "development/r2/guard": "4d7216cf7435ef18556b1b7843330a97ba15a0dc865015d2277f8fa7aa9ee5a3",
+      "development/r3": "a3fff0b220e673f45b8b97741385105915a9efa9fc10d300e8ec03f8beb90c95",
+      "development/r3/guard": "98a137783e5dac5435fb8b7fd060d234b3dd8bfedfbac9cbe72a1093ca82f7d6",
+      "meta-development-search/r0": "d2592d16affa51dc54c14db3d0cbfa6f941ee127a9f98f78ed27a8761946456e",
+      "meta-development-search/r0/guard": "95b8ef99f8a6b58ce60f949644d6011b0ef3a06fc46571683aca30d2e5dd60e1",
+      "meta-development-search/r1": "ab6d9b9688f4e7faeeb1048d028380631227fb28dc9063e86bef7460adcd5f46",
+      "meta-development-search/r1/guard": "0f1dfaada6f293c804d14a93142d4234347b9b6ce5784c80dab986c4e4331a86",
+      "meta-development-search/r2": "e551fb907a0522983549e349fa855f37194d13ce568cbef173875db6f50f47c8",
+      "meta-development-search/r2/guard": "19605de51862df32fb56fdfa07156bc9b280a7a7c70062fcc3c978ac8c4c817c",
+      "meta-development-search/r3": "233a5493d73c8f343a821bcb628355ca57323de03e4a2072e7a9f17c189ce90d",
+      "meta-development-search/r3/guard": "3c02675aee9b41f818fa31281694bfcec2fa344e9b109b48520196373bc7e6b7",
+      "meta-development-future/r0": "27c2f94e8c3545e3696036450f85ad34e203bd3d7959ad40ed62ab49086aabec",
+      "meta-development-future/r0/guard": "2a03ceec7327753f0f5204b2325457b2ff7ed7c344c41357b6e0a096cf6c52ab",
+      "meta-development-future/r1": "0bdd3e3b4fc183a1304a9208d0b25ea70f78046ad79e2016e78a0680711d4290",
+      "meta-development-future/r1/guard": "612b0e4a63a2e376535b67fe3a506410b7d5d5310a6eb07358ccd4bad88db0f0",
+      "meta-development-future/r2": "37a5009c56b7014bd733c43f1ae1441b430ccd632832a9a2df2116445b4d7aa7",
+      "meta-development-future/r2/guard": "3b06d0fd6b6aadc109497fbc58d765541fe4efd76f23ac97a5eea6704edd478d",
+      "meta-development-future/r3": "4bc2812afe18371e3e840ab60974b18175870a7be09e837fd85a83726e765bec",
+      "meta-development-future/r3/guard": "7e2fc362d7a886f65248fd3c250478cd06184651c0e44b195efab2813eb98c36",
+      "audit-search": "84aecf09cdab6ec54f339a2d5c22d340d887250c4f73710c1add71c751411b2f",
+      "audit-search/guard": "6305bfb0c759c482a27a6270cb97c555cf75522dd983c1c7d5ffe2ca2e3f2493",
+      "audit-future": "edf1f9788276c8240e8e2c410d9653646f715a8c3a6953482a280a5754e1c784",
+      "audit-future/guard": "d4d7b5053d9160d51e113dd25d8399ad283710b460ce658425259a52f122300b",
+      "audit-observations": "13dcaef24efe0e942046e15a0417c181f12d36ecac3596ca97e25fc6c93ce1f0",
+      "acceptance": "7eb3b89db457b4d95fc1a1d3e8a02f950a5518b260cdcc486725c9fb9a0b06f1",
+      "transfer": "f88f15e10d3e17aa2be8b6a4c9e4be16b778ef7e0bb3b7138f83b55cbf3da9b4"
+    }
+  }
+}

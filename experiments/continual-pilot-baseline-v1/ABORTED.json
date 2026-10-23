@@ -1,0 +1,5 @@
+{
+  "status": "engineering_preflight_not_effect_experiment",
+  "reason": "Task response prompt conflated answering and memory extraction; writer proposals omitted and no durable writes occurred. Replaced by a separate real factual-extraction call with a fixed output contract. Raw calls and all failures retained.",
+  "used_for_formal_result": false
+}

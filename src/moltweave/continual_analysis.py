@@ -151,8 +151,17 @@ def _call_statistics(output: Path) -> dict:
     buckets = defaultdict(lambda: defaultdict(Counter))
     phases = defaultdict(Counter)
     totals = Counter()
-    for path in sorted((output / "model-calls").glob("*.json")):
+    receipt_ids = set()
+    call_root = output / "model-calls"
+    for path in sorted(call_root.rglob("*.json")):
+        if path.is_symlink() or not path.resolve().is_relative_to(call_root.resolve()):
+            raise ValueError("Model receipt cannot leave its evidence tree")
         receipt = read_json(path)
+        receipt_id = receipt.get("id")
+        if receipt_id is not None:
+            if not isinstance(receipt_id, str) or not receipt_id or receipt_id in receipt_ids:
+                raise ValueError("Duplicate or invalid model receipt identity")
+            receipt_ids.add(receipt_id)
         metadata = receipt.get("metadata", {})
         phase = metadata.get("phase", "unassigned")
         arm = metadata.get("arm") or ("shared_policy_audit" if "independent_policy_audit" in phase else "unassigned")
@@ -176,7 +185,7 @@ def _call_statistics(output: Path) -> dict:
         totals.update(values)
     return {"totals": dict(totals), "by_arm_and_purpose": {a: {p: dict(c) for p, c in purposes.items()} for a, purposes in buckets.items()},
             "by_phase": {p: dict(c) for p, c in phases.items()},
-            "usage_note": "Provider-reported usage summed once per physical attempt; missing usage is unknown, not free. Shared independent P-audit costs are not assigned to the joint arm."}
+            "usage_note": "Provider-reported usage summed once per physical attempt; missing usage is unknown, not free. Shared independent P-audit costs are not assigned to the joint arm. Nested resume receipt directories and discarded partial-round requests are included."}
 
 
 def _aggregate(rows: list[dict]) -> dict:
@@ -184,6 +193,85 @@ def _aggregate(rows: list[dict]) -> dict:
     return {"streams": len(observed), "passed": sum(row["passed"] for row in observed),
             "total": sum(row["total"] for row in observed),
             "mean_stream_rate": mean(_rate(row) for row in observed) if observed else None}
+
+
+def _diagnostic_metric(values: list, *, not_required: int = 0, unavailable: bool = False) -> dict:
+    known = [value for value in values if type(value) is bool]
+    return {"passed": sum(known) if known else None, "observed": len(known),
+            "unknown": None if unavailable else len(values) - len(known),
+            "not_required": not_required, "rate": sum(known) / len(known) if known else None}
+
+
+def _secondary_report(report: dict | None, *, path: str | None) -> dict:
+    """Source coverage after sealing; no regrading, model calls or substitution."""
+    unavailable = {"status": "unavailable", "reason": "raw_traces_not_available", "path": path,
+                   "observed_traces": None, "case_checks": [],
+                   "metrics": {name: _diagnostic_metric([], unavailable=True)
+                               for name in ("answer_ok", "evidence_ok", "visible_support_sufficient")}}
+    if not isinstance(report, dict) or not isinstance(report.get("traces"), list) or not report["traces"]:
+        return unavailable
+    checks = []
+    support_values, support_not_required = [], 0
+    for item in report["traces"]:
+        feedback = item.get("feedback") if isinstance(item.get("feedback"), dict) else {}
+        trace = item.get("trace") if isinstance(item.get("trace"), dict) else {}
+        expected = feedback.get("expected_after_sealing")
+        row = {"trace_id": item.get("trace_id"), "kind": item.get("kind"),
+               "answer_ok": feedback.get("answer_ok") if type(feedback.get("answer_ok")) is bool else None,
+               "evidence_ok": feedback.get("evidence_ok") if type(feedback.get("evidence_ok")) is bool else None,
+               "visible_support_sufficient": None, "required_source_ids": None, "missing_source_ids": None}
+        if not isinstance(expected, dict) or "source_id" not in expected:
+            row["support_status"] = "unknown_required_source_fields"
+            support_values.append(None)
+        elif any(value is not None and (not isinstance(value, str) or not value)
+                 for value in (expected.get("source_id"), expected.get("policy_source_id"))):
+            row["support_status"] = "unknown_invalid_required_source_id"
+            support_values.append(None)
+        else:
+            required = {value for value in (expected.get("source_id"), expected.get("policy_source_id")) if value is not None}
+            row["required_source_ids"] = sorted(required)
+            if not required:
+                row["support_status"] = "not_required"
+                support_not_required += 1
+            elif not isinstance(trace.get("visible_facts"), list):
+                row["support_status"] = "unknown_visible_facts"
+                support_values.append(None)
+            else:
+                visible = {fact["source_id"] for fact in trace["visible_facts"]
+                           if isinstance(fact, dict) and isinstance(fact.get("source_id"), str)}
+                row["missing_source_ids"] = sorted(required - visible)
+                row["visible_support_sufficient"] = required <= visible
+                row["support_status"] = "observed"
+                support_values.append(row["visible_support_sufficient"])
+        checks.append(row)
+    metrics = {name: _diagnostic_metric([row[name] for row in checks]) for name in ("answer_ok", "evidence_ok")}
+    metrics["visible_support_sufficient"] = _diagnostic_metric(support_values, not_required=support_not_required)
+    complete = all(metric["unknown"] == 0 for metric in metrics.values())
+    count_matches = report.get("total") == len(checks)
+    return {"status": "available" if complete and count_matches else "partially_available", "path": path,
+            "mechanism_hash": report.get("mechanism_hash"), "observed_traces": len(checks),
+            "declared_total": report.get("total"), "trace_count_matches_declared_total": count_matches,
+            "metrics": metrics, "case_checks": checks}
+
+
+def _aggregate_secondary(rows: list[dict]) -> dict:
+    available = [row for row in rows if row["status"] != "unavailable"]
+    result = {"status": "unavailable" if not available else "available" if len(available) == len(rows) and all(row["status"] == "available" for row in available) else "partially_available",
+              "planned_streams": len(rows), "streams_with_raw_traces": len(available),
+              "streams_without_raw_traces": len(rows) - len(available),
+              "observed_traces": sum(row["observed_traces"] for row in available) if available else None,
+              "metrics": {}}
+    for name in ("answer_ok", "evidence_ok", "visible_support_sufficient"):
+        metrics = [row["metrics"][name] for row in available]
+        observed = sum(metric["observed"] for metric in metrics)
+        passed = sum(metric["passed"] for metric in metrics if metric["passed"] is not None)
+        rates = [metric["rate"] for metric in metrics if metric["rate"] is not None]
+        result["metrics"][name] = {"passed": passed if observed else None, "observed": observed,
+            "unknown": sum(metric["unknown"] for metric in metrics if metric["unknown"] is not None) if available else None,
+            "not_required": sum(metric["not_required"] for metric in metrics),
+            "rate": passed / observed if observed else None,
+            "mean_stream_rate": mean(rates) if rates else None, "streams_with_observed_metric": len(rates)}
+    return result
 
 
 def analyze(output: Path) -> dict:
@@ -202,6 +290,7 @@ def analyze(output: Path) -> dict:
         for report in version["reports"].values():
             _rate(report)
     version_rows, adoption, diagnostics, chains, probe_rows = [], {}, [], [], []
+    secondary_rows = {}
     online = defaultdict(list)
     for seed in seeds:
         for arm in arms:
@@ -225,6 +314,18 @@ def analyze(output: Path) -> dict:
                        "memory_hash": digest(state["memory"]) if state and "memory" in state else None,
                        "mechanism_diff": _diff(states[g-1]["mechanism"], state["mechanism"]) if state and g-1 in states else [],
                        "policy_diff": _diff(states[g-1]["policy"], state["policy"]) if state and g-1 in states else []}
+                raw_reports = read_json(output / row["independent_path"]) if row["independent_path"] else {}
+                splits = {"acceptance", "transfer"} | set(observed) | set(raw_reports)
+                if g == rounds:
+                    splits.update({"no_memory", "wide_context_baseline"})
+                row["secondary_diagnostics"] = {split: _secondary_report(raw_reports.get(split), path=row["independent_path"])
+                                                for split in sorted(splits)}
+                for split, diagnostic in row["secondary_diagnostics"].items():
+                    secondary_rows[(str(seed), arm, g, split)] = diagnostic
+                    if diagnostic.get("observed_traces") is not None and not diagnostic["trace_count_matches_declared_total"]:
+                        warnings.append(f"Secondary raw trace count mismatch: {seed}/{arm}/g{g}/{split}")
+                    if split in observed and diagnostic.get("mechanism_hash") and diagnostic["mechanism_hash"] != observed[split]["mechanism_hash"]:
+                        warnings.append(f"Secondary raw/summary mechanism hash mismatch: {seed}/{arm}/g{g}/{split}")
                 for split, report in observed.items():
                     if split in {"acceptance", "transfer", "no_memory"} and row["mechanism_hash"] and report["mechanism_hash"] != row["mechanism_hash"]:
                         warnings.append(f"Independent mechanism hash mismatch: {seed}/{arm}/g{g}/{split}")
@@ -398,6 +499,20 @@ def analyze(output: Path) -> dict:
                     after = _rate(reports.get((str(seed), arm, g), {}).get(split))
                     if before is not None and after is not None and after < before:
                         regressions.append({"stream": seed, "arm": arm, "split": split, "generation": g, "before": before, "after": after})
+    secondary_aggregates = {}
+    for split in sorted({key[3] for key in secondary_rows}):
+        secondary_aggregates[split] = {}
+        for arm in arms:
+            points = []
+            for g in range(rounds + 1):
+                rows = [secondary_rows[(str(seed), arm, g, split)] for seed in seeds
+                        if (str(seed), arm, g, split) in secondary_rows]
+                if rows:
+                    points.append({"generation": g, **_aggregate_secondary(rows)})
+            secondary_aggregates[split][arm] = points
+    secondary_terminal = [{"split": split, "arm": arm, **point}
+                          for split, arm_rows in secondary_aggregates.items() for arm, points in arm_rows.items()
+                          for point in points if point["generation"] == rounds]
     result = {"schema": 1, "status": "completed_readout" if complete else "partial_readout",
               "run_status": run_summary.get("status", "summary_unavailable"),
               "source_scope": manifest.get("source_scope", "Unspecified; inspect original manifest"),
@@ -415,6 +530,13 @@ def analyze(output: Path) -> dict:
                                      "executed_main_candidates_not_selected": sum(row["scope"] == "mechanism_search" and row["status"] == "executed" and not row.get("selected") for row in diagnostics)},
               "regressions": regressions, "versions": version_rows,
               "memory_chain_summary": memory_summary, "calls": _call_statistics(output),
+              "secondary_pre_readout_diagnostics": {
+                  "definition_version": "pre-readout-source-coverage-v1", "role": "secondary pre-readout diagnostic",
+                  "primary_substitution_allowed": False, "version_selection_allowed": False,
+                  "definition": "Retained feedback.answer_ok/evidence_ok; visible_support_sufficient checks whether all non-null required source_id and optional policy_source_id occur in the actual visible_facts. It is source-ID coverage, not semantic truth or an end-to-end mechanism effect.",
+                  "missing_policy": "Missing raw traces or required fields remain unavailable/unknown. Tasks needing no source are not_required and excluded from source-coverage rate, rather than counted as successes.",
+                  "aggregation": "Per-arm/generation/split counts and mean observed stream rates; secondary diagnostics have no inferential or promotion role.",
+                  "aggregates": secondary_aggregates, "terminal": secondary_terminal},
               "warnings": warnings, "selection_allowed": False,
               "limits": ["Shared authored synthetic generation grammar, not independent real-business validation",
                          "One model sample per retained execution; temperature zero does not remove sampling variation",
@@ -433,6 +555,14 @@ def _number(value, digits=2):
     return "unavailable" if value is None else f"{value:.{digits}f}"
 
 
+def _diagnostic_cell(metric):
+    if not metric["observed"]:
+        return "unavailable" + (f"; {metric['not_required']} not required" if metric.get("not_required") else "")
+    extra = (f"; {metric['unknown']} unknown" if metric.get("unknown") else "")
+    extra += (f"; {metric['not_required']} not required" if metric.get("not_required") else "")
+    return f"{metric['passed']}/{metric['observed']}" + extra
+
+
 def _markdown(result: dict) -> str:
     lines = ["# Continual experiment readout", "", f"Analysis status: **{result['status']}**. Run status: **{result['run_status']}**. Source: {result['source_scope']}", "",
              "All numbers below come from retained observations. Structural tests are not model-effect measurements. Missing data is unavailable, not zero.", "",
@@ -445,7 +575,9 @@ def _markdown(result: dict) -> str:
         for arm, points in result["curves"][split].items():
             for point in points:
                 rate = point["mean_stream_rate"]
-                lines.append(f"| {split} | {arm} | {point['generation']} | {point['streams']} | {point['passed']}/{point['total']} | {_number(100*rate if rate is not None else None)}% |")
+                counts = f"{point['passed']}/{point['total']}" if point["total"] else "unavailable"
+                percent = f"{_number(100*rate)}%" if rate is not None else "unavailable"
+                lines.append(f"| {split} | {arm} | {point['generation']} | {point['streams']} | {counts} | {percent} |")
     audit = result["independent_policy_audit"]["primary"]
     lines += ["", "## Independent terminal P audit", ""]
     if audit:
@@ -463,7 +595,15 @@ def _markdown(result: dict) -> str:
     lines += ["", "This measures combined memory-read/write availability, not the isolated benefit of the evolved write policy.", "", "## Wide-context baseline", "", "| Arm | Paired streams | Current M − fixed baseline with wider context (pp) |", "|---|---:|---:|"]
     for arm, stats in result["current_minus_wide_context_baseline"].items():
         lines.append(f"| {arm} | {stats['n']} | {_number(stats['mean_difference_percentage_points'])} |")
-    lines += ["", "This is a separate fixed-mechanism context-size control; it has its own recorded mechanism hash and is not treated as the current M.", "", "## Actual adoption and memory chains", "", "| Lane | Observed rounds | M changes | P changes |", "|---|---:|---:|---:|"]
+    lines += ["", "This is a separate fixed-mechanism context-size control; it has its own recorded mechanism hash and is not treated as the current M.",
+              "", "## Secondary pre-readout diagnostics · terminal versions", "",
+              "These checks were defined before the formal independent readout. They never replace strict primary success and never select versions. answer_ok/evidence_ok are retained host feedback; visible_support_sufficient means only that every required source_id/policy_source_id appears in the actual visible_facts, not that the model used it correctly or the mechanism caused an improvement.",
+              "", "| Arm | Split | Streams with raw traces | Answer OK | Evidence OK | Visible required support |", "|---|---|---:|---|---|---|"]
+    for row in result["secondary_pre_readout_diagnostics"]["terminal"]:
+        metrics = row["metrics"]
+        lines.append(f"| {row['arm']} | {row['split']} | {row['streams_with_raw_traces']}/{row['planned_streams']} | {_diagnostic_cell(metrics['answer_ok'])} | {_diagnostic_cell(metrics['evidence_ok'])} | {_diagnostic_cell(metrics['visible_support_sufficient'])} |")
+    lines += ["", "Denominators contain known checks only; unknown fields and missing raw streams are explicit. Tasks requiring no source are not_required, not automatic support successes. Every arm/generation/split and each retained trace check remain in analysis.json.",
+              "", "## Actual adoption and memory chains", "", "| Lane | Observed rounds | M changes | P changes |", "|---|---:|---:|---:|"]
     for lane, stats in result["adoptions"].items():
         lines.append(f"| {lane} | {stats['rounds_observed']} | {stats['mechanism_adoptions']} | {stats['policy_adoptions']} |")
     lines += ["", "| Arm | Episodes | Structural chains | All four tasks passed | Effective closed loops |", "|---|---:|---:|---:|---:|"]
@@ -488,6 +628,7 @@ body{font:15px/1.6 system-ui,sans-serif;background:#0c111b;color:#e5edf8;margin:
 <div class="grid" id="summary"></div><section><h2>All versions · three arms</h2><select id="partition"><option>acceptance</option><option>transfer</option><option>online</option></select><p>Mean success across observed streams. Missing observations remain gaps. Online experience is optimization data.</p><div id="chart"></div><div class="scroll" id="curveTable"></div></section>
 <section><h2>Inspect actual loaded versions and search choices</h2><select id="stream"></select><select id="arm"></select><select id="generation"></select><div id="version"></div></section>
 <section><h2>Independent P audit</h2><p>Fresh future searches; meta-development promotion results are excluded. The terminal checkpoint is predeclared, rather than chosen after results.</p><pre id="audit"></pre></section>
+<section><h2>Secondary pre-readout diagnostics · terminal</h2><p>These checks never replace strict primary success or select a version. Visible support means required source-ID presence in actual visible_facts; correct use, factual truth and causal benefit are separate. Missing raw traces remain unavailable. NR = no required source, excluded from support denominator.</p><div class="scroll" id="secondary"></div><a href="analysis.json">Every generation and individual retained trace check</a></section>
 <section><h2>Memory lifecycle and ablation</h2><p>A structural chain requires an observed write, recall of that exact record, a same-lineage replacement, and recall of the new active record, with continuous memory hashes. Four-task answer success is counted separately. No missing step is invented.</p><pre id="memory"></pre><a href="memory-chain.json">Inspect every complete and incomplete chain</a></section>
 <section><h2>Rejected candidates, invalid diagnostics and regressions</h2><pre id="diagnostics"></pre><p>Full statuses, scopes, stream IDs and source paths remain in analysis.json.</p></section>
 <section><h2>Actual physical calls and token usage</h2><pre id="cost"></pre></section><section><h2>Limits and missing evidence</h2><ul id="limits"></ul></section></main>
@@ -518,7 +659,10 @@ for(const arm of D.arms)for(const p of curves[arm]){const row=text(table,'tr',''
 const cell=text(row,'td',''),button=text(cell,'button',p.passed+'/'+p.total);button.title='Inspect this generation; select a stream below';button.onclick=()=>inspect(arm,p.generation);text(row,'td',pct(p.mean_stream_rate))}}
 function options(id,values){for(const value of values){const option=document.createElement('option');option.value=value;option.textContent=value;$(id).appendChild(option)}}
 options('stream',D.planned_streams);options('arm',D.arms);options('generation',Array.from({length:D.rounds+1},(_,i)=>i));
-function version(){const row=D.versions.find(v=>String(v.stream)===$('stream').value&&v.arm===$('arm').value&&String(v.generation)===$('generation').value),box=$('version');box.replaceChildren();if(!row){text(box,'p','No retained observation');return}text(box,'h3','Stream '+row.stream+' · '+row.arm+' · g'+row.generation);link(box,row.version_path,'Frozen version');link(box,row.independent_path,'Actual independent traces');for(const [name,path] of Object.entries(row.round_paths))link(box,path,name);text(box,'pre',json({mechanism_hash:row.mechanism_hash,policy_hash:row.policy_hash,memory_hash:row.memory_hash,reports:row.reports,loaded_search:row.loaded_search,probe_forks:row.probe_forks}));for(const [title,diff] of [['M field changes',row.mechanism_diff],['P field changes',row.policy_diff]]){const details=text(box,'details','');text(details,'summary',title+' ('+diff.length+')');text(details,'pre',json(diff))}}
+function version(){const row=D.versions.find(v=>String(v.stream)===$('stream').value&&v.arm===$('arm').value&&String(v.generation)===$('generation').value),box=$('version');box.replaceChildren();if(!row){text(box,'p','No retained observation');return}text(box,'h3','Stream '+row.stream+' · '+row.arm+' · g'+row.generation);link(box,row.version_path,'Frozen version');link(box,row.independent_path,'Actual independent traces');for(const [name,path] of Object.entries(row.round_paths))link(box,path,name);text(box,'pre',json({mechanism_hash:row.mechanism_hash,policy_hash:row.policy_hash,memory_hash:row.memory_hash,reports:row.reports,loaded_search:row.loaded_search,probe_forks:row.probe_forks,secondary_pre_readout_diagnostics:row.secondary_diagnostics}));for(const [title,diff] of [['M field changes',row.mechanism_diff],['P field changes',row.policy_diff]]){const details=text(box,'details','');text(details,'summary',title+' ('+diff.length+')');text(details,'pre',json(diff))}}
+const secondaryTable=text($('secondary'),'table',''),secondaryHead=text(secondaryTable,'tr','');for(const h of ['Arm','Split','Raw streams','Answer OK','Evidence OK','Visible support'])text(secondaryHead,'th',h);
+function diagnosticCell(m){return (m.observed?m.passed+'/'+m.observed:'unavailable')+(m.unknown?'; unknown='+m.unknown:'')+(m.not_required?'; NR='+m.not_required:'')}
+for(const row of D.secondary_pre_readout_diagnostics.terminal){const tr=text(secondaryTable,'tr','');for(const v of [row.arm,row.split,row.streams_with_raw_traces+'/'+row.planned_streams,...['answer_ok','evidence_ok','visible_support_sufficient'].map(k=>diagnosticCell(row.metrics[k]))])text(tr,'td',v)}
 $('partition').onchange=chart;for(const id of ['stream','arm','generation'])$(id).onchange=version;chart();version();$('audit').textContent=json(D.independent_policy_audit);$('memory').textContent=json({chains:D.memory_chain_summary,terminal_read_write_ablation:D.memory_ablation_current_minus_disabled,current_minus_wide_context_baseline:D.current_minus_wide_context_baseline});const counts={};for(const r of D.diagnostics)counts[r.scope+':'+r.status]=(counts[r.scope+':'+r.status]??0)+1;$('diagnostics').textContent=json({statuses:counts,adjacent_version_regressions:D.regressions.length,meta_development_probes:D.meta_development_probes.length});$('cost').textContent=json(D.calls);for(const warning of [...D.limits,...D.warnings])text($('limits'),'li',warning);
 </script></html>"""
 

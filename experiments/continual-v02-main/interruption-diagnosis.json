@@ -1,0 +1,15 @@
+{
+  "checked_at": 1792752051.069323,
+  "endpoint_host": "api.deepseek.com",
+  "model": "deepseek-flash",
+  "http_status": 402,
+  "provider_error_code": "invalid_request_error",
+  "provider_error_type": "insufficient_balance_error",
+  "provider_message": "Insufficient Balance (request_id: 2bf204dc-7d9c-4c4a-b2b5-4abb0c3e4f8d)",
+  "scope": "post-interruption provider diagnostic; original run receipts retain HTTPError without HTTP status code",
+  "effect": "No formal independent measurements executed. Missing outcomes remain unavailable.",
+  "planned_rounds": 600,
+  "completed_rounds": 421,
+  "planned_version_states": 630,
+  "model_or_protocol_changed": false
+}

@@ -1,0 +1,70 @@
+{
+  "schema": 2,
+  "started_at": 1792749986.327224,
+  "rounds": 2,
+  "seeds": [
+    931
+  ],
+  "arms": [
+    "fixed_mechanism",
+    "fixed_p",
+    "joint"
+  ],
+  "model": "deepseek-flash",
+  "provider_base": "https://api.deepseek.com",
+  "sources": {
+    "continual.py": "560fd682bb9a9ff59036d1935b594fe73366b85a0b0b424abc9a9a532d73ecea",
+    "continual_environment.py": "e8ab8d4b5ad3143f5a721b2ca34eb52b090845283b296dc5aabf017d2f8ff992",
+    "continual_runtime.py": "946cbe27346f63132ae68814425b589bce5a3e870dfd862a9a47248b65317409",
+    "continual_memory.py": "fe4a8e87df68190ea4dea2524599827782fe136d72e16916196c355513969a35",
+    "continual_program.py": "931ae6922b750ab1bd5b349ccc4407aed9a5d7453b14404e15beb9fb60efd5b6",
+    "continual_policy.py": "5dcaf9285919e516a3628119b43a1de170a6010bf0279b49ad808ef856f2bace",
+    "program.py": "df2fda256db06def686b652ace7e92097f53cf0333acb05c2ddb6355b68b13ad",
+    "common.py": "77671ea007a9fdd71935a3683e37d7a16c2424914a884ab5d12157c89d82f78c",
+    "llm.py": "842025a49ed16afdb9ad6af1d397b0c773381de7817a73cb93e8b23dd20d9edd"
+  },
+  "source_scope": "authored public synthetic event streams; shared generation grammar",
+  "protocol": {
+    "main_search_opportunities": 2,
+    "paired_policy_search_opportunities": 1,
+    "fixed_p_shadow": "same policy-proposal and paired-probe engine, never adopts P",
+    "primary_endpoint": "g2 joint minus fixed_p on independent primary episodes, paired by stream",
+    "policy_primary_endpoint": "g2 P versus P0 in fresh independent future-search audits",
+    "policy_audit_checkpoints": [
+      0,
+      1,
+      2
+    ],
+    "policy_promotion": "strict future meta-dev gain plus protection nonregression and distinct M; no merge of fork M/memory",
+    "acceptance": "all versions frozen before readout; same empty memory and new event sequence for every M version; primary rounds 0..4 revisits entities/revisions and tests 3-round delayed recall; transfer round 7",
+    "memory_ablation": "terminal M on same independent sequence with memory reads/writes disabled",
+    "unavailable_measurements": "abort lane/run, retain receipts; never converted to task failure",
+    "sampling": "temperature 0 is not deterministic; stream is the unit of comparison; all failures retained",
+    "independence_limit": "factual/event namespace holdout, not held-out task grammar or external business system"
+  },
+  "partition_hashes": {
+    "931": {
+      "experience/r0": "e4d4272cf496d770fc336b2e31f0e4222790905512368048bf4a020abe2256a0",
+      "experience/r1": "dd81e1624023543f802ecbc959796d087c007e97539cffbe3fe80ddf869a68e6",
+      "development/r0": "ada22b1699a0bc52fb3c3efd8738fee12252745febed6fba6d56770af11a7688",
+      "development/r0/guard": "1276cffc6e473e4b3051ee3526b2dd3a6227bb33c3ff5b7698353d1b79814474",
+      "development/r1": "180a9cd9a2b88694d20df19ef6d52fd116a360c2a437a430743d0629ac798099",
+      "development/r1/guard": "cb6e11da8ca1a141959e069aee2c3832055dfb4adb3bbc67e08f115e43b9cd8a",
+      "meta-development-search/r0": "7030c2529b869eff773657a6ee206025170a30c771bd6ccb2796b953839e8936",
+      "meta-development-search/r0/guard": "989e26be5f04690542cc1e33f32ee48dd69790a745cbecb02c4319b7960f91f8",
+      "meta-development-search/r1": "e045ee7eae50e2c421581248817c673154b3654d3001a952e1e17f75747d7b09",
+      "meta-development-search/r1/guard": "9223a3365ae23d78939d26b9aff7e424817b11d8302424c383dea62aac1f6ef5",
+      "meta-development-future/r0": "820643ff655938aff50554f28d76199aa0389631f7a048cecdd507fe45f81860",
+      "meta-development-future/r0/guard": "c953acf38d132e0982c05adad5da938a1e903a867f6c8f5bbe360ad674571597",
+      "meta-development-future/r1": "1b8ce6aee54113fa047c2ecfe79da616867f9b0bfab04571509ec4562e0213d9",
+      "meta-development-future/r1/guard": "9d935a5fdac5f4f1ef11454205994f14d8deb7d9386fa26ecfc01dd931ca9b64",
+      "audit-search": "f832c9fe7e7064b1762127e37b1c473a80c3131b4ab3f7186383d31199b49fab",
+      "audit-search/guard": "cbfd1cbf6067fc575a55d65a998fabe6e710fd8412f11ebaba34a12129dfc10e",
+      "audit-future": "a333cd803672964c7d5644200434f862adc8367f92eadcaed795d1400862c168",
+      "audit-future/guard": "e49d463269ce1e030694fc8d1df29d96a8f12cefdcdc4b4f015f3b68bc21c7a1",
+      "audit-observations": "fdb9ef2c88c0fb180e82acf8af875d1a77a2e3ce0c0cd20e4f9ce3fdd1eae33e",
+      "acceptance": "054d42dddd7c497721c13f12e76db3d7618388cd65c19412eac246a93cb49578",
+      "transfer": "e6689ca692ca64eb050d9e596dacc8b407e70387ca2920d796e1c578c4f97c96"
+    }
+  }
+}

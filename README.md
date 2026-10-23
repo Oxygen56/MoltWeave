@@ -4,7 +4,7 @@
 
 **An agent that evolves its mechanisms—and leaves evidence for every change.**
 
-[中文](README.zh-CN.md) · [Architecture](docs/architecture.md) · [Iteration plan](ITERATION_PLAN.md) · [Evaluation](docs/evaluation-protocol.md)
+[中文](README.zh-CN.md) · [Architecture](docs/v0.2-architecture.md) · [Iteration plan](ITERATION_PLAN.md) · [Evaluation](docs/v0.2-protocol.md)
 
 [![Tests](https://github.com/Oxygen56/MoltWeave/actions/workflows/tests.yml/badge.svg)](https://github.com/Oxygen56/MoltWeave/actions/workflows/tests.yml)
 
@@ -23,7 +23,15 @@ observed failure → model-authored mechanism diff → actual loaded version
 
 The project preserves rejected candidates and flat/regressing generations. A policy version number, more memories, or an owner approval is not an improvement result. P1 must run, collect new history, and support P2 before we call a run multi-generation recursion.
 
-## Actual results
+## v0.2: continual memory and prospective policy tests
+
+The new engine repeatedly revisits entities, corrects remembered facts and recalls previous and delayed events. A separate factual writer proposes grounded memories; executable M controls writing and reading. Evolving P changes diagnosis, candidate prompts, selection and improvement operators. A P promotion must win an actual paired future search; every frozen checkpoint is audited again on independent future searches.
+
+The formal contract is **20 rounds × 10 streams × three arms**: ordinary accumulating memory with fixed M/P, evolving M with fixed P, and joint M/P. Every one of the 21 versions is scheduled for an empty-memory independent readout. Terminal memory-disabled and wide-context controls separate durable recall and context width from mechanism improvement.
+
+Implementation and the four-round engineering preflight are complete. The formal run was interrupted by provider HTTP 402 (insufficient balance) before all versions were sealed. Its independent results are **unavailable**, not zero. Original receipts and partial rounds are retained. See the [protocol](docs/v0.2-protocol.md), [architecture](docs/v0.2-architecture.md), [an actual execution walkthrough](docs/v0.2-walkthrough.md), and [current formal evidence](experiments/continual-v02-main/RESULTS.md).
+
+## Historical v0.1 results
 
 Two frozen four-round protocols retain every generation and a fixed-P control. In the latest joint run, held-out success increases **39/70 → 65/70**, and namespace transfer **38/70 → 60/70**. The fixed-P control reaches **67/70** and **65/70**, so **isolated P benefit is not established**. Intermediate flat/regressing generations are preserved.
 
@@ -41,7 +49,7 @@ The external 24-question SQuAD check shows **zero gain**. Component intervention
 - Exact-artifact owner approval tickets with signature, expiry, action/scope/dependency binding and replay denial.
 - Durable memory quarantine/correction and an offline generation evidence explorer.
 
-Research/community infrastructure tests do not establish downstream RSI benefits. Durable memory-write policy evolution, long-horizon poisoning evaluation, cross-model reproduction, official external benchmark runs and hosted production service remain roadmap items. See the [iteration plan](ITERATION_PLAN.md) for explicit status.
+Research/community infrastructure tests do not establish downstream RSI benefits. The continual writer/read mechanism is implemented in v0.2; its formal independent benefit remains pending. Long-horizon poisoning evaluation, cross-model reproduction, official external benchmark runs and hosted production service remain roadmap items. See the [iteration plan](ITERATION_PLAN.md) for explicit status.
 
 [Publication and fresh-clone verification](docs/verification/publication.json) records hosted Python 3.11/3.12/3.13 CI and a separate 96-test installation check from the public repository.
 
@@ -70,6 +78,16 @@ moltweave report --experiment experiments/my-run
 ```
 
 Use a fresh output folder. Evolution refuses to overwrite existing evidence. Evaluation checks frozen source and version hashes and does not feed final results back into optimization. Review provider billing before an experiment; all physical attempts are retained. DeepSeek thinking mode is explicitly disabled for this initial protocol; model settings are part of the experiment, not an optimizer-controlled variable.
+
+For the v0.2 protocol, use a fresh folder:
+
+```bash
+moltweave continual run --output experiments/my-continual-run --rounds 20 --streams 10 --concurrency 32
+moltweave continual evaluate --output experiments/my-continual-run --concurrency 32
+moltweave continual analyze --output experiments/my-continual-run
+```
+
+The run stage must finish all planned lanes before independent evaluation. Do not interpret development adoption as an independent improvement.
 
 ## Architecture
 

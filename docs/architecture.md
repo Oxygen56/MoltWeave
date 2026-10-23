@@ -1,5 +1,7 @@
 # Architecture
 
+The current continual execution path is documented in [v0.2 architecture](v0.2-architecture.md) and its [frozen experiment protocol](v0.2-protocol.md). This page preserves the overall product boundaries and the original v0.1 execution path; the one-generation sequence below is historical.
+
 MoltWeave is a continually evolving agent, with three sources of improvement hypotheses: its own executions, external research, and explicitly authorized community traces. A task domain supplies experience; it does not define the product.
 
 ## Components and authority
@@ -70,4 +72,4 @@ No raw participant trace is committed to the public repository. Synthetic exampl
 
 ## Limits and next interfaces
 
-Memory read/ranking evolves in the current IR; autonomous creation, correction and migration of durable factual memories is a separate integration milestone. Arbitrary-code sandboxing, production write tools, internet browsing, cross-model replication, official third-party benchmark adapters, and a hosted community service require additional implementation and experiments. They are not implied by unit-test coverage.
+v0.2 integrates actual durable factual extraction, write/read programs, lineage correction and delayed recall. Its formal effect measurement is separate from v0.1 results. Arbitrary-code sandboxing, production write tools, internet browsing, cross-model replication, official third-party benchmark adapters, and a hosted community service require additional implementation and experiments. They are not implied by unit-test coverage.

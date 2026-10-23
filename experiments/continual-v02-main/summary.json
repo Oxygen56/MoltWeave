@@ -1,0 +1,188 @@
+{
+  "status": "aborted_measurement_incomplete",
+  "completed": [
+    {
+      "seed": 102,
+      "arm": "fixed_mechanism",
+      "rounds": 20,
+      "status": "versions_frozen"
+    },
+    {
+      "seed": 107,
+      "arm": "fixed_mechanism",
+      "rounds": 20,
+      "status": "versions_frozen"
+    },
+    {
+      "seed": 110,
+      "arm": "fixed_mechanism",
+      "rounds": 20,
+      "status": "versions_frozen"
+    },
+    {
+      "seed": 104,
+      "arm": "fixed_mechanism",
+      "rounds": 20,
+      "status": "versions_frozen"
+    },
+    {
+      "seed": 101,
+      "arm": "fixed_mechanism",
+      "rounds": 20,
+      "status": "versions_frozen"
+    },
+    {
+      "seed": 106,
+      "arm": "fixed_mechanism",
+      "rounds": 20,
+      "status": "versions_frozen"
+    },
+    {
+      "seed": 109,
+      "arm": "fixed_mechanism",
+      "rounds": 20,
+      "status": "versions_frozen"
+    },
+    {
+      "seed": 105,
+      "arm": "fixed_mechanism",
+      "rounds": 20,
+      "status": "versions_frozen"
+    },
+    {
+      "seed": 103,
+      "arm": "fixed_mechanism",
+      "rounds": 20,
+      "status": "versions_frozen"
+    },
+    {
+      "seed": 108,
+      "arm": "fixed_mechanism",
+      "rounds": 20,
+      "status": "versions_frozen"
+    }
+  ],
+  "errors": [
+    {
+      "seed": 102,
+      "arm": "fixed_p",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (HTTPError); see local receipt cb399d436d0241a08367be95bf67e7b6"
+    },
+    {
+      "seed": 106,
+      "arm": "joint",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (HTTPError); see local receipt 7f2adf8d7dbd4f809984f16c6bbc45e4"
+    },
+    {
+      "seed": 107,
+      "arm": "fixed_p",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (HTTPError); see local receipt 71566a2e4e8748c5a3fdbbcfd3137283"
+    },
+    {
+      "seed": 108,
+      "arm": "joint",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (HTTPError); see local receipt 204a78a75aba41dbb8459381ca120ae2"
+    },
+    {
+      "seed": 110,
+      "arm": "joint",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (HTTPError); see local receipt 27ef1e8aec11448eb98c824dffa68029"
+    },
+    {
+      "seed": 107,
+      "arm": "joint",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (HTTPError); see local receipt 7935e87b35f042989d6267973fb502d1"
+    },
+    {
+      "seed": 108,
+      "arm": "fixed_p",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (HTTPError); see local receipt fb38b9c98d684ab7ada10c50a0a1503b"
+    },
+    {
+      "seed": 103,
+      "arm": "joint",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (HTTPError); see local receipt 98babeb2ca8c4837a33b5d0822427f1e"
+    },
+    {
+      "seed": 101,
+      "arm": "fixed_p",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (HTTPError); see local receipt db966e8f6ddc4bfa8f9e7594c7e92cd9"
+    },
+    {
+      "seed": 102,
+      "arm": "joint",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (HTTPError); see local receipt 7aa507f4662c452da8a62841b8fa21f6"
+    },
+    {
+      "seed": 105,
+      "arm": "fixed_p",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (HTTPError); see local receipt c13efc95ef1a4b26be6b9fe95e7dd2a8"
+    },
+    {
+      "seed": 109,
+      "arm": "joint",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (HTTPError); see local receipt 0fe83ec8ed5e4f698a366770126c836f"
+    },
+    {
+      "seed": 109,
+      "arm": "fixed_p",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (HTTPError); see local receipt 1ba267f9ef604db9af91bc0950b1b177"
+    },
+    {
+      "seed": 103,
+      "arm": "fixed_p",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (HTTPError); see local receipt 0c773dec0d7b40e1bf641d26635fa24b"
+    },
+    {
+      "seed": 104,
+      "arm": "fixed_p",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (HTTPError); see local receipt 3d6e9b488ff44e55aabbf26b81a540b4"
+    },
+    {
+      "seed": 101,
+      "arm": "joint",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (HTTPError); see local receipt 97c21c6c4fda4ee59fc93ed30e53f4c8"
+    },
+    {
+      "seed": 106,
+      "arm": "fixed_p",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (HTTPError); see local receipt 45721a65913d4ba78afbecf8ba05ce0a"
+    },
+    {
+      "seed": 110,
+      "arm": "fixed_p",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (HTTPError); see local receipt 38128c4db53745c7944bfb2052be6eaf"
+    },
+    {
+      "seed": 105,
+      "arm": "joint",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (HTTPError); see local receipt 868270b413fe425bab3b4bc4772a41aa"
+    },
+    {
+      "seed": 104,
+      "arm": "joint",
+      "error_type": "RuntimeError",
+      "error": "Model call failed (HTTPError); see local receipt 7f5e6ac646bc471ca8c5f30abcc41412"
+    }
+  ],
+  "finished_at": 1792752030.0945122
+}

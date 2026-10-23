@@ -1,0 +1,25 @@
+{
+  "status": "aborted_measurement_incomplete",
+  "completed": [],
+  "errors": [
+    {
+      "seed": 911,
+      "arm": "fixed_p",
+      "error_type": "RuntimeError",
+      "error": "Writer response schema unavailable; not an observed mechanism failure"
+    },
+    {
+      "seed": 911,
+      "arm": "joint",
+      "error_type": "RuntimeError",
+      "error": "Writer response schema unavailable; not an observed mechanism failure"
+    },
+    {
+      "seed": 911,
+      "arm": "fixed_mechanism",
+      "error_type": "RuntimeError",
+      "error": "Writer response schema unavailable; not an observed mechanism failure"
+    }
+  ],
+  "finished_at": 1792749718.767872
+}
