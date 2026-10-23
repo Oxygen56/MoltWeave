@@ -1,0 +1,38 @@
+{
+  "status": "verified_interrupted_snapshot",
+  "formal_independent_acceptance_completed": false,
+  "formal_committed_transitions": 501,
+  "planned_transitions": 600,
+  "roots": [
+    "experiments/continual-pilot-baseline-v1",
+    "experiments/continual-pilot-v2",
+    "experiments/continual-pilot-v4",
+    "experiments/continual-preflight-v5",
+    "experiments/continual-v02-main",
+    "experiments/continual-writer-smoke-v3"
+  ],
+  "file_count": 30825,
+  "entry_count": 31608,
+  "expanded_file_bytes": 3665008134,
+  "configured_exact_secret_count": 1,
+  "common_provider_patterns_scanned": true,
+  "original_source_bytes_modified": false,
+  "original_source_files_deleted": false,
+  "archive_extracted_during_verification": false,
+  "external_manifest_checked": true,
+  "assets": {
+    "moltweave-v02-interrupted-501-evidence.tar.gz": {
+      "bytes": 198303464,
+      "sha256": "d1f13ce09a62163b11724e2fd7a6c575edc4d62a051a949f740aa53955fe70c3"
+    },
+    "moltweave-v02-interrupted-501-evidence.tar.gz.manifest.jsonl": {
+      "bytes": 6323335,
+      "sha256": "172b70855109a08b5b1be415eaa25fc50b27e287f82cf0a761224b616f622aaf"
+    },
+    "moltweave-v02-interrupted-501-evidence.tar.gz.sha256": {
+      "bytes": 112,
+      "sha256": "5c4fb2498bd28b1a1d66f883442047bfca5d717bd1db5aeb50255cea6f067ca2"
+    }
+  },
+  "limits": "Only authored public synthetic evidence; archive/source matching and credential-pattern checks do not certify model improvement, authenticity against a malicious author, or general security. This snapshot precedes formal independent readout."
+}

@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "verified_commit": "cad42b4deb2c16e539ab0e5efad12f14bdd48b04",
+  "source_module_count": 25,
+  "source_suite": {
+    "python": "3.12",
+    "tests": 225,
+    "result": "passed",
+    "mode": "fresh public clone, new interpreter with PYTHONPATH=src; no model calls"
+  },
+  "installed_wheel": {
+    "python": "3.13",
+    "version": "0.2.0",
+    "result": "passed",
+    "mode": "isolated interpreter outside repository; installed CLI and continual help; no model calls"
+  },
+  "builds": {
+    "moltweave-0.2.0-py3-none-any.whl": {
+      "bytes": 122792,
+      "sha256": "42bbe7889824fb92ffb873edb09e32e82001d21585f0bd3b6f8a6fdd6bb7d692"
+    },
+    "moltweave-0.2.0.tar.gz": {
+      "bytes": 292531,
+      "sha256": "ca59bb67d259b40266406634a3ab4f2e198fd6ca5eecd7745045ef8f2497555c"
+    }
+  },
+  "sdist_member_count": 114,
+  "private_runtime_or_raw_experiment_files_in_sdist": false,
+  "limits": "This is distribution/source verification, not formal model-effect acceptance. Later documentation may differ; these artifacts were built from the exact verified public commit."
+}

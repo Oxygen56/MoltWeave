@@ -29,7 +29,7 @@ The new engine repeatedly revisits entities, corrects remembered facts and recal
 
 The formal contract is **20 rounds × 10 streams × three arms**: ordinary accumulating memory with fixed M/P, evolving M with fixed P, and joint M/P. Every one of the 21 versions is scheduled for an empty-memory independent readout. Terminal memory-disabled and wide-context controls separate durable recall and context width from mechanism improvement.
 
-Implementation and the four-round engineering preflight are complete. The formal run reached 421 committed rounds before provider HTTP 402 (insufficient balance). Verified recovery retained those bytes and reached **501/600** committed rounds before a second balance rejection. Its independent results are **unavailable**, not zero. Original receipts and partial rounds are retained. See the [protocol](docs/v0.2-protocol.md), [architecture](docs/v0.2-architecture.md), [an actual execution walkthrough](docs/v0.2-walkthrough.md), and [current formal evidence](experiments/continual-v02-main/RESULTS.md).
+Implementation and the four-round engineering preflight are complete. The formal run reached 421 committed rounds before provider HTTP 402 (insufficient balance). Verified recovery retained those bytes and reached **501/600** committed rounds before a second balance rejection. Its independent results are **unavailable**, not zero. Original receipts and partial rounds are retained. See the [protocol](docs/v0.2-protocol.md), [architecture](docs/v0.2-architecture.md), [an actual P execution walkthrough](docs/v0.2-walkthrough.md), [three actual M changes and failures](docs/v0.2-mechanism-walkthrough.md), and [current formal evidence](experiments/continual-v02-main/RESULTS.md).
 
 ## Historical v0.1 results
 
